@@ -9,11 +9,11 @@ Working with a team of designers and one other developer in an agile environment
 
 Proposed Tech Stack:
 
-Firebase
-MapKit
-CoreLocation
-RESTful API (FourSquare)
-Continuous Integration
+- Firebase
+- MapKit
+- CoreLocation
+- RESTful API (FourSquare)
+- Continuous Integration
 
 
 
