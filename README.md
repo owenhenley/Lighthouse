@@ -21,7 +21,11 @@ Continuous Integration
 
 Designers:
 
+Sara Hathaway
+Chris Hogen
+Naomi Hochberg
+
 Developers:
 
 Owen Henley
-Levi Linchenco
+Levi Linchenko
