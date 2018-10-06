@@ -21,11 +21,11 @@ Proposed Tech Stack:
 
 Designers:
 
-Sara Hathaway
-Chris Hogen
-Naomi Hochberg
+- Sara Hathaway
+- Chris Hogen
+- Naomi Hochberg
 
 Developers:
 
-Owen Henley
-Levi Linchenko
+- Owen Henley
+- Levi Linchenko
