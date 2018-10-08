@@ -232,7 +232,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1000;
 				LastUpgradeCheck = 1000;
-				ORGANIZATIONNAME = "Owen Henley";
+				ORGANIZATIONNAME = Lighthouse;
 				TargetAttributes = {
 					3EA99130216BDC9E0001F09D = {
 						CreatedOnToolsVersion = 10.0;
