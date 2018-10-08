@@ -12,6 +12,8 @@
 		3E28E86A216BF27000E21331 /* MapViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E28E869216BF27000E21331 /* MapViewVC.swift */; };
 		3E28E86C216BF29B00E21331 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E28E86B216BF29B00E21331 /* UserController.swift */; };
 		3E28E86E216BF2B300E21331 /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E28E86D216BF2B300E21331 /* LocationController.swift */; };
+		3E28E870216C1F8400E21331 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E28E86F216C1F8400E21331 /* SignIn.storyboard */; };
+		3E28E872216C204600E21331 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E28E871216C204600E21331 /* SignInVC.swift */; };
 		3EA99144216BDC9E0001F09D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA99143216BDC9E0001F09D /* AppDelegate.swift */; };
 		3EA99146216BDC9F0001F09D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EA99145216BDC9F0001F09D /* Assets.xcassets */; };
 		3EA99149216BDC9F0001F09D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EA99147216BDC9F0001F09D /* LaunchScreen.storyboard */; };
@@ -34,6 +36,8 @@
 		3E28E869216BF27000E21331 /* MapViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewVC.swift; sourceTree = "<group>"; };
 		3E28E86B216BF29B00E21331 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		3E28E86D216BF2B300E21331 /* LocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
+		3E28E86F216C1F8400E21331 /* SignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
+		3E28E871216C204600E21331 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		3EA99131216BDC9E0001F09D /* Lighthouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lighthouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EA99143216BDC9E0001F09D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3EA99145216BDC9F0001F09D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -136,6 +140,7 @@
 			children = (
 				3E28E867216BF24400E21331 /* LoadingScreenVC.swift */,
 				3E28E869216BF27000E21331 /* MapViewVC.swift */,
+				3E28E871216C204600E21331 /* SignInVC.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -167,6 +172,7 @@
 				3EA99154216BDF8D0001F09D /* LoadingScreen.storyboard */,
 				3EA99155216BDF8D0001F09D /* MapView.storyboard */,
 				3EA99156216BDF8D0001F09D /* UserProfile.storyboard */,
+				3E28E86F216C1F8400E21331 /* SignIn.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -300,6 +306,7 @@
 				3EA99159216BDF8D0001F09D /* UserProfile.storyboard in Resources */,
 				3EA99158216BDF8D0001F09D /* MapView.storyboard in Resources */,
 				3EA99146216BDC9F0001F09D /* Assets.xcassets in Resources */,
+				3E28E870216C1F8400E21331 /* SignIn.storyboard in Resources */,
 				3EA99164216BE0310001F09D /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -402,6 +409,7 @@
 				3EA99162216BE0200001F09D /* DateFormatter.swift in Sources */,
 				3EA99152216BDF1B0001F09D /* Location.swift in Sources */,
 				3E28E868216BF24400E21331 /* LoadingScreenVC.swift in Sources */,
+				3E28E872216C204600E21331 /* SignInVC.swift in Sources */,
 				3EA99144216BDC9E0001F09D /* AppDelegate.swift in Sources */,
 				3E28E86C216BF29B00E21331 /* UserController.swift in Sources */,
 				3E28E86A216BF27000E21331 /* MapViewVC.swift in Sources */,
