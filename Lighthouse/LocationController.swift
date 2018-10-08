@@ -1,5 +1,5 @@
 //
-//  Location.swift
+//  LocationController.swift
 //  Lighthouse
 //
 //  Created by Owen Henley on 10/8/18.
@@ -7,9 +7,8 @@
 //
 
 import Foundation
-import Firebase
 
-class Location {
-    
+class LocationController {
+   
     
 }
