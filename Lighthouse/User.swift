@@ -14,16 +14,21 @@ class User {
     
     
     
-    let userID          : String!
-    let friends         : [String] = []
-    let profileImage    : UIImage!
+    let userID          : String
+    let username        : String
+    let email           : String?
+    let friends         : [User] = []
+    let profileImageURL : URL = URL(fileURLWithPath: "")
     let currentLocation : Location?
 
-    init(userID: String, profileImage: UIImage, currentLocation: Location) {
+
+    init(userID: String, currentLocation: Location, username: String, email: String) {
         self.userID = userID
-        self.profileImage = profileImage
         self.currentLocation = currentLocation
+        self.username = username
+        self.email = email
     }
     
+   
     
 }
