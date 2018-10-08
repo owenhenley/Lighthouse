@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		3E28E866216BE6FB00E21331 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E28E865216BE6FB00E21331 /* MapKit.framework */; };
+		3E28E868216BF24400E21331 /* LoadingScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E28E867216BF24400E21331 /* LoadingScreenVC.swift */; };
+		3E28E86A216BF27000E21331 /* MapViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E28E869216BF27000E21331 /* MapViewVC.swift */; };
+		3E28E86C216BF29B00E21331 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E28E86B216BF29B00E21331 /* UserController.swift */; };
+		3E28E86E216BF2B300E21331 /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E28E86D216BF2B300E21331 /* LocationController.swift */; };
 		3EA99144216BDC9E0001F09D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA99143216BDC9E0001F09D /* AppDelegate.swift */; };
 		3EA99146216BDC9F0001F09D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EA99145216BDC9F0001F09D /* Assets.xcassets */; };
 		3EA99149216BDC9F0001F09D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EA99147216BDC9F0001F09D /* LaunchScreen.storyboard */; };
@@ -25,6 +29,10 @@
 		27D9275730042F1BCE1ABBCD /* Pods_Lighthouse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lighthouse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32F9928D5D301409ED91D92D /* Pods-Lighthouse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lighthouse.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lighthouse/Pods-Lighthouse.release.xcconfig"; sourceTree = "<group>"; };
 		3E28E865216BE6FB00E21331 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		3E28E867216BF24400E21331 /* LoadingScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreenVC.swift; sourceTree = "<group>"; };
+		3E28E869216BF27000E21331 /* MapViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewVC.swift; sourceTree = "<group>"; };
+		3E28E86B216BF29B00E21331 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		3E28E86D216BF2B300E21331 /* LocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
 		3EA99131216BDC9E0001F09D /* Lighthouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lighthouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EA99143216BDC9E0001F09D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3EA99145216BDC9F0001F09D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -115,6 +123,8 @@
 		3EA99138216BDC9E0001F09D /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3E28E86B216BF29B00E21331 /* UserController.swift */,
+				3E28E86D216BF2B300E21331 /* LocationController.swift */,
 			);
 			name = "Model Controllers";
 			sourceTree = "<group>";
@@ -122,6 +132,8 @@
 		3EA9913B216BDC9E0001F09D /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3E28E867216BF24400E21331 /* LoadingScreenVC.swift */,
+				3E28E869216BF27000E21331 /* MapViewVC.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -383,9 +395,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E28E86E216BF2B300E21331 /* LocationController.swift in Sources */,
 				3EA99162216BE0200001F09D /* DateFormatter.swift in Sources */,
 				3EA99152216BDF1B0001F09D /* Location.swift in Sources */,
+				3E28E868216BF24400E21331 /* LoadingScreenVC.swift in Sources */,
 				3EA99144216BDC9E0001F09D /* AppDelegate.swift in Sources */,
+				3E28E86C216BF29B00E21331 /* UserController.swift in Sources */,
+				3E28E86A216BF27000E21331 /* MapViewVC.swift in Sources */,
 				3EA99153216BDF1B0001F09D /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
