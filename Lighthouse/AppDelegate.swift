@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  Lighthouse
 //
-//  Created by Owen Henley on 10/5/18.
+//  Created by Owen Henley on 10/8/18.
 //  Copyright © 2018 Owen Henley. All rights reserved.
 //
 
@@ -17,7 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
-        
         return true
     }
 
