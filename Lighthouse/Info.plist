@@ -28,7 +28,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>13</string>
+	<string>17</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MKDirectionsApplicationSupportedModes</key>
@@ -36,6 +36,8 @@
 		<string>MKDirectionsModeCar</string>
 		<string>MKDirectionsModePedestrian</string>
 	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>We need to access your photo library for you to set a profile image</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>
@@ -61,7 +63,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>We need to access your photo library for you to set a profile image</string>
 </dict>
 </plist>
