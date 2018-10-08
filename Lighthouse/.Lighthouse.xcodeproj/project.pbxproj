@@ -15,6 +15,10 @@
 		3E36CB2321683F860023C5F0 /* UserProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E36CB2221683F860023C5F0 /* UserProfile.storyboard */; };
 		3E36CB2521683FB50023C5F0 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E36CB2421683FB50023C5F0 /* DateFormatter.swift */; };
 		3E36CB2B216840160023C5F0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E36CB2A216840160023C5F0 /* MapKit.framework */; };
+		3E7F38FC216BD5F7006FDE70 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7F38FB216BD5F7006FDE70 /* User.swift */; };
+		3E7F38FE216BD5FF006FDE70 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7F38FD216BD5FF006FDE70 /* Location.swift */; };
+		7E2AE161216BCED00089A213 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7E2AE160216BCECF0089A213 /* GoogleService-Info.plist */; };
+		F519D655AE5393965146DEDC /* Pods_Lighthouse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C80FF7E5B8E1A6F7BB1F3AB9 /* Pods_Lighthouse.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +33,12 @@
 		3E36CB2421683FB50023C5F0 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		3E36CB2621683FF40023C5F0 /* Lighthouse.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Lighthouse.entitlements; sourceTree = "<group>"; };
 		3E36CB2A216840160023C5F0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		3E7F38FB216BD5F7006FDE70 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3E7F38FD216BD5FF006FDE70 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		53078FA5FEADE27A2157DE94 /* Pods-Lighthouse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lighthouse.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lighthouse/Pods-Lighthouse.release.xcconfig"; sourceTree = "<group>"; };
+		7E2AE160216BCECF0089A213 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A92C93213E01DDAD42100EFE /* Pods-Lighthouse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lighthouse.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Lighthouse/Pods-Lighthouse.debug.xcconfig"; sourceTree = "<group>"; };
+		C80FF7E5B8E1A6F7BB1F3AB9 /* Pods_Lighthouse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lighthouse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,18 +47,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E36CB2B216840160023C5F0 /* MapKit.framework in Frameworks */,
+				F519D655AE5393965146DEDC /* Pods_Lighthouse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E7ABB140E175E3E68C3A56D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A92C93213E01DDAD42100EFE /* Pods-Lighthouse.debug.xcconfig */,
+				53078FA5FEADE27A2157DE94 /* Pods-Lighthouse.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		3E36CAED21683DEA0023C5F0 = {
 			isa = PBXGroup;
 			children = (
 				3E36CAF821683DEA0023C5F0 /* Lighthouse */,
 				3E36CAF721683DEA0023C5F0 /* Products */,
 				3E36CB272168400B0023C5F0 /* Frameworks */,
+				1E7ABB140E175E3E68C3A56D /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,6 +98,8 @@
 		3E36CAF921683DEA0023C5F0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3E7F38FB216BD5F7006FDE70 /* User.swift */,
+				3E7F38FD216BD5FF006FDE70 /* Location.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -146,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				3E36CB0F21683DEB0023C5F0 /* Info.plist */,
+				7E2AE160216BCECF0089A213 /* GoogleService-Info.plist */,
 				3E36CB0821683DEA0023C5F0 /* AppDelegate.swift */,
 			);
 			name = "Supporting Files";
@@ -184,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				3E36CB2A216840160023C5F0 /* MapKit.framework */,
+				C80FF7E5B8E1A6F7BB1F3AB9 /* Pods_Lighthouse.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -195,10 +220,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3E36CB1221683DEB0023C5F0 /* Build configuration list for PBXNativeTarget "Lighthouse" */;
 			buildPhases = (
+				B67DDA56E0B12FD89118CABD /* [CP] Check Pods Manifest.lock */,
 				3E36CAF221683DEA0023C5F0 /* Sources */,
 				3E36CAF321683DEA0023C5F0 /* Frameworks */,
 				3E36CAF421683DEA0023C5F0 /* Resources */,
 				3E36CB2C216840560023C5F0 /* Build Number Incrementer */,
+				F845FFBD0A142FE4860F8D03 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -238,7 +265,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3E36CAF121683DEA0023C5F0 /* Build configuration list for PBXProject "Lighthouse" */;
+			buildConfigurationList = 3E36CAF121683DEA0023C5F0 /* Build configuration list for PBXProject ".Lighthouse" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -263,6 +290,7 @@
 			files = (
 				3E36CB0E21683DEB0023C5F0 /* LaunchScreen.storyboard in Resources */,
 				3E36CB2121683F6C0023C5F0 /* LoadingScreen.storyboard in Resources */,
+				7E2AE161216BCED00089A213 /* GoogleService-Info.plist in Resources */,
 				3E36CB0B21683DEB0023C5F0 /* Assets.xcassets in Resources */,
 				3E36CB1F21683F280023C5F0 /* MapView.storyboard in Resources */,
 				3E36CB2321683F860023C5F0 /* UserProfile.storyboard in Resources */,
@@ -290,6 +318,72 @@
 			shellPath = /bin/sh;
 			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n";
 		};
+		B67DDA56E0B12FD89118CABD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Lighthouse-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F845FFBD0A142FE4860F8D03 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Lighthouse/Pods-Lighthouse-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/FoursquareAPIClient/FoursquareAPIClient.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FoursquareAPIClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Lighthouse/Pods-Lighthouse-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -299,6 +393,8 @@
 			files = (
 				3E36CB2521683FB50023C5F0 /* DateFormatter.swift in Sources */,
 				3E36CB0921683DEA0023C5F0 /* AppDelegate.swift in Sources */,
+				3E7F38FE216BD5FF006FDE70 /* Location.swift in Sources */,
+				3E7F38FC216BD5F7006FDE70 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,18 +530,19 @@
 		};
 		3E36CB1321683DEB0023C5F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A92C93213E01DDAD42100EFE /* Pods-Lighthouse.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Lighthouse/Lighthouse.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CYZA2EE6W8;
+				DEVELOPMENT_TEAM = ASRKL3D2BB;
 				INFOPLIST_FILE = Lighthouse/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.owenhenley.Lighthouse;
+				PRODUCT_BUNDLE_IDENTIFIER = com.levilinchenko.lighthouse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -454,18 +551,19 @@
 		};
 		3E36CB1421683DEB0023C5F0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 53078FA5FEADE27A2157DE94 /* Pods-Lighthouse.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Lighthouse/Lighthouse.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CYZA2EE6W8;
+				DEVELOPMENT_TEAM = ASRKL3D2BB;
 				INFOPLIST_FILE = Lighthouse/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.owenhenley.Lighthouse;
+				PRODUCT_BUNDLE_IDENTIFIER = com.levilinchenko.lighthouse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -475,7 +573,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3E36CAF121683DEA0023C5F0 /* Build configuration list for PBXProject "Lighthouse" */ = {
+		3E36CAF121683DEA0023C5F0 /* Build configuration list for PBXProject ".Lighthouse" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3E36CB1021683DEB0023C5F0 /* Debug */,
