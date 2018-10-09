@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zQI-yw-5dV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KIQ-uS-6Qq">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,20 +10,75 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="meH-0f-nSR">
+        <!--Map-->
+        <scene sceneID="Ijf-01-IGa">
             <objects>
-                <viewController id="zQI-yw-5dV" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Xa3-pJ-1XS">
+                <viewController id="KIQ-uS-6Qq" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LRg-IA-lru">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="1e0-ld-Izd">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fcj-Zu-x1i">
+                                <rect key="frame" x="40" y="577" width="295" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.4793452024" blue="0.99908632040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="3sX-9G-4ZG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="80a-lU-8OU">
+                                <rect key="frame" x="22" y="24" width="331" height="129"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome Copy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KF4-v8-qPE">
+                                        <rect key="frame" x="107.5" y="54" width="116" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="KF4-v8-qPE" firstAttribute="centerY" secondItem="80a-lU-8OU" secondAttribute="centerY" id="Vuf-7m-AUy"/>
+                                    <constraint firstItem="KF4-v8-qPE" firstAttribute="centerX" secondItem="80a-lU-8OU" secondAttribute="centerX" id="oCn-Zk-hVb"/>
+                                    <constraint firstAttribute="height" constant="129" id="xsL-LR-1nS"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="00d-Df-L2L"/>
+                        <constraints>
+                            <constraint firstItem="J9c-gc-Dyh" firstAttribute="bottom" secondItem="fcj-Zu-x1i" secondAttribute="bottom" constant="40" id="08F-iV-tpW"/>
+                            <constraint firstItem="1e0-ld-Izd" firstAttribute="bottom" secondItem="J9c-gc-Dyh" secondAttribute="bottom" id="9DY-WZ-bLU"/>
+                            <constraint firstItem="80a-lU-8OU" firstAttribute="top" secondItem="LRg-IA-lru" secondAttribute="top" constant="24" id="HK2-Lc-RHG"/>
+                            <constraint firstItem="80a-lU-8OU" firstAttribute="leading" secondItem="J9c-gc-Dyh" secondAttribute="leading" constant="22" id="J4k-qY-UOs"/>
+                            <constraint firstItem="fcj-Zu-x1i" firstAttribute="leading" secondItem="J9c-gc-Dyh" secondAttribute="leading" constant="40" id="J6W-dg-xSm"/>
+                            <constraint firstItem="1e0-ld-Izd" firstAttribute="top" secondItem="LRg-IA-lru" secondAttribute="top" id="WGo-V4-KzF"/>
+                            <constraint firstItem="1e0-ld-Izd" firstAttribute="trailing" secondItem="J9c-gc-Dyh" secondAttribute="trailing" id="ee6-lw-kUg"/>
+                            <constraint firstItem="J9c-gc-Dyh" firstAttribute="trailing" secondItem="fcj-Zu-x1i" secondAttribute="trailing" constant="40" id="lJt-ki-VQt"/>
+                            <constraint firstItem="J9c-gc-Dyh" firstAttribute="trailing" secondItem="80a-lU-8OU" secondAttribute="trailing" constant="22" id="qZW-Jt-8RJ"/>
+                            <constraint firstItem="1e0-ld-Izd" firstAttribute="leading" secondItem="J9c-gc-Dyh" secondAttribute="leading" id="yxB-Sg-OQj"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="J9c-gc-Dyh"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Map" image="glyphsTabBarMapIconDisabled" selectedImage="glyphsTabBarMapIconActive" id="IvT-Xn-h3V"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3hL-B2-6IM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fqI-Ac-3Lb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="101.59999999999999" y="48.125937031484263"/>
+            <point key="canvasLocation" x="1040.8" y="48.125937031484263"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="glyphsTabBarMapIconActive" width="48" height="32"/>
+        <image name="glyphsTabBarMapIconDisabled" width="48" height="32"/>
+    </resources>
 </document>
