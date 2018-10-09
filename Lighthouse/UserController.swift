@@ -17,7 +17,6 @@ class UserController {
     
     var user: User?
     let uid = Auth.auth().currentUser?.uid
-    
     let db = Firestore.firestore()
     
     
@@ -30,8 +29,6 @@ class UserController {
         }
     }
     
-    
-    
     func createUser(username: String, email: String, password: String){
         Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
             if let error = error {
@@ -39,7 +36,7 @@ class UserController {
             }
             if let result = result {
                 self.db.collection(USER).document(result.user.uid).setData([
-                    USERID : result.user.uid,
+                    USER_ID : result.user.uid,
                     USERNAME : username
                 ]) { (error) in
                     if let error = error {
@@ -67,8 +64,8 @@ class UserController {
             guard let data = snapshot?.data() else {return}
             if let username = data[USERNAME] as? String,
                 let email = data[EMAIL] as? String,
-                let profileImageURLString = data[PROFILEIMAGEURL] as? String,
-                let userID = data[USERID] as? String {
+                let profileImageURLString = data[PROFILE_IMAGE_URL] as? String,
+                let userID = data[USER_ID] as? String {
                 let user = User(userID: userID, username: username, email: email)
                 if let profileImageURL = URL(string: profileImageURLString) {
                     URLSession.shared.dataTask(with: profileImageURL, completionHandler: { (data, response, error) in
@@ -108,7 +105,7 @@ class UserController {
                         downloadURL = url?.absoluteString
                         
                         self.db.collection(USER).document(userID).updateData([
-                            PROFILEIMAGEURL : downloadURL!,
+                            PROFILE_IMAGE_URL : downloadURL!,
                             USERNAME : username as Any,
                             EMAIL : email as Any
                         ]) { (error) in
@@ -120,14 +117,13 @@ class UserController {
                 }
             }
         } else {
-            
             Storage.storage().reference(withPath: storageRef.fullPath).delete { (error) in
                 if let error = error {
                     print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
                 }
             }
             self.db.collection(USER).document(userID).updateData([
-                PROFILEIMAGEURL : "No profile Image",
+                PROFILE_IMAGE_URL : "No profile Image",
                 USERNAME : username as Any,
                 EMAIL : email as Any
             ]) { (error) in
@@ -142,7 +138,7 @@ class UserController {
         let activate = !isActive
         guard let uid = uid else {return}
         db.collection(USER).document(uid).updateData([
-            ISACTIVE : activate
+            IS_ACTIVE : activate
         ]) { (error) in
             if let error = error {
                 print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
@@ -164,6 +160,4 @@ class UserController {
     func addFriend(friendUserID: String){
         
     }
-    
-    
 }
