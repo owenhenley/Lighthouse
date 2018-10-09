@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import CoreLocation
+import FirebaseAuth
 
 class MapViewVC: UIViewController {
     
@@ -23,6 +24,12 @@ class MapViewVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if Auth.auth().currentUser == nil {
+            let storyboard = UIStoryboard(name: "SignUp", bundle: nil)
+            let signUpVC = storyboard.instantiateViewController(withIdentifier: "signUpVC")
+            self.present(signUpVC, animated: true)
+        }
         
        self.locationManager.requestWhenInUseAuthorization()
     }
