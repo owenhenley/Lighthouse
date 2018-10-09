@@ -15,10 +15,11 @@ class UserController {
     
     static let shared = UserController()
     
-    var users: [User] = []
-   
+    var user: User?
+    let uid = Auth.auth().currentUser?.uid
+    
     let db = Firestore.firestore()
-
+    
     
     func logInUser(email: String, password: String){
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
@@ -29,13 +30,15 @@ class UserController {
         }
     }
     
-    func createUser(username: String, email: String, password: String, currentLocation: Location){
+    
+    
+    func createUser(username: String, email: String, password: String){
         Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
             if let error = error {
                 print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
             }
             if let result = result {
-                self.db.collection(USER).addDocument(data: [
+                self.db.collection(USER).document(result.user.uid).setData([
                     USERID : result.user.uid,
                     USERNAME : username
                 ]) { (error) in
@@ -43,8 +46,8 @@ class UserController {
                         print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
                         return
                     } else {
-                        let user = User(userID: result.user.uid, currentLocation: currentLocation, username: username, email: email)
-                        self.users.append(user)
+                        let user = User(userID: result.user.uid, username: username, email: email)
+                        self.user = user
                     }
                 }
             }
@@ -55,16 +58,53 @@ class UserController {
         
     }
     
-    func updateUser(userID: String, username: String?, email: String?, profileImageURL: URL?){
-        
+    func updateUser(username: String?, email: String?, profileImage: UIImage?){
+        guard let userID = Auth.auth().currentUser?.uid else {return}
+        if let profileImage = profileImage {
+            let storageRef = Storage.storage().reference(withPath: "profileImages").child("\(userID).png")
+            if let imageData = profileImage.jpegData(compressionQuality: 0.4) {
+                storageRef.putData(imageData, metadata: nil) { (metadata, error) in
+                    if let error = error {
+                        print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
+                    }
+                }
+                var downloadURL: String?
+                
+                storageRef.downloadURL { (url, error) in
+                    downloadURL = url?.absoluteString
+                    
+                    self.db.collection(USER).document(userID).updateData(["imageURL" : downloadURL!]) { (error) in
+                        if let error = error {
+                            print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
+                        }
+                    }
+                }
+            }
+        }
     }
     
     func togglePrivacy(userID: String, isActive: Bool){
-        
+        let activate = !isActive
+        guard let uid = uid else {return}
+        db.collection(USER).document(uid).updateData([
+            ISACTIVE : activate
+        ]) { (error) in
+            if let error = error {
+                print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
+            } else {
+                self.user?.isActive = activate
+            }
+        }
     }
     
-    func deleteUser(userID: String){
+    func deleteUser(){
+        guard let uid = uid else {return}
+        db.collection(USER).document(uid).delete { (error) in
+            if let error = error {
+                print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
+            }
         }
+    }
     
     func addFriend(friendUserID: String){
         
