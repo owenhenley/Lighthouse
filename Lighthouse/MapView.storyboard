@@ -13,7 +13,7 @@
         <!--Map-->
         <scene sceneID="Ijf-01-IGa">
             <objects>
-                <viewController id="KIQ-uS-6Qq" sceneMemberID="viewController">
+                <viewController id="KIQ-uS-6Qq" customClass="MapViewVC" customModule="Lighthouse" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LRg-IA-lru">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -36,6 +36,9 @@
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="nextTapped:" destination="KIQ-uS-6Qq" eventType="touchUpInside" id="GJP-Vc-Yfq"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="80a-lU-8OU">
                                 <rect key="frame" x="22" y="24" width="331" height="129"/>
@@ -54,7 +57,7 @@
                                     <constraint firstAttribute="height" constant="129" id="xsL-LR-1nS"/>
                                 </constraints>
                             </view>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BZU-mu-CsJ">
+                            <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BZU-mu-CsJ">
                                 <rect key="frame" x="0.0" y="306" width="375" height="361"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
@@ -78,15 +81,19 @@
                         <viewLayoutGuide key="safeArea" id="J9c-gc-Dyh"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="glyphsTabBarMapIconDisabled" selectedImage="glyphsTabBarMapIconActive" id="IvT-Xn-h3V"/>
+                    <connections>
+                        <outlet property="mainMapView" destination="1e0-ld-Izd" id="ZBc-Jk-6Id"/>
+                        <outlet property="nextButton" destination="fcj-Zu-x1i" id="zGi-Wu-er1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fqI-Ac-3Lb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1040.8" y="48.125937031484263"/>
         </scene>
-        <!--View Controller-->
+        <!--Tray TabVC-->
         <scene sceneID="YPC-yE-cD4">
             <objects>
-                <viewController id="uzX-QU-v97" sceneMemberID="viewController">
+                <viewController id="uzX-QU-v97" customClass="TrayTabVC" customModule="Lighthouse" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WBp-uB-mEF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -138,15 +145,18 @@
                         <viewLayoutGuide key="safeArea" id="kTT-fa-qIU"/>
                     </view>
                     <size key="freeformSize" width="375" height="150"/>
+                    <connections>
+                        <outlet property="trayTabImage" destination="fZG-Y8-h5H" id="fDp-to-jwt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e91-Tz-iu7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1040.8" y="608.9955022488756"/>
         </scene>
-        <!--View Controller-->
+        <!--Drop PinVC-->
         <scene sceneID="fIr-0R-Mbs">
             <objects>
-                <viewController id="0m3-Rn-wDM" sceneMemberID="viewController">
+                <viewController id="0m3-Rn-wDM" customClass="DropPinVC" customModule="Lighthouse" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RMZ-cQ-tZB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="207"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -217,6 +227,9 @@
                                                 <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="pinActionTapped:" destination="0m3-Rn-wDM" eventType="touchUpInside" id="UJV-IZ-5nm"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GUC-bU-oTU">
                                         <rect key="frame" x="151" y="0.0" width="136" height="27"/>
@@ -227,6 +240,9 @@
                                         <state key="normal" title="Share with Friends">
                                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="shareTapped:" destination="0m3-Rn-wDM" eventType="touchUpInside" id="1fk-lQ-8nZ"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -246,15 +262,18 @@
                         <viewLayoutGuide key="safeArea" id="kaJ-dU-gTG"/>
                     </view>
                     <size key="freeformSize" width="375" height="207"/>
+                    <connections>
+                        <outlet property="coordinatesLabel" destination="acL-Y4-yH8" id="JEp-L7-mgn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eqb-nO-hOB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1396" y="885"/>
         </scene>
-        <!--View Controller-->
+        <!--Friends Tray ListVC-->
         <scene sceneID="7xa-5T-8ci">
             <objects>
-                <viewController id="SNw-hE-q1g" sceneMemberID="viewController">
+                <viewController id="SNw-hE-q1g" customClass="FriendsTrayListVC" customModule="Lighthouse" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iOS-Un-ceU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="582"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -268,7 +287,7 @@
                                 <rect key="frame" x="0.0" y="56" width="375" height="526"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="80" id="mCQ-Sc-46M">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="friendCell" rowHeight="80" id="mCQ-Sc-46M" customClass="FriendsListTrayCell" customModule="Lighthouse" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mCQ-Sc-46M" id="g0o-dJ-EdG">
@@ -333,6 +352,12 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <inset key="separatorInset" minX="80" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <connections>
+                                            <outlet property="distanceLabel" destination="qdd-Xy-Fp4" id="ota-hs-kVo"/>
+                                            <outlet property="friendLocationLabel" destination="FTJ-fQ-H42" id="KTT-f6-wbo"/>
+                                            <outlet property="friendNameLabel" destination="kMK-yI-2DP" id="IUy-c1-200"/>
+                                            <outlet property="profileImage" destination="Bip-zI-eiL" id="7Z4-dg-mhR"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

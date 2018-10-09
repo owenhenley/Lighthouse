@@ -13,7 +13,7 @@
         <!--Profile-->
         <scene sceneID="Zav-hJ-Xlo">
             <objects>
-                <viewController id="RLc-Uj-cQK" sceneMemberID="viewController">
+                <viewController id="RLc-Uj-cQK" customClass="UserProfileVC" customModule="Lighthouse" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="h40-Dz-qfY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
