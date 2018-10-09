@@ -9,11 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar Controller View Controller-->
         <scene sceneID="Qqt-U5-Nne">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vau-XD-93w" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tabBarController id="Thi-B6-bs0" sceneMemberID="viewController">
+                <tabBarController id="Thi-B6-bs0" customClass="TabBarControllerViewController" customModule="Lighthouse" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LLF-Gn-Ote">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -25,6 +24,7 @@
                         <segue destination="YhF-Uo-W5b" kind="relationship" relationship="viewControllers" id="BcC-5F-i47"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vau-XD-93w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-418" y="29"/>
         </scene>

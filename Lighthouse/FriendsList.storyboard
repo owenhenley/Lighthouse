@@ -13,7 +13,7 @@
         <!--Friends-->
         <scene sceneID="IEQ-w8-0Xs">
             <objects>
-                <viewController id="W8u-Rj-Prk" sceneMemberID="viewController">
+                <viewController id="W8u-Rj-Prk" customClass="FriendsListVC" customModule="Lighthouse" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="T0H-vK-CRn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
