@@ -9,14 +9,31 @@
 import UIKit
 
 class DropPinVC: UIViewController {
+    
+        // MARK: - Outlets
+    
+    @IBOutlet weak var coordinatesLabel: UILabel!
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
     }
     
-
+        // MARK: - Actions
+    
+    @IBAction func pinActionTapped(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func shareTapped(_ sender: UIButton) {
+        
+    }
+    
+    
+    
     /*
     // MARK: - Navigation
 

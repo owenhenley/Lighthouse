@@ -9,6 +9,12 @@
 import UIKit
 
 class TrayTabVC: UIViewController {
+    
+        // MARK: - Outlets
+    
+    @IBOutlet weak var trayTabImage: UIImageView!
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -7,16 +7,35 @@
 //
 
 import UIKit
+import MapKit
+import CoreLocation
 
 class MapViewVC: UIViewController {
+    
+        // MARK: - Variables
+    
+    var locationManager = CLLocationManager()
+    
+        // MARK: - Outlets
 
+    @IBOutlet weak var mainMapView: MKMapView!
+    @IBOutlet weak var nextButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+       self.locationManager.requestWhenInUseAuthorization()
     }
     
-
+    // MARK: - Actions
+    
+    @IBAction func nextTapped(_ sender: UIButton) {
+        
+    }
+    
+    
+    
+    
     /*
     // MARK: - Navigation
 

@@ -26,6 +26,7 @@
 		3E32AEF1216D4FE900C889DF /* TrayTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E32AEF0216D4FE900C889DF /* TrayTabVC.swift */; };
 		3E32AEF3216D501000C889DF /* FriendsTrayListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E32AEF2216D501000C889DF /* FriendsTrayListVC.swift */; };
 		3E32AEF5216D502600C889DF /* DropPinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E32AEF4216D502600C889DF /* DropPinVC.swift */; };
+		3E32AEF7216D524C00C889DF /* FriendsListTrayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E32AEF6216D524C00C889DF /* FriendsListTrayCell.swift */; };
 		3EA99144216BDC9E0001F09D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA99143216BDC9E0001F09D /* AppDelegate.swift */; };
 		3EA99146216BDC9F0001F09D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EA99145216BDC9F0001F09D /* Assets.xcassets */; };
 		3EA99149216BDC9F0001F09D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EA99147216BDC9F0001F09D /* LaunchScreen.storyboard */; };
@@ -61,6 +62,7 @@
 		3E32AEF0216D4FE900C889DF /* TrayTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrayTabVC.swift; sourceTree = "<group>"; };
 		3E32AEF2216D501000C889DF /* FriendsTrayListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTrayListVC.swift; sourceTree = "<group>"; };
 		3E32AEF4216D502600C889DF /* DropPinVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropPinVC.swift; sourceTree = "<group>"; };
+		3E32AEF6216D524C00C889DF /* FriendsListTrayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListTrayCell.swift; sourceTree = "<group>"; };
 		3EA99131216BDC9E0001F09D /* Lighthouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lighthouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EA99143216BDC9E0001F09D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3EA99145216BDC9F0001F09D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 		3EA99165216BE03A0001F09D /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				3E32AEF6216D524C00C889DF /* FriendsListTrayCell.swift */,
 			);
 			name = "Custom Views";
 			sourceTree = "<group>";
@@ -466,6 +469,7 @@
 				3E32AEEA216D4F2D00C889DF /* TabBarControllerViewController.swift in Sources */,
 				3EA99153216BDF1B0001F09D /* User.swift in Sources */,
 				3E32AEEE216D4F7300C889DF /* SignUpVC.swift in Sources */,
+				3E32AEF7216D524C00C889DF /* FriendsListTrayCell.swift in Sources */,
 				7EF9A479216C0D480064DC47 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
