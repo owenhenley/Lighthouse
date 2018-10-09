@@ -1,41 +1,28 @@
 //
-//  MapViewVC.swift
+//  TrayTabVC.swift
 //  Lighthouse
 //
-//  Created by Owen Henley on 10/8/18.
+//  Created by Owen Henley on 10/9/18.
 //  Copyright © 2018 Lighthouse. All rights reserved.
 //
 
 import UIKit
-import MapKit
-import CoreLocation
 
-class MapViewVC: UIViewController {
-    
-        // MARK: - Variables
-    
-    var locationManager = CLLocationManager()
+class TrayTabVC: UIViewController {
     
         // MARK: - Outlets
-
-    @IBOutlet weak var mainMapView: MKMapView!
-    @IBOutlet weak var nextButton: UIButton!
     
+    @IBOutlet weak var trayTabImage: UIImageView!
+    
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-       self.locationManager.requestWhenInUseAuthorization()
+
+        // Do any additional setup after loading the view.
     }
     
-    // MARK: - Actions
-    
-    @IBAction func nextTapped(_ sender: UIButton) {
-        
-    }
-    
-    
-    
-    
+
     /*
     // MARK: - Navigation
 

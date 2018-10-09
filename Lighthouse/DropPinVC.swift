@@ -1,38 +1,36 @@
 //
-//  MapViewVC.swift
+//  DropPinVC.swift
 //  Lighthouse
 //
-//  Created by Owen Henley on 10/8/18.
+//  Created by Owen Henley on 10/9/18.
 //  Copyright © 2018 Lighthouse. All rights reserved.
 //
 
 import UIKit
-import MapKit
-import CoreLocation
 
-class MapViewVC: UIViewController {
-    
-        // MARK: - Variables
-    
-    var locationManager = CLLocationManager()
+class DropPinVC: UIViewController {
     
         // MARK: - Outlets
-
-    @IBOutlet weak var mainMapView: MKMapView!
-    @IBOutlet weak var nextButton: UIButton!
     
+    @IBOutlet weak var coordinatesLabel: UILabel!
+    
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-       self.locationManager.requestWhenInUseAuthorization()
-    }
-    
-    // MARK: - Actions
-    
-    @IBAction func nextTapped(_ sender: UIButton) {
+
         
     }
     
+        // MARK: - Actions
+    
+    @IBAction func pinActionTapped(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func shareTapped(_ sender: UIButton) {
+        
+    }
     
     
     

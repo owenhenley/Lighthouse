@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="W8u-Rj-Prk">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Friends-->
+        <scene sceneID="IEQ-w8-0Xs">
+            <objects>
+                <viewController id="W8u-Rj-Prk" customClass="FriendsListVC" customModule="Lighthouse" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="T0H-vK-CRn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friends List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JzH-Bz-GlP">
+                                <rect key="frame" x="143" y="323" width="89" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="JzH-Bz-GlP" firstAttribute="centerY" secondItem="T0H-vK-CRn" secondAttribute="centerY" id="dLG-Ii-RaJ"/>
+                            <constraint firstItem="JzH-Bz-GlP" firstAttribute="centerX" secondItem="T0H-vK-CRn" secondAttribute="centerX" id="l8H-Ax-x6c"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="TMY-P9-OdK"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Friends" image="glyphsTabBarFriendsDisabledCopy" selectedImage="glyphsTabBarFriendsActive" id="bYm-aj-r0k"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jxD-I1-H35" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="687" y="258"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="glyphsTabBarFriendsActive" width="48" height="32"/>
+        <image name="glyphsTabBarFriendsDisabledCopy" width="48" height="32"/>
+    </resources>
+</document>
