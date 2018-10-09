@@ -20,6 +20,8 @@ class User {
     let friends         : [User] = []
     let profileImageURL : URL = URL(fileURLWithPath: "")
     let currentLocation : Location?
+    var isActive        : Bool = true
+//    var groups          : [User] = []
 
 
     init(userID: String, currentLocation: Location, username: String, email: String) {

@@ -28,7 +28,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>20</string>
+	<string>21</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MKDirectionsApplicationSupportedModes</key>
@@ -36,6 +36,8 @@
 		<string>MKDirectionsModeCar</string>
 		<string>MKDirectionsModePedestrian</string>
 	</array>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Lighthouse Needs Your Location to Get Your Party Started</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>We need to access your photo library for you to set a profile image</string>
 	<key>UIBackgroundModes</key>

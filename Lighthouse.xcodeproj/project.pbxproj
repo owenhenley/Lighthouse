@@ -25,6 +25,7 @@
 		3EA99162216BE0200001F09D /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA99161216BE0200001F09D /* DateFormatter.swift */; };
 		3EA99164216BE0310001F09D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3EA99163216BE0310001F09D /* GoogleService-Info.plist */; };
 		7EF9A479216C0D480064DC47 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF9A478216C0D480064DC47 /* Constants.swift */; };
+		7EF9A47B216C18FA0064DC47 /* AlertControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF9A47A216C18FA0064DC47 /* AlertControllers.swift */; };
 		AF1A98AB8F326C9B496E245A /* Pods_Lighthouse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27D9275730042F1BCE1ABBCD /* Pods_Lighthouse.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		3EA99163216BE0310001F09D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3EA9916A216BE0EC0001F09D /* Lighthouse.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Lighthouse.entitlements; sourceTree = "<group>"; };
 		7EF9A478216C0D480064DC47 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7EF9A47A216C18FA0064DC47 /* AlertControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllers.swift; sourceTree = "<group>"; };
 		C8AED16E9AFF336D11AA6353 /* Pods-Lighthouse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lighthouse.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Lighthouse/Pods-Lighthouse.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -189,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				3EA99161216BE0200001F09D /* DateFormatter.swift */,
+				7EF9A47A216C18FA0064DC47 /* AlertControllers.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				3E28E872216C204600E21331 /* SignInVC.swift in Sources */,
 				3EA99144216BDC9E0001F09D /* AppDelegate.swift in Sources */,
 				3E28E86C216BF29B00E21331 /* UserController.swift in Sources */,
+				7EF9A47B216C18FA0064DC47 /* AlertControllers.swift in Sources */,
 				3E28E86A216BF27000E21331 /* MapViewVC.swift in Sources */,
 				3EA99153216BDF1B0001F09D /* User.swift in Sources */,
 				7EF9A479216C0D480064DC47 /* Constants.swift in Sources */,
