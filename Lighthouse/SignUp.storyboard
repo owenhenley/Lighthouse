@@ -13,7 +13,7 @@
         <!--Sign UpVC-->
         <scene sceneID="5Ek-5F-CzS">
             <objects>
-                <viewController id="X85-tI-C3A" customClass="SignUpVC" customModule="Lighthouse" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="signUpVC" id="X85-tI-C3A" customClass="SignUpVC" customModule="Lighthouse" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YCk-W1-VBQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
