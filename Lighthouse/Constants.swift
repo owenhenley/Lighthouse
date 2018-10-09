@@ -7,11 +7,14 @@
 //
 
 import Foundation
+import Firebase
 
+let AUTH = Auth.auth()
+let FIRESTORE = Firestore.firestore()
 
 let USER = "user"
-let PROFILEIMAGEURL = "profileImageUrl"
-let USERID = "userID"
+let PROFILE_IMAGE_URL = "profileImageUrl"
+let USER_ID = "userID"
 let USERNAME = "username"
-let ISACTIVE = "isActive"
+let IS_ACTIVE = "isActive"
 let EMAIL = "email"
