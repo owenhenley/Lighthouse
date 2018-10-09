@@ -8,6 +8,7 @@
 
 import Foundation
 import Firebase
+import CoreLocation
 
 
 class User {
@@ -18,19 +19,24 @@ class User {
     let username        : String
     let email           : String?
     let friends         : [User] = []
-    let profileImageURL : URL = URL(fileURLWithPath: "")
-    let currentLocation : Location?
+//    var profileImageURL : URL?
+    var profileImage    : UIImage?
+    let currentLocation : Location = Location(title: "", currentLocation: 0, coOrdinates: 0)
+
+    
+    
     var isActive        : Bool = true
 //    var groups          : [User] = []
 
 
-    init(userID: String, currentLocation: Location, username: String, email: String) {
+    init(userID: String, username: String, email: String) {
         self.userID = userID
-        self.currentLocation = currentLocation
         self.username = username
         self.email = email
+        
     }
-    
    
     
 }
+
+

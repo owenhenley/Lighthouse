@@ -12,3 +12,16 @@ import UIKit
 //    let locationAlertController = UIAlertController(title: "Lighthouse needs to use your location", message: <#T##String?#>, preferredStyle: <#T##UIAlertController.Style#>)
 //}
 
+extension UIViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func presentImagePicker(){
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.allowsEditing = true
+        self.present(picker, animated: true)
+    }
+    
+    public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+}

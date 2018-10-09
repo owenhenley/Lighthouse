@@ -13,7 +13,7 @@
         <!--Sign InVC-->
         <scene sceneID="DJ4-FY-CmQ">
             <objects>
-                <viewController id="PFC-4d-7ck" customClass="SignInVC" sceneMemberID="viewController">
+                <viewController id="PFC-4d-7ck" customClass="SignInVC" customModule="Lighthouse" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5jl-Ue-lxb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -136,6 +136,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="g6a-Ow-bBB"/>
                     </view>
+                    <connections>
+                        <outlet property="emailOutlet" destination="jDg-Oy-ngQ" id="NS4-cX-MEP"/>
+                        <outlet property="passwordOutlet" destination="SC4-CC-Byq" id="A1E-mz-e5W"/>
+                        <outlet property="usernameOutlet" destination="ToU-ra-IT7" id="VeK-tG-Sx7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dua-Ex-Bed" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
