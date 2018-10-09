@@ -19,7 +19,8 @@ class User {
     let username        : String
     let email           : String?
     let friends         : [User] = []
-    let profileImageURL : URL = URL(fileURLWithPath: "")
+//    var profileImageURL : URL?
+    var profileImage    : UIImage?
     let currentLocation : Location = Location(title: "", currentLocation: 0, coOrdinates: 0)
 
     
@@ -32,8 +33,10 @@ class User {
         self.userID = userID
         self.username = username
         self.email = email
+        
     }
-    
    
     
 }
+
+

@@ -54,30 +54,85 @@ class UserController {
         }
     }
     
-    func fetchUsers(){
+    func fetchFriends(){
         
+    }
+    
+    func fetchUser(){
+        guard let uid = uid else {return}
+        db.collection(USER).document(uid).getDocument { (snapshot, error) in
+            if let error = error {
+                print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
+            }
+            guard let data = snapshot?.data() else {return}
+            if let username = data[USERNAME] as? String,
+                let email = data[EMAIL] as? String,
+                let profileImageURLString = data[PROFILEIMAGEURL] as? String,
+                let userID = data[USERID] as? String {
+                let user = User(userID: userID, username: username, email: email)
+                if let profileImageURL = URL(string: profileImageURLString) {
+                    URLSession.shared.dataTask(with: profileImageURL, completionHandler: { (data, response, error) in
+                        if let error = error {
+                            print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
+                        }
+                        if let response = response{
+                            print("\(response)")
+                        }
+                        if let data = data {
+                            self.user?.profileImage = UIImage(data: data)
+                        }
+                        
+                    }).resume()
+                }
+                
+                self.user = user
+            }
+        }
     }
     
     func updateUser(username: String?, email: String?, profileImage: UIImage?){
         guard let userID = Auth.auth().currentUser?.uid else {return}
+        let storageRef = Storage.storage().reference(withPath: "profileImages").child("\(userID).png")
+        var downloadURL: String?
+
         if let profileImage = profileImage {
-            let storageRef = Storage.storage().reference(withPath: "profileImages").child("\(userID).png")
             if let imageData = profileImage.jpegData(compressionQuality: 0.4) {
-                storageRef.putData(imageData, metadata: nil) { (metadata, error) in
+                
+                let metaData = StorageMetadata()
+                metaData.contentType = "image/jpeg"
+                storageRef.putData(imageData, metadata: metaData) { (metadata, error) in
                     if let error = error {
                         print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
                     }
-                }
-                var downloadURL: String?
-                
-                storageRef.downloadURL { (url, error) in
-                    downloadURL = url?.absoluteString
-                    
-                    self.db.collection(USER).document(userID).updateData(["imageURL" : downloadURL!]) { (error) in
-                        if let error = error {
-                            print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
+                    storageRef.downloadURL { (url, error) in
+                        downloadURL = url?.absoluteString
+                        
+                        self.db.collection(USER).document(userID).updateData([
+                            PROFILEIMAGEURL : downloadURL!,
+                            USERNAME : username as Any,
+                            EMAIL : email as Any
+                        ]) { (error) in
+                            if let error = error {
+                                print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
+                            }
                         }
                     }
+                }
+            }
+        } else {
+            
+            Storage.storage().reference(withPath: storageRef.fullPath).delete { (error) in
+                if let error = error {
+                    print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
+                }
+            }
+            self.db.collection(USER).document(userID).updateData([
+                PROFILEIMAGEURL : "No profile Image",
+                USERNAME : username as Any,
+                EMAIL : email as Any
+            ]) { (error) in
+                if let error = error {
+                    print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
                 }
             }
         }

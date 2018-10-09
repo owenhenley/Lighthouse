@@ -14,7 +14,7 @@ class SignInVC: UIViewController {
     @IBOutlet weak var emailOutlet: UITextField!
     @IBOutlet weak var passwordOutlet: UITextField!
     @IBOutlet weak var usernameOutlet: UITextField!
-    @IBOutlet weak var profileImageOutlet: UIImageView!
+
     
     
     
@@ -36,24 +36,20 @@ class SignInVC: UIViewController {
     */
 
     @IBAction func signInTapped(_ sender: Any) {
-//        guard let username = usernameOutlet.text,
-//            let password = passwordOutlet.text,
-//            let email = emailOutlet.text else {return}
-//        UserController.shared.createUser(username: username, email: email, password: password)
-        UserController.shared.updateUser(username: nil, email: nil, profileImage: profileImageOutlet.image)
+        guard let username = usernameOutlet.text,
+            let password = passwordOutlet.text,
+            let email = emailOutlet.text else {return}
+        UserController.shared.createUser(username: username, email: email, password: password)
     }
     
     
     
-    @IBAction func profileImageTapped(_ sender: Any) {
-        self.presentImagePicker()
-        
-    }
+
     
-    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[.editedImage] as? UIImage{
-            profileImageOutlet.image = image
-        }
-        dismiss(animated: true, completion: nil)
-    }
+//    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+//        if let image = info[.editedImage] as? UIImage{
+//            profileImageOutlet.image = image
+//        }
+//        dismiss(animated: true, completion: nil)
+//    }
 }

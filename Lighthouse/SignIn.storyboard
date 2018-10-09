@@ -52,39 +52,17 @@
                                     <action selector="signInTapped:" destination="PFC-4d-7ck" eventType="touchUpInside" id="iAC-XT-ZQe"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oQf-6e-EXq">
-                                <rect key="frame" x="67.5" y="386" width="240" height="200"/>
-                                <color key="backgroundColor" red="1" green="0.15391116499999999" blue="0.1025219736" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="0ET-ms-XuL"/>
-                                    <constraint firstAttribute="width" constant="240" id="YpJ-57-Dfd"/>
-                                </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0XW-HQ-S6f">
-                                <rect key="frame" x="67.5" y="386" width="240" height="200"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="profileImageTapped:" destination="PFC-4d-7ck" eventType="touchUpInside" id="tkq-eA-GkV"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="0XW-HQ-S6f" firstAttribute="centerY" secondItem="oQf-6e-EXq" secondAttribute="centerY" id="2M4-R4-isK"/>
-                            <constraint firstItem="0XW-HQ-S6f" firstAttribute="centerX" secondItem="oQf-6e-EXq" secondAttribute="centerX" id="6FT-88-4NX"/>
                             <constraint firstItem="NRg-lL-8lJ" firstAttribute="centerX" secondItem="5jl-Ue-lxb" secondAttribute="centerX" id="J2y-tg-Ad6"/>
-                            <constraint firstItem="0XW-HQ-S6f" firstAttribute="height" secondItem="oQf-6e-EXq" secondAttribute="height" id="Oeb-9X-qG0"/>
-                            <constraint firstItem="0XW-HQ-S6f" firstAttribute="width" secondItem="oQf-6e-EXq" secondAttribute="width" id="PSQ-P3-6O1"/>
                             <constraint firstItem="NRg-lL-8lJ" firstAttribute="top" secondItem="g6a-Ow-bBB" secondAttribute="top" constant="70" id="ULG-aZ-MYr"/>
-                            <constraint firstItem="oQf-6e-EXq" firstAttribute="centerX" secondItem="5jl-Ue-lxb" secondAttribute="centerX" id="UUi-7v-Xr6"/>
-                            <constraint firstItem="g6a-Ow-bBB" firstAttribute="bottom" secondItem="oQf-6e-EXq" secondAttribute="bottom" constant="81" id="ySJ-2s-dee"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="g6a-Ow-bBB"/>
                     </view>
                     <connections>
                         <outlet property="emailOutlet" destination="jDg-Oy-ngQ" id="NS4-cX-MEP"/>
                         <outlet property="passwordOutlet" destination="SC4-CC-Byq" id="A1E-mz-e5W"/>
-                        <outlet property="profileImageOutlet" destination="oQf-6e-EXq" id="uTs-Ui-8qF"/>
                         <outlet property="usernameOutlet" destination="ToU-ra-IT7" id="VeK-tG-Sx7"/>
                     </connections>
                 </viewController>
