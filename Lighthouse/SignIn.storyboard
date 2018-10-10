@@ -13,14 +13,11 @@
         <!--Sign InVC-->
         <scene sceneID="DJ4-FY-CmQ">
             <objects>
-                <viewController id="PFC-4d-7ck" customClass="SignInVC" customModule="Lighthouse" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="signInVC" id="PFC-4d-7ck" customClass="SignInVC" customModule="Lighthouse" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5jl-Ue-lxb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="FBK-gL-O0K">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M4N-bu-9LN">
                                 <rect key="frame" x="22" y="571.5" width="331" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.4793452024" blue="0.99908632040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -36,6 +33,9 @@
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="signInTapped:" destination="PFC-4d-7ck" eventType="touchUpInside" id="ZJd-9a-w9C"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tdG-rU-TJY">
                                 <rect key="frame" x="252" y="404.5" width="101" height="14"/>
@@ -117,25 +117,25 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.155974911971831" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="dy8-ud-1OO" firstAttribute="top" secondItem="g6a-Ow-bBB" secondAttribute="top" constant="6" id="75f-fA-S1Y"/>
-                            <constraint firstItem="FBK-gL-O0K" firstAttribute="top" secondItem="5jl-Ue-lxb" secondAttribute="top" id="Amm-BN-cH1"/>
                             <constraint firstItem="tdG-rU-TJY" firstAttribute="top" secondItem="fbO-Kb-dTx" secondAttribute="bottom" constant="5" id="AoN-1B-RRF"/>
                             <constraint firstItem="M4N-bu-9LN" firstAttribute="leading" secondItem="g6a-Ow-bBB" secondAttribute="leading" constant="22" id="Dy2-jv-bPE"/>
                             <constraint firstItem="g6a-Ow-bBB" firstAttribute="trailing" secondItem="fbO-Kb-dTx" secondAttribute="trailing" constant="20" id="I9Y-sg-Xmh"/>
                             <constraint firstItem="dy8-ud-1OO" firstAttribute="leading" secondItem="g6a-Ow-bBB" secondAttribute="leading" constant="22" id="MdY-m5-qCg"/>
                             <constraint firstItem="fbO-Kb-dTx" firstAttribute="centerY" secondItem="5jl-Ue-lxb" secondAttribute="centerY" id="QpA-Ul-5NN"/>
-                            <constraint firstItem="FBK-gL-O0K" firstAttribute="trailing" secondItem="g6a-Ow-bBB" secondAttribute="trailing" id="XGc-HT-gfg"/>
                             <constraint firstItem="g6a-Ow-bBB" firstAttribute="trailing" secondItem="M4N-bu-9LN" secondAttribute="trailing" constant="22" id="YAM-HT-hru"/>
-                            <constraint firstItem="FBK-gL-O0K" firstAttribute="leading" secondItem="g6a-Ow-bBB" secondAttribute="leading" id="Ys4-yw-g5G"/>
-                            <constraint firstItem="FBK-gL-O0K" firstAttribute="bottom" secondItem="g6a-Ow-bBB" secondAttribute="bottom" id="bEV-w9-0yY"/>
                             <constraint firstItem="g6a-Ow-bBB" firstAttribute="trailing" secondItem="tdG-rU-TJY" secondAttribute="trailing" constant="22" id="g46-IT-l3U"/>
                             <constraint firstItem="fbO-Kb-dTx" firstAttribute="leading" secondItem="g6a-Ow-bBB" secondAttribute="leading" constant="20" id="lKe-iu-Jrs"/>
                             <constraint firstItem="M4N-bu-9LN" firstAttribute="top" secondItem="fbO-Kb-dTx" secondAttribute="bottom" constant="172" id="qA1-Yc-TlN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="g6a-Ow-bBB"/>
                     </view>
+                    <connections>
+                        <outlet property="emailOutlet" destination="ZjU-FI-avN" id="y2n-UY-7o6"/>
+                        <outlet property="passwordOutlet" destination="KJG-Xb-G1R" id="bUK-mp-Bkj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dua-Ex-Bed" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

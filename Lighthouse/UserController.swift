@@ -29,10 +29,11 @@ class UserController {
         }
     }
     
-    func createUser(username: String, email: String, password: String){
+    func createUser(username: String, email: String, password: String, completion: @escaping (_ success: Bool) ->Void){
         Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
             if let error = error {
                 print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
+                completion(false)
             }
             if let result = result {
                 self.db.collection(USER).document(result.user.uid).setData([
@@ -41,8 +42,10 @@ class UserController {
                 ]) { (error) in
                     if let error = error {
                         print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
+                        completion(false)
                         return
                     } else {
+                        completion(true)
                         let user = User(userID: result.user.uid, username: username, email: email)
                         self.user = user
                     }

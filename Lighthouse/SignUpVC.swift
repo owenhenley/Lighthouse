@@ -13,12 +13,11 @@ class SignUpVC: UIViewController {
     @IBOutlet weak var emailOutlet: UITextField!
     @IBOutlet weak var passwordOutlet: UITextField!
     @IBOutlet weak var usernameOutlet: UITextField!
-    
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
 
@@ -37,7 +36,18 @@ class SignUpVC: UIViewController {
         guard let email = emailOutlet.text,
             let password = passwordOutlet.text,
             let username = usernameOutlet.text else {return}
-        UserController.shared.createUser(username: username, email: email, password: password)
+        UserController.shared.createUser(username: username, email: email, password: password) { (success) in
+            if success {
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
+        
     }
     
+    @IBAction func signInTapped(_ sender: Any) {
+        
+        UIView.animate(withDuration: 0.5) {
+            self.view.center = CGPoint(x: 0.5 * self.view.frame.width, y: -self.view.frame.height)
+        }
+    }
 }

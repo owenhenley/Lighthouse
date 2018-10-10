@@ -167,6 +167,10 @@
                                         <rect key="frame" x="153" y="0.0" width="39" height="14"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <state key="normal" title="Sign In"/>
+                                        <connections>
+                                            <action selector="signInTapped:" destination="X85-tI-C3A" eventType="touchUpInside" id="yXT-qA-Jru"/>
+                                            <segue destination="cJG-oZ-Wfa" kind="showDetail" id="pnr-dp-TSr"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -181,7 +185,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.15784551056338028" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.15732284330985916" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="FjR-YA-Rs7" firstAttribute="centerX" secondItem="YCk-W1-VBQ" secondAttribute="centerX" id="0im-mE-hxq"/>
                             <constraint firstItem="Qro-VT-owz" firstAttribute="leading" secondItem="L5V-Up-arc" secondAttribute="leading" constant="22" id="1UB-WZ-dnx"/>
@@ -208,6 +212,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WbT-vC-PFq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="61.600000000000001" y="133.5832083958021"/>
+        </scene>
+        <!--SignIn-->
+        <scene sceneID="hby-ev-NYc">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SignIn" id="cJG-oZ-Wfa" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ew7-Sp-sjX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="591" y="137"/>
         </scene>
     </scenes>
     <resources>

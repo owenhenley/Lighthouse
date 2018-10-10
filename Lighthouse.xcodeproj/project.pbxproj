@@ -120,6 +120,7 @@
 				2862786D1C23847430417D4A /* Pods */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		3EA99132216BDC9E0001F09D /* Products */ = {
 			isa = PBXGroup;
@@ -613,7 +614,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ASRKL3D2BB;
 				INFOPLIST_FILE = Lighthouse/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -634,7 +635,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ASRKL3D2BB;
 				INFOPLIST_FILE = Lighthouse/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

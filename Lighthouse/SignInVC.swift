@@ -11,9 +11,11 @@ import UIKit
 class SignInVC: UIViewController {
     
     
+
     @IBOutlet weak var emailOutlet: UITextField!
     @IBOutlet weak var passwordOutlet: UITextField!
-    @IBOutlet weak var usernameOutlet: UITextField!
+    
+  
 
     
     
@@ -36,10 +38,9 @@ class SignInVC: UIViewController {
     */
 
     @IBAction func signInTapped(_ sender: Any) {
-        guard let username = usernameOutlet.text,
-            let password = passwordOutlet.text,
+        guard let password = passwordOutlet.text,
             let email = emailOutlet.text else {return}
-        UserController.shared.createUser(username: username, email: email, password: password)
+        UserController.shared.logInUser(email: email, password: password)
     }
     
     
