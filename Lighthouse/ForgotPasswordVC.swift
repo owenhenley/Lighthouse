@@ -11,44 +11,34 @@ import Firebase
 
 class ForgotPasswordVC: UIViewController {
     
-        // MARK: - Variables
-    
-    
-        // MARK: - Outlets
+    // MARK: - Outlets
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var resetButton: UIButton!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
     }
     
-        // MARK: - Actions
-
+    // MARK: - Actions
+    
+    // Send an email to the users email address to reset their password.
     @IBAction func resetTapped(_ sender: UIButton) {
         
         guard let email = emailTF.text, !email.isEmpty else { return }
         
+        // FIXME: Add completion to check when email sent, user activity monitor wheel, show alerts when completed.
+        self.dismiss(animated: true, completion: nil)
+
         AUTH.sendPasswordReset(withEmail: email) { (error) in
             if let error = error {
                 debugPrint("❌ Error in file \(#file), function \(#function), \(error),\(error.localizedDescription)❌")
+                //FIXME: Can't find email, double check the address
             } else {
                 print("Password reset link Sent! ✅")
+                //FIXME: Remind user to check junk/spam.
             }
         }
     }
     
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

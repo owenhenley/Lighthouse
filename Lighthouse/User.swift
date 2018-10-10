@@ -2,7 +2,7 @@
 //  User.swift
 //  Lighthouse
 //
-//  Created by Owen Henley on 10/8/18.
+//  Created by Owen Henley & Levi Linchenko on 10/8/18.
 //  Copyright © 2018 Lighthouse. All rights reserved.
 //
 
