@@ -9,6 +9,11 @@
 import UIKit
 
 class SignUpVC: UIViewController {
+    
+    @IBOutlet weak var emailOutlet: UITextField!
+    @IBOutlet weak var passwordOutlet: UITextField!
+    @IBOutlet weak var usernameOutlet: UITextField!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,5 +31,13 @@ class SignUpVC: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    
+    @IBAction func createProfileTapped(_ sender: Any) {
+        guard let email = emailOutlet.text,
+            let password = passwordOutlet.text,
+            let username = usernameOutlet.text else {return}
+        UserController.shared.createUser(username: username, email: email, password: password)
+    }
+    
 }

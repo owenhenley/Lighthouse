@@ -18,9 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Bpi-Tn-bi8">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </mapView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="dOv-3c-Vk3">
                                 <rect key="frame" x="22" y="229.5" width="331" height="208"/>
                                 <subviews>
@@ -153,6 +150,9 @@
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="createProfileTapped:" destination="X85-tI-C3A" eventType="touchUpInside" id="1tB-sZ-4hy"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="FjR-YA-Rs7">
                                 <rect key="frame" x="91.5" y="571.5" width="192" height="14"/>
@@ -181,28 +181,29 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.15784551056338028" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="FjR-YA-Rs7" firstAttribute="centerX" secondItem="YCk-W1-VBQ" secondAttribute="centerX" id="0im-mE-hxq"/>
                             <constraint firstItem="Qro-VT-owz" firstAttribute="leading" secondItem="L5V-Up-arc" secondAttribute="leading" constant="22" id="1UB-WZ-dnx"/>
                             <constraint firstItem="Qro-VT-owz" firstAttribute="top" secondItem="L5V-Up-arc" secondAttribute="top" constant="6" id="6bM-cN-YEw"/>
-                            <constraint firstItem="Bpi-Tn-bi8" firstAttribute="leading" secondItem="L5V-Up-arc" secondAttribute="leading" id="Dw4-nY-521"/>
-                            <constraint firstItem="Bpi-Tn-bi8" firstAttribute="bottom" secondItem="L5V-Up-arc" secondAttribute="bottom" id="EUc-Pu-AeS"/>
                             <constraint firstItem="v8p-sP-uBl" firstAttribute="leading" secondItem="L5V-Up-arc" secondAttribute="leading" constant="22" id="K1o-fO-iUp"/>
                             <constraint firstItem="L5V-Up-arc" firstAttribute="trailing" secondItem="dOv-3c-Vk3" secondAttribute="trailing" constant="22" id="T1J-iZ-e7J"/>
                             <constraint firstItem="dOv-3c-Vk3" firstAttribute="leading" secondItem="L5V-Up-arc" secondAttribute="leading" constant="22" id="UXs-Ll-FZd"/>
-                            <constraint firstItem="Bpi-Tn-bi8" firstAttribute="top" secondItem="YCk-W1-VBQ" secondAttribute="top" id="aAB-Rq-Q43"/>
                             <constraint firstItem="v8p-sP-uBl" firstAttribute="top" secondItem="meY-O5-bxv" secondAttribute="bottom" constant="24" id="aQB-qR-PiC"/>
                             <constraint firstItem="meY-O5-bxv" firstAttribute="leading" secondItem="L5V-Up-arc" secondAttribute="leading" constant="22" id="bjX-A1-xA0"/>
                             <constraint firstItem="L5V-Up-arc" firstAttribute="trailing" secondItem="meY-O5-bxv" secondAttribute="trailing" constant="22" id="ebi-p0-EP6"/>
                             <constraint firstItem="FjR-YA-Rs7" firstAttribute="top" secondItem="v8p-sP-uBl" secondAttribute="bottom" constant="4" id="nD0-NR-ZJv"/>
-                            <constraint firstItem="Bpi-Tn-bi8" firstAttribute="trailing" secondItem="L5V-Up-arc" secondAttribute="trailing" id="nWD-ZJ-3eK"/>
                             <constraint firstItem="L5V-Up-arc" firstAttribute="trailing" secondItem="v8p-sP-uBl" secondAttribute="trailing" constant="22" id="nvN-de-lgt"/>
                             <constraint firstItem="dOv-3c-Vk3" firstAttribute="centerY" secondItem="YCk-W1-VBQ" secondAttribute="centerY" id="tmy-R8-EvK"/>
                             <constraint firstItem="meY-O5-bxv" firstAttribute="top" secondItem="dOv-3c-Vk3" secondAttribute="bottom" constant="24" id="zNi-pZ-ZWY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="L5V-Up-arc"/>
                     </view>
+                    <connections>
+                        <outlet property="emailOutlet" destination="Hr9-Ff-2Rj" id="3c9-ZM-b4C"/>
+                        <outlet property="passwordOutlet" destination="bIr-GL-InB" id="xp2-ln-5Fg"/>
+                        <outlet property="usernameOutlet" destination="417-1n-PJ7" id="cmq-B3-WXj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WbT-vC-PFq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

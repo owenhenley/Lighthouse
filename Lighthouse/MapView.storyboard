@@ -38,6 +38,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="nextTapped:" destination="KIQ-uS-6Qq" eventType="touchUpInside" id="GJP-Vc-Yfq"/>
+                                    <segue destination="2Am-nQ-tSa" kind="presentation" identifier="displaySignUp" modalPresentationStyle="overCurrentContext" id="FrL-RB-rjV"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="80a-lU-8OU">
@@ -84,11 +85,20 @@
                     <connections>
                         <outlet property="mainMapView" destination="1e0-ld-Izd" id="ZBc-Jk-6Id"/>
                         <outlet property="nextButton" destination="fcj-Zu-x1i" id="zGi-Wu-er1"/>
+                        <outlet property="welcomeCopy" destination="80a-lU-8OU" id="2qx-0h-s3w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fqI-Ac-3Lb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1040.8" y="48.125937031484263"/>
+        </scene>
+        <!--SignUp-->
+        <scene sceneID="nbT-0Y-Yga">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qFF-oZ-cW9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="SignUp" id="2Am-nQ-tSa" sceneMemberID="viewController"/>
+            </objects>
+            <point key="canvasLocation" x="1564" y="30"/>
         </scene>
         <!--Tray TabVC-->
         <scene sceneID="YPC-yE-cD4">

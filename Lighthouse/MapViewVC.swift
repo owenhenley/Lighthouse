@@ -21,15 +21,16 @@ class MapViewVC: UIViewController {
 
     @IBOutlet weak var mainMapView: MKMapView!
     @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var welcomeCopy: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if Auth.auth().currentUser == nil {
-            let storyboard = UIStoryboard(name: "SignUp", bundle: nil)
-            let signUpVC = storyboard.instantiateViewController(withIdentifier: "signUpVC")
-            self.present(signUpVC, animated: true)
-        }
+//        if Auth.auth().currentUser == nil {
+//            let storyboard = UIStoryboard(name: "SignUp", bundle: nil)
+//            let signUpVC = storyboard.instantiateViewController(withIdentifier: "signUpVC")
+//            self.present(signUpVC, animated: true)
+//        }
         
        self.locationManager.requestWhenInUseAuthorization()
     }
@@ -37,20 +38,15 @@ class MapViewVC: UIViewController {
     // MARK: - Actions
     
     @IBAction func nextTapped(_ sender: UIButton) {
-        
+        nextButton.isHidden = true
+        welcomeCopy.isHidden = true
     }
     
     
     
     
-    /*
-    // MARK: - Navigation
+    
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+ 
 
 }
