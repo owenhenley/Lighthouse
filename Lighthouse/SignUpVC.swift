@@ -20,6 +20,14 @@ class SignUpVC: UIViewController {
 
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if UserController.shared.user != nil {
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+
     /*
     // MARK: - Navigation
 

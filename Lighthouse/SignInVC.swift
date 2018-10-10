@@ -27,7 +27,14 @@ class SignInVC: UIViewController {
     @IBAction func signInTapped(_ sender: Any) {
         guard let password = passwordOutlet.text,
             let email = emailOutlet.text else {return}
-        UserController.shared.logInUser(email: email, password: password)
+        UserController.shared.logInUser(email: email, password: password) { (success) in
+            if success {
+                
+                DispatchQueue.main.async {
+                    self.dismiss(animated: true, completion: nil)
+                }
+            }
+        }
     }
     
     //    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
