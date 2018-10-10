@@ -27,6 +27,9 @@
 		3E32AEF3216D501000C889DF /* FriendsTrayListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E32AEF2216D501000C889DF /* FriendsTrayListVC.swift */; };
 		3E32AEF5216D502600C889DF /* DropPinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E32AEF4216D502600C889DF /* DropPinVC.swift */; };
 		3E32AEF7216D524C00C889DF /* FriendsListTrayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E32AEF6216D524C00C889DF /* FriendsListTrayCell.swift */; };
+		3E7B2B69216D8E7000E4F0F1 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7B2B68216D8E7000E4F0F1 /* ForgotPasswordVC.swift */; };
+		3E7B2B6D216D929500E4F0F1 /* ForgotPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E7B2B6C216D929500E4F0F1 /* ForgotPassword.storyboard */; };
+		3E7B2B70216D98F600E4F0F1 /* FoursquareAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7B2B6F216D98F600E4F0F1 /* FoursquareAPIController.swift */; };
 		3EA99144216BDC9E0001F09D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA99143216BDC9E0001F09D /* AppDelegate.swift */; };
 		3EA99146216BDC9F0001F09D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EA99145216BDC9F0001F09D /* Assets.xcassets */; };
 		3EA99149216BDC9F0001F09D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EA99147216BDC9F0001F09D /* LaunchScreen.storyboard */; };
@@ -63,6 +66,9 @@
 		3E32AEF2216D501000C889DF /* FriendsTrayListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTrayListVC.swift; sourceTree = "<group>"; };
 		3E32AEF4216D502600C889DF /* DropPinVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropPinVC.swift; sourceTree = "<group>"; };
 		3E32AEF6216D524C00C889DF /* FriendsListTrayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListTrayCell.swift; sourceTree = "<group>"; };
+		3E7B2B68216D8E7000E4F0F1 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
+		3E7B2B6C216D929500E4F0F1 /* ForgotPassword.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ForgotPassword.storyboard; sourceTree = "<group>"; };
+		3E7B2B6F216D98F600E4F0F1 /* FoursquareAPIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoursquareAPIController.swift; sourceTree = "<group>"; };
 		3EA99131216BDC9E0001F09D /* Lighthouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lighthouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EA99143216BDC9E0001F09D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3EA99145216BDC9F0001F09D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -111,6 +117,36 @@
 			name = "Map View Drawer";
 			sourceTree = "<group>";
 		};
+		3E7B2B6A216D8E8000E4F0F1 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				3E32AEED216D4F7300C889DF /* SignUpVC.swift */,
+				3E28E871216C204600E21331 /* SignInVC.swift */,
+				3E32AEEB216D4F4C00C889DF /* UserProfileVC.swift */,
+				3E7B2B68216D8E7000E4F0F1 /* ForgotPasswordVC.swift */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
+		3E7B2B6B216D8EC600E4F0F1 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				3E28E8A5216D1DA200E21331 /* UserProfile.storyboard */,
+				3E28E86F216C1F8400E21331 /* SignIn.storyboard */,
+				3E7B2B6C216D929500E4F0F1 /* ForgotPassword.storyboard */,
+				3E28E8AD216D20BE00E21331 /* SignUp.storyboard */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
+		3E7B2B6E216D98CF00E4F0F1 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3E7B2B6F216D98F600E4F0F1 /* FoursquareAPIController.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
 		3EA99128216BDC9E0001F09D = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +173,7 @@
 				3EA99134216BDC9E0001F09D /* Models */,
 				3EA99137216BDC9E0001F09D /* Controllers */,
 				3EA9913E216BDC9E0001F09D /* Views */,
+				3E7B2B6E216D98CF00E4F0F1 /* Services */,
 				3EA99142216BDC9E0001F09D /* Resources */,
 				3EA99160216BDFFE0001F09D /* Supporting Files */,
 			);
@@ -175,11 +212,9 @@
 			children = (
 				3E28E867216BF24400E21331 /* LoadingScreenVC.swift */,
 				3E28E869216BF27000E21331 /* MapViewVC.swift */,
-				3E28E871216C204600E21331 /* SignInVC.swift */,
 				3E32AEE7216D4EF500C889DF /* FriendsListVC.swift */,
 				3E32AEE9216D4F2D00C889DF /* TabBarControllerViewController.swift */,
-				3E32AEEB216D4F4C00C889DF /* UserProfileVC.swift */,
-				3E32AEED216D4F7300C889DF /* SignUpVC.swift */,
+				3E7B2B6A216D8E8000E4F0F1 /* User */,
 				3E32AEEF216D4FB900C889DF /* Map View Drawer */,
 			);
 			name = "View Controllers";
@@ -213,9 +248,7 @@
 				3E28E8A1216D108500E21331 /* TabBarController.storyboard */,
 				3E28E8A9216D1E7000E21331 /* FriendsList.storyboard */,
 				3E28E8A7216D1E2F00E21331 /* MapView.storyboard */,
-				3E28E8A5216D1DA200E21331 /* UserProfile.storyboard */,
-				3E28E86F216C1F8400E21331 /* SignIn.storyboard */,
-				3E28E8AD216D20BE00E21331 /* SignUp.storyboard */,
+				3E7B2B6B216D8EC600E4F0F1 /* User */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -356,6 +389,7 @@
 				3E28E870216C1F8400E21331 /* SignIn.storyboard in Resources */,
 				3EA99164216BE0310001F09D /* GoogleService-Info.plist in Resources */,
 				3E28E8A6216D1DA200E21331 /* UserProfile.storyboard in Resources */,
+				3E7B2B6D216D929500E4F0F1 /* ForgotPassword.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,6 +492,7 @@
 				3E32AEF3216D501000C889DF /* FriendsTrayListVC.swift in Sources */,
 				3EA99162216BE0200001F09D /* DateFormatter.swift in Sources */,
 				3EA99152216BDF1B0001F09D /* Location.swift in Sources */,
+				3E7B2B70216D98F600E4F0F1 /* FoursquareAPIController.swift in Sources */,
 				3E28E868216BF24400E21331 /* LoadingScreenVC.swift in Sources */,
 				3E28E872216C204600E21331 /* SignInVC.swift in Sources */,
 				3EA99144216BDC9E0001F09D /* AppDelegate.swift in Sources */,
@@ -467,6 +502,7 @@
 				3E32AEEC216D4F4C00C889DF /* UserProfileVC.swift in Sources */,
 				3E32AEF1216D4FE900C889DF /* TrayTabVC.swift in Sources */,
 				3E28E86A216BF27000E21331 /* MapViewVC.swift in Sources */,
+				3E7B2B69216D8E7000E4F0F1 /* ForgotPasswordVC.swift in Sources */,
 				3E32AEEA216D4F2D00C889DF /* TabBarControllerViewController.swift in Sources */,
 				3EA99153216BDF1B0001F09D /* User.swift in Sources */,
 				3E32AEEE216D4F7300C889DF /* SignUpVC.swift in Sources */,

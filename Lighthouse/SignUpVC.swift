@@ -19,7 +19,6 @@ class SignUpVC: UIViewController {
         super.viewDidLoad()
 
     }
-    
 
     /*
     // MARK: - Navigation

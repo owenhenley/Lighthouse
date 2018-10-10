@@ -2,7 +2,7 @@
 //  User.swift
 //  Lighthouse
 //
-//  Created by Owen Henley on 10/8/18.
+//  Created by Owen Henley & Levi Linchenko on 10/8/18.
 //  Copyright © 2018 Lighthouse. All rights reserved.
 //
 
@@ -12,8 +12,6 @@ import CoreLocation
 
 
 class User {
-    
-    
     
     let userID          : String
     let username        : String
@@ -30,9 +28,9 @@ class User {
 
 
     init(userID: String, username: String, email: String) {
-        self.userID = userID
+        self.userID   = userID
         self.username = username
-        self.email = email
+        self.email    = email
         
     }
    
