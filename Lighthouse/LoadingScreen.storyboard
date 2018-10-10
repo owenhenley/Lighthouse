@@ -19,17 +19,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mBz-a7-for">
-                                <rect key="frame" x="67" y="269" width="240" height="128"/>
+                                <rect key="frame" x="67" y="34" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="K6Y-fP-rLL">
+                                <rect key="frame" x="20" y="289.5" width="335" height="88"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bitches be cray cray. We need your location to make sure they can keep track of you." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uui-1g-rXi">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WLh-9j-tfy">
+                                        <rect key="frame" x="117.5" y="58" width="100" height="30"/>
+                                        <state key="normal" title="Allow Location"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="K6Y-fP-rLL" firstAttribute="centerY" secondItem="fCX-pc-dnQ" secondAttribute="centerY" id="KKW-2N-ouh"/>
+                            <constraint firstAttribute="trailing" secondItem="K6Y-fP-rLL" secondAttribute="trailing" constant="20" id="pSv-yS-Cxj"/>
+                            <constraint firstItem="K6Y-fP-rLL" firstAttribute="leading" secondItem="DaK-Zn-Qxg" secondAttribute="leading" constant="20" id="ukL-Ec-tqq"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="DaK-Zn-Qxg"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yf2-eg-9Bk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="153" y="148"/>
+            <point key="canvasLocation" x="152.80000000000001" y="147.97601199400302"/>
         </scene>
     </scenes>
 </document>

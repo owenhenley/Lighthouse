@@ -19,7 +19,7 @@ class SignUpVC: UIViewController {
         super.viewDidLoad()
 
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if UserController.shared.user != nil {

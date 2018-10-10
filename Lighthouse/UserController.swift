@@ -2,7 +2,7 @@
 //  UserController.swift
 //  Lighthouse
 //
-//  Created by Owen Henley on 10/8/18.
+//  Created by Owen Henley & Levi Linchenko on 10/8/18.
 //  Copyright © 2018 Lighthouse. All rights reserved.
 //
 
@@ -19,8 +19,9 @@ class UserController {
     var uid: String?
     let db = Firestore.firestore()
     
-    
+  
     func logInUser(email: String, password: String, completion: @escaping (_ success: Bool) -> ()){
+
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             if let error = error {
                 print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
