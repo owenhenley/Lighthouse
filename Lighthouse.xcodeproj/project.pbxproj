@@ -29,6 +29,7 @@
 		3E32AEF7216D524C00C889DF /* FriendsListTrayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E32AEF6216D524C00C889DF /* FriendsListTrayCell.swift */; };
 		3E7B2B69216D8E7000E4F0F1 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7B2B68216D8E7000E4F0F1 /* ForgotPasswordVC.swift */; };
 		3E7B2B6D216D929500E4F0F1 /* ForgotPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E7B2B6C216D929500E4F0F1 /* ForgotPassword.storyboard */; };
+		3E7B2B70216D98F600E4F0F1 /* FoursquareAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7B2B6F216D98F600E4F0F1 /* FoursquareAPIController.swift */; };
 		3EA99144216BDC9E0001F09D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA99143216BDC9E0001F09D /* AppDelegate.swift */; };
 		3EA99146216BDC9F0001F09D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EA99145216BDC9F0001F09D /* Assets.xcassets */; };
 		3EA99149216BDC9F0001F09D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EA99147216BDC9F0001F09D /* LaunchScreen.storyboard */; };
@@ -67,6 +68,7 @@
 		3E32AEF6216D524C00C889DF /* FriendsListTrayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListTrayCell.swift; sourceTree = "<group>"; };
 		3E7B2B68216D8E7000E4F0F1 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
 		3E7B2B6C216D929500E4F0F1 /* ForgotPassword.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ForgotPassword.storyboard; sourceTree = "<group>"; };
+		3E7B2B6F216D98F600E4F0F1 /* FoursquareAPIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoursquareAPIController.swift; sourceTree = "<group>"; };
 		3EA99131216BDC9E0001F09D /* Lighthouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lighthouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EA99143216BDC9E0001F09D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3EA99145216BDC9F0001F09D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -137,6 +139,14 @@
 			name = User;
 			sourceTree = "<group>";
 		};
+		3E7B2B6E216D98CF00E4F0F1 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3E7B2B6F216D98F600E4F0F1 /* FoursquareAPIController.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
 		3EA99128216BDC9E0001F09D = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +172,7 @@
 				3EA99134216BDC9E0001F09D /* Models */,
 				3EA99137216BDC9E0001F09D /* Controllers */,
 				3EA9913E216BDC9E0001F09D /* Views */,
+				3E7B2B6E216D98CF00E4F0F1 /* Services */,
 				3EA99142216BDC9E0001F09D /* Resources */,
 				3EA99160216BDFFE0001F09D /* Supporting Files */,
 			);
@@ -480,6 +491,7 @@
 				3E32AEF3216D501000C889DF /* FriendsTrayListVC.swift in Sources */,
 				3EA99162216BE0200001F09D /* DateFormatter.swift in Sources */,
 				3EA99152216BDF1B0001F09D /* Location.swift in Sources */,
+				3E7B2B70216D98F600E4F0F1 /* FoursquareAPIController.swift in Sources */,
 				3E28E868216BF24400E21331 /* LoadingScreenVC.swift in Sources */,
 				3E28E872216C204600E21331 /* SignInVC.swift in Sources */,
 				3EA99144216BDC9E0001F09D /* AppDelegate.swift in Sources */,

@@ -2,7 +2,7 @@
 //  UserController.swift
 //  Lighthouse
 //
-//  Created by Owen Henley on 10/8/18.
+//  Created by Owen Henley & Levi Linchenko on 10/8/18.
 //  Copyright © 2018 Lighthouse. All rights reserved.
 //
 
@@ -18,7 +18,6 @@ class UserController {
     var user: User?
     let uid = Auth.auth().currentUser?.uid
     let db = Firestore.firestore()
-    
     
     func logInUser(email: String, password: String){
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
