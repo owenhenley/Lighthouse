@@ -18,10 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mBz-a7-for">
-                                <rect key="frame" x="67" y="34" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="K6Y-fP-rLL">
                                 <rect key="frame" x="20" y="289.5" width="335" height="88"/>
                                 <subviews>
@@ -37,6 +33,10 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Screen Shot 2018-10-10 at 5.11.32 PM" translatesAutoresizingMaskIntoConstraints="NO" id="mBz-a7-for">
+                                <rect key="frame" x="67" y="50" width="240" height="201"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -52,4 +52,7 @@
             <point key="canvasLocation" x="152.80000000000001" y="147.97601199400302"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Screen Shot 2018-10-10 at 5.11.32 PM" width="426" height="404"/>
+    </resources>
 </document>
