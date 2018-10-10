@@ -13,8 +13,6 @@ import CoreLocation
 
 class User {
     
-    
-    
     let userID          : String
     let username        : String
     let email           : String?
@@ -30,9 +28,9 @@ class User {
 
 
     init(userID: String, username: String, email: String) {
-        self.userID = userID
+        self.userID   = userID
         self.username = username
-        self.email = email
+        self.email    = email
         
     }
    

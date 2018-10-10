@@ -94,7 +94,7 @@
         <scene sceneID="YPC-yE-cD4">
             <objects>
                 <viewController id="uzX-QU-v97" customClass="TrayTabVC" customModule="Lighthouse" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="WBp-uB-mEF">
+                    <view key="view" hidden="YES" contentMode="scaleToFill" id="WBp-uB-mEF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -102,23 +102,20 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trayTabUp" translatesAutoresizingMaskIntoConstraints="NO" id="fZG-Y8-h5H">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="25"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="25" id="gah-sN-DqN"/>
-                                        </constraints>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DNX-wE-aiw" userLabel="Tray View Container">
-                                        <rect key="frame" x="0.0" y="24" width="375" height="126"/>
+                                        <rect key="frame" x="0.0" y="39" width="375" height="111"/>
                                         <subviews>
                                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hav-dZ-dop">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="126"/>
+                                                <rect key="frame" x="0.0" y="-21" width="375" height="132"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                 <connections>
                                                     <segue destination="0m3-Rn-wDM" kind="embed" id="HbI-VB-b2c"/>
                                                 </connections>
                                             </containerView>
                                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z1d-6N-eeZ">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="126"/>
+                                                <rect key="frame" x="0.0" y="-21" width="375" height="132"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                 <connections>
                                                     <segue destination="SNw-hE-q1g" kind="embed" id="YdW-yK-Flx"/>

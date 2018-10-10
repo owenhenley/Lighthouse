@@ -19,8 +19,8 @@ class MapViewVC: UIViewController {
     
         // MARK: - Outlets
 
-    @IBOutlet weak var mainMapView: MKMapView!
-    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var mainMapView : MKMapView!
+    @IBOutlet weak var nextButton  : UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
