@@ -21,7 +21,6 @@
 		3E28E8AE216D20BE00E21331 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E28E8AD216D20BE00E21331 /* SignUp.storyboard */; };
 		3E32AEE8216D4EF500C889DF /* FriendsListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E32AEE7216D4EF500C889DF /* FriendsListVC.swift */; };
 		3E32AEEA216D4F2D00C889DF /* TabBarControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E32AEE9216D4F2D00C889DF /* TabBarControllerViewController.swift */; };
-		3E32AEEC216D4F4C00C889DF /* UserProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E32AEEB216D4F4C00C889DF /* UserProfileVC.swift */; };
 		3E32AEEE216D4F7300C889DF /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E32AEED216D4F7300C889DF /* SignUpVC.swift */; };
 		3E32AEF1216D4FE900C889DF /* TrayTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E32AEF0216D4FE900C889DF /* TrayTabVC.swift */; };
 		3E32AEF3216D501000C889DF /* FriendsTrayListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E32AEF2216D501000C889DF /* FriendsTrayListVC.swift */; };
@@ -35,6 +34,7 @@
 		3EA99157216BDF8D0001F09D /* LoadingScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EA99154216BDF8D0001F09D /* LoadingScreen.storyboard */; };
 		3EA99162216BE0200001F09D /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA99161216BE0200001F09D /* DateFormatter.swift */; };
 		3EA99164216BE0310001F09D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3EA99163216BE0310001F09D /* GoogleService-Info.plist */; };
+		7EEF84A9216E6DAF00558093 /* UserProfileTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEF84A8216E6DAF00558093 /* UserProfileTableVC.swift */; };
 		7EF9A479216C0D480064DC47 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF9A478216C0D480064DC47 /* Constants.swift */; };
 		7EF9A47B216C18FA0064DC47 /* AlertControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF9A47A216C18FA0064DC47 /* AlertControllers.swift */; };
 		AF1A98AB8F326C9B496E245A /* Pods_Lighthouse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27D9275730042F1BCE1ABBCD /* Pods_Lighthouse.framework */; };
@@ -57,7 +57,6 @@
 		3E28E8AD216D20BE00E21331 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		3E32AEE7216D4EF500C889DF /* FriendsListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListVC.swift; sourceTree = "<group>"; };
 		3E32AEE9216D4F2D00C889DF /* TabBarControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllerViewController.swift; sourceTree = "<group>"; };
-		3E32AEEB216D4F4C00C889DF /* UserProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileVC.swift; sourceTree = "<group>"; };
 		3E32AEED216D4F7300C889DF /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		3E32AEF0216D4FE900C889DF /* TrayTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrayTabVC.swift; sourceTree = "<group>"; };
 		3E32AEF2216D501000C889DF /* FriendsTrayListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTrayListVC.swift; sourceTree = "<group>"; };
@@ -74,6 +73,7 @@
 		3EA99161216BE0200001F09D /* DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		3EA99163216BE0310001F09D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3EA9916A216BE0EC0001F09D /* Lighthouse.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Lighthouse.entitlements; sourceTree = "<group>"; };
+		7EEF84A8216E6DAF00558093 /* UserProfileTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileTableVC.swift; sourceTree = "<group>"; };
 		7EF9A478216C0D480064DC47 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7EF9A47A216C18FA0064DC47 /* AlertControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllers.swift; sourceTree = "<group>"; };
 		C8AED16E9AFF336D11AA6353 /* Pods-Lighthouse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lighthouse.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Lighthouse/Pods-Lighthouse.debug.xcconfig"; sourceTree = "<group>"; };
@@ -178,8 +178,8 @@
 				3E28E871216C204600E21331 /* SignInVC.swift */,
 				3E32AEE7216D4EF500C889DF /* FriendsListVC.swift */,
 				3E32AEE9216D4F2D00C889DF /* TabBarControllerViewController.swift */,
-				3E32AEEB216D4F4C00C889DF /* UserProfileVC.swift */,
 				3E32AEED216D4F7300C889DF /* SignUpVC.swift */,
+				7EEF84A8216E6DAF00558093 /* UserProfileTableVC.swift */,
 				3E32AEEF216D4FB900C889DF /* Map View Drawer */,
 			);
 			name = "View Controllers";
@@ -464,12 +464,12 @@
 				3E32AEE8216D4EF500C889DF /* FriendsListVC.swift in Sources */,
 				3E28E86C216BF29B00E21331 /* UserController.swift in Sources */,
 				7EF9A47B216C18FA0064DC47 /* AlertControllers.swift in Sources */,
-				3E32AEEC216D4F4C00C889DF /* UserProfileVC.swift in Sources */,
 				3E32AEF1216D4FE900C889DF /* TrayTabVC.swift in Sources */,
 				3E28E86A216BF27000E21331 /* MapViewVC.swift in Sources */,
 				3E32AEEA216D4F2D00C889DF /* TabBarControllerViewController.swift in Sources */,
 				3EA99153216BDF1B0001F09D /* User.swift in Sources */,
 				3E32AEEE216D4F7300C889DF /* SignUpVC.swift in Sources */,
+				7EEF84A9216E6DAF00558093 /* UserProfileTableVC.swift in Sources */,
 				3E32AEF7216D524C00C889DF /* FriendsListTrayCell.swift in Sources */,
 				7EF9A479216C0D480064DC47 /* Constants.swift in Sources */,
 			);

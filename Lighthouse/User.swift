@@ -21,7 +21,14 @@ class User {
     let friends         : [User] = []
 //    var profileImageURL : URL?
     var profileImage    : UIImage?
-    let currentLocation : Location = Location(title: "", currentLocation: 0, coOrdinates: 0)
+    var currentLocation : Location?
+    var firstName       : String?
+    var lastName        : String?
+    var favLocation1    : String?
+    var favLocation2    : String?
+    var favLocation3    : String?
+    var pastLocations   : [Location]?
+    
 
     
     
