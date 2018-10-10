@@ -24,7 +24,7 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <segue destination="eDJ-8g-bbB" kind="relationship" relationship="viewControllers" id="GUS-qX-MrH"/>
+                        <segue destination="bLF-fP-3vU" kind="relationship" relationship="viewControllers" id="9ve-fa-ohA"/>
                         <segue destination="mWA-Bi-0vI" kind="relationship" relationship="viewControllers" id="Wk1-vp-2Cf"/>
                         <segue destination="YhF-Uo-W5b" kind="relationship" relationship="viewControllers" id="BcC-5F-i47"/>
                     </connections>
@@ -32,16 +32,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vau-XD-93w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-418" y="29"/>
-        </scene>
-        <!--UserProfile-->
-        <scene sceneID="l4l-MZ-hKL">
-            <objects>
-                <viewControllerPlaceholder storyboardName="UserProfile" id="eDJ-8g-bbB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="personIconDisabled" selectedImage="personIconActive" id="nKr-kx-uhI"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UDE-tJ-WNY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-638" y="459"/>
         </scene>
         <!--MapView-->
         <scene sceneID="okO-Dm-kJ7">
@@ -63,12 +53,20 @@
             </objects>
             <point key="canvasLocation" x="-198" y="459"/>
         </scene>
+        <!--UserProfile-->
+        <scene sceneID="Qf1-Ud-WMU">
+            <objects>
+                <viewControllerPlaceholder storyboardName="UserProfile" id="bLF-fP-3vU" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="AvH-Ka-KcG"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qv1-3s-jdK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-996" y="803"/>
+        </scene>
     </scenes>
     <resources>
         <image name="glyphsTabBarFriendsActive" width="48" height="32"/>
         <image name="glyphsTabBarFriendsDisabledCopy" width="48" height="32"/>
         <image name="glyphsTabBarMapIconActive" width="48" height="32"/>
-        <image name="personIconActive" width="22" height="22"/>
-        <image name="personIconDisabled" width="22" height="22"/>
     </resources>
 </document>
