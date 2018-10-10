@@ -8,9 +8,6 @@
 
 import UIKit
 
-//extension UIViewController {
-//    let locationAlertController = UIAlertController(title: "Lighthouse needs to use your location", message: <#T##String?#>, preferredStyle: <#T##UIAlertController.Style#>)
-//}
 
 extension UIViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func presentImagePicker(){
