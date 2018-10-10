@@ -12,14 +12,14 @@ import CoreLocation
 
 class Location {
     
-    var title: String!
-    var currentLocation: Double!
-    var coOrdinates: Double!
+    var title           : String!
+    var currentLocation : Double!
+    var coOrdinates     : Double!
     
     init(title: String, currentLocation: Double, coOrdinates: Double) {
-        self.title = title
+        self.title           = title
         self.currentLocation = currentLocation
-        self.coOrdinates = coOrdinates
+        self.coOrdinates     = coOrdinates
     }
     
 }
