@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E24CC59216FBF2F00BE957F /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E24CC58216FBF2F00BE957F /* Onboarding.storyboard */; };
 		3E28E866216BE6FB00E21331 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E28E865216BE6FB00E21331 /* MapKit.framework */; };
 		3E28E868216BF24400E21331 /* LoadingScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E28E867216BF24400E21331 /* LoadingScreenVC.swift */; };
 		3E28E86A216BF27000E21331 /* MapViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E28E869216BF27000E21331 /* MapViewVC.swift */; };
@@ -47,6 +48,7 @@
 /* Begin PBXFileReference section */
 		27D9275730042F1BCE1ABBCD /* Pods_Lighthouse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lighthouse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32F9928D5D301409ED91D92D /* Pods-Lighthouse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lighthouse.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lighthouse/Pods-Lighthouse.release.xcconfig"; sourceTree = "<group>"; };
+		3E24CC58216FBF2F00BE957F /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		3E28E865216BE6FB00E21331 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3E28E867216BF24400E21331 /* LoadingScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreenVC.swift; sourceTree = "<group>"; };
 		3E28E869216BF27000E21331 /* MapViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewVC.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 			children = (
 				3EA99147216BDC9F0001F09D /* LaunchScreen.storyboard */,
 				3EA99154216BDF8D0001F09D /* LoadingScreen.storyboard */,
+				3E24CC58216FBF2F00BE957F /* Onboarding.storyboard */,
 				3E28E8A1216D108500E21331 /* TabBarController.storyboard */,
 				3E28E8A9216D1E7000E21331 /* FriendsList.storyboard */,
 				3E28E8A7216D1E2F00E21331 /* MapView.storyboard */,
@@ -385,6 +388,7 @@
 				3EA99149216BDC9F0001F09D /* LaunchScreen.storyboard in Resources */,
 				3EA99157216BDF8D0001F09D /* LoadingScreen.storyboard in Resources */,
 				3EEC750A216EBF03009572FB /* Assets.xcassets in Resources */,
+				3E24CC59216FBF2F00BE957F /* Onboarding.storyboard in Resources */,
 				3E28E8A2216D108500E21331 /* TabBarController.storyboard in Resources */,
 				3E28E8A8216D1E2F00E21331 /* MapView.storyboard in Resources */,
 				3E28E8AE216D20BE00E21331 /* SignUp.storyboard in Resources */,
@@ -652,14 +656,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Lighthouse/Lighthouse.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ASRKL3D2BB;
+				DEVELOPMENT_TEAM = CYZA2EE6W8;
 				INFOPLIST_FILE = Lighthouse/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.levilinchenko.lighthouse;
+				PRODUCT_BUNDLE_IDENTIFIER = io.owenhenley.Lighthouse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -673,14 +677,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Lighthouse/Lighthouse.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ASRKL3D2BB;
+				DEVELOPMENT_TEAM = CYZA2EE6W8;
 				INFOPLIST_FILE = Lighthouse/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.levilinchenko.lighthouse;
+				PRODUCT_BUNDLE_IDENTIFIER = io.owenhenley.Lighthouse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
