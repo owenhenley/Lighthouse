@@ -41,7 +41,7 @@
                                     <segue destination="2Am-nQ-tSa" kind="presentation" identifier="displaySignUp" modalPresentationStyle="overCurrentContext" id="FrL-RB-rjV"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="80a-lU-8OU">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="80a-lU-8OU">
                                 <rect key="frame" x="22" y="24" width="331" height="129"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome Copy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KF4-v8-qPE">
@@ -69,15 +69,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="J9c-gc-Dyh" firstAttribute="bottom" secondItem="fcj-Zu-x1i" secondAttribute="bottom" constant="40" id="08F-iV-tpW"/>
-                            <constraint firstItem="1e0-ld-Izd" firstAttribute="bottom" secondItem="J9c-gc-Dyh" secondAttribute="bottom" id="9DY-WZ-bLU"/>
+                            <constraint firstAttribute="bottom" secondItem="1e0-ld-Izd" secondAttribute="bottom" id="C6o-zR-Vq5"/>
                             <constraint firstItem="80a-lU-8OU" firstAttribute="top" secondItem="LRg-IA-lru" secondAttribute="top" constant="24" id="HK2-Lc-RHG"/>
                             <constraint firstItem="80a-lU-8OU" firstAttribute="leading" secondItem="J9c-gc-Dyh" secondAttribute="leading" constant="22" id="J4k-qY-UOs"/>
                             <constraint firstItem="fcj-Zu-x1i" firstAttribute="leading" secondItem="J9c-gc-Dyh" secondAttribute="leading" constant="40" id="J6W-dg-xSm"/>
+                            <constraint firstItem="1e0-ld-Izd" firstAttribute="leading" secondItem="LRg-IA-lru" secondAttribute="leading" id="JJH-93-hLT"/>
                             <constraint firstItem="1e0-ld-Izd" firstAttribute="top" secondItem="LRg-IA-lru" secondAttribute="top" id="WGo-V4-KzF"/>
-                            <constraint firstItem="1e0-ld-Izd" firstAttribute="trailing" secondItem="J9c-gc-Dyh" secondAttribute="trailing" id="ee6-lw-kUg"/>
                             <constraint firstItem="J9c-gc-Dyh" firstAttribute="trailing" secondItem="fcj-Zu-x1i" secondAttribute="trailing" constant="40" id="lJt-ki-VQt"/>
+                            <constraint firstAttribute="trailing" secondItem="1e0-ld-Izd" secondAttribute="trailing" id="qUx-M1-2ei"/>
                             <constraint firstItem="J9c-gc-Dyh" firstAttribute="trailing" secondItem="80a-lU-8OU" secondAttribute="trailing" constant="22" id="qZW-Jt-8RJ"/>
-                            <constraint firstItem="1e0-ld-Izd" firstAttribute="leading" secondItem="J9c-gc-Dyh" secondAttribute="leading" id="yxB-Sg-OQj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="J9c-gc-Dyh"/>
                     </view>

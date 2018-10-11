@@ -13,46 +13,90 @@
         <!--Loading ScreenVC-->
         <scene sceneID="25x-xZ-I8C">
             <objects>
-                <viewController id="Mv3-2M-MOK" customClass="LoadingScreenVC" customModule="Lighthouse" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loadingScreen" id="Mv3-2M-MOK" customClass="LoadingScreenVC" customModule="Lighthouse" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fCX-pc-dnQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="K6Y-fP-rLL">
-                                <rect key="frame" x="20" y="289.5" width="335" height="88"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dL4-4H-rHv" userLabel="embeddedMapView">
+                                <rect key="frame" x="-20" y="-20" width="570" height="862.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bitches be cray cray. We need your location to make sure they can keep track of you." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uui-1g-rXi">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="41"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="PUI-2W-DN4">
+                                        <rect key="frame" x="0.0" y="0.0" width="415" height="706.5"/>
+                                    </mapView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="PUI-2W-DN4" secondAttribute="trailing" constant="155" id="gPP-4I-buc"/>
+                                    <constraint firstAttribute="bottom" secondItem="PUI-2W-DN4" secondAttribute="bottom" constant="156" id="iXg-6v-cVI"/>
+                                    <constraint firstItem="PUI-2W-DN4" firstAttribute="top" secondItem="dL4-4H-rHv" secondAttribute="top" id="mha-Oh-Asa"/>
+                                    <constraint firstItem="PUI-2W-DN4" firstAttribute="leading" secondItem="dL4-4H-rHv" secondAttribute="leading" id="yhW-i6-ees"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="K6Y-fP-rLL">
+                                <rect key="frame" x="20" y="204.5" width="335" height="258"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find the Party. Be the Party." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uui-1g-rXi">
+                                        <rect key="frame" x="82.5" y="0.0" width="170" height="62.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="170" id="pS2-NK-SsV"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="26"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lighthouse uses your location to bring the crew together" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4A-rY-F8F">
+                                        <rect key="frame" x="2.5" y="92.5" width="330" height="45.5"/>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="19"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WLh-9j-tfy">
-                                        <rect key="frame" x="117.5" y="58" width="100" height="30"/>
+                                        <rect key="frame" x="117.5" y="168" width="100" height="30"/>
                                         <state key="normal" title="Allow Location"/>
+                                        <connections>
+                                            <action selector="allowLocationTapped:" destination="Mv3-2M-MOK" eventType="touchUpInside" id="hd0-oo-bjA"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5XU-i3-TTa">
+                                        <rect key="frame" x="109" y="228" width="117" height="30"/>
+                                        <state key="normal" title="Show Me Around"/>
+                                        <connections>
+                                            <segue destination="LOf-fQ-MU6" kind="presentation" modalTransitionStyle="crossDissolve" id="ngT-fC-fHj"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Screen Shot 2018-10-10 at 5.11.32 PM" translatesAutoresizingMaskIntoConstraints="NO" id="mBz-a7-for">
-                                <rect key="frame" x="67" y="50" width="240" height="201"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="K6Y-fP-rLL" firstAttribute="centerY" secondItem="fCX-pc-dnQ" secondAttribute="centerY" id="KKW-2N-ouh"/>
+                            <constraint firstItem="dL4-4H-rHv" firstAttribute="centerX" secondItem="K6Y-fP-rLL" secondAttribute="centerX" constant="77.5" id="MtA-in-3Iq"/>
+                            <constraint firstItem="dL4-4H-rHv" firstAttribute="leading" secondItem="fCX-pc-dnQ" secondAttribute="leadingMargin" constant="-36" id="fIq-px-HxA"/>
+                            <constraint firstItem="dL4-4H-rHv" firstAttribute="top" secondItem="fCX-pc-dnQ" secondAttribute="topMargin" constant="-40" id="iJd-9n-Awn"/>
+                            <constraint firstItem="dL4-4H-rHv" firstAttribute="centerY" secondItem="K6Y-fP-rLL" secondAttribute="centerY" constant="77.75" id="ibO-4g-3hw"/>
                             <constraint firstAttribute="trailing" secondItem="K6Y-fP-rLL" secondAttribute="trailing" constant="20" id="pSv-yS-Cxj"/>
                             <constraint firstItem="K6Y-fP-rLL" firstAttribute="leading" secondItem="DaK-Zn-Qxg" secondAttribute="leading" constant="20" id="ukL-Ec-tqq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DaK-Zn-Qxg"/>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="PUI-2W-DN4" id="M1d-0w-qbG"/>
+                        <outlet property="showMeAroundButton" destination="5XU-i3-TTa" id="JMX-BA-28R"/>
+                        <outlet property="viewForMap" destination="dL4-4H-rHv" id="5z8-Vf-Cz0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yf2-eg-9Bk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="152.80000000000001" y="147.97601199400302"/>
         </scene>
+        <!--TabBarController-->
+        <scene sceneID="4yT-yC-8vD">
+            <objects>
+                <viewControllerPlaceholder storyboardName="TabBarController" id="LOf-fQ-MU6" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4zG-fW-M7v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="668" y="197"/>
+        </scene>
     </scenes>
-    <resources>
-        <image name="Screen Shot 2018-10-10 at 5.11.32 PM" width="426" height="404"/>
-    </resources>
 </document>

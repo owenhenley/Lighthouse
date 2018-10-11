@@ -13,26 +13,25 @@ import FirebaseAuth
 
 class MapViewVC: UIViewController {
     
-        // MARK: - Variables
+    // MARK: - Variables
     
     var locationManager = CLLocationManager()
+    let nonAuthUserLocationRadius: Double = 20000
+    let authedUserLocationRadius: Double = 400
     
-        // MARK: - Outlets
-
+    // MARK: - Outlets
+    
     @IBOutlet weak var mainMapView : MKMapView!
     @IBOutlet weak var nextButton  : UIButton!
     @IBOutlet weak var welcomeCopy : UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        if Auth.auth().currentUser == nil {
-//            let storyboard = UIStoryboard(name: "SignUp", bundle: nil)
-//            let signUpVC = storyboard.instantiateViewController(withIdentifier: "signUpVC")
-//            self.present(signUpVC, animated: true)
-//        }
-        
-       self.locationManager.requestWhenInUseAuthorization()
+        setupLocationManager()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        centerMapNonAuthUser()
     }
     
     // MARK: - Actions
@@ -42,11 +41,74 @@ class MapViewVC: UIViewController {
         welcomeCopy.isHidden = true
     }
     
+    // MARK: - Location Methods
     
+    func getCenterLocation(for map: MKMapView) -> CLLocation {
+        
+        let latitude = mainMapView.centerCoordinate.latitude
+        let longitude = mainMapView.centerCoordinate.longitude
+        
+        return CLLocation(latitude: latitude, longitude: longitude)
+    }
     
+    // MARK: - MapMethods
     
-    
+    func centerMapNonAuthUser() {
+        if let location = locationManager.location?.coordinate {
+            UIView.animate(withDuration: 5, delay: 0, options: [], animations: {
+                let region = MKCoordinateRegion.init(center: location, latitudinalMeters: self.nonAuthUserLocationRadius, longitudinalMeters: self.nonAuthUserLocationRadius)
+                self.mainMapView.setRegion(region, animated: true)
+            }, completion: nil)
+        }
+    }
+}
 
- 
 
+extension MapViewVC: MKMapViewDelegate {
+    
+    func startTrackingUserLocation() {
+        mainMapView.showsUserLocation = true
+        locationManager.startUpdatingLocation()
+    }
+}
+
+extension MapViewVC: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        checkLocationAuth()
+    }
+    
+    // Delegates
+    func setupLocationManager() {
+        mainMapView.delegate = self
+        locationManager.delegate = self
+        
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+    }
+    
+    func checkLocationAuth() {
+        switch CLLocationManager.authorizationStatus() {
+        case . authorizedWhenInUse:
+            startTrackingUserLocation()
+        case .denied:
+            // Show alert instructions
+            break
+        case .notDetermined:
+            // Show location request alert
+            locationManager.requestWhenInUseAuthorization()
+        case .restricted:
+            // Show alert letting them know whats up
+            break
+        case .authorizedAlways:
+            break
+        }
+    }
+}
+
+extension MapViewVC: UITabBarDelegate {
+    
+    // Doesn't work
+    //    func tabBar(_ tabBar: UITabBar, willBeginCustomizing items: [UITabBarItem]) {
+    //        tabBar.isHidden = true
+    //    }
 }

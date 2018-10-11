@@ -52,7 +52,6 @@
 		3E28E86B216BF29B00E21331 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		3E28E86D216BF2B300E21331 /* LocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
 		3E28E86F216C1F8400E21331 /* SignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
-		3E28E871216C204600E21331 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		3E28E8A1216D108500E21331 /* TabBarController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBarController.storyboard; sourceTree = "<group>"; };
 		3E28E8A7216D1E2F00E21331 /* MapView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MapView.storyboard; sourceTree = "<group>"; };
 		3E28E8A9216D1E7000E21331 /* FriendsList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FriendsList.storyboard; sourceTree = "<group>"; };
@@ -64,7 +63,6 @@
 		3E32AEF2216D501000C889DF /* FriendsTrayListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTrayListVC.swift; sourceTree = "<group>"; };
 		3E32AEF4216D502600C889DF /* DropPinVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropPinVC.swift; sourceTree = "<group>"; };
 		3E32AEF6216D524C00C889DF /* FriendsListTrayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListTrayCell.swift; sourceTree = "<group>"; };
-		3E7B2B68216D8E7000E4F0F1 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
 		3E7B2B6C216D929500E4F0F1 /* ForgotPassword.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ForgotPassword.storyboard; sourceTree = "<group>"; };
 		3E7B2B6F216D98F600E4F0F1 /* FoursquareAPIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoursquareAPIController.swift; sourceTree = "<group>"; };
 		3EA99131216BDC9E0001F09D /* Lighthouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lighthouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,8 +120,8 @@
 		3E7B2B6B216D8EC600E4F0F1 /* User */ = {
 			isa = PBXGroup;
 			children = (
-				3EEC750B216EC0FF009572FB /* UserProfile.storyboard */,
 				3E28E86F216C1F8400E21331 /* SignIn.storyboard */,
+				3EEC750B216EC0FF009572FB /* UserProfile.storyboard */,
 				3E7B2B6C216D929500E4F0F1 /* ForgotPassword.storyboard */,
 				3E28E8AD216D20BE00E21331 /* SignUp.storyboard */,
 			);
@@ -145,7 +143,6 @@
 				3EA99132216BDC9E0001F09D /* Products */,
 				3EA99167216BE0E10001F09D /* Frameworks */,
 				2862786D1C23847430417D4A /* Pods */,
-				3EEC7502216EB85A009572FB /* Recovered References */,
 			);
 			sourceTree = "<group>";
 			usesTabs = 0;
@@ -294,15 +291,6 @@
 				27D9275730042F1BCE1ABBCD /* Pods_Lighthouse.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		3EEC7502216EB85A009572FB /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				3E28E871216C204600E21331 /* SignInVC.swift */,
-				3E7B2B68216D8E7000E4F0F1 /* ForgotPasswordVC.swift */,
-			);
-			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		3EEC7507216EBAFD009572FB /* User */ = {
