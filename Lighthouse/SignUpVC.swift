@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AudioToolbox
 
 class SignUpVC: UIViewController {
     
@@ -17,6 +18,7 @@ class SignUpVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
     }
 
@@ -46,6 +48,9 @@ class SignUpVC: UIViewController {
         UserController.shared.createUser(username: username, email: email, password: password) { (success) in
             if success {
                 self.dismiss(animated: true, completion: nil)
+            } else {
+                self.shake()
+                AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
             }
         }
         
