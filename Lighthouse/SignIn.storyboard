@@ -121,7 +121,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.155974911971831" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="dy8-ud-1OO" firstAttribute="top" secondItem="g6a-Ow-bBB" secondAttribute="top" constant="6" id="75f-fA-S1Y"/>
                             <constraint firstItem="tdG-rU-TJY" firstAttribute="top" secondItem="fbO-Kb-dTx" secondAttribute="bottom" constant="5" id="AoN-1B-RRF"/>
