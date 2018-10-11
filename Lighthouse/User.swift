@@ -27,12 +27,8 @@ class User {
     var favLocation3    : String?
     var pastLocations   : [Location]?
     
-
-    
-    
     var isActive        : Bool = true
 //    var groups          : [User] = []
-
 
     init(userID: String, username: String, email: String) {
         self.userID   = userID
@@ -41,7 +37,6 @@ class User {
         
     }
    
-    
 }
 
 

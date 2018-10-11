@@ -17,9 +17,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
         FirebaseApp.configure()
         
-        //FIXME: Remove 
+            // MARK: - Create a User
+        
+//        AUTH.createUser(withEmail: "", password: "") { (auth, error) in
+//            if let error = error {
+//                debugPrint(error)
+//            } else {
+//                print("user created")
+//            }
+//        }
+//
+        
+            // MARK: - Sign In
+        
+        AUTH.signIn(withEmail: "owenhenley@me.com", password: "123456") { (auth, error) in
+            if let error = error {
+                debugPrint(error)
+            } else {
+                print("Signedin!")
+            }
+        }
+        
+        
+            // MARK: - Sign Out
+        
         try? Auth.auth().signOut()
         
         return true

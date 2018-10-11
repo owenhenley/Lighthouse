@@ -22,8 +22,14 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="470"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
+                                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fxX-5u-h18">
+                                    <rect key="frame" x="0.0" y="-22" width="375" height="200"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="200" id="eor-Hb-B4k"/>
+                                    </constraints>
+                                </mapView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="EcZ-tH-k9h">
-                                    <rect key="frame" x="24" y="319" width="318.5" height="81"/>
+                                    <rect key="frame" x="24" y="304.5" width="318.5" height="81"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="hpq-GO-R6k">
                                             <rect key="frame" x="0.0" y="0.0" width="318.5" height="25"/>
@@ -89,14 +95,8 @@
                                         </stackView>
                                     </subviews>
                                 </stackView>
-                                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fxX-5u-h18">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="200" id="eor-Hb-B4k"/>
-                                    </constraints>
-                                </mapView>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfPic" translatesAutoresizingMaskIntoConstraints="NO" id="0uo-FG-U0z">
-                                    <rect key="frame" x="8" y="124" width="130" height="130"/>
+                                    <rect key="frame" x="8" y="109.5" width="130" height="130"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="0uo-FG-U0z" secondAttribute="height" id="5AM-ea-JHC"/>
                                         <constraint firstAttribute="width" constant="130" id="mxz-St-fR2"/>
@@ -133,7 +133,7 @@
                                     </subviews>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="HiA-x7-P4Z">
-                                    <rect key="frame" x="146" y="161" width="221" height="91"/>
+                                    <rect key="frame" x="146" y="139" width="221" height="91"/>
                                     <subviews>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="The Golden God" placeholder="Username" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N7n-TF-BZY">
                                             <rect key="frame" x="0.0" y="0.0" width="221" height="33"/>
@@ -165,7 +165,7 @@
                                     </constraints>
                                 </stackView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favorite Locations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hK2-48-scc">
-                                    <rect key="frame" x="16" y="278" width="195.5" height="33"/>
+                                    <rect key="frame" x="16" y="263.5" width="195.5" height="33"/>
                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="24"/>
                                     <color key="textColor" red="0.41953593490000002" green="0.41176351900000002" blue="0.4117648304" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <nil key="highlightedColor"/>
@@ -177,7 +177,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6HA-uZ-rhF">
-                                    <rect key="frame" x="8" y="124" width="130" height="130"/>
+                                    <rect key="frame" x="8" y="109.5" width="130" height="130"/>
                                     <state key="normal" title="+ Add Image"/>
                                     <connections>
                                         <action selector="addImageTapped:" destination="IWC-ei-1TJ" eventType="touchUpInside" id="HWt-hB-DWl"/>
@@ -190,10 +190,10 @@
                                 <constraint firstItem="HiA-x7-P4Z" firstAttribute="leading" secondItem="0uo-FG-U0z" secondAttribute="trailing" constant="8" id="5ZD-uM-GRS"/>
                                 <constraint firstItem="6HA-uZ-rhF" firstAttribute="centerX" secondItem="0uo-FG-U0z" secondAttribute="centerX" id="8Y6-Pw-e7g"/>
                                 <constraint firstItem="Ndw-Kk-XI2" firstAttribute="trailing" secondItem="HiA-x7-P4Z" secondAttribute="trailing" constant="8" id="Csg-eq-ncM"/>
+                                <constraint firstItem="fxX-5u-h18" firstAttribute="top" secondItem="fN0-ma-zwF" secondAttribute="top" constant="-22" id="HbA-mV-FUS"/>
                                 <constraint firstItem="hK2-48-scc" firstAttribute="leading" secondItem="Ndw-Kk-XI2" secondAttribute="leading" constant="16" id="Mk6-Az-jlS"/>
                                 <constraint firstItem="fxX-5u-h18" firstAttribute="leading" secondItem="Ndw-Kk-XI2" secondAttribute="leading" id="MsZ-AG-RTA"/>
                                 <constraint firstItem="6HA-uZ-rhF" firstAttribute="width" secondItem="0uo-FG-U0z" secondAttribute="width" id="MwS-VA-QAg"/>
-                                <constraint firstItem="fxX-5u-h18" firstAttribute="top" secondItem="fN0-ma-zwF" secondAttribute="top" id="O09-Ky-Pry"/>
                                 <constraint firstItem="Wmc-9I-3dZ" firstAttribute="leading" secondItem="Ndw-Kk-XI2" secondAttribute="leading" constant="16" id="O3v-gk-uQR"/>
                                 <constraint firstItem="6HA-uZ-rhF" firstAttribute="centerY" secondItem="0uo-FG-U0z" secondAttribute="centerY" id="Rdy-UP-0O6"/>
                                 <constraint firstItem="fxX-5u-h18" firstAttribute="baseline" secondItem="HiA-x7-P4Z" secondAttribute="firstBaseline" constant="15" id="W9a-Ta-Gin"/>
@@ -241,7 +241,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="449-7n-C7K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-502" y="283"/>
+            <point key="canvasLocation" x="-503.19999999999999" y="282.90854572713647"/>
         </scene>
     </scenes>
     <resources>
