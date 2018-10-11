@@ -24,7 +24,6 @@ extension UIViewController: UIImagePickerControllerDelegate, UINavigationControl
         alertController.addAction(photoAction)
         alertController.addAction(cameraAction)
         alertController.addAction(cancelAction)
-//        picker.delegate = self
         picker.allowsEditing = true
         self.present(alertController, animated: true)
         

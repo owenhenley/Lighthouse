@@ -7,6 +7,11 @@
 //
 
 import UIKit
+import AudioToolbox
+
+//protocol PopScreen: class {
+//    func popScreen()
+//}
 
 class SignInVC: UIViewController {
     
@@ -19,12 +24,17 @@ class SignInVC: UIViewController {
         super.viewDidLoad()
     }
     
+//    weak var delegate: PopScreen?
+    
     @IBAction func forgotPasswordTapped(_ sender: UIButton) {
 
     }
     
     
     @IBAction func signInTapped(_ sender: Any) {
+        
+        //delegate?.popScreen()
+        
         guard let password = passwordOutlet.text,
             let email = emailOutlet.text else {return}
         UserController.shared.logInUser(email: email, password: password) { (success) in
@@ -33,15 +43,12 @@ class SignInVC: UIViewController {
                 DispatchQueue.main.async {
                     self.dismiss(animated: true, completion: nil)
                 }
+            } else {
+               self.shake()
+                AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
             }
         }
     }
     
-    //    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-    //        if let image = info[.editedImage] as? UIImage{
-    //            profileImageOutlet.image = image
-    //        }
-    //        dismiss(animated: true, completion: nil)
-    //    }
-    
+
 }
