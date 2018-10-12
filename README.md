@@ -20,13 +20,13 @@ A location tracking app to share your current location using FourSquares API wit
 ## Wireframes
 <br><br>
 
-<p align="center"><img height="400" src="https://user-images.githubusercontent.com/28428200/46898120-58efab00-ce44-11e8-8fde-bdbc2d33f7d4.png"/>
+<p align="center"><img height="350" src="https://user-images.githubusercontent.com/28428200/46898120-58efab00-ce44-11e8-8fde-bdbc2d33f7d4.png"/>
 
-<img height="400" src="https://user-images.githubusercontent.com/28428200/46898137-6d33a800-ce44-11e8-9529-4a95e7af5d83.png"/>
+<img height="350" src="https://user-images.githubusercontent.com/28428200/46898137-6d33a800-ce44-11e8-9529-4a95e7af5d83.png"/>
 
-<img height="400" src="https://user-images.githubusercontent.com/28428200/46898154-7e7cb480-ce44-11e8-9d79-ee5becb9e850.png"/>
+<img height="350" src="https://user-images.githubusercontent.com/28428200/46898154-7e7cb480-ce44-11e8-9d79-ee5becb9e850.png"/>
 
-<img height="400" src="https://user-images.githubusercontent.com/28428200/46898160-8c323a00-ce44-11e8-94ab-e1a84c634302.png"/>
+<img height="350" src="https://user-images.githubusercontent.com/28428200/46898160-8c323a00-ce44-11e8-94ab-e1a84c634302.png"/>
 </p>
 
 <br><br>
