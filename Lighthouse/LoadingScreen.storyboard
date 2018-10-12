@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Megrim.ttf">
+            <string>Megrim</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Loading ScreenVC-->
         <scene sceneID="25x-xZ-I8C">
@@ -29,11 +34,19 @@
                                 <rect key="frame" x="169" y="493.5" width="37" height="37"/>
                                 <color key="color" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lighthouse" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5fR-vd-Z4j">
+                                <rect key="frame" x="111" y="80" width="153" height="33"/>
+                                <fontDescription key="fontDescription" name="Megrim" family="Megrim" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="5fR-vd-Z4j" firstAttribute="centerX" secondItem="fCX-pc-dnQ" secondAttribute="centerX" id="KSW-KX-4VD"/>
                             <constraint firstItem="eK2-Fl-yV9" firstAttribute="top" secondItem="IqL-K9-a3j" secondAttribute="bottom" constant="10" id="Men-Eh-0nU"/>
                             <constraint firstItem="IqL-K9-a3j" firstAttribute="centerY" secondItem="fCX-pc-dnQ" secondAttribute="centerY" id="Tcp-Ih-CDS"/>
+                            <constraint firstItem="5fR-vd-Z4j" firstAttribute="top" secondItem="fCX-pc-dnQ" secondAttribute="top" constant="80" id="Xe4-gK-vUX"/>
                             <constraint firstItem="eK2-Fl-yV9" firstAttribute="centerX" secondItem="fCX-pc-dnQ" secondAttribute="centerX" id="q99-P2-waM"/>
                             <constraint firstItem="IqL-K9-a3j" firstAttribute="centerX" secondItem="fCX-pc-dnQ" secondAttribute="centerX" id="wNX-v0-Gvg"/>
                         </constraints>
