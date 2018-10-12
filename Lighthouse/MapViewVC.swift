@@ -100,15 +100,8 @@ extension MapViewVC: CLLocationManagerDelegate {
             // Show alert letting them know whats up
             break
         case .authorizedAlways:
+             startTrackingUserLocation()
             break
         }
     }
-}
-
-extension MapViewVC: UITabBarDelegate {
-    
-    // Doesn't work
-    //    func tabBar(_ tabBar: UITabBar, willBeginCustomizing items: [UITabBarItem]) {
-    //        tabBar.isHidden = true
-    //    }
 }

@@ -7,73 +7,30 @@
 //
 
 import UIKit
-import CoreLocation
-import MapKit
-import Firebase
+import FirebaseAuth
 
 class LoadingScreenVC: UIViewController {
     
-    @IBOutlet weak var viewForMap: UIView!
-    @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var showMeAroundButton: UIButton!
+        // MARK: - Outlets
     
-    // MARK: - Variables
+    @IBOutlet weak var activityWheel: UIActivityIndicatorView!
+    
+        // MARK: - Variables
     
     var handle: AuthStateDidChangeListenerHandle?
-    let locationManager = CLLocationManager()
     
+    
+        // MARK: - Lifecycles
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpLocationManager()
+        activityWheel.startAnimating()
+        activityWheel.isHidden = false
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
         checkUserState()
-        blurBackground()
-        showMeAroundButton.isHidden = true
-    }
-
-    
-    // MARK: - Actions
-    
-    @IBAction func allowLocationTapped(_ sender: Any) {
-        requestLocationAuth()
-        showMeAroundButton.isHidden = false
-    }
-    
-    
-        // MARK: - Location Methods
-    
-    // Activate location popup
-    func requestLocationAuth() {
-        checkLocationAuth { (success) in
-            self.locationManager.requestWhenInUseAuthorization()
-        }
-    }
-    
-    // Check to see what the users locations state is
-    func checkLocationAuth(completion: @escaping (Bool) -> Void) {
-        switch CLLocationManager.authorizationStatus() {
-        case .authorizedWhenInUse:
-            completion(true)
-            return
-        case .denied:
-            completion(false)
-            break
-        case .notDetermined:
-            locationManager.requestWhenInUseAuthorization()
-        case .restricted:
-            completion(false)
-            break
-        case .authorizedAlways:
-            completion(true)
-            return
-        default:
-            // Do it again untill you hit whet you need to
-            checkLocationAuth { (success) in
-                if success {
-                    print("Got their loction! oi oiii")
-                }
-            }
-        }
     }
     
         // MARK: - Authentication
@@ -85,36 +42,11 @@ class LoadingScreenVC: UIViewController {
                 let storyboard = UIStoryboard(name: "TabBarController", bundle: nil)
                 let mainView = storyboard.instantiateViewController(withIdentifier: "tabBarController")
                 self.present(mainView, animated: true, completion: nil)
+            } else {
+                let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
+                let onboarding = storyboard.instantiateViewController(withIdentifier: "onboarding")
+                self.present(onboarding, animated: true, completion: nil)
             }
         })
-    }
-    
-    
-        // MARK: - Visual Effects
-    
-    func blurBackground() {
-        let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
-        visualEffectView.frame = self.viewForMap.bounds
-        visualEffectView.translatesAutoresizingMaskIntoConstraints = true
-        self.viewForMap.addSubview(visualEffectView)
-    }
-    
-    
-    // Location Services Listener
-//    func locationManagerChecker(manager: CLLocationManager, didChangeAuthStatus status: CLAuthorizationStatus) {
-//        if status == CLAuthorizationStatus.denied {
-//            print("Denied")
-//        } else if status == CLAuthorizationStatus.authorizedWhenInUse {
-//            print("Allowed")
-//        }
-//    }
-}
-
-extension LoadingScreenVC: CLLocationManagerDelegate {
-    
-    // set up CoreLocation Delegates
-    func setUpLocationManager() {
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
     }
 }

@@ -15,7 +15,6 @@ import AudioToolbox
 
 class SignInVC: UIViewController {
     
-    
     @IBOutlet weak var emailOutlet    : UITextField!
     @IBOutlet weak var passwordOutlet : UITextField!
     @IBOutlet weak var usernameOutlet : UITextField!
