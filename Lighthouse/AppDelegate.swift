@@ -44,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
             // MARK: - Sign Out
         
-//        try? Auth.auth().signOut()
+        try? Auth.auth().signOut()
         
         return true
     }

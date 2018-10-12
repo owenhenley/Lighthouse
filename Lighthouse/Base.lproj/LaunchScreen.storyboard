@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Megrim.ttf">
+            <string>Megrim</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
@@ -25,11 +30,19 @@
                                     <constraint firstAttribute="height" constant="300" id="Czu-p3-RXk"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lighthouse" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qJF-Sw-ZkR">
+                                <rect key="frame" x="111" y="80" width="153" height="33"/>
+                                <fontDescription key="fontDescription" name="Megrim" family="Megrim" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="72W-2w-OWi" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="JjU-3Z-iWo"/>
                             <constraint firstItem="72W-2w-OWi" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="UXz-VW-ZC5"/>
+                            <constraint firstItem="qJF-Sw-ZkR" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" constant="80" id="dtr-Oq-p5t"/>
+                            <constraint firstItem="qJF-Sw-ZkR" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="xB6-wv-ABO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
