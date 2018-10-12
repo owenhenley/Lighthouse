@@ -16,7 +16,7 @@ class MapViewVC: UIViewController {
     // MARK: - Variables
     
     var locationManager = CLLocationManager()
-    let nonAuthUserLocationRadius: Double = 20000
+    let nonAuthUserLocationRadius: Double = 25000
     let authedUserLocationRadius: Double = 400
     
     // MARK: - Outlets
