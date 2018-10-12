@@ -19,14 +19,12 @@ class UserController {
     var uid: String?
     let db = Firestore.firestore()
     
-  
     func logInUser(email: String, password: String, completion: @escaping (_ success: Bool) -> ()){
-
+        
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             if let error = error {
                 print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
                 completion(false)
-                //FIXME: presentAlertController
             } else {
                 self.uid = Auth.auth().currentUser?.uid
                 self.fetchUser(completion: { (success) in
@@ -43,6 +41,7 @@ class UserController {
             if let error = error {
                 print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
                 completion(false)
+                return
             }
             if let result = result {
                 FIRESTORE.collection(USER).document(result.user.uid).setData([
@@ -54,10 +53,10 @@ class UserController {
                     FAV_LOCATION1 : "",
                     FAV_LOCATION2 : "",
                     FAV_LOCATION3 : "",
-                    PROFILE_IMAGE_URL : "No Profile Image"
+                    PROFILE_IMAGE_URL : "No Profile Image",
                     //CURRENT_LOCATION
                     //PAST_LOCATIONS
-                       
+                    
                 ]) { (error) in
                     if let error = error {
                         print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
@@ -69,14 +68,139 @@ class UserController {
                         self.user = user
                     }
                 }
+                self.addToUserList(username: username, uid: result.user.uid, completion: { (success) in
+                    if !success {
+                        print("Not Working 💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩")
+                    }
+                })
+            }
+            
+        }
+    }
+    
+    func addToUserList(username: String, uid: String, completion: @escaping (_ success: Bool)->Void){
+        FIRESTORE.collection(USERLIST).document(uid).setData([
+            USERNAME : username,
+            PROFILE_IMAGE_URL : "No Profile Image",
+            USER_ID : Auth.auth().currentUser!.uid
+            ], completion: { (error) in
+                if let error = error {
+                    print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
+                    completion(false)
+                } else {
+                    completion(true)
+                }
+        })
+    }
+    
+    
+    func appendUserInFriendList(uid: String, username: String, profileImageUrl: String, completion: @escaping (_ success: Bool)->Void){
+        FIRESTORE.collection(USER).document(uid).collection(FRIENDLIST).document(FRIEND).updateData([
+            USERNAME : username,
+            PROFILE_IMAGE_URL : profileImageUrl
+        ]) { (error) in
+            if let error = error {
+                print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
+                completion(false)
+            } else {
+                completion(true)
+            }
+        }
+        
+    }
+    
+    func updateUser(username: String, profileImage: UIImage?, firstName: String?, lastName: String?, favLocation1: String?, favLocation2: String?, favLocation3: String?, completion: @escaping (_ success: Bool)->Void){
+        guard let userID = Auth.auth().currentUser?.uid else {return}
+        let storageRef = Storage.storage().reference(withPath: "profileImages").child("\(userID).png")
+        var downloadURL: String?
+        
+        if let profileImage = profileImage {
+            if let imageData = profileImage.jpegData(compressionQuality: 0.4) {
+                
+                let metaData = StorageMetadata()
+                metaData.contentType = "image/jpeg"
+                storageRef.putData(imageData, metadata: metaData) { (metadata, error) in
+                    if let error = error {
+                        print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
+                        completion(false)
+                        return
+                    }
+                    storageRef.downloadURL { (url, error) in
+                        downloadURL = url?.absoluteString
+                        
+                        self.appendUserInUserList(username: username, profielImageUrl: downloadURL!, uid: userID, completion: {(success)-> Void? in
+                                print("Not working")
+                        })
+                        
+                        
+                        self.db.collection(USER).document(userID).updateData([
+                            PROFILE_IMAGE_URL : downloadURL!,
+                            USERNAME : username as Any,
+                            FIRST_NAME : firstName as Any,
+                            LAST_NAME : lastName as Any,
+                            FAV_LOCATION1 : favLocation1 as Any,
+                            FAV_LOCATION2 : favLocation2 as Any,
+                            FAV_LOCATION3 : favLocation3 as Any
+                        ]) { (error) in
+                            if let error = error {
+                                print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
+                                completion(false)
+                                return
+                            }
+                            completion(true)
+                        }
+                    }
+                }
+            }
+        } else {
+            Storage.storage().reference(withPath: storageRef.fullPath).delete { (error) in
+                if let error = error {
+                    print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
+                    return
+                }
+            }
+            self.appendUserInUserList(username: username, profielImageUrl: "No Profile Image", uid: userID) { (success) -> Void? in
+                print("Not working")
+            }
+            self.db.collection(USER).document(userID).updateData([
+                PROFILE_IMAGE_URL : "No profile Image",
+                USERNAME : username as Any,
+                FIRST_NAME : firstName as Any,
+                LAST_NAME : lastName as Any,
+                FAV_LOCATION1 : favLocation1 as Any,
+                FAV_LOCATION2 : favLocation2 as Any,
+                FAV_LOCATION3 : favLocation3 as Any
+            ]) { (error) in
+                if let error = error {
+                    print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
+                }
             }
         }
     }
     
-    func fetchFriends(){
+  
+    
+
+    
+    
+ 
+    
+    func appendUserInUserList(username: String, profielImageUrl: String, uid: String, completion: @escaping (_ success: Bool)->Void?){
         
+        FIRESTORE.collection(USERLIST).document(uid).updateData([
+            USERNAME : username,
+            PROFILE_IMAGE_URL : profielImageUrl
+        ]) { (error) in
+            if let error = error {
+                print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
+                completion(false)
+            } else {
+                completion(true)
+            }
+        }
     }
     
+   
     func fetchUser(completion: @escaping (_ success: Bool)->Void){
         guard let uid = uid else {return}
         db.collection(USER).document(uid).getDocument { (snapshot, error) in
@@ -122,65 +246,7 @@ class UserController {
         }
     }
     
-    func updateUser(username: String?, profileImage: UIImage?, firstName: String?, lastName: String?, favLocation1: String?, favLocation2: String?, favLocation3: String?, completion: @escaping (_ success: Bool)->Void){
-        guard let userID = Auth.auth().currentUser?.uid else {return}
-        let storageRef = Storage.storage().reference(withPath: "profileImages").child("\(userID).png")
-        var downloadURL: String?
-
-        if let profileImage = profileImage {
-            if let imageData = profileImage.jpegData(compressionQuality: 0.4) {
-                
-                let metaData = StorageMetadata()
-                metaData.contentType = "image/jpeg"
-                storageRef.putData(imageData, metadata: metaData) { (metadata, error) in
-                    if let error = error {
-                        print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
-                        completion(false)
-                        return
-                    }
-                    storageRef.downloadURL { (url, error) in
-                        downloadURL = url?.absoluteString
-                        
-                        self.db.collection(USER).document(userID).updateData([
-                            PROFILE_IMAGE_URL : downloadURL!,
-                            USERNAME : username as Any,
-                            FIRST_NAME : firstName as Any,
-                            LAST_NAME : lastName as Any,
-                            FAV_LOCATION1 : favLocation1 as Any,
-                            FAV_LOCATION2 : favLocation2 as Any,
-                            FAV_LOCATION3 : favLocation3 as Any
-                        ]) { (error) in
-                            if let error = error {
-                                print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
-                                completion(false)
-                                return
-                            }
-                            completion(true)
-                        }
-                    }
-                }
-            }
-        } else {
-            Storage.storage().reference(withPath: storageRef.fullPath).delete { (error) in
-                if let error = error {
-                    print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
-                }
-            }
-            self.db.collection(USER).document(userID).updateData([
-                PROFILE_IMAGE_URL : "No profile Image",
-                USERNAME : username as Any,
-                FIRST_NAME : firstName as Any,
-                LAST_NAME : lastName as Any,
-                FAV_LOCATION1 : favLocation1 as Any,
-                FAV_LOCATION2 : favLocation2 as Any,
-                FAV_LOCATION3 : favLocation3 as Any
-            ]) { (error) in
-                if let error = error {
-                    print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
-                }
-            }
-        }
-    }
+    
     
     func togglePrivacy(userID: String, isActive: Bool){
         let activate = !isActive
@@ -205,7 +271,5 @@ class UserController {
         }
     }
     
-    func addFriend(friendUserID: String){
-        
-    }
+   
 }
