@@ -17,11 +17,7 @@ class AccountSettingsVC: UIViewController {
     
         // MARK: - Actions
     
-    @IBAction func changeEmailTapped(_ sender: Any) {
-    }
-    
-    
-
+    @IBAction func returnToAccountSettings(_ sender: UIStoryboardSegue) {}
     /*
     // MARK: - Navigation
 
