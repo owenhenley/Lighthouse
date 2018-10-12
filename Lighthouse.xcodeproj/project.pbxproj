@@ -197,9 +197,9 @@
 			isa = PBXGroup;
 			children = (
 				3E28E86F216C1F8400E21331 /* SignIn.storyboard */,
-				3EEC750B216EC0FF009572FB /* UserProfile.storyboard */,
-				3E7B2B6C216D929500E4F0F1 /* ForgotPassword.storyboard */,
 				3E28E8AD216D20BE00E21331 /* SignUp.storyboard */,
+				3E7B2B6C216D929500E4F0F1 /* ForgotPassword.storyboard */,
+				3EEC750B216EC0FF009572FB /* UserProfile.storyboard */,
 			);
 			name = User;
 			sourceTree = "<group>";

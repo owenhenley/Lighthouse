@@ -25,6 +25,12 @@ class SignInVC: UIViewController {
     
 //    weak var delegate: PopScreen?
     
+    @IBAction func backToSignin(_ sender: UIStoryboardSegue) {}
+    
+    @IBAction func backTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func forgotPasswordTapped(_ sender: UIButton) {
 
     }

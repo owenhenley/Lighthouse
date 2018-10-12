@@ -224,7 +224,7 @@
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="pastLocationCell" id="M3i-wy-mDx">
-                                <rect key="frame" x="0.0" y="498" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="675" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="M3i-wy-mDx" id="5Nf-YA-6TA">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>

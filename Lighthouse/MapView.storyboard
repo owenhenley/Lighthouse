@@ -38,7 +38,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="nextTapped:" destination="KIQ-uS-6Qq" eventType="touchUpInside" id="GJP-Vc-Yfq"/>
-                                    <segue destination="2Am-nQ-tSa" kind="presentation" identifier="displaySignUp" modalPresentationStyle="overCurrentContext" id="FrL-RB-rjV"/>
+                                    <segue destination="2Am-nQ-tSa" kind="presentation" identifier="displaySignUp" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="FrL-RB-rjV"/>
                                 </connections>
                             </button>
                             <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BZU-mu-CsJ">
@@ -48,26 +48,43 @@
                                     <segue destination="uzX-QU-v97" kind="embed" id="KQX-UN-SzB"/>
                                 </connections>
                             </containerView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WYs-f5-foK">
-                                <rect key="frame" x="16" y="20" width="209" height="71"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WYs-f5-foK">
+                                <rect key="frame" x="16" y="40" width="343" height="30"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" alignment="center" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="uVw-Xk-7vU">
-                                        <rect key="frame" x="0.0" y="7" width="30" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="uVw-Xk-7vU">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yJ4-aK-JLR">
-                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                                <state key="normal" title="O"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yJ4-aK-JLR">
+                                                <rect key="frame" x="0.0" y="2.5" width="25" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="25" id="4AO-XC-hR9"/>
+                                                    <constraint firstAttribute="height" constant="25" id="PyA-OQ-Ni0"/>
+                                                </constraints>
+                                                <state key="normal" image="search"/>
+                                                <connections>
+                                                    <action selector="searchTapped:" destination="KIQ-uS-6Qq" eventType="touchUpInside" id="ZQ7-27-iVK"/>
+                                                </connections>
                                             </button>
-                                            <searchBar hidden="YES" contentMode="redraw" placeholder="search map" translatesAutoresizingMaskIntoConstraints="NO" id="jPW-Es-U1u">
-                                                <rect key="frame" x="0.0" y="-13" width="0.0" height="56"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TXo-Nz-TUn">
+                                                <rect key="frame" x="36" y="0.0" width="307" height="30"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                            <searchBar hidden="YES" contentMode="redraw" searchBarStyle="minimal" placeholder="search map" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jPW-Es-U1u">
+                                                <rect key="frame" x="343" y="-13" width="0.0" height="56"/>
+                                                <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </searchBar>
                                         </subviews>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="uVw-Xk-7vU" secondAttribute="bottom" id="1kd-3E-hCB"/>
+                                    <constraint firstItem="uVw-Xk-7vU" firstAttribute="leading" secondItem="WYs-f5-foK" secondAttribute="leading" id="ICb-z9-olA"/>
+                                    <constraint firstAttribute="trailing" secondItem="uVw-Xk-7vU" secondAttribute="trailing" id="Rce-Bz-4MC"/>
+                                    <constraint firstItem="uVw-Xk-7vU" firstAttribute="top" secondItem="WYs-f5-foK" secondAttribute="top" id="eIP-j2-hMp"/>
+                                    <constraint firstAttribute="height" constant="30" id="g69-cZ-Mzc"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -77,15 +94,21 @@
                             <constraint firstItem="fcj-Zu-x1i" firstAttribute="leading" secondItem="J9c-gc-Dyh" secondAttribute="leading" constant="40" id="J6W-dg-xSm"/>
                             <constraint firstItem="1e0-ld-Izd" firstAttribute="leading" secondItem="LRg-IA-lru" secondAttribute="leading" id="JJH-93-hLT"/>
                             <constraint firstItem="1e0-ld-Izd" firstAttribute="top" secondItem="LRg-IA-lru" secondAttribute="top" id="WGo-V4-KzF"/>
+                            <constraint firstItem="WYs-f5-foK" firstAttribute="top" secondItem="LRg-IA-lru" secondAttribute="top" constant="40" id="fYM-cG-D2x"/>
                             <constraint firstItem="J9c-gc-Dyh" firstAttribute="trailing" secondItem="fcj-Zu-x1i" secondAttribute="trailing" constant="40" id="lJt-ki-VQt"/>
+                            <constraint firstItem="WYs-f5-foK" firstAttribute="leading" secondItem="LRg-IA-lru" secondAttribute="leading" constant="16" id="orH-3g-nPL"/>
                             <constraint firstAttribute="trailing" secondItem="1e0-ld-Izd" secondAttribute="trailing" id="qUx-M1-2ei"/>
+                            <constraint firstAttribute="trailing" secondItem="WYs-f5-foK" secondAttribute="trailing" constant="16" id="xFe-h0-dvJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="J9c-gc-Dyh"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="glyphsTabBarMapIconDisabled" selectedImage="glyphsTabBarMapIconActive" id="IvT-Xn-h3V"/>
                     <connections>
+                        <outlet property="fillerView" destination="TXo-Nz-TUn" id="5hL-xY-c05"/>
                         <outlet property="mainMapView" destination="1e0-ld-Izd" id="ZBc-Jk-6Id"/>
                         <outlet property="nextButton" destination="fcj-Zu-x1i" id="zGi-Wu-er1"/>
+                        <outlet property="searchBar" destination="jPW-Es-U1u" id="I3R-Tg-EOE"/>
+                        <outlet property="searchView" destination="WYs-f5-foK" id="evC-DB-42W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fqI-Ac-3Lb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -529,6 +552,7 @@
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="n0Q-zr-szS"/>
                     </view>
                     <size key="freeformSize" width="375" height="300"/>
                 </viewController>
@@ -541,6 +565,7 @@
         <image name="Jim" width="186" height="186"/>
         <image name="glyphsTabBarMapIconActive" width="48" height="32"/>
         <image name="glyphsTabBarMapIconDisabled" width="48" height="32"/>
+        <image name="search" width="409.60000610351562" height="409.60000610351562"/>
         <image name="trayTabUp" width="375" height="40"/>
     </resources>
 </document>

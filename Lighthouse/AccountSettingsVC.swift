@@ -18,6 +18,7 @@ class AccountSettingsVC: UIViewController {
         // MARK: - Actions
     
     @IBAction func returnToAccountSettings(_ sender: UIStoryboardSegue) {}
+    
     /*
     // MARK: - Navigation
 

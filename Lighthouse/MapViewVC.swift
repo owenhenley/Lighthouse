@@ -23,22 +23,33 @@ class MapViewVC: UIViewController {
     
     @IBOutlet weak var mainMapView : MKMapView!
     @IBOutlet weak var nextButton  : UIButton!
-    @IBOutlet weak var welcomeCopy : UIView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var fillerView: UIView!
+    @IBOutlet weak var searchView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchBar.isHidden = true
         setupLocationManager()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        searchView.isHidden = false
+    }
     override func viewDidAppear(_ animated: Bool) {
         centerMapNonAuthUser()
     }
     
     // MARK: - Actions
     
+    @IBAction func searchTapped(_ sender: Any) {
+        fillerView.isHidden = true
+        searchBar.isHidden = false
+    }
+    
     @IBAction func nextTapped(_ sender: UIButton) {
-//        nextButton.isHidden = true
-//        welcomeCopy.isHidden = true
+        nextButton.isHidden = true
+        searchView.isHidden = true
     }
     
     // MARK: - Location Methods
@@ -55,7 +66,7 @@ class MapViewVC: UIViewController {
     
     func centerMapNonAuthUser() {
         if let location = locationManager.location?.coordinate {
-            UIView.animate(withDuration: 5, delay: 0, options: [], animations: {
+            UIView.animate(withDuration: 2, delay: 0, options: [.curveEaseIn], animations: {
                 let region = MKCoordinateRegion.init(center: location, latitudinalMeters: self.nonAuthUserLocationRadius, longitudinalMeters: self.nonAuthUserLocationRadius)
                 self.mainMapView.setRegion(region, animated: true)
             }, completion: nil)
