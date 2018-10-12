@@ -14,7 +14,7 @@ import MapKit
 class OnboardingVC: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var uiViewForMap: UIView!
+    @IBOutlet weak var mainView: UIView!
     
     
     // MARK: - Variables
@@ -26,6 +26,7 @@ class OnboardingVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpLocationManager()
+        blurBackground()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -80,6 +81,15 @@ class OnboardingVC: UIViewController {
                 }
             }
         }
+    }
+    
+        // MARK: - Visual Effects
+    
+    func blurBackground() {
+        let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
+        visualEffectView.frame = self.mainView.bounds
+        visualEffectView.translatesAutoresizingMaskIntoConstraints = true
+        self.mainView.addSubview(visualEffectView)
     }
 }
 

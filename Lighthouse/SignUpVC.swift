@@ -14,7 +14,8 @@ class SignUpVC: UIViewController {
     @IBOutlet weak var emailOutlet: UITextField!
     @IBOutlet weak var passwordOutlet: UITextField!
     @IBOutlet weak var usernameOutlet: UITextField!
-
+    @IBOutlet weak var signUpConstraint: NSLayoutConstraint!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +31,15 @@ class SignUpVC: UIViewController {
     }
     
 
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+        UIView.animate(withDuration: 0.5) {
+            self.signUpConstraint.constant = 308 // keyboard is 258px (258+50)
+            self.view.layoutIfNeeded() // view version of '.reloaddata()'
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

@@ -108,10 +108,10 @@
                                     </userDefinedRuntimeAttributes>
                                 </imageView>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="lLm-Yb-qch">
-                                    <rect key="frame" x="16" y="20" width="343" height="34"/>
+                                    <rect key="frame" x="16" y="20" width="343" height="23"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r5o-NN-9NS">
-                                            <rect key="frame" x="0.0" y="0.0" width="56" height="34"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="56" height="23"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <state key="normal" title="Cancel">
                                                 <color key="titleColor" red="0.42342072730000002" green="0.4117656052" blue="0.41176474089999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -120,8 +120,20 @@
                                                 <action selector="editButtonTapped:" destination="IWC-ei-1TJ" eventType="touchUpInside" id="u7l-8K-H6A"/>
                                             </connections>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AXV-zW-cw8">
+                                            <rect key="frame" x="172" y="0.0" width="23" height="23"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="23" id="NFH-Hb-5ad"/>
+                                                <constraint firstAttribute="height" constant="23" id="dSo-zr-qfD"/>
+                                            </constraints>
+                                            <state key="normal" backgroundImage="settings"/>
+                                            <connections>
+                                                <action selector="settingsTapped:" destination="IWC-ei-1TJ" eventType="touchUpInside" id="Qzg-h0-Vhe"/>
+                                                <segue destination="HCN-7U-k6U" kind="presentation" id="LED-SS-fiz"/>
+                                            </connections>
+                                        </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8N3-Lt-1vi">
-                                            <rect key="frame" x="311" y="0.0" width="32" height="34"/>
+                                            <rect key="frame" x="311" y="0.0" width="32" height="23"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <state key="normal" title="Edit">
                                                 <color key="titleColor" red="0.42342072730000002" green="0.4117656052" blue="0.41176474089999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -243,10 +255,19 @@
             </objects>
             <point key="canvasLocation" x="-503.19999999999999" y="282.90854572713647"/>
         </scene>
+        <!--Settings-->
+        <scene sceneID="Mkr-0D-Sk9">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Settings" id="HCN-7U-k6U" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oRh-Rn-1pN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-25" y="29"/>
+        </scene>
     </scenes>
     <resources>
         <image name="defaultProfPic" width="50" height="50"/>
         <image name="personIconActive" width="22" height="22"/>
         <image name="personIconDisabled" width="22" height="22"/>
+        <image name="settings" width="409.60000610351562" height="409.60000610351562"/>
     </resources>
 </document>
