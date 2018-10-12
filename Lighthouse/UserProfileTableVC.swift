@@ -25,6 +25,7 @@ class UserProfileTableVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         disableEditing()
         picker.delegate = self
         if let user = UserController.shared.user {
@@ -41,6 +42,7 @@ class UserProfileTableVC: UITableViewController {
         // MARK: - Actions
     
     @IBAction func settingsTapped(_ sender: UIButton) {
+        
     }
     
     
