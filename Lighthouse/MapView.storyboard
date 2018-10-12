@@ -526,9 +526,6 @@
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dKH-HE-hnJ">
                                 <rect key="frame" x="0.0" y="75" width="375" height="225"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <connections>
-                                    <segue destination="dxn-Xx-pLI" kind="embed" id="ohb-gk-c3l"/>
-                                </connections>
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -538,21 +535,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XSn-6K-0pF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1772" y="1035.3823088455772"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="qpI-fY-hK9">
-            <objects>
-                <viewController id="dxn-Xx-pLI" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="RCl-69-5LJ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="500"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
-                    <size key="freeformSize" width="375" height="500"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NqQ-ES-ql0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2633" y="1126"/>
         </scene>
     </scenes>
     <resources>

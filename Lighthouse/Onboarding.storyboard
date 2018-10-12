@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1ef-g2-ao3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,31 +10,32 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Loading ScreenVC-->
+        <!--OnboardingVC-->
         <scene sceneID="SDv-uB-Mhd">
             <objects>
-                <viewController storyboardIdentifier="loadingScreen" id="1ef-g2-ao3" customClass="LoadingScreenVC" customModule="Lighthouse" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="onboarding" id="1ef-g2-ao3" customClass="OnboardingVC" customModule="Lighthouse" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="I2w-Up-lQE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8NF-Xn-FXL" userLabel="embeddedMapView">
-                                <rect key="frame" x="-20" y="-20" width="570" height="862.5"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8NF-Xn-FXL" userLabel="embeddedMapView">
+                                <rect key="frame" x="-20" y="-20" width="650" height="1000"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="0qn-uj-9dA">
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="0qn-uj-9dA">
                                         <rect key="frame" x="0.0" y="0.0" width="415" height="706.5"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </mapView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="otG-j2-rdN">
+                                        <rect key="frame" x="211" y="309" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="0qn-uj-9dA" secondAttribute="bottom" constant="156" id="acK-tX-Fzj"/>
-                                    <constraint firstAttribute="trailing" secondItem="0qn-uj-9dA" secondAttribute="trailing" constant="155" id="bXu-ec-PiJ"/>
-                                    <constraint firstItem="0qn-uj-9dA" firstAttribute="top" secondItem="8NF-Xn-FXL" secondAttribute="top" id="oMN-gB-g37"/>
-                                    <constraint firstItem="0qn-uj-9dA" firstAttribute="leading" secondItem="8NF-Xn-FXL" secondAttribute="leading" id="xBT-J4-tr6"/>
-                                </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="XUr-AN-9Oh">
-                                <rect key="frame" x="20" y="204.5" width="335" height="258"/>
+                                <rect key="frame" x="20" y="50" width="335" height="138"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find the Party. Be the Party." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TxT-t3-IzM">
                                         <rect key="frame" x="82.5" y="0.0" width="170" height="62.5"/>
@@ -51,20 +52,6 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uqv-HJ-hwQ">
-                                        <rect key="frame" x="117.5" y="168" width="100" height="30"/>
-                                        <state key="normal" title="Allow Location"/>
-                                        <connections>
-                                            <action selector="allowLocationTapped:" destination="1ef-g2-ao3" eventType="touchUpInside" id="rKa-Ps-YcG"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4a-34-ChD">
-                                        <rect key="frame" x="109" y="228" width="117" height="30"/>
-                                        <state key="normal" title="Show Me Around"/>
-                                        <connections>
-                                            <segue destination="ihj-nw-SO0" kind="presentation" modalTransitionStyle="crossDissolve" id="VlD-Tf-gbk"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -72,31 +59,18 @@
                         <constraints>
                             <constraint firstItem="XUr-AN-9Oh" firstAttribute="leading" secondItem="pvg-tP-TpN" secondAttribute="leading" constant="20" id="5Ri-JL-ocG"/>
                             <constraint firstAttribute="trailing" secondItem="XUr-AN-9Oh" secondAttribute="trailing" constant="20" id="5jS-te-UZP"/>
-                            <constraint firstItem="8NF-Xn-FXL" firstAttribute="leading" secondItem="I2w-Up-lQE" secondAttribute="leadingMargin" constant="-36" id="CLD-gj-ULQ"/>
-                            <constraint firstItem="XUr-AN-9Oh" firstAttribute="centerY" secondItem="I2w-Up-lQE" secondAttribute="centerY" id="NEV-BQ-tn4"/>
-                            <constraint firstItem="8NF-Xn-FXL" firstAttribute="centerY" secondItem="XUr-AN-9Oh" secondAttribute="centerY" constant="77.75" id="TJm-jc-MPH"/>
-                            <constraint firstItem="8NF-Xn-FXL" firstAttribute="centerX" secondItem="XUr-AN-9Oh" secondAttribute="centerX" constant="77.5" id="s1T-of-0eB"/>
-                            <constraint firstItem="8NF-Xn-FXL" firstAttribute="top" secondItem="I2w-Up-lQE" secondAttribute="topMargin" constant="-40" id="xir-oW-xhm"/>
+                            <constraint firstItem="XUr-AN-9Oh" firstAttribute="top" secondItem="I2w-Up-lQE" secondAttribute="top" constant="50" id="dbC-We-rFp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pvg-tP-TpN"/>
                     </view>
                     <connections>
-                        <outlet property="mapView" destination="0qn-uj-9dA" id="Znl-ec-EFC"/>
-                        <outlet property="showMeAroundButton" destination="W4a-34-ChD" id="T7o-p5-NUj"/>
-                        <outlet property="viewForMap" destination="8NF-Xn-FXL" id="EaF-Pm-fh5"/>
+                        <outlet property="mapView" destination="0qn-uj-9dA" id="AKk-9A-D2w"/>
+                        <outlet property="uiViewForMap" destination="8NF-Xn-FXL" id="Cef-vZ-ARG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WXT-JK-sUq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1167" y="63"/>
-        </scene>
-        <!--TabBarController-->
-        <scene sceneID="e7X-08-Gzz">
-            <objects>
-                <viewControllerPlaceholder storyboardName="TabBarController" id="ihj-nw-SO0" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="l1I-Ps-2xh" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-653" y="112"/>
+            <point key="canvasLocation" x="-1167.2" y="62.518740629685162"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hgs-Pa-TCi">
@@ -111,7 +85,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rOk-PL-9Cd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-47" y="4"/>
+            <point key="canvasLocation" x="249" y="-565"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="XMh-Cc-cSJ">

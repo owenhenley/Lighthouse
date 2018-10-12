@@ -18,85 +18,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dL4-4H-rHv" userLabel="embeddedMapView">
-                                <rect key="frame" x="-20" y="-20" width="570" height="862.5"/>
-                                <subviews>
-                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="PUI-2W-DN4">
-                                        <rect key="frame" x="0.0" y="0.0" width="415" height="706.5"/>
-                                    </mapView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon" translatesAutoresizingMaskIntoConstraints="NO" id="IqL-K9-a3j">
+                                <rect key="frame" x="37.5" y="183.5" width="300" height="300"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="PUI-2W-DN4" secondAttribute="trailing" constant="155" id="gPP-4I-buc"/>
-                                    <constraint firstAttribute="bottom" secondItem="PUI-2W-DN4" secondAttribute="bottom" constant="156" id="iXg-6v-cVI"/>
-                                    <constraint firstItem="PUI-2W-DN4" firstAttribute="top" secondItem="dL4-4H-rHv" secondAttribute="top" id="mha-Oh-Asa"/>
-                                    <constraint firstItem="PUI-2W-DN4" firstAttribute="leading" secondItem="dL4-4H-rHv" secondAttribute="leading" id="yhW-i6-ees"/>
+                                    <constraint firstAttribute="height" constant="300" id="GUD-OI-qSj"/>
+                                    <constraint firstAttribute="width" constant="300" id="VWz-Hw-wHE"/>
                                 </constraints>
-                            </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="K6Y-fP-rLL">
-                                <rect key="frame" x="20" y="204.5" width="335" height="258"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find the Party. Be the Party." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uui-1g-rXi">
-                                        <rect key="frame" x="82.5" y="0.0" width="170" height="62.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="170" id="pS2-NK-SsV"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="26"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lighthouse uses your location to bring the crew together" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4A-rY-F8F">
-                                        <rect key="frame" x="2.5" y="92.5" width="330" height="45.5"/>
-                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="19"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WLh-9j-tfy">
-                                        <rect key="frame" x="117.5" y="168" width="100" height="30"/>
-                                        <state key="normal" title="Allow Location"/>
-                                        <connections>
-                                            <action selector="allowLocationTapped:" destination="Mv3-2M-MOK" eventType="touchUpInside" id="hd0-oo-bjA"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5XU-i3-TTa">
-                                        <rect key="frame" x="109" y="228" width="117" height="30"/>
-                                        <state key="normal" title="Show Me Around"/>
-                                        <connections>
-                                            <segue destination="LOf-fQ-MU6" kind="presentation" modalTransitionStyle="crossDissolve" id="ngT-fC-fHj"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
+                            </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="eK2-Fl-yV9">
+                                <rect key="frame" x="169" y="493.5" width="37" height="37"/>
+                                <color key="color" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="K6Y-fP-rLL" firstAttribute="centerY" secondItem="fCX-pc-dnQ" secondAttribute="centerY" id="KKW-2N-ouh"/>
-                            <constraint firstItem="dL4-4H-rHv" firstAttribute="centerX" secondItem="K6Y-fP-rLL" secondAttribute="centerX" constant="77.5" id="MtA-in-3Iq"/>
-                            <constraint firstItem="dL4-4H-rHv" firstAttribute="leading" secondItem="fCX-pc-dnQ" secondAttribute="leadingMargin" constant="-36" id="fIq-px-HxA"/>
-                            <constraint firstItem="dL4-4H-rHv" firstAttribute="top" secondItem="fCX-pc-dnQ" secondAttribute="topMargin" constant="-40" id="iJd-9n-Awn"/>
-                            <constraint firstItem="dL4-4H-rHv" firstAttribute="centerY" secondItem="K6Y-fP-rLL" secondAttribute="centerY" constant="77.75" id="ibO-4g-3hw"/>
-                            <constraint firstAttribute="trailing" secondItem="K6Y-fP-rLL" secondAttribute="trailing" constant="20" id="pSv-yS-Cxj"/>
-                            <constraint firstItem="K6Y-fP-rLL" firstAttribute="leading" secondItem="DaK-Zn-Qxg" secondAttribute="leading" constant="20" id="ukL-Ec-tqq"/>
+                            <constraint firstItem="eK2-Fl-yV9" firstAttribute="top" secondItem="IqL-K9-a3j" secondAttribute="bottom" constant="10" id="Men-Eh-0nU"/>
+                            <constraint firstItem="IqL-K9-a3j" firstAttribute="centerY" secondItem="fCX-pc-dnQ" secondAttribute="centerY" id="Tcp-Ih-CDS"/>
+                            <constraint firstItem="eK2-Fl-yV9" firstAttribute="centerX" secondItem="fCX-pc-dnQ" secondAttribute="centerX" id="q99-P2-waM"/>
+                            <constraint firstItem="IqL-K9-a3j" firstAttribute="centerX" secondItem="fCX-pc-dnQ" secondAttribute="centerX" id="wNX-v0-Gvg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DaK-Zn-Qxg"/>
                     </view>
                     <connections>
-                        <outlet property="mapView" destination="PUI-2W-DN4" id="M1d-0w-qbG"/>
-                        <outlet property="showMeAroundButton" destination="5XU-i3-TTa" id="JMX-BA-28R"/>
-                        <outlet property="viewForMap" destination="dL4-4H-rHv" id="5z8-Vf-Cz0"/>
+                        <outlet property="activityWheel" destination="eK2-Fl-yV9" id="x9z-dd-ib4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yf2-eg-9Bk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="152.80000000000001" y="147.97601199400302"/>
         </scene>
-        <!--TabBarController-->
-        <scene sceneID="4yT-yC-8vD">
-            <objects>
-                <viewControllerPlaceholder storyboardName="TabBarController" id="LOf-fQ-MU6" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4zG-fW-M7v" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="668" y="197"/>
-        </scene>
     </scenes>
+    <resources>
+        <image name="Icon" width="1024" height="1024"/>
+    </resources>
 </document>

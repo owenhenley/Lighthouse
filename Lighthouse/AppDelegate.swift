@@ -33,13 +33,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
             // MARK: - Sign In
         
-        AUTH.signIn(withEmail: "owenhenley@me.com", password: "123456") { (auth, error) in
-            if let error = error {
-                debugPrint(error)
-            } else {
-                print("Signedin!")
-            }
-        }
+//        AUTH.signIn(withEmail: "owenhenley@me.com", password: "123456") { (auth, error) in
+//            if let error = error {
+//                debugPrint(error)
+//            } else {
+//                print("Signedin!")
+//            }
+//        }
         
         
             // MARK: - Sign Out
