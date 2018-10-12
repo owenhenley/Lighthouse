@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1ef-g2-ao3">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--OnboardingVC-->
+        <scene sceneID="SDv-uB-Mhd">
+            <objects>
+                <viewController storyboardIdentifier="onboarding" id="1ef-g2-ao3" customClass="OnboardingVC" customModule="Lighthouse" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="I2w-Up-lQE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UcA-Aw-VdR">
+                                <rect key="frame" x="0.0" y="0.0" width="738" height="1107"/>
+                                <subviews>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="0qn-uj-9dA">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    </mapView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="0qn-uj-9dA" firstAttribute="top" secondItem="UcA-Aw-VdR" secondAttribute="top" id="5V2-yc-SoA"/>
+                                    <constraint firstAttribute="bottom" secondItem="0qn-uj-9dA" secondAttribute="bottom" constant="440" id="h3g-65-QwQ"/>
+                                    <constraint firstItem="0qn-uj-9dA" firstAttribute="leading" secondItem="UcA-Aw-VdR" secondAttribute="leading" id="meN-MY-70n"/>
+                                    <constraint firstAttribute="trailing" secondItem="0qn-uj-9dA" secondAttribute="trailing" constant="363" id="yZX-E3-kuq"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="XUr-AN-9Oh">
+                                <rect key="frame" x="30" y="65" width="315" height="138"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find the Party. Be the Party." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TxT-t3-IzM">
+                                        <rect key="frame" x="72.5" y="0.0" width="170" height="62.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="170" id="fJj-1z-87a"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="26"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lighthouse uses your location to bring the crew together" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IU0-8y-Cjb">
+                                        <rect key="frame" x="17" y="92.5" width="281" height="45.5"/>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="19"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="otG-j2-rdN">
+                                <rect key="frame" x="84" y="313" width="207" height="41"/>
+                                <color key="backgroundColor" red="0.0" green="0.4793452024" blue="0.99908632040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                <state key="normal" title="  Show Me Around  ">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="HMx-B0-Byy" kind="show" id="6SY-mg-EnM"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="XUr-AN-9Oh" secondAttribute="trailing" constant="30" id="E4y-GL-aHF"/>
+                            <constraint firstItem="XUr-AN-9Oh" firstAttribute="leading" secondItem="I2w-Up-lQE" secondAttribute="leading" constant="30" id="OoU-XH-BXW"/>
+                            <constraint firstAttribute="bottom" secondItem="UcA-Aw-VdR" secondAttribute="bottom" constant="-440" id="UT5-Sp-WKh"/>
+                            <constraint firstItem="otG-j2-rdN" firstAttribute="centerY" secondItem="I2w-Up-lQE" secondAttribute="centerY" id="bgy-Mw-RnV"/>
+                            <constraint firstItem="UcA-Aw-VdR" firstAttribute="top" secondItem="I2w-Up-lQE" secondAttribute="top" id="i7W-Wi-vaw"/>
+                            <constraint firstItem="UcA-Aw-VdR" firstAttribute="leading" secondItem="I2w-Up-lQE" secondAttribute="leading" id="lRd-je-nmt"/>
+                            <constraint firstItem="XUr-AN-9Oh" firstAttribute="top" secondItem="pvg-tP-TpN" secondAttribute="top" constant="45" id="lxF-Ob-Uik"/>
+                            <constraint firstItem="otG-j2-rdN" firstAttribute="centerX" secondItem="I2w-Up-lQE" secondAttribute="centerX" id="nIN-Of-2FF"/>
+                            <constraint firstAttribute="trailing" secondItem="UcA-Aw-VdR" secondAttribute="trailing" constant="-363" id="tVo-qi-YF8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="pvg-tP-TpN"/>
+                    </view>
+                    <connections>
+                        <outlet property="mainView" destination="UcA-Aw-VdR" id="qeY-3h-YKR"/>
+                        <outlet property="mapView" destination="0qn-uj-9dA" id="AKk-9A-D2w"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WXT-JK-sUq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1167.2" y="62.518740629685162"/>
+        </scene>
+        <!--TabBarController-->
+        <scene sceneID="G85-be-nF1">
+            <objects>
+                <viewControllerPlaceholder storyboardName="TabBarController" id="HMx-B0-Byy" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vt8-Ok-kqO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-636" y="59"/>
+        </scene>
+    </scenes>
+</document>

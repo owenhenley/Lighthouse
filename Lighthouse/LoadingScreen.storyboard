@@ -9,27 +9,59 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Megrim.ttf">
+            <string>Megrim</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Loading ScreenVC-->
         <scene sceneID="25x-xZ-I8C">
             <objects>
-                <viewController id="Mv3-2M-MOK" customClass="LoadingScreenVC" customModule="Lighthouse" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loadingScreen" id="Mv3-2M-MOK" customClass="LoadingScreenVC" customModule="Lighthouse" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fCX-pc-dnQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mBz-a7-for">
-                                <rect key="frame" x="67" y="269" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon" translatesAutoresizingMaskIntoConstraints="NO" id="IqL-K9-a3j">
+                                <rect key="frame" x="37.5" y="183.5" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="GUD-OI-qSj"/>
+                                    <constraint firstAttribute="width" constant="300" id="VWz-Hw-wHE"/>
+                                </constraints>
                             </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="eK2-Fl-yV9">
+                                <rect key="frame" x="169" y="493.5" width="37" height="37"/>
+                                <color key="color" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lighthouse" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5fR-vd-Z4j">
+                                <rect key="frame" x="111" y="80" width="153" height="33"/>
+                                <fontDescription key="fontDescription" name="Megrim" family="Megrim" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5fR-vd-Z4j" firstAttribute="centerX" secondItem="fCX-pc-dnQ" secondAttribute="centerX" id="KSW-KX-4VD"/>
+                            <constraint firstItem="eK2-Fl-yV9" firstAttribute="top" secondItem="IqL-K9-a3j" secondAttribute="bottom" constant="10" id="Men-Eh-0nU"/>
+                            <constraint firstItem="IqL-K9-a3j" firstAttribute="centerY" secondItem="fCX-pc-dnQ" secondAttribute="centerY" id="Tcp-Ih-CDS"/>
+                            <constraint firstItem="5fR-vd-Z4j" firstAttribute="top" secondItem="fCX-pc-dnQ" secondAttribute="top" constant="80" id="Xe4-gK-vUX"/>
+                            <constraint firstItem="eK2-Fl-yV9" firstAttribute="centerX" secondItem="fCX-pc-dnQ" secondAttribute="centerX" id="q99-P2-waM"/>
+                            <constraint firstItem="IqL-K9-a3j" firstAttribute="centerX" secondItem="fCX-pc-dnQ" secondAttribute="centerX" id="wNX-v0-Gvg"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="DaK-Zn-Qxg"/>
                     </view>
+                    <connections>
+                        <outlet property="activityWheel" destination="eK2-Fl-yV9" id="x9z-dd-ib4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yf2-eg-9Bk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="153" y="148"/>
+            <point key="canvasLocation" x="152.80000000000001" y="147.97601199400302"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Icon" width="1024" height="1024"/>
+    </resources>
 </document>
