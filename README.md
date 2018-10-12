@@ -28,7 +28,8 @@ A location tracking app to share your current location using FourSquares API wit
 
 <img height="450" src="https://user-images.githubusercontent.com/28428200/46898154-7e7cb480-ce44-11e8-9d79-ee5becb9e850.png"/>
 
-<img height="450" src="https://user-images.githubusercontent.com/28428200/46898160-8c323a00-ce44-11e8-94ab-e1a84c634302.png"/></p>
+<img height="450" src="https://user-images.githubusercontent.com/28428200/46898160-8c323a00-ce44-11e8-94ab-e1a84c634302.png"/>
+</p>
 
 <br><br>
 
