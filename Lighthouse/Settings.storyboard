@@ -81,6 +81,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NLc-IO-N5n">
                                                         <rect key="frame" x="323" y="0.0" width="46" height="30"/>
                                                         <state key="normal" title="Button"/>
+                                                        <connections>
+                                                            <segue destination="QB5-G5-Egf" kind="show" id="qbC-Z7-eFq"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -96,6 +99,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7mL-0I-WOk">
                                                         <rect key="frame" x="323" y="0.0" width="46" height="61"/>
                                                         <state key="normal" title="Button"/>
+                                                        <connections>
+                                                            <segue destination="8Ot-h5-qOH" kind="show" id="ALj-Xn-jRP"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -111,6 +117,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ajT-fV-Tff">
                                                         <rect key="frame" x="323" y="0.0" width="46" height="30"/>
                                                         <state key="normal" title="Button"/>
+                                                        <connections>
+                                                            <segue destination="9UT-hX-sEP" kind="show" id="nLt-9D-W9f"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -156,6 +165,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DPa-Xd-7h6">
                                                 <rect key="frame" x="297" y="0.0" width="46" height="30"/>
                                                 <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <segue destination="bVl-RT-aGk" kind="show" id="YBa-CK-v8v"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -171,6 +183,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YuI-p8-Ixk">
                                                 <rect key="frame" x="297" y="0.0" width="46" height="30"/>
                                                 <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <segue destination="2KW-PC-mdt" kind="show" id="8pI-Li-am3"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -186,6 +201,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GPw-cB-AVr">
                                                 <rect key="frame" x="297" y="0.0" width="46" height="30"/>
                                                 <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <segue destination="srI-aW-GX9" kind="show" id="MpG-yL-Hd6"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -195,6 +213,9 @@
                                 <rect key="frame" x="118" y="547" width="105" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Delete Account"/>
+                                <connections>
+                                    <segue destination="KcQ-x2-BP5" kind="show" id="cG0-AL-gpE"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wHH-J6-Emd">
                                 <rect key="frame" x="24" y="20" width="30" height="30"/>
@@ -212,7 +233,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tcx-cq-laA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-23" y="1026"/>
+            <point key="canvasLocation" x="-446" y="138"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="vyp-o4-rE2">
@@ -266,7 +287,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zBi-DP-0mY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-50" y="1756"/>
+            <point key="canvasLocation" x="-420" y="1026"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="1U7-7P-PLE">
@@ -314,7 +335,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Xj-2p-h6r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1362" y="672"/>
+            <point key="canvasLocation" x="980" y="-158"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="JeC-SM-pmr">
@@ -348,7 +369,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lda-dR-JK5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2094" y="1057"/>
+            <point key="canvasLocation" x="980" y="531"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Vi2-7W-qt3">
@@ -396,7 +417,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A8z-kR-07V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1361" y="1390"/>
+            <point key="canvasLocation" x="1694" y="170"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="X7d-bB-4sM">
@@ -433,7 +454,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Ud-7m-nTG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-292" y="-770.46476761619192"/>
+            <point key="canvasLocation" x="-1660" y="-698"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="fzQ-N7-zmr">
@@ -470,7 +491,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="50p-gS-nQ2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="521" y="-770"/>
+            <point key="canvasLocation" x="-953" y="-699"/>
         </scene>
     </scenes>
 </document>

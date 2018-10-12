@@ -37,8 +37,8 @@ class MapViewVC: UIViewController {
     // MARK: - Actions
     
     @IBAction func nextTapped(_ sender: UIButton) {
-        nextButton.isHidden = true
-        welcomeCopy.isHidden = true
+//        nextButton.isHidden = true
+//        welcomeCopy.isHidden = true
     }
     
     // MARK: - Location Methods

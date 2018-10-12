@@ -38,6 +38,12 @@ class UserProfileTableVC: UITableViewController {
         }
     }
     
+        // MARK: - Actions
+    
+    @IBAction func settingsTapped(_ sender: UIButton) {
+    }
+    
+    
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
