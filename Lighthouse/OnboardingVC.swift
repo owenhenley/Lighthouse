@@ -25,6 +25,7 @@ class OnboardingVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setUpLocationManager()
         blurBackground()
     }
