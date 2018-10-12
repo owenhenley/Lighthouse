@@ -129,7 +129,7 @@
                                             <state key="normal" backgroundImage="settings"/>
                                             <connections>
                                                 <action selector="settingsTapped:" destination="IWC-ei-1TJ" eventType="touchUpInside" id="Qzg-h0-Vhe"/>
-                                                <segue destination="HCN-7U-k6U" kind="presentation" id="LED-SS-fiz"/>
+                                                <segue destination="HCN-7U-k6U" kind="modal" id="LED-SS-fiz"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8N3-Lt-1vi">

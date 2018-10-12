@@ -27,6 +27,21 @@
 		3E32AEF3216D501000C889DF /* FriendsTrayListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E32AEF2216D501000C889DF /* FriendsTrayListVC.swift */; };
 		3E32AEF5216D502600C889DF /* DropPinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E32AEF4216D502600C889DF /* DropPinVC.swift */; };
 		3E32AEF7216D524C00C889DF /* FriendsListTrayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E32AEF6216D524C00C889DF /* FriendsListTrayCell.swift */; };
+		3E5A1DD12170F63700170A9B /* TOSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5A1DD02170F63700170A9B /* TOSVC.swift */; };
+		3E5A1DD32170F65400170A9B /* PPVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5A1DD22170F65400170A9B /* PPVC.swift */; };
+		3E5A1DD52170F69900170A9B /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5A1DD42170F69900170A9B /* SettingsVC.swift */; };
+		3E5A1DD72170F6C300170A9B /* AccountSettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5A1DD62170F6C300170A9B /* AccountSettingsVC.swift */; };
+		3E5A1DD92170F70900170A9B /* ChangeEmailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5A1DD82170F70900170A9B /* ChangeEmailVC.swift */; };
+		3E5A1DDB2170F71A00170A9B /* SignOutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5A1DDA2170F71A00170A9B /* SignOutVC.swift */; };
+		3E5A1DDD2170F73E00170A9B /* ResetPasswordFromSettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5A1DDC2170F73E00170A9B /* ResetPasswordFromSettingsVC.swift */; };
+		3E5A1DDF2170F75A00170A9B /* DeleteAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5A1DDE2170F75A00170A9B /* DeleteAccountVC.swift */; };
+		3E5A1DE12170F7C900170A9B /* TermsOfService.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E5A1DE02170F7C900170A9B /* TermsOfService.storyboard */; };
+		3E5A1DE42170F7EC00170A9B /* PrivacyPolicy.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E5A1DE32170F7EC00170A9B /* PrivacyPolicy.storyboard */; };
+		3E5A1DEA2170F88F00170A9B /* AccountSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E5A1DE92170F88F00170A9B /* AccountSettings.storyboard */; };
+		3E5A1DED2170FB7D00170A9B /* ChangeEmail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E5A1DEC2170FB7D00170A9B /* ChangeEmail.storyboard */; };
+		3E5A1DEF2170FB9B00170A9B /* ResetPasswordFromSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E5A1DEE2170FB9B00170A9B /* ResetPasswordFromSettings.storyboard */; };
+		3E5A1DF12170FBB000170A9B /* SignOut.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E5A1DF02170FBB000170A9B /* SignOut.storyboard */; };
+		3E5A1DF32170FBE500170A9B /* DeleteAccount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E5A1DF22170FBE500170A9B /* DeleteAccount.storyboard */; };
 		3E7B2B6D216D929500E4F0F1 /* ForgotPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E7B2B6C216D929500E4F0F1 /* ForgotPassword.storyboard */; };
 		3E7B2B70216D98F600E4F0F1 /* FoursquareAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7B2B6F216D98F600E4F0F1 /* FoursquareAPIController.swift */; };
 		3EA99144216BDC9E0001F09D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA99143216BDC9E0001F09D /* AppDelegate.swift */; };
@@ -70,6 +85,21 @@
 		3E32AEF2216D501000C889DF /* FriendsTrayListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTrayListVC.swift; sourceTree = "<group>"; };
 		3E32AEF4216D502600C889DF /* DropPinVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropPinVC.swift; sourceTree = "<group>"; };
 		3E32AEF6216D524C00C889DF /* FriendsListTrayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListTrayCell.swift; sourceTree = "<group>"; };
+		3E5A1DD02170F63700170A9B /* TOSVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOSVC.swift; sourceTree = "<group>"; };
+		3E5A1DD22170F65400170A9B /* PPVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPVC.swift; sourceTree = "<group>"; };
+		3E5A1DD42170F69900170A9B /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		3E5A1DD62170F6C300170A9B /* AccountSettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingsVC.swift; sourceTree = "<group>"; };
+		3E5A1DD82170F70900170A9B /* ChangeEmailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeEmailVC.swift; sourceTree = "<group>"; };
+		3E5A1DDA2170F71A00170A9B /* SignOutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutVC.swift; sourceTree = "<group>"; };
+		3E5A1DDC2170F73E00170A9B /* ResetPasswordFromSettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordFromSettingsVC.swift; sourceTree = "<group>"; };
+		3E5A1DDE2170F75A00170A9B /* DeleteAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountVC.swift; sourceTree = "<group>"; };
+		3E5A1DE02170F7C900170A9B /* TermsOfService.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TermsOfService.storyboard; sourceTree = "<group>"; };
+		3E5A1DE32170F7EC00170A9B /* PrivacyPolicy.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PrivacyPolicy.storyboard; sourceTree = "<group>"; };
+		3E5A1DE92170F88F00170A9B /* AccountSettings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AccountSettings.storyboard; sourceTree = "<group>"; };
+		3E5A1DEC2170FB7D00170A9B /* ChangeEmail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChangeEmail.storyboard; sourceTree = "<group>"; };
+		3E5A1DEE2170FB9B00170A9B /* ResetPasswordFromSettings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ResetPasswordFromSettings.storyboard; sourceTree = "<group>"; };
+		3E5A1DF02170FBB000170A9B /* SignOut.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignOut.storyboard; sourceTree = "<group>"; };
+		3E5A1DF22170FBE500170A9B /* DeleteAccount.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DeleteAccount.storyboard; sourceTree = "<group>"; };
 		3E7B2B6C216D929500E4F0F1 /* ForgotPassword.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ForgotPassword.storyboard; sourceTree = "<group>"; };
 		3E7B2B6F216D98F600E4F0F1 /* FoursquareAPIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoursquareAPIController.swift; sourceTree = "<group>"; };
 		3EA99131216BDC9E0001F09D /* Lighthouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lighthouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,6 +153,44 @@
 				3E32AEF4216D502600C889DF /* DropPinVC.swift */,
 			);
 			name = "Map View Drawer";
+			sourceTree = "<group>";
+		};
+		3E5A1DCF2170F61600170A9B /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				3E5A1DD42170F69900170A9B /* SettingsVC.swift */,
+				3E5A1DD02170F63700170A9B /* TOSVC.swift */,
+				3E5A1DD22170F65400170A9B /* PPVC.swift */,
+				3E5A1DD62170F6C300170A9B /* AccountSettingsVC.swift */,
+				3E5A1DD82170F70900170A9B /* ChangeEmailVC.swift */,
+				3E5A1DDA2170F71A00170A9B /* SignOutVC.swift */,
+				3E5A1DDC2170F73E00170A9B /* ResetPasswordFromSettingsVC.swift */,
+				3E5A1DDE2170F75A00170A9B /* DeleteAccountVC.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		3E5A1DE22170F7D300170A9B /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				3E24CC5A216FEF5B00BE957F /* Settings.storyboard */,
+				3E5A1DE32170F7EC00170A9B /* PrivacyPolicy.storyboard */,
+				3E5A1DE02170F7C900170A9B /* TermsOfService.storyboard */,
+				3E5A1DEB2170F8A200170A9B /* Account Settings */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		3E5A1DEB2170F8A200170A9B /* Account Settings */ = {
+			isa = PBXGroup;
+			children = (
+				3E5A1DE92170F88F00170A9B /* AccountSettings.storyboard */,
+				3E5A1DF22170FBE500170A9B /* DeleteAccount.storyboard */,
+				3E5A1DEC2170FB7D00170A9B /* ChangeEmail.storyboard */,
+				3E5A1DF02170FBB000170A9B /* SignOut.storyboard */,
+				3E5A1DEE2170FB9B00170A9B /* ResetPasswordFromSettings.storyboard */,
+			);
+			name = "Account Settings";
 			sourceTree = "<group>";
 		};
 		3E7B2B6B216D8EC600E4F0F1 /* User */ = {
@@ -247,8 +315,8 @@
 				3E28E8A1216D108500E21331 /* TabBarController.storyboard */,
 				3E28E8A9216D1E7000E21331 /* FriendsList.storyboard */,
 				3E28E8A7216D1E2F00E21331 /* MapView.storyboard */,
-				3E24CC5A216FEF5B00BE957F /* Settings.storyboard */,
 				3E7B2B6B216D8EC600E4F0F1 /* User */,
+				3E5A1DE22170F7D300170A9B /* Settings */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -312,6 +380,7 @@
 				3E32AEED216D4F7300C889DF /* SignUpVC.swift */,
 				7EEF84A8216E6DAF00558093 /* UserProfileTableVC.swift */,
 				3EEC7503216EBAB8009572FB /* ForgotPasswordVC.swift */,
+				3E5A1DCF2170F61600170A9B /* Settings */,
 			);
 			name = User;
 			sourceTree = "<group>";
@@ -393,17 +462,24 @@
 			files = (
 				3EA99149216BDC9F0001F09D /* LaunchScreen.storyboard in Resources */,
 				3EA99157216BDF8D0001F09D /* LoadingScreen.storyboard in Resources */,
+				3E5A1DE42170F7EC00170A9B /* PrivacyPolicy.storyboard in Resources */,
 				3EEC750A216EBF03009572FB /* Assets.xcassets in Resources */,
 				3E24CC59216FBF2F00BE957F /* Onboarding.storyboard in Resources */,
 				3E28E8A2216D108500E21331 /* TabBarController.storyboard in Resources */,
+				3E5A1DF12170FBB000170A9B /* SignOut.storyboard in Resources */,
+				3E5A1DED2170FB7D00170A9B /* ChangeEmail.storyboard in Resources */,
 				3E28E8A8216D1E2F00E21331 /* MapView.storyboard in Resources */,
 				3E28E8AE216D20BE00E21331 /* SignUp.storyboard in Resources */,
 				3E28E8AA216D1E7000E21331 /* FriendsList.storyboard in Resources */,
 				3E28E870216C1F8400E21331 /* SignIn.storyboard in Resources */,
+				3E5A1DE12170F7C900170A9B /* TermsOfService.storyboard in Resources */,
 				3EA99164216BE0310001F09D /* GoogleService-Info.plist in Resources */,
 				3EEC750C216EC0FF009572FB /* UserProfile.storyboard in Resources */,
+				3E5A1DF32170FBE500170A9B /* DeleteAccount.storyboard in Resources */,
 				3E24CC5B216FEF5B00BE957F /* Settings.storyboard in Resources */,
 				3E7B2B6D216D929500E4F0F1 /* ForgotPassword.storyboard in Resources */,
+				3E5A1DEF2170FB9B00170A9B /* ResetPasswordFromSettings.storyboard in Resources */,
+				3E5A1DEA2170F88F00170A9B /* AccountSettings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,16 +580,22 @@
 				3E28E86E216BF2B300E21331 /* LocationController.swift in Sources */,
 				3E32AEF5216D502600C889DF /* DropPinVC.swift in Sources */,
 				3E32AEF3216D501000C889DF /* FriendsTrayListVC.swift in Sources */,
+				3E5A1DD32170F65400170A9B /* PPVC.swift in Sources */,
+				3E5A1DDF2170F75A00170A9B /* DeleteAccountVC.swift in Sources */,
 				3EA99162216BE0200001F09D /* DateFormatter.swift in Sources */,
 				3E24CC5D216FFF4100BE957F /* OnboardingVC.swift in Sources */,
 				3EA99152216BDF1B0001F09D /* Location.swift in Sources */,
 				3E7B2B70216D98F600E4F0F1 /* FoursquareAPIController.swift in Sources */,
 				3E28E868216BF24400E21331 /* LoadingScreenVC.swift in Sources */,
+				3E5A1DD92170F70900170A9B /* ChangeEmailVC.swift in Sources */,
 				3EA99144216BDC9E0001F09D /* AppDelegate.swift in Sources */,
 				3E32AEE8216D4EF500C889DF /* FriendsListVC.swift in Sources */,
 				3E28E86C216BF29B00E21331 /* UserController.swift in Sources */,
 				7EF9A47B216C18FA0064DC47 /* AlertControllers.swift in Sources */,
+				3E5A1DDD2170F73E00170A9B /* ResetPasswordFromSettingsVC.swift in Sources */,
+				3E5A1DD52170F69900170A9B /* SettingsVC.swift in Sources */,
 				3E32AEF1216D4FE900C889DF /* TrayTabVC.swift in Sources */,
+				3E5A1DD12170F63700170A9B /* TOSVC.swift in Sources */,
 				3E28E86A216BF27000E21331 /* MapViewVC.swift in Sources */,
 				3EEC7504216EBAB8009572FB /* ForgotPasswordVC.swift in Sources */,
 				3EEC7506216EBAE6009572FB /* SignInVC.swift in Sources */,
@@ -522,7 +604,9 @@
 				3E32AEEE216D4F7300C889DF /* SignUpVC.swift in Sources */,
 				7EEF84A9216E6DAF00558093 /* UserProfileTableVC.swift in Sources */,
 				3E32AEF7216D524C00C889DF /* FriendsListTrayCell.swift in Sources */,
+				3E5A1DD72170F6C300170A9B /* AccountSettingsVC.swift in Sources */,
 				7E38CF35216FA450009D44DF /* Animations.swift in Sources */,
+				3E5A1DDB2170F71A00170A9B /* SignOutVC.swift in Sources */,
 				7EF9A479216C0D480064DC47 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
