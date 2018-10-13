@@ -18,6 +18,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GhV-tX-70f">
+                                <rect key="frame" x="0.0" y="0.0" width="697" height="1097"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="dOv-3c-Vk3">
                                 <rect key="frame" x="22" y="229.5" width="331" height="208"/>
                                 <subviews>
@@ -177,25 +181,33 @@
                                     <constraint firstAttribute="height" constant="14" id="FsV-lO-aj5"/>
                                 </constraints>
                             </stackView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backArrow" translatesAutoresizingMaskIntoConstraints="NO" id="Qro-VT-owz">
-                                <rect key="frame" x="22" y="26" width="16" height="16"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7SU-rh-qz9">
+                                <rect key="frame" x="20" y="40" width="25" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="16" id="gEj-oc-NSH"/>
-                                    <constraint firstAttribute="height" constant="16" id="gPV-Kg-hL2"/>
+                                    <constraint firstAttribute="width" constant="25" id="8FQ-Oy-yO5"/>
+                                    <constraint firstAttribute="height" constant="25" id="xuF-Oc-pP6"/>
                                 </constraints>
-                            </imageView>
+                                <state key="normal" image="back"/>
+                                <connections>
+                                    <action selector="backTapped:" destination="X85-tI-C3A" eventType="touchUpInside" id="GWV-VW-lQz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="FjR-YA-Rs7" firstAttribute="centerX" secondItem="YCk-W1-VBQ" secondAttribute="centerX" id="0im-mE-hxq"/>
-                            <constraint firstItem="Qro-VT-owz" firstAttribute="leading" secondItem="L5V-Up-arc" secondAttribute="leading" constant="22" id="1UB-WZ-dnx"/>
-                            <constraint firstItem="Qro-VT-owz" firstAttribute="top" secondItem="L5V-Up-arc" secondAttribute="top" constant="6" id="6bM-cN-YEw"/>
+                            <constraint firstItem="7SU-rh-qz9" firstAttribute="leading" secondItem="L5V-Up-arc" secondAttribute="leading" constant="20" id="CEK-gm-92R"/>
                             <constraint firstItem="v8p-sP-uBl" firstAttribute="leading" secondItem="L5V-Up-arc" secondAttribute="leading" constant="22" id="K1o-fO-iUp"/>
+                            <constraint firstAttribute="trailing" secondItem="GhV-tX-70f" secondAttribute="trailing" constant="-322" id="M1O-y9-uc7"/>
                             <constraint firstItem="L5V-Up-arc" firstAttribute="trailing" secondItem="dOv-3c-Vk3" secondAttribute="trailing" constant="22" id="T1J-iZ-e7J"/>
                             <constraint firstItem="dOv-3c-Vk3" firstAttribute="leading" secondItem="L5V-Up-arc" secondAttribute="leading" constant="22" id="UXs-Ll-FZd"/>
+                            <constraint firstItem="7SU-rh-qz9" firstAttribute="top" secondItem="YCk-W1-VBQ" secondAttribute="top" constant="40" id="WXL-Hz-g8m"/>
                             <constraint firstItem="v8p-sP-uBl" firstAttribute="top" secondItem="meY-O5-bxv" secondAttribute="bottom" constant="24" id="aQB-qR-PiC"/>
                             <constraint firstItem="meY-O5-bxv" firstAttribute="leading" secondItem="L5V-Up-arc" secondAttribute="leading" constant="22" id="bjX-A1-xA0"/>
+                            <constraint firstAttribute="bottom" secondItem="GhV-tX-70f" secondAttribute="bottom" constant="-430" id="cv0-is-Nl1"/>
+                            <constraint firstItem="GhV-tX-70f" firstAttribute="top" secondItem="YCk-W1-VBQ" secondAttribute="top" id="dJu-L9-RDn"/>
                             <constraint firstItem="L5V-Up-arc" firstAttribute="trailing" secondItem="meY-O5-bxv" secondAttribute="trailing" constant="22" id="ebi-p0-EP6"/>
+                            <constraint firstItem="GhV-tX-70f" firstAttribute="leading" secondItem="YCk-W1-VBQ" secondAttribute="leading" id="lPz-De-IAq"/>
                             <constraint firstItem="FjR-YA-Rs7" firstAttribute="top" secondItem="v8p-sP-uBl" secondAttribute="bottom" constant="4" id="nD0-NR-ZJv"/>
                             <constraint firstItem="L5V-Up-arc" firstAttribute="trailing" secondItem="v8p-sP-uBl" secondAttribute="trailing" constant="22" id="nvN-de-lgt"/>
                             <constraint firstItem="dOv-3c-Vk3" firstAttribute="centerY" secondItem="YCk-W1-VBQ" secondAttribute="centerY" id="tmy-R8-EvK"/>
@@ -204,6 +216,7 @@
                         <viewLayoutGuide key="safeArea" id="L5V-Up-arc"/>
                     </view>
                     <connections>
+                        <outlet property="blurView" destination="GhV-tX-70f" id="Tan-Ls-e1Z"/>
                         <outlet property="emailOutlet" destination="Hr9-Ff-2Rj" id="3c9-ZM-b4C"/>
                         <outlet property="passwordOutlet" destination="bIr-GL-InB" id="xp2-ln-5Fg"/>
                         <outlet property="usernameOutlet" destination="417-1n-PJ7" id="cmq-B3-WXj"/>
@@ -223,6 +236,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="backArrow" width="49" height="82"/>
+        <image name="back" width="409.60000610351562" height="409.60000610351562"/>
     </resources>
 </document>

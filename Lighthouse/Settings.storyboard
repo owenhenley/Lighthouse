@@ -19,10 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="M12-pY-ZtM">
-                                <rect key="frame" x="22" y="150" width="331" height="235"/>
+                                <rect key="frame" x="22" y="150" width="331" height="170"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="rra-5d-muS">
-                                        <rect key="frame" x="0.0" y="0.0" width="331" height="96"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="331" height="31"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5wx-cn-fMK">
                                                 <rect key="frame" x="0.0" y="0.0" width="331" height="31"/>
@@ -44,30 +44,10 @@
                                                     <constraint firstItem="WNf-ob-aob" firstAttribute="leading" secondItem="RYH-Vc-k8R" secondAttribute="trailing" constant="16" id="crf-5J-UHg"/>
                                                 </constraints>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="HYE-Qe-b07">
-                                                <rect key="frame" x="0.0" y="55" width="331" height="41"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Allow location access to enhance your experience" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bt2-rq-DCs">
-                                                        <rect key="frame" x="0.0" y="0.0" width="265" height="41"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2mT-RY-t7k">
-                                                        <rect key="frame" x="281" y="5" width="52" height="31"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="50" id="R7g-Ce-Hlf"/>
-                                                        </constraints>
-                                                    </switch>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstItem="2mT-RY-t7k" firstAttribute="leading" secondItem="bt2-rq-DCs" secondAttribute="trailing" constant="16" id="9Fh-d9-w2B"/>
-                                                </constraints>
-                                            </stackView>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="vHk-xr-UBO">
-                                        <rect key="frame" x="0.0" y="128" width="331" height="107"/>
+                                        <rect key="frame" x="0.0" y="63" width="331" height="107"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="edY-FG-7ht" userLabel="Privacy Policy">
                                                 <rect key="frame" x="0.0" y="0.0" width="331" height="25"/>
@@ -97,7 +77,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NLc-IO-N5n">
                                                         <rect key="frame" x="0.0" y="0.0" width="331" height="25"/>
                                                         <connections>
-                                                            <segue destination="gvy-7I-J6C" kind="presentation" id="36G-6b-4Tp"/>
+                                                            <segue destination="gvy-7I-J6C" kind="show" id="36G-6b-4Tp"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -140,7 +120,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7mL-0I-WOk">
                                                         <rect key="frame" x="0.0" y="0.0" width="331" height="25"/>
                                                         <connections>
-                                                            <segue destination="gWV-wI-nit" kind="presentation" id="27V-S3-fhp"/>
+                                                            <segue destination="gWV-wI-nit" kind="show" id="27V-S3-fhp"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -240,7 +220,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fbu-pY-tMG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-568.79999999999995" y="93.103448275862078"/>
+            <point key="canvasLocation" x="-572" y="83"/>
         </scene>
         <!--TermsOfService-->
         <scene sceneID="3ah-UF-Qxv">

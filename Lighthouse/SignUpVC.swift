@@ -15,12 +15,12 @@ class SignUpVC: UIViewController {
     @IBOutlet weak var passwordOutlet: UITextField!
     @IBOutlet weak var usernameOutlet: UITextField!
     @IBOutlet weak var signUpConstraint: NSLayoutConstraint!
+    @IBOutlet weak var blurView: UIView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
+        blurBackground()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -29,8 +29,10 @@ class SignUpVC: UIViewController {
             self.dismiss(animated: true, completion: nil)
         }
     }
-    
 
+    @IBAction func backTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         
@@ -38,6 +40,13 @@ class SignUpVC: UIViewController {
             self.signUpConstraint.constant = 308 // keyboard is 258px (258+50)
             self.view.layoutIfNeeded() // view version of '.reloaddata()'
         }
+    }
+    
+    func blurBackground() {
+        let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
+        visualEffectView.frame = self.blurView.bounds
+        visualEffectView.translatesAutoresizingMaskIntoConstraints = true
+        self.blurView.addSubview(visualEffectView)
     }
     
     /*
