@@ -59,6 +59,8 @@
 		7E38CF35216FA450009D44DF /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E38CF34216FA450009D44DF /* Animations.swift */; };
 		7E8EC58B217133E600B0275A /* FriendController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8EC58A217133E600B0275A /* FriendController.swift */; };
 		7E8EC58D217133F200B0275A /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8EC58C217133F200B0275A /* Friend.swift */; };
+		7E8EC5AD2171531100B0275A /* SearchTesting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E8EC5AC2171531100B0275A /* SearchTesting.storyboard */; };
+		7E8EC5AF2171534800B0275A /* SearchTestingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8EC5AE2171534800B0275A /* SearchTestingVC.swift */; };
 		7EEF84A9216E6DAF00558093 /* UserProfileTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEF84A8216E6DAF00558093 /* UserProfileTableVC.swift */; };
 		7EF9A479216C0D480064DC47 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF9A478216C0D480064DC47 /* Constants.swift */; };
 		7EF9A47B216C18FA0064DC47 /* AlertControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF9A47A216C18FA0064DC47 /* AlertControllers.swift */; };
@@ -123,6 +125,8 @@
 		7E38CF34216FA450009D44DF /* Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
 		7E8EC58A217133E600B0275A /* FriendController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendController.swift; sourceTree = "<group>"; };
 		7E8EC58C217133F200B0275A /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		7E8EC5AC2171531100B0275A /* SearchTesting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchTesting.storyboard; sourceTree = "<group>"; };
+		7E8EC5AE2171534800B0275A /* SearchTestingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTestingVC.swift; sourceTree = "<group>"; };
 		7EEF84A8216E6DAF00558093 /* UserProfileTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileTableVC.swift; sourceTree = "<group>"; };
 		7EF9A478216C0D480064DC47 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7EF9A47A216C18FA0064DC47 /* AlertControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllers.swift; sourceTree = "<group>"; };
@@ -320,6 +324,8 @@
 				3ECDF76D21716A3E00C46C8E /* Tab Bar */,
 				3E7B2B6B216D8EC600E4F0F1 /* User */,
 				3E5A1DE22170F7D300170A9B /* Settings */,
+				7E8EC5AE2171534800B0275A /* SearchTestingVC.swift */,
+				7E8EC5AC2171531100B0275A /* SearchTesting.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -497,6 +503,7 @@
 				3E28E8A8216D1E2F00E21331 /* MapView.storyboard in Resources */,
 				3E28E8AE216D20BE00E21331 /* SignUp.storyboard in Resources */,
 				3E28E8AA216D1E7000E21331 /* FriendsList.storyboard in Resources */,
+				7E8EC5AD2171531100B0275A /* SearchTesting.storyboard in Resources */,
 				3E28E870216C1F8400E21331 /* SignIn.storyboard in Resources */,
 				3E5A1DE12170F7C900170A9B /* TermsOfService.storyboard in Resources */,
 				3EA99164216BE0310001F09D /* GoogleService-Info.plist in Resources */,
@@ -616,6 +623,7 @@
 				3E5A1DD92170F70900170A9B /* ChangeEmailVC.swift in Sources */,
 				3EA99144216BDC9E0001F09D /* AppDelegate.swift in Sources */,
 				3E32AEE8216D4EF500C889DF /* FriendsListVC.swift in Sources */,
+				7E8EC5AF2171534800B0275A /* SearchTestingVC.swift in Sources */,
 				7E8EC58B217133E600B0275A /* FriendController.swift in Sources */,
 				3E28E86C216BF29B00E21331 /* UserController.swift in Sources */,
 				7EF9A47B216C18FA0064DC47 /* AlertControllers.swift in Sources */,
@@ -776,7 +784,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Lighthouse/Lighthouse.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CYZA2EE6W8;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Lighthouse/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -797,7 +805,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Lighthouse/Lighthouse.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CYZA2EE6W8;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Lighthouse/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
