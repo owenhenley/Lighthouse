@@ -22,7 +22,7 @@ class SearchTestingVC: UITableViewController, UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searhText = searchBar.text else {return}
-        FriendController.shared.fetchFriends(text: searhText) { (success) in
+        FriendController.shared.searchFriends(text: searhText) { (success) in
             if success {
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
@@ -39,14 +39,14 @@ class SearchTestingVC: UITableViewController, UISearchBarDelegate {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return FriendController.shared.friends.count
+        return FriendController.shared.results.count
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "searchCell", for: indexPath)
         
-        let friend = FriendController.shared.friends[indexPath.row]
+        let friend = FriendController.shared.results[indexPath.row]
         if friend.imageUrl != "No Profile Image" {
             FriendController.shared.fetchFreindsImage(urlString: friend.imageUrl) { (image) in
                 
