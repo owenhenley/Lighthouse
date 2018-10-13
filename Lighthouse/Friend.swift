@@ -11,4 +11,5 @@ import UIKit
 struct Friend {
     let username: String
     let image: UIImage?
+    let imageUrl: String
 }
