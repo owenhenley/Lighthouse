@@ -17,7 +17,7 @@ class OnboardingVC: UIViewController {
     @IBOutlet weak var mainView: UIView!
     
     
-    // MARK: - Variables
+        // MARK: - Variables
     
     let locationManager = CLLocationManager()
     

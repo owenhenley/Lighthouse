@@ -17,16 +17,16 @@ class UserController {
     
     var user: User?
     var uid: String?
-    let db = Firestore.firestore()
+    let db = FIRESTORE
     
     func logInUser(email: String, password: String, completion: @escaping (_ success: Bool) -> ()){
         
-        Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
+        AUTH.signIn(withEmail: email, password: password) { (result, error) in
             if let error = error {
                 print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
                 completion(false)
             } else {
-                self.uid = Auth.auth().currentUser?.uid
+                self.uid = AUTH.currentUser?.uid
                 self.fetchUser(completion: { (success) in
                     if success{
                         completion(true)
@@ -37,7 +37,7 @@ class UserController {
     }
     
     func createUser(username: String, email: String, password: String, completion: @escaping (_ success: Bool) ->Void){
-        Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
+        AUTH.createUser(withEmail: email, password: password) { (result, error) in
             if let error = error {
                 print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
                 completion(false)
@@ -83,7 +83,7 @@ class UserController {
         FIRESTORE.collection(USERLIST).document(uid).setData([
             USERNAME : username,
             PROFILE_IMAGE_URL : "No Profile Image",
-            USER_ID : Auth.auth().currentUser!.uid
+            USER_ID : AUTH.currentUser!.uid
             ], completion: { (error) in
                 if let error = error {
                     print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
@@ -111,7 +111,7 @@ class UserController {
     }
     
     func updateUser(username: String, profileImage: UIImage?, firstName: String?, lastName: String?, favLocation1: String?, favLocation2: String?, favLocation3: String?, completion: @escaping (_ success: Bool)->Void){
-        guard let userID = Auth.auth().currentUser?.uid else {return}
+        guard let userID = AUTH.currentUser?.uid else {return}
         let storageRef = Storage.storage().reference(withPath: "profileImages").child("\(userID).png")
         var downloadURL: String?
         
@@ -130,7 +130,7 @@ class UserController {
                         downloadURL = url?.absoluteString
                         
                         self.appendUserInUserList(username: username, profielImageUrl: downloadURL!, uid: userID, completion: {(success)-> Void? in
-                                print("Not working")
+                            print("Not working")
                         })
                         
                         
@@ -179,12 +179,12 @@ class UserController {
         }
     }
     
-  
-    
-
     
     
- 
+    
+    
+    
+    
     
     func appendUserInUserList(username: String, profielImageUrl: String, uid: String, completion: @escaping (_ success: Bool)->Void?){
         
@@ -201,7 +201,7 @@ class UserController {
         }
     }
     
-   
+    
     func fetchUser(completion: @escaping (_ success: Bool)->Void){
         guard let uid = uid else {return}
         db.collection(USER).document(uid).getDocument { (snapshot, error) in
@@ -272,5 +272,5 @@ class UserController {
         }
     }
     
-   
+    
 }
