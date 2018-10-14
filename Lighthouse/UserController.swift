@@ -44,6 +44,7 @@ class UserController {
                 return
             }
             if let result = result {
+                
                 FIRESTORE.collection(USER).document(result.user.uid).setData([
                     USER_ID : result.user.uid,
                     USERNAME : username,

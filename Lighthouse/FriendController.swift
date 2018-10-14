@@ -14,10 +14,43 @@ class FriendController {
     
     static let shared = FriendController()
     
-    var friends: [Friend] = [] {
-        didSet {
-            print(">>>>>", friends, "<<<<<<")
+    var results: [Friend] = []
+    
+    func requestFriend(friendID: String){
+        guard let userID = AUTH.currentUser?.uid else {return}
+        FIRESTORE.collection(USER).document(friendID).collection(REQUESTS).document(userID).setValue(true, forKey: userID)
+        FIRESTORE.collection(USERLIST).document(friendID).collection(REQUESTS).document(userID).setValue(true, forKey: userID)
+    }
+    func cancelRequest(friendID: String){
+        let userID = AUTH.currentUser!.uid
+        FIRESTORE.collection(USER).document(friendID).collection(REQUESTS).document(userID).delete { (error) in
+            if let error = error {
+                print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
+            }
         }
+        FIRESTORE.collection(USERLIST).document(friendID).collection(REQUESTS).document(userID).delete { (error) in
+            if let error = error {
+                print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
+            }
+        }
+    }
+    
+    func acceptRequest(friendID: String){
+        let userID = AUTH.currentUser!.uid
+        
+        FIRESTORE.collection(USER).document(friendID).collection(FRIENDLIST).document(userID).setData([userID : true]) { (error) in
+            if let error = error {
+                print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
+            }
+        }
+        FIRESTORE.collection(USERLIST).document(friendID).collection(FRIENDLIST).document(userID).setData([userID : true]) { (error) in
+            if let error = error {
+                print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
+            }
+        }
+        
+        
+        cancelRequest(friendID: friendID)
     }
     
     func addFriend(friendID: String, completion: @escaping (_ success: Bool)->Void){
@@ -37,10 +70,7 @@ class FriendController {
         FIRESTORE.collection(USER).document(uid).collection(FRIENDLIST).document(friendID).delete()
     }
     
-    
-    
     func fetchFriends(text: String, completion: @escaping (_ success: Bool)->Void){
-        self.friends = []
         FIRESTORE.collection(USERLIST).whereField(USERNAME, isEqualTo: text).limit(to: 15).getDocuments { (snapShotBlock, error) in
             if let error = error {
                 print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
@@ -52,10 +82,34 @@ class FriendController {
                 let username = user[USERNAME] as! String
                 let urlString = user[PROFILE_IMAGE_URL] as! String
                 let friend = Friend(username: username, image: nil, imageUrl: urlString)
-                self.friends.append(friend)
+                self.results.append(friend)
                 
             }
             completion(true)
+        }
+    }
+    
+    func searchFriends(text: String, completion: @escaping (_ success: Bool)->Void){
+        self.results = []
+        fetchFriends(text: text) { (success) in
+            if success {
+                completion(true)
+            }
+        }
+    }
+    
+    func fetchCurrentFriends(text: String, completion: @escaping (_ success: Bool)->Void){
+        guard let uid = AUTH.currentUser?.uid else {return}
+        FIRESTORE.collection(USER).document(uid).collection(FRIENDLIST).getDocuments { (snapshots, error) in
+            guard let friends = snapshots?.documents else {return}
+            for friend in friends {
+                let friendID = friend[USER_ID] as! String
+                self.fetchFriends(text: friendID) { (success) in
+                    if !success {
+                        print("error")
+                    }
+                }
+            }
         }
     }
     
