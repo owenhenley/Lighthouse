@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon" translatesAutoresizingMaskIntoConstraints="NO" id="72W-2w-OWi">
-                                <rect key="frame" x="37.5" y="183.5" width="300" height="300"/>
+                                <rect key="frame" x="41.5" y="183.5" width="300" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="Bgy-5C-WXh"/>
                                     <constraint firstAttribute="height" constant="300" id="Czu-p3-RXk"/>
@@ -29,7 +29,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="72W-2w-OWi" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="JjU-3Z-iWo"/>
-                            <constraint firstItem="72W-2w-OWi" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="UXz-VW-ZC5"/>
+                            <constraint firstItem="72W-2w-OWi" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" constant="4" id="UXz-VW-ZC5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
