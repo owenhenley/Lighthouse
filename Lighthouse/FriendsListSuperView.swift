@@ -38,8 +38,8 @@ class FriendsListSuperView: UIViewController, UISearchBarDelegate{
         switch FriendsListSuperView.indexDelegate?.tableViewIndex {
         case 0:
             print("first index")
-            //            FriendController.shared.searchFriends(text: searchText) { (success) in
-        //            }
+                        FriendController.shared.searchFriends(text: searchText) { (success) in
+                   }
         case 1:
             print("something")
         default:
