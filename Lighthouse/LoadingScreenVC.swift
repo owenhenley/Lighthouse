@@ -25,7 +25,6 @@ class LoadingScreenVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         activityWheel.startAnimating()
-        activityWheel.isHidden = false
     }
     
     override func viewDidAppear(_ animated: Bool) {
