@@ -28,7 +28,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>396</string>
+	<string>436</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MKDirectionsApplicationSupportedModes</key>
@@ -49,6 +49,7 @@
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
+	<string>FriendsList</string>
 	<string>LoadingScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
