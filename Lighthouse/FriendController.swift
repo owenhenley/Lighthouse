@@ -16,6 +16,43 @@ class FriendController {
     
     var results: [Friend] = []
     
+    func requestFriend(friendID: String){
+        guard let userID = AUTH.currentUser?.uid else {return}
+        FIRESTORE.collection(USER).document(friendID).collection(REQUESTS).document(userID).setValue(true, forKey: userID)
+        FIRESTORE.collection(USERLIST).document(friendID).collection(REQUESTS).document(userID).setValue(true, forKey: userID)
+    }
+    func cancelRequest(friendID: String){
+        let userID = AUTH.currentUser!.uid
+        FIRESTORE.collection(USER).document(friendID).collection(REQUESTS).document(userID).delete { (error) in
+            if let error = error {
+                print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
+            }
+        }
+        FIRESTORE.collection(USERLIST).document(friendID).collection(REQUESTS).document(userID).delete { (error) in
+            if let error = error {
+                print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
+            }
+        }
+    }
+    
+    func acceptRequest(friendID: String){
+        let userID = AUTH.currentUser!.uid
+        
+        FIRESTORE.collection(USER).document(friendID).collection(FRIENDLIST).document(userID).setData([userID : true]) { (error) in
+            if let error = error {
+                print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
+            }
+        }
+        FIRESTORE.collection(USERLIST).document(friendID).collection(FRIENDLIST).document(userID).setData([userID : true]) { (error) in
+            if let error = error {
+                print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
+            }
+        }
+        
+        
+        cancelRequest(friendID: friendID)
+    }
+    
     func addFriend(friendID: String, completion: @escaping (_ success: Bool)->Void){
         
         guard let uid = AUTH.currentUser?.uid else {return}
