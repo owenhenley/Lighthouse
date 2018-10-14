@@ -1,7 +1,7 @@
 <br/><p align="center"><img width="450" src="https://user-images.githubusercontent.com/28428200/46898247-2b573180-ce45-11e8-8dc7-47631fb950b9.png"/></p>
-<br>
 
-[![forthebadge](https://forthebadge.com/images/badges/made-with-swift.svg)](https://forthebadge.com)  [![forthebadge](https://forthebadge.com/images/badges/makes-people-smile.svg)](https://forthebadge.com)
+<br/><p align="center"><img width="200" src="https://forthebadge.com/images/badges/made-with-swift.svg"/>
+<img width="200" src="https://forthebadge.com/images/badges/makes-people-smile.svg"/></p>
 <br>
 
 A location tracking app to share your current location using FourSquares API with a friends list within the social network of the app. Has the option to ping friends in your list to see if they want to join you.
@@ -32,7 +32,7 @@ A location tracking app to share your current location using FourSquares API wit
 <br><br>
 
 
-[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
+<p align="left"><img width="140" src="https://forthebadge.com/images/badges/built-with-love.svg"/></p>
 
 ###### Designed By:
 
