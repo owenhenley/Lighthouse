@@ -18,6 +18,8 @@ class MapViewVC: UIViewController {
     var locationManager = CLLocationManager()
     let nonAuthUserLocationRadius: Double = 25000
     let authedUserLocationRadius: Double = 400
+    var searchIsActive = false
+    var handle: AuthStateDidChangeListenerHandle?
     
     // MARK: - Outlets
     
@@ -34,7 +36,9 @@ class MapViewVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        checkUserState()
         searchView.isHidden = false
+        
     }
     override func viewDidAppear(_ animated: Bool) {
         centerMapNonAuthUser()
@@ -43,13 +47,12 @@ class MapViewVC: UIViewController {
     // MARK: - Actions
     
     @IBAction func searchTapped(_ sender: Any) {
-        fillerView.isHidden = true
-        searchBar.isHidden = false
+       searchToggled()
     }
     
     @IBAction func nextTapped(_ sender: UIButton) {
-        nextButton.isHidden = true
         searchView.isHidden = true
+        nextButton.isHidden = true
     }
     
     // MARK: - Location Methods
@@ -62,7 +65,7 @@ class MapViewVC: UIViewController {
         return CLLocation(latitude: latitude, longitude: longitude)
     }
     
-    // MARK: - MapMethods
+    // MARK: - MapKit Methods
     
     func centerMapNonAuthUser() {
         if let location = locationManager.location?.coordinate {
@@ -71,6 +74,40 @@ class MapViewVC: UIViewController {
                 self.mainMapView.setRegion(region, animated: true)
             }, completion: nil)
         }
+    }
+    
+    func centerMapOnAuthedUser() {
+        if let location = self.locationManager.location?.coordinate {
+            UIView.animate(withDuration: 2, delay: 0, options: [.curveEaseIn], animations: {
+                let region = MKCoordinateRegion.init(center: location, latitudinalMeters: self.authedUserLocationRadius, longitudinalMeters: self.authedUserLocationRadius)
+                self.mainMapView.setRegion(region, animated: true)
+            }, completion: nil)
+        }
+    }
+    
+        // MARK: - Search Methods
+    
+    func searchToggled() {
+        if searchIsActive == false {
+            searchIsActive = true
+            fillerView.isHidden = true
+            searchBar.isHidden = false
+        } else {
+            searchIsActive = false
+            fillerView.isHidden = false
+            searchBar.isHidden = true
+        }
+    }
+    
+        // MARK: - Auth Management
+    
+    func checkUserState() {
+        handle = AUTH.addStateDidChangeListener({ (auth, user) in
+            if user != nil {
+                self.nextButton.isHidden = true
+                self.centerMapOnAuthedUser()
+            }
+        })
     }
 }
 
