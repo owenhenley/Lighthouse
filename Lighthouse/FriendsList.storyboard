@@ -612,7 +612,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="LYs-gH-cGc">
-                                            <rect key="frame" x="11" y="4.5" width="292" height="50"/>
+                                            <rect key="frame" x="11" y="4.5" width="238" height="50"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ejq-Wm-vJa">
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -622,16 +622,16 @@
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="g9m-jX-o1l">
-                                                    <rect key="frame" x="68" y="0.0" width="224" height="50"/>
+                                                    <rect key="frame" x="68" y="0.0" width="170" height="50"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aTx-na-8vt">
-                                                            <rect key="frame" x="0.0" y="0.0" width="224" height="25"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="170" height="25"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zGz-r1-wHf">
-                                                            <rect key="frame" x="0.0" y="25" width="224" height="25"/>
+                                                            <rect key="frame" x="0.0" y="25" width="170" height="25"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -641,9 +641,9 @@
                                             </subviews>
                                         </stackView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JYi-kz-4LQ">
-                                            <rect key="frame" x="313" y="14.5" width="46" height="30"/>
+                                            <rect key="frame" x="259" y="14.5" width="100" height="30"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="46" id="8zp-gs-fD4"/>
+                                                <constraint firstAttribute="width" constant="100" id="8zp-gs-fD4"/>
                                             </constraints>
                                             <state key="normal" title="Button"/>
                                             <connections>

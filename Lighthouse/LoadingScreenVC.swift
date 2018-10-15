@@ -37,7 +37,6 @@ class LoadingScreenVC: UIViewController {
 //            }
 //        }
         checkUserState()
-        
     }
     
         // MARK: - Authentication

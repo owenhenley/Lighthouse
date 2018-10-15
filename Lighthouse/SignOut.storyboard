@@ -29,6 +29,9 @@
                                 <rect key="frame" x="128" y="174" width="118" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Yes, Sign Me Out"/>
+                                <connections>
+                                    <action selector="signOutTapped:" destination="srI-aW-GX9" eventType="touchUpInside" id="C33-rn-3SX"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h5Z-Ah-l0a">
                                 <rect key="frame" x="16" y="32" width="25" height="25"/>

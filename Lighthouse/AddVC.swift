@@ -8,8 +8,12 @@
 
 import UIKit
 
-class AddVC: UITableViewController, UISearchBarDelegate {
+class AddVC: UITableViewController, UISearchBarDelegate, RequestTableViewCellDelegate {
+    
+    
 
+    var friend: Friend?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: FriendController.shared.resultsUpdated, object: nil)
@@ -28,8 +32,19 @@ class AddVC: UITableViewController, UISearchBarDelegate {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "addCell", for: indexPath) as? SearchCell
+        
 
+        cell?.delegate = self
         let friend = FriendController.shared.results[indexPath.row]
+        self.friend = friend
+        switch friend.request {
+        case true:
+            cell?.buttonOutlet.setTitle("Pending", for: .normal)
+        case false:
+            cell?.buttonOutlet.setTitle("Accept", for: .normal)
+        default:
+            cell?.buttonOutlet.setTitle("Add Friend", for: .normal)
+        }
         
         cell?.titleOutlet.text = friend.username
         
@@ -46,6 +61,32 @@ class AddVC: UITableViewController, UISearchBarDelegate {
         }
         
         return cell ?? UITableViewCell()
+    }
+    
+    
+    
+    func buttonTapped(sender: SearchCell) {
+        let friendID = friend!.friendID
+        switch friend?.request {
+        case false:
+            FriendController.shared.acceptRequest(friendID: friendID)
+            sender.buttonOutlet.isHidden = true
+            
+            
+        case true:
+            FriendController.shared.cancelRequest(friendID: friendID)
+            sender.buttonOutlet.setTitle("Add Friend", for: .normal)
+            friend?.request = nil
+
+        default:
+            FriendController.shared.requestFriend(friendID: friendID)
+            sender.buttonOutlet.setTitle("Pending", for: .normal)
+            friend?.request = true
+
+        }
+        
+
+        
     }
     
     @objc func updateViews(){
