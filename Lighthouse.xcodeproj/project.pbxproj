@@ -56,6 +56,7 @@
 		3EEC750A216EBF03009572FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EEC7509216EBF03009572FB /* Assets.xcassets */; };
 		3EEC750C216EC0FF009572FB /* UserProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EEC750B216EC0FF009572FB /* UserProfile.storyboard */; };
 		7E00ACF02173C1C8004C86E8 /* FriendsListSuperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E00ACEF2173C1C8004C86E8 /* FriendsListSuperView.swift */; };
+		7E2128D52174E6DF000100DF /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2128D42174E6DF000100DF /* SearchCell.swift */; };
 		7E38CF35216FA450009D44DF /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E38CF34216FA450009D44DF /* Animations.swift */; };
 		7E8EC58B217133E600B0275A /* FriendController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8EC58A217133E600B0275A /* FriendController.swift */; };
 		7E8EC58D217133F200B0275A /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8EC58C217133F200B0275A /* Friend.swift */; };
@@ -126,6 +127,7 @@
 		3EEC7509216EBF03009572FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3EEC750B216EC0FF009572FB /* UserProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserProfile.storyboard; sourceTree = "<group>"; };
 		7E00ACEF2173C1C8004C86E8 /* FriendsListSuperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListSuperView.swift; sourceTree = "<group>"; };
+		7E2128D42174E6DF000100DF /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		7E38CF34216FA450009D44DF /* Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
 		7E8EC58A217133E600B0275A /* FriendController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendController.swift; sourceTree = "<group>"; };
 		7E8EC58C217133F200B0275A /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
@@ -432,6 +434,7 @@
 				7E8EC5B52171A84300B0275A /* AddVC.swift */,
 				7E8EC5B72171A84F00B0275A /* GroupVC.swift */,
 				7E8EC5B92171A86200B0275A /* FriendsVC.swift */,
+				7E2128D42174E6DF000100DF /* SearchCell.swift */,
 			);
 			name = FriendsList;
 			sourceTree = "<group>";
@@ -643,6 +646,7 @@
 				3E28E868216BF24400E21331 /* LoadingScreenVC.swift in Sources */,
 				3E5A1DD92170F70900170A9B /* ChangeEmailVC.swift in Sources */,
 				3EA99144216BDC9E0001F09D /* AppDelegate.swift in Sources */,
+				7E2128D52174E6DF000100DF /* SearchCell.swift in Sources */,
 				7E8EC5AF2171534800B0275A /* SearchTestingVC.swift in Sources */,
 				7E8EC58B217133E600B0275A /* FriendController.swift in Sources */,
 				3E28E86C216BF29B00E21331 /* UserController.swift in Sources */,
@@ -808,14 +812,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Lighthouse/Lighthouse.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CYZA2EE6W8;
+				DEVELOPMENT_TEAM = ASRKL3D2BB;
 				INFOPLIST_FILE = Lighthouse/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.owenhenley.Lighthouse;
+				PRODUCT_BUNDLE_IDENTIFIER = com.levilinchenko.lighthouse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -829,14 +833,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Lighthouse/Lighthouse.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CYZA2EE6W8;
+				DEVELOPMENT_TEAM = ASRKL3D2BB;
 				INFOPLIST_FILE = Lighthouse/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.owenhenley.Lighthouse;
+				PRODUCT_BUNDLE_IDENTIFIER = com.levilinchenko.lighthouse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
