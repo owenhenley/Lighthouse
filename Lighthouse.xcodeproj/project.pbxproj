@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E06A5322174E11D004D1B24 /* Pods-Lighthouse.release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 32F9928D5D301409ED91D92D /* Pods-Lighthouse.release.xcconfig */; };
+		3E06A5332174E121004D1B24 /* Pods-Lighthouse.debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = C8AED16E9AFF336D11AA6353 /* Pods-Lighthouse.debug.xcconfig */; };
+		3E06A53521750518004D1B24 /* DropNewPinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E06A53421750518004D1B24 /* DropNewPinVC.swift */; };
 		3E0AC5AE2171533600002FD3 /* Megrim.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E0AC5AD2171533500002FD3 /* Megrim.ttf */; };
 		3E24CC59216FBF2F00BE957F /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E24CC58216FBF2F00BE957F /* Onboarding.storyboard */; };
 		3E24CC5B216FEF5B00BE957F /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E24CC5A216FEF5B00BE957F /* Settings.storyboard */; };
@@ -25,7 +28,7 @@
 		3E32AEEE216D4F7300C889DF /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E32AEED216D4F7300C889DF /* SignUpVC.swift */; };
 		3E32AEF1216D4FE900C889DF /* TrayTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E32AEF0216D4FE900C889DF /* TrayTabVC.swift */; };
 		3E32AEF3216D501000C889DF /* FriendsTrayListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E32AEF2216D501000C889DF /* FriendsTrayListVC.swift */; };
-		3E32AEF5216D502600C889DF /* DropPinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E32AEF4216D502600C889DF /* DropPinVC.swift */; };
+		3E32AEF5216D502600C889DF /* DroppedPinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E32AEF4216D502600C889DF /* DroppedPinVC.swift */; };
 		3E32AEF7216D524C00C889DF /* FriendsListTrayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E32AEF6216D524C00C889DF /* FriendsListTrayCell.swift */; };
 		3E5A1DD12170F63700170A9B /* TOSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5A1DD02170F63700170A9B /* TOSVC.swift */; };
 		3E5A1DD32170F65400170A9B /* PPVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5A1DD22170F65400170A9B /* PPVC.swift */; };
@@ -75,6 +78,7 @@
 /* Begin PBXFileReference section */
 		27D9275730042F1BCE1ABBCD /* Pods_Lighthouse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lighthouse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32F9928D5D301409ED91D92D /* Pods-Lighthouse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lighthouse.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lighthouse/Pods-Lighthouse.release.xcconfig"; sourceTree = "<group>"; };
+		3E06A53421750518004D1B24 /* DropNewPinVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropNewPinVC.swift; sourceTree = "<group>"; };
 		3E0AC5AD2171533500002FD3 /* Megrim.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Megrim.ttf; sourceTree = "<group>"; };
 		3E24CC58216FBF2F00BE957F /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		3E24CC5A216FEF5B00BE957F /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
@@ -93,7 +97,7 @@
 		3E32AEED216D4F7300C889DF /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		3E32AEF0216D4FE900C889DF /* TrayTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrayTabVC.swift; sourceTree = "<group>"; };
 		3E32AEF2216D501000C889DF /* FriendsTrayListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTrayListVC.swift; sourceTree = "<group>"; };
-		3E32AEF4216D502600C889DF /* DropPinVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropPinVC.swift; sourceTree = "<group>"; };
+		3E32AEF4216D502600C889DF /* DroppedPinVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroppedPinVC.swift; sourceTree = "<group>"; };
 		3E32AEF6216D524C00C889DF /* FriendsListTrayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListTrayCell.swift; sourceTree = "<group>"; };
 		3E5A1DD02170F63700170A9B /* TOSVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOSVC.swift; sourceTree = "<group>"; };
 		3E5A1DD22170F65400170A9B /* PPVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPVC.swift; sourceTree = "<group>"; };
@@ -165,14 +169,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		3E32AEEF216D4FB900C889DF /* Map View Drawer */ = {
+		3E32AEEF216D4FB900C889DF /* Map View Tray */ = {
 			isa = PBXGroup;
 			children = (
 				3E32AEF0216D4FE900C889DF /* TrayTabVC.swift */,
 				3E32AEF2216D501000C889DF /* FriendsTrayListVC.swift */,
-				3E32AEF4216D502600C889DF /* DropPinVC.swift */,
+				3E32AEF4216D502600C889DF /* DroppedPinVC.swift */,
+				3E06A53421750518004D1B24 /* DropNewPinVC.swift */,
 			);
-			name = "Map View Drawer";
+			name = "Map View Tray";
 			sourceTree = "<group>";
 		};
 		3E5A1DCF2170F61600170A9B /* Settings */ = {
@@ -301,9 +306,9 @@
 				3E24CC5C216FFF4100BE957F /* OnboardingVC.swift */,
 				3E28E869216BF27000E21331 /* MapViewVC.swift */,
 				3E32AEE9216D4F2D00C889DF /* TabBarControllerViewController.swift */,
+				3E32AEEF216D4FB900C889DF /* Map View Tray */,
 				7E8EC5B02171A78B00B0275A /* FriendsList */,
 				3EEC7507216EBAFD009572FB /* User */,
-				3E32AEEF216D4FB900C889DF /* Map View Drawer */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -408,8 +413,8 @@
 			isa = PBXGroup;
 			children = (
 				3E28E8A1216D108500E21331 /* TabBarController.storyboard */,
-				3EEC750B216EC0FF009572FB /* UserProfile.storyboard */,
 				3E28E8A7216D1E2F00E21331 /* MapView.storyboard */,
+				3EEC750B216EC0FF009572FB /* UserProfile.storyboard */,
 			);
 			name = "Tab Bar";
 			sourceTree = "<group>";
@@ -516,6 +521,7 @@
 			files = (
 				3EA99149216BDC9F0001F09D /* LaunchScreen.storyboard in Resources */,
 				3EA99157216BDF8D0001F09D /* LoadingScreen.storyboard in Resources */,
+				3E06A5322174E11D004D1B24 /* Pods-Lighthouse.release.xcconfig in Resources */,
 				3E5A1DE42170F7EC00170A9B /* PrivacyPolicy.storyboard in Resources */,
 				3E0AC5AE2171533600002FD3 /* Megrim.ttf in Resources */,
 				3EEC750A216EBF03009572FB /* Assets.xcassets in Resources */,
@@ -530,6 +536,7 @@
 				3E28E870216C1F8400E21331 /* SignIn.storyboard in Resources */,
 				3E5A1DE12170F7C900170A9B /* TermsOfService.storyboard in Resources */,
 				3EA99164216BE0310001F09D /* GoogleService-Info.plist in Resources */,
+				3E06A5332174E121004D1B24 /* Pods-Lighthouse.debug.xcconfig in Resources */,
 				3EEC750C216EC0FF009572FB /* UserProfile.storyboard in Resources */,
 				3E5A1DF32170FBE500170A9B /* DeleteAccount.storyboard in Resources */,
 				3E24CC5B216FEF5B00BE957F /* Settings.storyboard in Resources */,
@@ -635,7 +642,7 @@
 			files = (
 				7E8EC5B22171A7E800B0275A /* FriendsListContainerVC.swift in Sources */,
 				3E28E86E216BF2B300E21331 /* LocationController.swift in Sources */,
-				3E32AEF5216D502600C889DF /* DropPinVC.swift in Sources */,
+				3E32AEF5216D502600C889DF /* DroppedPinVC.swift in Sources */,
 				3E32AEF3216D501000C889DF /* FriendsTrayListVC.swift in Sources */,
 				3E5A1DD32170F65400170A9B /* PPVC.swift in Sources */,
 				3E5A1DDF2170F75A00170A9B /* DeleteAccountVC.swift in Sources */,
@@ -661,6 +668,7 @@
 				7E8EC58D217133F200B0275A /* Friend.swift in Sources */,
 				3EEC7504216EBAB8009572FB /* ForgotPasswordVC.swift in Sources */,
 				3EEC7506216EBAE6009572FB /* SignInVC.swift in Sources */,
+				3E06A53521750518004D1B24 /* DropNewPinVC.swift in Sources */,
 				3E32AEEA216D4F2D00C889DF /* TabBarControllerViewController.swift in Sources */,
 				3EA99153216BDF1B0001F09D /* User.swift in Sources */,
 				3E32AEEE216D4F7300C889DF /* SignUpVC.swift in Sources */,
@@ -812,14 +820,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Lighthouse/Lighthouse.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ASRKL3D2BB;
+				DEVELOPMENT_TEAM = CYZA2EE6W8;
 				INFOPLIST_FILE = Lighthouse/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.levilinchenko.lighthouse;
+				PRODUCT_BUNDLE_IDENTIFIER = io.owenhenley.Lighthouse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -833,14 +841,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Lighthouse/Lighthouse.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ASRKL3D2BB;
+				DEVELOPMENT_TEAM = CYZA2EE6W8;
 				INFOPLIST_FILE = Lighthouse/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.levilinchenko.lighthouse;
+				PRODUCT_BUNDLE_IDENTIFIER = io.owenhenley.Lighthouse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
