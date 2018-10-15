@@ -14,7 +14,14 @@ class FriendController {
     
     static let shared = FriendController()
     
-    var results: [Friend] = []
+    var results: [Friend] = []{
+        didSet{
+            NotificationCenter.default.post(name: resultsUpdated, object: nil)
+        }
+    }
+    
+    let resultsUpdated = Notification.Name("ResultsUpdated")
+    
     
     func requestFriend(friendID: String){
         guard let userID = AUTH.currentUser?.uid else {return}
