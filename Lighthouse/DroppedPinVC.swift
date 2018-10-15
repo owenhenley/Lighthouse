@@ -1,5 +1,5 @@
 //
-//  DropPinVC.swift
+//  DroppedPinVC.swift
 //  Lighthouse
 //
 //  Created by Owen Henley on 10/9/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DropPinVC: UIViewController {
+class DroppedPinVC: UIViewController {
     
         // MARK: - Outlets
     
