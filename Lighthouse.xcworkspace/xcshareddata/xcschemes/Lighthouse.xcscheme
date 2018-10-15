@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3E36CAF521683DEA0023C5F0"
+               BlueprintIdentifier = "3EA99130216BDC9E0001F09D"
                BuildableName = "Lighthouse.app"
                BlueprintName = "Lighthouse"
                ReferencedContainer = "container:Lighthouse.xcodeproj">
@@ -32,7 +32,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3E36CAF521683DEA0023C5F0"
+            BlueprintIdentifier = "3EA99130216BDC9E0001F09D"
             BuildableName = "Lighthouse.app"
             BlueprintName = "Lighthouse"
             ReferencedContainer = "container:Lighthouse.xcodeproj">
@@ -55,7 +55,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3E36CAF521683DEA0023C5F0"
+            BlueprintIdentifier = "3EA99130216BDC9E0001F09D"
             BuildableName = "Lighthouse.app"
             BlueprintName = "Lighthouse"
             ReferencedContainer = "container:Lighthouse.xcodeproj">
@@ -74,7 +74,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "3E36CAF521683DEA0023C5F0"
+            BlueprintIdentifier = "3EA99130216BDC9E0001F09D"
             BuildableName = "Lighthouse.app"
             BlueprintName = "Lighthouse"
             ReferencedContainer = "container:Lighthouse.xcodeproj">
