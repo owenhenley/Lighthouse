@@ -37,6 +37,7 @@ class LoadingScreenVC: UIViewController {
 //            }
 //        }
         checkUserState()
+        
     }
     
         // MARK: - Authentication
@@ -45,6 +46,9 @@ class LoadingScreenVC: UIViewController {
     func checkUserState() {
         handle = AUTH.addStateDidChangeListener({ (auth, user) in
             if user != nil {
+                UserController.shared.fetchUser { (success) in
+                    
+                }
                 let storyboard = UIStoryboard(name: "TabBarController", bundle: nil)
                 let mainView = storyboard.instantiateViewController(withIdentifier: "tabBarController")
                 self.present(mainView, animated: true, completion: nil)

@@ -26,7 +26,7 @@ class UserController {
                 print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
                 completion(false)
             } else {
-                self.uid = AUTH.currentUser?.uid
+//                self.uid = AUTH.currentUser?.uid
                 self.fetchUser(completion: { (success) in
                     if success{
                         completion(true)
@@ -203,6 +203,7 @@ class UserController {
     
     
     func fetchUser(completion: @escaping (_ success: Bool)->Void){
+        self.uid = AUTH.currentUser?.uid
         guard let uid = uid else {return}
         db.collection(USER).document(uid).getDocument { (snapshot, error) in
             if let error = error {
