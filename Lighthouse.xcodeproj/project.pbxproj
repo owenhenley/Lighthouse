@@ -42,7 +42,6 @@
 		3E5A1DEF2170FB9B00170A9B /* ResetPasswordFromSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E5A1DEE2170FB9B00170A9B /* ResetPasswordFromSettings.storyboard */; };
 		3E5A1DF12170FBB000170A9B /* SignOut.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E5A1DF02170FBB000170A9B /* SignOut.storyboard */; };
 		3E5A1DF32170FBE500170A9B /* DeleteAccount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E5A1DF22170FBE500170A9B /* DeleteAccount.storyboard */; };
-		3E755E2C21743BF300ABBB58 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E755E2B21743BF300ABBB58 /* StoreKit.framework */; };
 		3E7B2B6D216D929500E4F0F1 /* ForgotPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E7B2B6C216D929500E4F0F1 /* ForgotPassword.storyboard */; };
 		3E7B2B70216D98F600E4F0F1 /* FoursquareAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7B2B6F216D98F600E4F0F1 /* FoursquareAPIController.swift */; };
 		3EA99144216BDC9E0001F09D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA99143216BDC9E0001F09D /* AppDelegate.swift */; };
@@ -110,7 +109,6 @@
 		3E5A1DEE2170FB9B00170A9B /* ResetPasswordFromSettings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ResetPasswordFromSettings.storyboard; sourceTree = "<group>"; };
 		3E5A1DF02170FBB000170A9B /* SignOut.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignOut.storyboard; sourceTree = "<group>"; };
 		3E5A1DF22170FBE500170A9B /* DeleteAccount.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DeleteAccount.storyboard; sourceTree = "<group>"; };
-		3E755E2B21743BF300ABBB58 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		3E7B2B6C216D929500E4F0F1 /* ForgotPassword.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ForgotPassword.storyboard; sourceTree = "<group>"; };
 		3E7B2B6F216D98F600E4F0F1 /* FoursquareAPIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoursquareAPIController.swift; sourceTree = "<group>"; };
 		3EA99131216BDC9E0001F09D /* Lighthouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lighthouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,7 +146,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E755E2C21743BF300ABBB58 /* StoreKit.framework in Frameworks */,
 				3E28E866216BE6FB00E21331 /* MapKit.framework in Frameworks */,
 				AF1A98AB8F326C9B496E245A /* Pods_Lighthouse.framework in Frameworks */,
 			);
@@ -389,7 +386,6 @@
 		3EA99167216BE0E10001F09D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3E755E2B21743BF300ABBB58 /* StoreKit.framework */,
 				3E28E865216BE6FB00E21331 /* MapKit.framework */,
 				27D9275730042F1BCE1ABBCD /* Pods_Lighthouse.framework */,
 			);
@@ -480,7 +476,7 @@
 								enabled = 1;
 							};
 							com.apple.InAppPurchase = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.Maps.iOS = {
 								enabled = 1;
