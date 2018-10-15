@@ -37,7 +37,7 @@ class FriendController {
     func acceptRequest(friendID: String){
         let userID = AUTH.currentUser!.uid
         FIRESTORE.collection(USER).document(userID).collection(REQUESTS).document(friendID).delete()
-        FIRESTORE.collection(USER).document(friendID).collection(REQUESTED).document(userID).delete()
+        FIRESTORE.collection(USER).document(friendID).collection(REQUESTS).document(userID).delete()
         FIRESTORE.collection(USER).document(userID).collection(FRIENDLIST).document(friendID).setData([friendID : true])
         FIRESTORE.collection(USER).document(friendID).collection(FRIENDLIST).document(userID).setData([userID : true])
         
