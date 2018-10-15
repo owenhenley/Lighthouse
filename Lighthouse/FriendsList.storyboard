@@ -180,7 +180,7 @@
             </objects>
             <point key="canvasLocation" x="685.60000000000002" y="257.72113943028489"/>
         </scene>
-        <!--Friends List Super View-->
+        <!--Friends-->
         <scene sceneID="gO6-CK-Yjc">
             <objects>
                 <viewController id="ewL-nS-nL7" customClass="FriendsListSuperView" customModule="Lighthouse" customModuleProvider="target" sceneMemberID="viewController">
@@ -189,7 +189,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hlI-3C-5Zd">
-                                <rect key="frame" x="0.0" y="161" width="375" height="506"/>
+                                <rect key="frame" x="0.0" y="161" width="375" height="457"/>
                                 <connections>
                                     <segue destination="hV5-hj-H8L" kind="embed" id="eEB-EU-7bS"/>
                                 </connections>
@@ -233,6 +233,8 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZUz-gP-Jc9"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Friends" image="glyphsTabBarFriendsDisabledCopy" selectedImage="glyphsTabBarFriendsActive" id="IMl-mT-tYd"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="searchBar" destination="5lJ-SL-w6Y" id="Qxk-m6-3to"/>
                     </connections>
@@ -556,7 +558,7 @@
             <objects>
                 <viewController id="hV5-hj-H8L" customClass="FriendsListContainerVC" customModule="Lighthouse" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wme-aW-Gmh">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="506"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="457"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="te1-Uq-3W5"/>
