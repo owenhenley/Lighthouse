@@ -24,18 +24,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Icon" translatesAutoresizingMaskIntoConstraints="NO" id="IqL-K9-a3j">
-                                <rect key="frame" x="37.5" y="183.5" width="300" height="300"/>
+                                <rect key="frame" x="41.5" y="183.5" width="300" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="GUD-OI-qSj"/>
                                     <constraint firstAttribute="width" constant="300" id="VWz-Hw-wHE"/>
                                 </constraints>
                             </imageView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="eK2-Fl-yV9">
-                                <rect key="frame" x="169" y="493.5" width="37" height="37"/>
+                                <rect key="frame" x="169" y="483.5" width="37" height="37"/>
                                 <color key="color" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lighthouse" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5fR-vd-Z4j">
-                                <rect key="frame" x="111" y="80" width="153" height="33"/>
+                                <rect key="frame" x="111" y="120" width="153" height="33"/>
                                 <fontDescription key="fontDescription" name="Megrim" family="Megrim" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -44,11 +44,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="5fR-vd-Z4j" firstAttribute="centerX" secondItem="fCX-pc-dnQ" secondAttribute="centerX" id="KSW-KX-4VD"/>
-                            <constraint firstItem="eK2-Fl-yV9" firstAttribute="top" secondItem="IqL-K9-a3j" secondAttribute="bottom" constant="10" id="Men-Eh-0nU"/>
+                            <constraint firstItem="eK2-Fl-yV9" firstAttribute="top" secondItem="IqL-K9-a3j" secondAttribute="bottom" id="Men-Eh-0nU"/>
                             <constraint firstItem="IqL-K9-a3j" firstAttribute="centerY" secondItem="fCX-pc-dnQ" secondAttribute="centerY" id="Tcp-Ih-CDS"/>
-                            <constraint firstItem="5fR-vd-Z4j" firstAttribute="top" secondItem="fCX-pc-dnQ" secondAttribute="top" constant="80" id="Xe4-gK-vUX"/>
+                            <constraint firstItem="5fR-vd-Z4j" firstAttribute="top" secondItem="fCX-pc-dnQ" secondAttribute="top" constant="120" id="Xe4-gK-vUX"/>
                             <constraint firstItem="eK2-Fl-yV9" firstAttribute="centerX" secondItem="fCX-pc-dnQ" secondAttribute="centerX" id="q99-P2-waM"/>
-                            <constraint firstItem="IqL-K9-a3j" firstAttribute="centerX" secondItem="fCX-pc-dnQ" secondAttribute="centerX" id="wNX-v0-Gvg"/>
+                            <constraint firstItem="IqL-K9-a3j" firstAttribute="centerX" secondItem="fCX-pc-dnQ" secondAttribute="centerX" constant="4" id="wNX-v0-Gvg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DaK-Zn-Qxg"/>
                     </view>
