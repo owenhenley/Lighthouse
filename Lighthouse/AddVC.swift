@@ -12,6 +12,7 @@ class AddVC: UITableViewController, UISearchBarDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: FriendController.shared.resultsUpdated, object: nil)
 
     }
 
@@ -26,7 +27,7 @@ class AddVC: UITableViewController, UISearchBarDelegate {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "addCell", for: indexPath)
 
         let friend = FriendController.shared.results[indexPath.row]
         cell.textLabel?.text = friend.username
@@ -34,7 +35,7 @@ class AddVC: UITableViewController, UISearchBarDelegate {
         return cell
     }
     
-    func updateViews(){
+    @objc func updateViews(){
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
