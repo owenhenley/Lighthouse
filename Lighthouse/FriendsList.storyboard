@@ -604,13 +604,67 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="addCell" id="YdQ-wf-Oh0">
-                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="addCell" rowHeight="59" id="YdQ-wf-Oh0" customClass="SearchCell" customModule="Lighthouse" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="375" height="59"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YdQ-wf-Oh0" id="am7-x3-37p">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="58.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="LYs-gH-cGc">
+                                            <rect key="frame" x="11" y="4.5" width="292" height="50"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ejq-Wm-vJa">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="neK-2i-St8"/>
+                                                        <constraint firstAttribute="width" secondItem="Ejq-Wm-vJa" secondAttribute="height" multiplier="1:1" id="qoj-wa-G2l"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="g9m-jX-o1l">
+                                                    <rect key="frame" x="68" y="0.0" width="224" height="50"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aTx-na-8vt">
+                                                            <rect key="frame" x="0.0" y="0.0" width="224" height="25"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zGz-r1-wHf">
+                                                            <rect key="frame" x="0.0" y="25" width="224" height="25"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                        </stackView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JYi-kz-4LQ">
+                                            <rect key="frame" x="313" y="14.5" width="46" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="46" id="8zp-gs-fD4"/>
+                                            </constraints>
+                                            <state key="normal" title="Button"/>
+                                            <connections>
+                                                <action selector="buttonTapped:" destination="YdQ-wf-Oh0" eventType="touchUpInside" id="Vp3-a6-4cD"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="JYi-kz-4LQ" firstAttribute="centerY" secondItem="am7-x3-37p" secondAttribute="centerY" id="1s3-Ne-ZbX"/>
+                                        <constraint firstItem="JYi-kz-4LQ" firstAttribute="leading" secondItem="LYs-gH-cGc" secondAttribute="trailing" constant="10" id="Ah3-6P-drn"/>
+                                        <constraint firstItem="LYs-gH-cGc" firstAttribute="centerY" secondItem="am7-x3-37p" secondAttribute="centerY" id="Dzo-fX-yed"/>
+                                        <constraint firstItem="JYi-kz-4LQ" firstAttribute="trailing" secondItem="am7-x3-37p" secondAttribute="trailingMargin" id="R1J-mB-lly"/>
+                                        <constraint firstItem="LYs-gH-cGc" firstAttribute="leading" secondItem="am7-x3-37p" secondAttribute="leading" constant="11" id="hoW-dZ-Bsm"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="buttonOutlet" destination="JYi-kz-4LQ" id="Epz-lg-Wpl"/>
+                                    <outlet property="imageOutlet" destination="Ejq-Wm-vJa" id="de7-mN-ZoT"/>
+                                    <outlet property="subTitleOutlet" destination="zGz-r1-wHf" id="MqY-G1-dgA"/>
+                                    <outlet property="titleOutlet" destination="aTx-na-8vt" id="Jxg-BG-HNi"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -621,7 +675,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kbj-aY-9Ue" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="314" y="2101"/>
+            <point key="canvasLocation" x="312.80000000000001" y="2100.8995502248877"/>
         </scene>
         <!--FriendsVC-->
         <scene sceneID="Cgq-5s-Jzf">
