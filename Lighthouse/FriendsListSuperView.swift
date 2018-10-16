@@ -16,7 +16,7 @@ protocol tableViewIndex: class {
 class FriendsListSuperView: UIViewController, UISearchBarDelegate{
     
     
-    
+    var pageViewController: FriendsListContainerVC?
 
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -47,6 +47,24 @@ class FriendsListSuperView: UIViewController, UISearchBarDelegate{
         }
         
         
+    }
+    
+    @IBAction func friendsTapped() {
+        guard let friends = pageViewController?.friendsViewController else { return }
+        // TODO: Get proper direction
+        pageViewController?.setViewControllers([friends], direction: .forward, animated: true)
+    }
+    
+    
+    @IBAction func addTapped(_ sender: Any) {
+        guard let add = pageViewController?.addViewController else {return}
+        pageViewController?.setViewControllers([add], direction: .reverse, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "embedContainer" {
+            pageViewController = segue.destination as? FriendsListContainerVC
+        }
     }
 
 }
