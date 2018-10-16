@@ -37,6 +37,7 @@ class LoadingScreenVC: UIViewController {
 //                print("Signedin!")
 //            }
 //        }
+        
         checkUserState()
     }
     

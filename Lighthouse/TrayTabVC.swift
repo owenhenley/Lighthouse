@@ -8,21 +8,31 @@
 
 import UIKit
 
+//1) Define all of the qualificcations to be the TrayTabVC's Delegate (Boss)
+protocol TrayTabVCDelegate: class {
+    func changeTrayHeight(isTrayActive: Bool)
+}
+
 class TrayTabVC: UIViewController {
     
-        // MARK: - Outlets
     
-
-    @IBOutlet weak var trayTabHeightContraint: NSLayoutConstraint!
+    // MARK: - Variables
+    
+    var trayIsActive = false
+    
+    //2) The child class defining a place in its heart where it recognizes it needs a boss
+    weak var delegate: TrayTabVCDelegate?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     
+    
     @IBAction func trayOpenTapped(_ sender: Any) {
-        trayTabHeightContraint.constant = 10
-        print("tapped")
+    
+        delegate?.changeTrayHeight(isTrayActive: trayIsActive)
+        trayIsActive = !trayIsActive
+        
     }
 }
