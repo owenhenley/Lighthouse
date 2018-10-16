@@ -17,9 +17,10 @@ class FriendsTrayListVC: UIViewController {
     
         // MARK: - Variables
     
-    
-//    var friendName = ["Jim Halpert", "Hugo Bean", "Lola Henley", "Pam Beasley", "Creed Bratton"]
-//    var friendLocation = ["J-Dawgs","Jimmy Johns", "Robins Nest", "Apollo", "Apple"]
+    // MOCK DATA
+    var friendName = ["Jim Halpert", "Hugo Bean", "Lola Henley", "Pam Beasley", "Creed Bratton"]
+    var friendLocation = ["J-Dawgs","Jimmy Johns", "Robins Nest", "Apollo", "Apple"]
+    var friendImage = [UIImage(named: "Jim"), #imageLiteral(resourceName: "hugo"), #imageLiteral(resourceName: "lola"), #imageLiteral(resourceName: "pam"), #imageLiteral(resourceName: "creed")]
     
     
         // MARK: - LifeCycle
@@ -29,8 +30,7 @@ class FriendsTrayListVC: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         friendsTableView.delegate = self
         friendsTableView.dataSource = self
-//        mapVC = parent as? MapViewVC
-//        self.delegate = mapVC
+
     }
     
         // MARK: - Actions
@@ -40,16 +40,29 @@ class FriendsTrayListVC: UIViewController {
 
 extension FriendsTrayListVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return friendName.count
     }
     
     //MARK: UITableViewDataSource
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as? FriendsListTrayCell
         
-//        let friend = friendName[indexPath.row]
+        
+        let friendRealName = friendName[indexPath.row]
+        let FriendLocation = friendLocation[indexPath.row]
+        let images = friendImage[indexPath.row]
+        
+        cell?.profileImage.image = images
+        cell?.friendNameLabel.text = friendRealName
+        cell?.friendLocationLabel.text = FriendLocation
+        
         
         return cell ?? UITableViewCell()
     }
