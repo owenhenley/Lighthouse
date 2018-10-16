@@ -22,10 +22,18 @@ class FriendsListContainerVC: UIPageViewController, UIPageViewControllerDelegate
         return [
            UIStoryboard(name: "FriendsList", bundle: nil).instantiateViewController(withIdentifier: "AddVC") as! AddTVC,
            UIStoryboard(name: "FriendsList", bundle: nil).instantiateViewController(withIdentifier: "FriendsVC") as! FriendsTVC,
-           UIStoryboard(name: "FriendsList", bundle: nil).instantiateViewController(withIdentifier: "GroupVC") as! GroupTVC
+           // UIStoryboard(name: "FriendsList", bundle: nil).instantiateViewController(withIdentifier: "GroupVC") as! GroupTVC
         ]
     }()
+    
+    
+    var addViewController: AddTVC? {
+        return subViewControllers[0] as? AddTVC
+    }
 
+    var friendsViewController: FriendsTVC? {
+        return subViewControllers[1] as? FriendsTVC
+    }
     
     
     override func viewDidLoad() {

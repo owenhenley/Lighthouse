@@ -191,23 +191,25 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hlI-3C-5Zd">
                                 <rect key="frame" x="0.0" y="161" width="375" height="457"/>
                                 <connections>
-                                    <segue destination="hV5-hj-H8L" kind="embed" id="eEB-EU-7bS"/>
+                                    <segue destination="hV5-hj-H8L" kind="embed" identifier="embedContainer" id="eEB-EU-7bS"/>
                                 </connections>
                             </containerView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="63" translatesAutoresizingMaskIntoConstraints="NO" id="jAv-5r-2rb">
-                                <rect key="frame" x="48" y="133" width="279" height="20"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="110" translatesAutoresizingMaskIntoConstraints="NO" id="jAv-5r-2rb">
+                                <rect key="frame" x="81.5" y="133" width="212" height="20"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i9t-cX-S19">
                                         <rect key="frame" x="0.0" y="0.0" width="51" height="20"/>
                                         <state key="normal" title="Add"/>
+                                        <connections>
+                                            <action selector="addTapped:" destination="ewL-nS-nL7" eventType="touchUpInside" id="Wxr-nr-TOz"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l45-Ls-rAh">
-                                        <rect key="frame" x="114" y="0.0" width="51" height="20"/>
+                                        <rect key="frame" x="161" y="0.0" width="51" height="20"/>
                                         <state key="normal" title="Friends"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uJE-Z8-Hsv">
-                                        <rect key="frame" x="228" y="0.0" width="51" height="20"/>
-                                        <state key="normal" title="Groups"/>
+                                        <connections>
+                                            <action selector="friendsTapped" destination="ewL-nS-nL7" eventType="touchUpInside" id="iO5-Lw-CK7"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -576,33 +578,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="qcK-Em-fpk">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0gy-Fl-VUM">
-                                    <rect key="frame" x="39" y="0.0" width="58" height="2"/>
-                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="2" id="KgT-6s-tWF"/>
-                                        <constraint firstAttribute="width" constant="58" id="SaW-P7-OMV"/>
-                                    </constraints>
-                                </view>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tEo-qr-PAz">
-                                    <rect key="frame" x="183.5" y="11.5" width="8" height="21"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                            </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <constraints>
-                                <constraint firstItem="tEo-qr-PAz" firstAttribute="centerX" secondItem="qcK-Em-fpk" secondAttribute="centerX" id="TV1-ef-zlW"/>
-                                <constraint firstItem="0gy-Fl-VUM" firstAttribute="top" secondItem="qcK-Em-fpk" secondAttribute="top" id="j6S-N9-TC2"/>
-                                <constraint firstItem="tEo-qr-PAz" firstAttribute="centerY" secondItem="qcK-Em-fpk" secondAttribute="centerY" id="k4s-eV-jEA"/>
-                                <constraint firstItem="0gy-Fl-VUM" firstAttribute="leading" secondItem="qcK-Em-fpk" secondAttribute="leading" constant="39" id="lx0-KY-sZd"/>
-                            </constraints>
-                        </view>
                         <connections>
                             <outlet property="dataSource" destination="Xe1-4X-3I4" id="g5V-e9-h5K"/>
                             <outlet property="delegate" destination="Xe1-4X-3I4" id="W4O-Hf-yWu"/>
@@ -676,35 +651,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="PTh-y0-WO1">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IYP-Kg-3Rp">
-                                    <rect key="frame" x="158.5" y="0.0" width="58" height="2"/>
-                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="58" id="9AB-YS-z4a"/>
-                                        <constraint firstAttribute="height" constant="2" id="CEw-Bv-r4n"/>
-                                    </constraints>
-                                </view>
-                            </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <constraints>
-                                <constraint firstItem="IYP-Kg-3Rp" firstAttribute="top" secondItem="PTh-y0-WO1" secondAttribute="top" id="yca-lt-RKU"/>
-                                <constraint firstItem="IYP-Kg-3Rp" firstAttribute="centerX" secondItem="PTh-y0-WO1" secondAttribute="centerX" id="zoI-ul-DbW"/>
-                            </constraints>
-                        </view>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendCell" id="BxK-07-p3Z" customClass="FriendCell" customModule="Lighthouse" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BxK-07-p3Z" id="7pa-EV-eTK">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="utT-ZW-xFP" id="eNy-WW-haJ"/>
                             <outlet property="delegate" destination="utT-ZW-xFP" id="3F2-iE-eaf"/>

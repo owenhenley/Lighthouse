@@ -8,6 +8,10 @@
 
 import UIKit
 
+//protocol Groupable {
+//    var group: Group
+//}
+
 class GroupTVC: UITableViewController {
 
     override func viewDidLoad() {
@@ -15,11 +19,6 @@ class GroupTVC: UITableViewController {
         setupTableView()
         
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
