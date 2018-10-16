@@ -35,3 +35,45 @@ extension UIViewController {
 }
 
 
+
+
+class CustomTextFieldVC: UIViewController, UITextFieldDelegate{
+    
+    var textFields: [UITextField] = []
+    
+    func dissmisskeyBoard(){
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func handleTap(){
+        textFields.forEach{$0.resignFirstResponder()}
+    }
+
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        dissmisskeyBoard()
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            
+            if self.view.frame.origin.y == 0{
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+
+            if self.view.frame.origin.y != 0{
+                self.view.frame.origin.y = 0
+            }
+    }
+}
+
+

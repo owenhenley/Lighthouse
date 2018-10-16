@@ -13,16 +13,18 @@ import AudioToolbox
 //    func popScreen()
 //}
 
-class SignInVC: UIViewController, UITextFieldDelegate {
+class SignInVC: CustomTextFieldVC {
     
     @IBOutlet weak var emailOutlet    : UITextField!
     @IBOutlet weak var passwordOutlet : UITextField!
-    @IBOutlet weak var usernameOutlet : UITextField!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         passwordOutlet.delegate = self
+        textFields = [emailOutlet, passwordOutlet]
     }
+
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         signInTapped(self)
