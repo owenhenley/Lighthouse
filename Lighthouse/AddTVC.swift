@@ -101,9 +101,4 @@ class AddTVC: UITableViewController, UISearchBarDelegate, RequestTableViewCellDe
 
 }
 
-extension UITableViewController {
-    func setupTableView() {
-        let nib = UINib(nibName: "FriendCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "FriendCell")
-    }
-}
+

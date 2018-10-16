@@ -34,3 +34,11 @@ extension UIViewController: UIImagePickerControllerDelegate, UINavigationControl
     }
     
 }
+
+
+extension UITableViewController {
+    func setupTableView() {
+        let nib = UINib(nibName: "FriendCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "FriendCell")
+    }
+}

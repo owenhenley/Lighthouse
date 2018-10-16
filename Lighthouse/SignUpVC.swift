@@ -9,7 +9,7 @@
 import UIKit
 import AudioToolbox
 
-class SignUpVC: UIViewController, UITextFieldDelegate {
+class SignUpVC: CustomTextFieldVC {
     
     @IBOutlet weak var emailOutlet: UITextField!
     @IBOutlet weak var passwordOutlet: UITextField!
@@ -22,6 +22,7 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         blurBackground()
         usernameOutlet.delegate = self
+        textFields = [emailOutlet, passwordOutlet, usernameOutlet]
     }
 
     override func viewWillAppear(_ animated: Bool) {

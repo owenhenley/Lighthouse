@@ -39,11 +39,7 @@ class LoadingScreenVC: UIViewController {
 //        }
         checkUserState()
         
-        FriendController.shared.fetchFriends { (success) in
-            if success {
-                print(FriendController.shared.friends)
-            }
-        }
+       
         
     }
     
@@ -55,6 +51,11 @@ class LoadingScreenVC: UIViewController {
             if user != nil {
                 UserController.shared.fetchUser { (success) in
                     
+                }
+                FriendController.shared.fetchFriends { (success) in
+                    if success {
+                        print(FriendController.shared.friends)
+                    }
                 }
                 let storyboard = UIStoryboard(name: "TabBarController", bundle: nil)
                 let mainView = storyboard.instantiateViewController(withIdentifier: "tabBarController")
