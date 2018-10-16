@@ -9,7 +9,7 @@
 import UIKit
 import AudioToolbox
 
-class SignUpVC: UIViewController {
+class SignUpVC: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var emailOutlet: UITextField!
     @IBOutlet weak var passwordOutlet: UITextField!
@@ -21,6 +21,7 @@ class SignUpVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         blurBackground()
+        usernameOutlet.delegate = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -29,19 +30,24 @@ class SignUpVC: UIViewController {
             self.dismiss(animated: true, completion: nil)
         }
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        createProfileTapped(self)
+        return true
+    }
 
     @IBAction func backTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        
-        UIView.animate(withDuration: 0.5) {
-            self.signUpConstraint.constant = 308 // keyboard is 258px (258+50)
-            self.view.layoutIfNeeded() // view version of '.reloaddata()'
-        }
-    }
-    
+//    func textFieldDidBeginEditing(_ textField: UITextField) {
+//
+//        UIView.animate(withDuration: 0.5) {
+//            self.signUpConstraint.constant = 308 // keyboard is 258px (258+50)
+//            self.view.layoutIfNeeded() // view version of '.reloaddata()'
+//        }
+//    }
+//
     func blurBackground() {
         let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
         visualEffectView.frame = self.blurView.bounds

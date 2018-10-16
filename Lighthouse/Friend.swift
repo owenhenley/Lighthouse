@@ -12,4 +12,6 @@ struct Friend {
     let username: String
     let image: UIImage?
     let imageUrl: String
+    let friendID: String
+    var request: Bool?
 }

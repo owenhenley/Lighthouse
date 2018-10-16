@@ -122,6 +122,8 @@ class MapViewVC: UIViewController {
             if user != nil {
                 self.nextButton.isHidden = true
                 self.centerMapOnAuthedUser()
+            } else {
+                self.nextButton.isHidden = false
             }
         })
     }

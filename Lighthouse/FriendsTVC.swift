@@ -8,39 +8,45 @@
 
 import UIKit
 
-class FriendsVC: UITableViewController {
+class FriendsTVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        setupTableView()
+        
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
+
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return FriendController.shared.friends.count
+
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell", for: indexPath) as? FriendCell
+        let friend = FriendController.shared.friends[indexPath.row]
+        
+        cell?.titleOutlet.text = friend.username
+        
+        if friend.imageUrl == "No Profile Image" {
+            cell?.imageOutlet.isHidden = true
+        } else {
+            cell?.imageOutlet.isHidden = false
+            FriendController.shared.fetchFreindsImage(urlString: friend.imageUrl) { (image) in
+                DispatchQueue.main.async {
+                    cell?.imageOutlet.image = image
+                }
+            }
+            
+        }
 
-        // Configure the cell...
-
-        return cell
+        return cell ?? UITableViewCell()
     }
-    */
+ 
 
     /*
     // Override to support conditional editing of the table view.
