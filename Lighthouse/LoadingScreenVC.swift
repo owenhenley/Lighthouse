@@ -37,6 +37,13 @@ class LoadingScreenVC: UIViewController {
 //            }
 //        }
         checkUserState()
+        
+        FriendController.shared.fetchFriends { (success) in
+            if success {
+                print(FriendController.shared.friends)
+            }
+        }
+        
     }
     
         // MARK: - Authentication

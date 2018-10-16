@@ -38,8 +38,8 @@ class FriendController {
         let userID = AUTH.currentUser!.uid
         FIRESTORE.collection(USER).document(userID).collection(REQUESTS).document(friendID).delete()
         FIRESTORE.collection(USER).document(friendID).collection(REQUESTS).document(userID).delete()
-        FIRESTORE.collection(USER).document(userID).collection(FRIENDLIST).document(friendID).setData([friendID : true])
-        FIRESTORE.collection(USER).document(friendID).collection(FRIENDLIST).document(userID).setData([userID : true])
+        FIRESTORE.collection(USER).document(userID).collection(FRIENDLIST).document(friendID).setData([FRIEND : friendID])
+        FIRESTORE.collection(USER).document(friendID).collection(FRIENDLIST).document(userID).setData([FRIEND : userID])
         
         
         //        FIRESTORE.collection(USER).document(friendID).collection(FRIENDLIST).document(userID).setData([userID : true]) { (error) in
@@ -112,15 +112,15 @@ class FriendController {
                 completion (false)
                 return
             }
-           
+            
             guard let users = snapShotBlock?.documents else {return}
             for user in users {
                 
                 let username = user[USERNAME] as! String
                 let urlString = user[PROFILE_IMAGE_URL] as! String
                 let friendID = user[USER_ID] as! String
-               
-                self.getRequest(friendID: friendID, completion: { (request) -> Void in
+                
+                self.fetchRequest(friendID: friendID, completion: { (request) -> Void in
                     let friend = Friend(username: username, image: nil, imageUrl: urlString, friendID: friendID, request: request)
                     self.results.append(friend)
                 })
@@ -130,7 +130,7 @@ class FriendController {
         }
     }
     
-    func getRequest(friendID: String, completion: @escaping (_ success: Bool?) -> Void){
+    func fetchRequest(friendID: String, completion: @escaping (_ success: Bool?) -> Void){
         FIRESTORE.collection(USER).document(friendID).collection(REQUESTS).document(AUTH.currentUser!.uid).getDocument(completion: { (snapshot, error) in
             guard let request = snapshot else {return}
             if let requestInfo = request[AUTH.currentUser!.uid] as? Bool {
@@ -150,16 +150,21 @@ class FriendController {
                 completion (false)
                 return
             }
-            guard let users = snapShotBlock?.documents else {return}
-            for user in users {
-                let username = user[USERNAME] as! String
-                let urlString = user[PROFILE_IMAGE_URL] as! String
-                let friendID = user[USER_ID] as! String
-                let friend = Friend(username: username, image: nil, imageUrl: urlString, friendID: friendID, request: true)
-                self.friends.append(friend)
+            guard let userIDs = snapShotBlock?.documents else {return}
+            for userID in userIDs {
+                let userID = userID[FRIEND] as! String
+                FIRESTORE.collection(USER).document(userID).getDocument(completion: { (user, error) in
+                    guard let user = user else {return}
+                    let username = user[USERNAME] as! String
+                    let urlString = user[PROFILE_IMAGE_URL] as! String
+                    let friendID = user[USER_ID] as! String
+                    let friend = Friend(username: username, image: nil, imageUrl: urlString, friendID: friendID, request: true)
+                    self.friends.append(friend)
+                    completion(true)
+                })
+                
                 
             }
-            completion(true)
         }
         
     }
@@ -168,20 +173,20 @@ class FriendController {
     
     
     
-//    func fetchCurrentFriends(text: String, completion: @escaping (_ success: Bool)->Void){
-//        guard let uid = AUTH.currentUser?.uid else {return}
-//        FIRESTORE.collection(USER).document(uid).collection(FRIENDLIST).getDocuments { (snapshots, error) in
-//            guard let friends = snapshots?.documents else {return}
-//            for friend in friends {
-//                let friendID = friend[USER_ID] as! String
-//                self.searchFriends(text: friendID) { (success) in
-//                    if !success {
-//                        print("error")
-//                    }
-//                }
-//            }
-//        }
-//    }
+    //    func fetchCurrentFriends(text: String, completion: @escaping (_ success: Bool)->Void){
+    //        guard let uid = AUTH.currentUser?.uid else {return}
+    //        FIRESTORE.collection(USER).document(uid).collection(FRIENDLIST).getDocuments { (snapshots, error) in
+    //            guard let friends = snapshots?.documents else {return}
+    //            for friend in friends {
+    //                let friendID = friend[USER_ID] as! String
+    //                self.searchFriends(text: friendID) { (success) in
+    //                    if !success {
+    //                        print("error")
+    //                    }
+    //                }
+    //            }
+    //        }
+    //    }
     
     func fetchFreindsImage(urlString: String, completion: @escaping (_ success: UIImage?)->Void) {
         guard let url = URL(string: urlString) else {return}

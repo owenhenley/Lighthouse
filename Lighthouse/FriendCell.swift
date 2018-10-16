@@ -9,10 +9,10 @@
 import UIKit
 
 protocol RequestTableViewCellDelegate: class {
-    func buttonTapped(sender: SearchCell)
+    func buttonTapped(sender: FriendCell)
 }
 
-class SearchCell: UITableViewCell {
+class FriendCell: UITableViewCell {
     
     @IBOutlet weak var imageOutlet: UIImageView!
     @IBOutlet weak var titleOutlet: UILabel!

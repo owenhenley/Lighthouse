@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddVC: UITableViewController, UISearchBarDelegate, RequestTableViewCellDelegate {
+class AddTVC: UITableViewController, UISearchBarDelegate, RequestTableViewCellDelegate {
     
     
 
@@ -17,9 +17,12 @@ class AddVC: UITableViewController, UISearchBarDelegate, RequestTableViewCellDel
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: FriendController.shared.resultsUpdated, object: nil)
+        
+        setupTableView()
 
     }
 
+    
     // MARK: - Table view data source
 
 
@@ -31,7 +34,7 @@ class AddVC: UITableViewController, UISearchBarDelegate, RequestTableViewCellDel
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "addCell", for: indexPath) as? SearchCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell", for: indexPath) as? FriendCell
         
 
         cell?.delegate = self
@@ -65,7 +68,7 @@ class AddVC: UITableViewController, UISearchBarDelegate, RequestTableViewCellDel
     
     
     
-    func buttonTapped(sender: SearchCell) {
+    func buttonTapped(sender: FriendCell) {
         let friendID = friend!.friendID
         switch friend?.request {
         case false:
@@ -96,4 +99,11 @@ class AddVC: UITableViewController, UISearchBarDelegate, RequestTableViewCellDel
     }
 
 
+}
+
+extension UITableViewController {
+    func setupTableView() {
+        let nib = UINib(nibName: "FriendCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "FriendCell")
+    }
 }
