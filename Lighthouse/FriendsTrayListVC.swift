@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol FriendsInTrayShown: class {
-    func trayOpened()
-}
-
 class FriendsTrayListVC: UIViewController {
     
     static let shared = FriendsTrayListVC()
@@ -21,8 +17,6 @@ class FriendsTrayListVC: UIViewController {
     
         // MARK: - Variables
     
-    weak var delegate: FriendsInTrayShown?
-    var mapVC: MapViewVC!
     
 //    var friendName = ["Jim Halpert", "Hugo Bean", "Lola Henley", "Pam Beasley", "Creed Bratton"]
 //    var friendLocation = ["J-Dawgs","Jimmy Johns", "Robins Nest", "Apollo", "Apple"]
@@ -32,9 +26,10 @@ class FriendsTrayListVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.translatesAutoresizingMaskIntoConstraints = false
         friendsTableView.delegate = self
         friendsTableView.dataSource = self
-        mapVC = parent as? MapViewVC
+//        mapVC = parent as? MapViewVC
 //        self.delegate = mapVC
     }
     

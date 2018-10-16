@@ -30,6 +30,7 @@
 		3E32AEF3216D501000C889DF /* FriendsTrayListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E32AEF2216D501000C889DF /* FriendsTrayListVC.swift */; };
 		3E32AEF5216D502600C889DF /* DroppedPinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E32AEF4216D502600C889DF /* DroppedPinVC.swift */; };
 		3E32AEF7216D524C00C889DF /* FriendsListTrayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E32AEF6216D524C00C889DF /* FriendsListTrayCell.swift */; };
+		3E5526842175727E00035D2D /* StyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5526832175727E00035D2D /* StyleGuide.swift */; };
 		3E5A1DD12170F63700170A9B /* TOSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5A1DD02170F63700170A9B /* TOSVC.swift */; };
 		3E5A1DD32170F65400170A9B /* PPVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5A1DD22170F65400170A9B /* PPVC.swift */; };
 		3E5A1DD52170F69900170A9B /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5A1DD42170F69900170A9B /* SettingsVC.swift */; };
@@ -99,6 +100,7 @@
 		3E32AEF2216D501000C889DF /* FriendsTrayListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTrayListVC.swift; sourceTree = "<group>"; };
 		3E32AEF4216D502600C889DF /* DroppedPinVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroppedPinVC.swift; sourceTree = "<group>"; };
 		3E32AEF6216D524C00C889DF /* FriendsListTrayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListTrayCell.swift; sourceTree = "<group>"; };
+		3E5526832175727E00035D2D /* StyleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleGuide.swift; sourceTree = "<group>"; };
 		3E5A1DD02170F63700170A9B /* TOSVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOSVC.swift; sourceTree = "<group>"; };
 		3E5A1DD22170F65400170A9B /* PPVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPVC.swift; sourceTree = "<group>"; };
 		3E5A1DD42170F69900170A9B /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
@@ -328,7 +330,6 @@
 				3EEC7509216EBF03009572FB /* Assets.xcassets */,
 				3EA9915F216BDFF60001F09D /* Helpers */,
 				3EA9915E216BDFEC0001F09D /* Extensions */,
-				3EA9915D216BDFE60001F09D /* Constants */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -346,14 +347,6 @@
 			name = Storyboards;
 			sourceTree = "<group>";
 		};
-		3EA9915D216BDFE60001F09D /* Constants */ = {
-			isa = PBXGroup;
-			children = (
-				7EF9A478216C0D480064DC47 /* Constants.swift */,
-			);
-			name = Constants;
-			sourceTree = "<group>";
-		};
 		3EA9915E216BDFEC0001F09D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -367,6 +360,8 @@
 		3EA9915F216BDFF60001F09D /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				3E5526832175727E00035D2D /* StyleGuide.swift */,
+				7EF9A478216C0D480064DC47 /* Constants.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -640,6 +635,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E5526842175727E00035D2D /* StyleGuide.swift in Sources */,
 				7E8EC5B22171A7E800B0275A /* FriendsListContainerVC.swift in Sources */,
 				3E28E86E216BF2B300E21331 /* LocationController.swift in Sources */,
 				3E32AEF5216D502600C889DF /* DroppedPinVC.swift in Sources */,

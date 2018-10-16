@@ -35,6 +35,7 @@ class MapViewVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.isHidden = true
+        trayContainer.translatesAutoresizingMaskIntoConstraints = false
 //        trayContainer.translatesAutoresizingMaskIntoConstraints = false
         setupLocationManager()
     }

@@ -12,11 +12,17 @@ class TrayTabVC: UIViewController {
     
         // MARK: - Outlets
     
-    @IBOutlet weak var trayTabImage: UIImageView!
+
+    @IBOutlet weak var trayTabHeightContraint: NSLayoutConstraint!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+    }
+    
+    @IBAction func trayOpenTapped(_ sender: Any) {
+        trayTabHeightContraint.constant = 10
+        print("tapped")
     }
 }
