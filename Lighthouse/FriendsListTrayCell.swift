@@ -20,7 +20,7 @@ class FriendsListTrayCell: UITableViewCell {
     
         // MARK: - Variables
     
-    var friend: FriendsTrayListVC?
+    var friend: Friend?
     
     
 //    func updateViews() {

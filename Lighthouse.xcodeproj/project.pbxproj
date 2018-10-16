@@ -226,9 +226,9 @@
 			isa = PBXGroup;
 			children = (
 				3E28E86F216C1F8400E21331 /* SignIn.storyboard */,
-				7E2390C821764D2B00D27CCB /* FriendCell.xib */,
 				3E28E8AD216D20BE00E21331 /* SignUp.storyboard */,
 				3E7B2B6C216D929500E4F0F1 /* ForgotPassword.storyboard */,
+				7E2390C821764D2B00D27CCB /* FriendCell.xib */,
 			);
 			name = User;
 			sourceTree = "<group>";
@@ -289,6 +289,7 @@
 			children = (
 				3EA99138216BDC9E0001F09D /* Model Controllers */,
 				3EA9913B216BDC9E0001F09D /* View Controllers */,
+				3EA99165216BE03A0001F09D /* Custom Views */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -321,7 +322,6 @@
 			isa = PBXGroup;
 			children = (
 				3EA9915C216BDFC00001F09D /* Storyboards */,
-				3EA99165216BE03A0001F09D /* Custom Views */,
 			);
 			name = Views;
 			sourceTree = "<group>";
