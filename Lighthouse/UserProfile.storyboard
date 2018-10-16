@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" misplaced="YES" id="fN0-ma-zwF">
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="fN0-ma-zwF">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="470"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
@@ -110,8 +110,8 @@
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="lLm-Yb-qch">
                                     <rect key="frame" x="16" y="20" width="343" height="23"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r5o-NN-9NS">
-                                            <rect key="frame" x="0.0" y="0.0" width="56" height="23"/>
+                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r5o-NN-9NS">
+                                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="23"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <state key="normal" title="Cancel">
                                                 <color key="titleColor" red="0.42342072730000002" green="0.4117656052" blue="0.41176474089999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -121,7 +121,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AXV-zW-cw8">
-                                            <rect key="frame" x="172" y="0.0" width="23" height="23"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="23" height="23"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="23" id="NFH-Hb-5ad"/>
                                                 <constraint firstAttribute="height" constant="23" id="dSo-zr-qfD"/>

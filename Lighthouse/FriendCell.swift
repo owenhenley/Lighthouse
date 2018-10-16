@@ -8,7 +8,11 @@
 
 import UIKit
 
-class SearchCell: UITableViewCell {
+protocol RequestTableViewCellDelegate: class {
+    func buttonTapped(sender: FriendCell)
+}
+
+class FriendCell: UITableViewCell {
     
     @IBOutlet weak var imageOutlet: UIImageView!
     @IBOutlet weak var titleOutlet: UILabel!
@@ -16,10 +20,15 @@ class SearchCell: UITableViewCell {
     @IBOutlet weak var buttonOutlet: UIButton!
     
 
+    weak var delegate: RequestTableViewCellDelegate?
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -29,6 +38,8 @@ class SearchCell: UITableViewCell {
     
     
     @IBAction func buttonTapped(_ sender: Any) {
+        delegate?.buttonTapped(sender: self)
+        
     }
     
 }

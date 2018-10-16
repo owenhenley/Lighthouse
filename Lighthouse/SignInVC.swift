@@ -13,7 +13,7 @@ import AudioToolbox
 //    func popScreen()
 //}
 
-class SignInVC: UIViewController {
+class SignInVC: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var emailOutlet    : UITextField!
     @IBOutlet weak var passwordOutlet : UITextField!
@@ -21,6 +21,12 @@ class SignInVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        passwordOutlet.delegate = self
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        signInTapped(self)
+        return true
     }
     
 //    weak var delegate: PopScreen?
@@ -38,7 +44,6 @@ class SignInVC: UIViewController {
     
     @IBAction func signInTapped(_ sender: Any) {
         
-        //delegate?.popScreen()
         
         guard let password = passwordOutlet.text,
             let email = emailOutlet.text else {return}
@@ -46,6 +51,7 @@ class SignInVC: UIViewController {
             if success {
                 
                 DispatchQueue.main.async {
+                    self.passwordOutlet.resignFirstResponder()
                     self.dismiss(animated: true, completion: nil)
                 }
             } else {

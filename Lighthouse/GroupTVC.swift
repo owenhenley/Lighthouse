@@ -8,11 +8,11 @@
 
 import UIKit
 
-class GroupVC: UITableViewController {
+class GroupTVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupTableView()
         
 
         // Uncomment the following line to preserve selection between presentations
