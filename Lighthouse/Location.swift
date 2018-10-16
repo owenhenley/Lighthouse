@@ -21,14 +21,4 @@ class Location {
         self.currentLocation = currentLocation
         self.coOrdinates     = coOrdinates
     }
-    
 }
-
-
-    // MARK: - Foursquare API
-
-struct Root {
-    
-}
-
-

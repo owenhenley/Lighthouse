@@ -21,6 +21,7 @@ class MapViewVC: UIViewController {
     var searchIsActive = false
     var handle: AuthStateDidChangeListenerHandle?
     
+    
     // MARK: - Outlets
     
     @IBOutlet weak var mainMapView : MKMapView!
@@ -28,20 +29,25 @@ class MapViewVC: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var fillerView: UIView!
     @IBOutlet weak var searchView: UIView!
+    @IBOutlet weak var trayContainer: UIView!
+    @IBOutlet weak var trayHeightConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.isHidden = true
+        trayContainer.translatesAutoresizingMaskIntoConstraints = false
+//        trayContainer.translatesAutoresizingMaskIntoConstraints = false
         setupLocationManager()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         checkUserState()
         searchView.isHidden = false
-        
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         centerMapNonAuthUser()
+//        changeTrayHeight(to: self.view.frame.height)
     }
     
     // MARK: - Actions
@@ -55,6 +61,7 @@ class MapViewVC: UIViewController {
         nextButton.isHidden = true
     }
     
+    
     // MARK: - Location Methods
     
     func getCenterLocation(for map: MKMapView) -> CLLocation {
@@ -63,6 +70,22 @@ class MapViewVC: UIViewController {
         let longitude = mainMapView.centerCoordinate.longitude
         
         return CLLocation(latitude: latitude, longitude: longitude)
+    }
+    
+    
+        // MARK: - Tray Methods
+    
+    func changeTrayHeight(to height: CGFloat) {
+        self.trayHeightConstraint.constant = height
+        UIView.animate(withDuration: 1) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let firstTouch = touches.first!.location(in: view)
+        print(firstTouch.x)
+        
     }
     
     // MARK: - MapKit Methods

@@ -9,22 +9,49 @@
 import UIKit
 
 class FriendsTrayListVC: UIViewController {
+    
+    static let shared = FriendsTrayListVC()
+    
+    @IBOutlet weak var friendsTableView: UITableView!
+    
+    
+        // MARK: - Variables
+    
+    
+//    var friendName = ["Jim Halpert", "Hugo Bean", "Lola Henley", "Pam Beasley", "Creed Bratton"]
+//    var friendLocation = ["J-Dawgs","Jimmy Johns", "Robins Nest", "Apollo", "Apple"]
+    
+    
+        // MARK: - LifeCycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        view.translatesAutoresizingMaskIntoConstraints = false
+        friendsTableView.delegate = self
+        friendsTableView.dataSource = self
+//        mapVC = parent as? MapViewVC
+//        self.delegate = mapVC
     }
     
+        // MARK: - Actions
+    
+}
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension FriendsTrayListVC: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
     }
-    */
-
+    
+    //MARK: UITableViewDataSource
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as? FriendsListTrayCell
+        
+//        let friend = friendName[indexPath.row]
+        
+        return cell ?? UITableViewCell()
+    }
+    
 }
