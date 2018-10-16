@@ -229,7 +229,6 @@
 				7E2390C821764D2B00D27CCB /* FriendCell.xib */,
 				3E28E8AD216D20BE00E21331 /* SignUp.storyboard */,
 				3E7B2B6C216D929500E4F0F1 /* ForgotPassword.storyboard */,
-				3E28E8A9216D1E7000E21331 /* FriendsList.storyboard */,
 			);
 			name = User;
 			sourceTree = "<group>";
@@ -413,6 +412,7 @@
 				3E28E8A1216D108500E21331 /* TabBarController.storyboard */,
 				3E28E8A7216D1E2F00E21331 /* MapView.storyboard */,
 				3EEC750B216EC0FF009572FB /* UserProfile.storyboard */,
+				3E28E8A9216D1E7000E21331 /* FriendsList.storyboard */,
 			);
 			name = "Tab Bar";
 			sourceTree = "<group>";

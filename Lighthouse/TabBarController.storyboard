@@ -17,11 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </tabBar>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="selectedIndex">
-                            <integer key="value" value="1"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="tabBar" destination="LLF-Gn-Ote" id="31f-SG-gJR"/>
                         <segue destination="bLF-fP-3vU" kind="relationship" relationship="viewControllers" id="9ve-fa-ohA"/>

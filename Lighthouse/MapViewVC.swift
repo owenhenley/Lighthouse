@@ -36,7 +36,6 @@ class MapViewVC: UIViewController {
         super.viewDidLoad()
         searchBar.isHidden = true
         trayContainer.translatesAutoresizingMaskIntoConstraints = false
-//        trayContainer.translatesAutoresizingMaskIntoConstraints = false
         setupLocationManager()
     }
     
@@ -47,13 +46,13 @@ class MapViewVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         centerMapNonAuthUser()
-//        changeTrayHeight(to: self.view.frame.height)
     }
     
     // MARK: - Actions
     
     @IBAction func searchTapped(_ sender: Any) {
-       searchToggled()
+        searchToggled()
+        self.resignFirstResponder()
     }
     
     @IBAction func nextTapped(_ sender: UIButton) {
@@ -65,30 +64,22 @@ class MapViewVC: UIViewController {
     // MARK: - Location Methods
     
     func getCenterLocation(for map: MKMapView) -> CLLocation {
-        
         let latitude = mainMapView.centerCoordinate.latitude
         let longitude = mainMapView.centerCoordinate.longitude
-        
         return CLLocation(latitude: latitude, longitude: longitude)
     }
     
     
         // MARK: - Tray Methods
     
-    func changeTrayHeight(to height: CGFloat) {
-        self.trayHeightConstraint.constant = height
-        UIView.animate(withDuration: 1) {
-            self.view.layoutIfNeeded()
-        }
-    }
-    
+    // shows where on the view you tapped
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let firstTouch = touches.first!.location(in: view)
         print(firstTouch.x)
-        
     }
     
-    // MARK: - MapKit Methods
+    
+        // MARK: - MapKit Methods
     
     func centerMapNonAuthUser() {
         if let location = locationManager.location?.coordinate {
@@ -99,6 +90,7 @@ class MapViewVC: UIViewController {
         }
     }
     
+    
     func centerMapOnAuthedUser() {
         if let location = self.locationManager.location?.coordinate {
             UIView.animate(withDuration: 2, delay: 0, options: [.curveEaseIn], animations: {
@@ -107,6 +99,7 @@ class MapViewVC: UIViewController {
             }, completion: nil)
         }
     }
+    
     
         // MARK: - Search Methods
     
@@ -136,6 +129,7 @@ class MapViewVC: UIViewController {
     }
 }
 
+    // MARK: - Map Delegate
 
 extension MapViewVC: MKMapViewDelegate {
     
@@ -144,6 +138,8 @@ extension MapViewVC: MKMapViewDelegate {
         locationManager.startUpdatingLocation()
     }
 }
+
+    // MARK: - Location Functions
 
 extension MapViewVC: CLLocationManagerDelegate {
     
@@ -173,8 +169,40 @@ extension MapViewVC: CLLocationManagerDelegate {
             // Show alert letting them know whats up
             break
         case .authorizedAlways:
-             startTrackingUserLocation()
+            startTrackingUserLocation()
             break
+        }
+    }
+}
+
+
+    // MARK: - Tray Functions
+
+//1) Adopt the protocol (write that your qualified to be the boss on your resume)
+extension MapViewVC: TrayTabVCDelegate {
+    
+    
+    //2 - Implement protocol requirements (Actually fullfill the skills you said you had on your resume)
+    func changeTrayHeight(isTrayActive: Bool) {
+        var height: CGFloat = 0
+        if isTrayActive{
+            height = self.view.frame.height * 0.55
+        }else {
+            height = 24
+        }
+        
+        self.trayHeightConstraint.constant = height
+        UIView.animate(withDuration: 0.2) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toTrayContainer"{
+            
+            // 3 -  Tell incoming view that you da boss
+            let destinationVC = segue.destination as? TrayTabVC
+            destinationVC?.delegate = self
         }
     }
 }

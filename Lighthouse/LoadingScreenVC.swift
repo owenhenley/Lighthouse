@@ -37,6 +37,7 @@ class LoadingScreenVC: UIViewController {
 //                print("Signedin!")
 //            }
 //        }
+        
         checkUserState()
         
         FriendController.shared.fetchFriends { (success) in
