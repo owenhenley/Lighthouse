@@ -19,7 +19,9 @@ class FriendsTVC: UITableViewController {
     // MARK: - Table view data source
 
 
-    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        resignParentResponder()
+    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        return FriendController.shared.friends.count
@@ -27,6 +29,21 @@ class FriendsTVC: UITableViewController {
 
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        resignParentResponder()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        resignParentResponder()
+    }
+    
+    
+    func resignParentResponder(){
+        guard let grandpa = parent?.parent as? FriendsListSuperView else {return}
+        grandpa.searchBar.resignFirstResponder()
+    }
     //MocData
 
     var images = [#imageLiteral(resourceName: "Jim"),#imageLiteral(resourceName: "pam"), #imageLiteral(resourceName: "hugo"), #imageLiteral(resourceName: "lola") ]

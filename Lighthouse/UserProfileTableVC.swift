@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class UserProfileTableVC: UITableViewController {
     
@@ -22,6 +23,7 @@ class UserProfileTableVC: UITableViewController {
     @IBOutlet weak var favLocation3Text: UITextField!
     @IBOutlet weak var addImageOutlet: UIButton!
     @IBOutlet weak var cancelOutlet: UIButton!
+    @IBOutlet weak var mapViewOutlet: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -21,6 +21,11 @@ class AddTVC: UITableViewController, UISearchBarDelegate, RequestTableViewCellDe
         setupTableView()
 
     }
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard let grandpa = parent?.parent as? FriendsListSuperView else {return}
+        grandpa.searchBar.resignFirstResponder()
+    }
 
     
     // MARK: - Table view data source

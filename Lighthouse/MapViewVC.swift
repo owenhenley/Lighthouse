@@ -11,7 +11,7 @@ import MapKit
 import CoreLocation
 import FirebaseAuth
 
-class MapViewVC: UIViewController {
+class MapViewVC: CustomSearchFieldVC {
     
     // MARK: - Variables
     
@@ -37,7 +37,16 @@ class MapViewVC: UIViewController {
         searchBar.isHidden = true
         trayContainer.translatesAutoresizingMaskIntoConstraints = false
         setupLocationManager()
+        searchBar.delegate = self
+        
     }
+    func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
+        searchBar.resignFirstResponder()
+        fillerView.isHidden = false
+        searchBar.isHidden = true
+    }
+    
+
     
     override func viewWillAppear(_ animated: Bool) {
         checkUserState()
@@ -108,10 +117,12 @@ class MapViewVC: UIViewController {
             searchIsActive = true
             fillerView.isHidden = true
             searchBar.isHidden = false
+            searchBar.becomeFirstResponder()
         } else {
             searchIsActive = false
             fillerView.isHidden = false
             searchBar.isHidden = true
+            searchBar.resignFirstResponder()
         }
     }
     
