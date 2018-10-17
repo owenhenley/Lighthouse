@@ -7,24 +7,40 @@
 //
 
 import UIKit
+import CoreLocation
+import MapKit
 
 class UserProfileTableVC: UITableViewController {
     
+        // MARK: - Outlets
     
-    @IBOutlet weak var profilePicOutlet: UIImageView!
+    @IBOutlet weak var profilePicOutlet : UIImageView!
+    @IBOutlet weak var UsernameEdit     : UITextField!
+    @IBOutlet weak var firstNameEdit    : UITextField!
+    @IBOutlet weak var lastNameEdit     : UITextField!
+    @IBOutlet weak var editButtonOutlet : UIButton!
+    @IBOutlet weak var favLocation1Text : UITextField!
+    @IBOutlet weak var favLocation2Text : UITextField!
+    @IBOutlet weak var favLocation3Text : UITextField!
+    @IBOutlet weak var addImageOutlet   : UIButton!
+    @IBOutlet weak var cancelOutlet     : UIButton!
+    @IBOutlet weak var profileMapView   : MKMapView!
     
-    @IBOutlet weak var UsernameEdit: UITextField!
-    @IBOutlet weak var firstNameEdit: UITextField!
-    @IBOutlet weak var lastNameEdit: UITextField!
-    @IBOutlet weak var editButtonOutlet: UIButton!
-    @IBOutlet weak var favLocation1Text: UITextField!
-    @IBOutlet weak var favLocation2Text: UITextField!
-    @IBOutlet weak var favLocation3Text: UITextField!
-    @IBOutlet weak var addImageOutlet: UIButton!
-    @IBOutlet weak var cancelOutlet: UIButton!
+    
+        // MARK: - Variables
+    
+    let locationManager = CLLocationManager()
+    let authedUserRadius: Double = 500
+    
+    
+        // MARK: - LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupLocationManager()
+        startTrackingUserLocation()
+        centerMapOnAuthedUser()
         
         disableEditing()
         picker.delegate = self
@@ -131,3 +147,33 @@ class UserProfileTableVC: UITableViewController {
     
     
 }
+
+
+extension UserProfileTableVC: MKMapViewDelegate {
+    
+    func startTrackingUserLocation() {
+        profileMapView.showsUserLocation = true
+        locationManager.startUpdatingLocation()
+    }
+    
+    func setupLocationManager() {
+        profileMapView.delegate = self
+        locationManager.delegate = self
+        
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+    }
+}
+
+extension UserProfileTableVC: CLLocationManagerDelegate {
+    
+    func centerMapOnAuthedUser() {
+        if let location = locationManager.location?.coordinate {
+            UIView.animate(withDuration: 2, delay: 0, options: [.curveEaseIn], animations: {
+                let region = MKCoordinateRegion.init(center: location, latitudinalMeters: self.authedUserRadius, longitudinalMeters: self.authedUserRadius)
+                self.profileMapView.setRegion(region, animated: true)
+            }, completion: nil)
+        }
+    }
+    
+}
+
