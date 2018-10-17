@@ -19,34 +19,51 @@ class FriendsTVC: UITableViewController {
     // MARK: - Table view data source
 
 
+    
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return FriendController.shared.friends.count
+//        return FriendController.shared.friends.count
+        return 4
 
     }
-
     
+    //MocData
+
+    var images = [#imageLiteral(resourceName: "Jim"),#imageLiteral(resourceName: "pam"), #imageLiteral(resourceName: "hugo"), #imageLiteral(resourceName: "lola") ]
+    var name = ["Jame Halpert", "Pam", "Hound", "Mutt"]
+    var locations = ["jimmyBoy", "housewifer3", "daawwwg", "carpterPooer"]
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell", for: indexPath) as? FriendCell
-        let friend = FriendController.shared.friends[indexPath.row]
-        
-        cell?.titleOutlet.text = friend.username
-        
-        if friend.imageUrl == "No Profile Image" {
-            cell?.imageOutlet.isHidden = true
-        } else {
-            cell?.imageOutlet.isHidden = false
-            FriendController.shared.fetchFreindsImage(urlString: friend.imageUrl) { (image) in
-                DispatchQueue.main.async {
-                    cell?.imageOutlet.image = image
-                }
-            }
-            
-        }
-
+        cell?.imageOutlet.image = images[indexPath.row]
+        cell?.titleOutlet.text = name[indexPath.row]
+        cell?.subTitleOutlet.text = locations[indexPath.row]
+        cell?.buttonOutlet.isHidden = true
         return cell ?? UITableViewCell()
+        
     }
- 
+    // Real Function
+//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell", for: indexPath) as? FriendCell
+//        let friend = FriendController.shared.friends[indexPath.row]
+//
+//        cell?.titleOutlet.text = friend.username
+//
+//        if friend.imageUrl == "No Profile Image" {
+//            cell?.imageOutlet.isHidden = true
+//        } else {
+//            cell?.imageOutlet.isHidden = false
+//            FriendController.shared.fetchFreindsImage(urlString: friend.imageUrl) { (image) in
+//                DispatchQueue.main.async {
+//                    cell?.imageOutlet.image = image
+//                }
+//            }
+//
+//        }
+//
+//        return cell ?? UITableViewCell()
+//    }
+//
 
     /*
     // Override to support conditional editing of the table view.
