@@ -30,16 +30,9 @@ class LoadingScreenVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
-//        AUTH.signIn(withEmail: "owenhenley@me.com", password: "123456") { (auth, error) in
-//            if let error = error {
-//                debugPrint(error)
-//            } else {
-//                print("Signedin!")
-//            }
-//        }
         
         checkUserState()
-        
+        FriendController.shared.fetchPending()
        
         
     }
