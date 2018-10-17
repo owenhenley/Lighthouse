@@ -15,7 +15,6 @@ protocol TrayTabVCDelegate: class {
 
 class TrayTabVC: UIViewController {
     
-    
     // MARK: - Variables
     
     var trayIsActive = false
@@ -30,9 +29,7 @@ class TrayTabVC: UIViewController {
     
     
     @IBAction func trayOpenTapped(_ sender: Any) {
-    
         delegate?.changeTrayHeight(isTrayActive: trayIsActive)
         trayIsActive = !trayIsActive
-        
     }
 }

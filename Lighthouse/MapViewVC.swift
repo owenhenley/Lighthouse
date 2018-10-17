@@ -13,32 +13,40 @@ import FirebaseAuth
 
 class MapViewVC: CustomSearchFieldVC {
     
-    // MARK: - Variables
+    // MARK: - Properties
     
     var locationManager = CLLocationManager()
-    let nonAuthUserLocationRadius: Double = 25000
-    let authedUserLocationRadius: Double = 400
-    var searchIsActive = false
-    var handle: AuthStateDidChangeListenerHandle?
+    var searchIsActive  = false
+    var longPressActive = true
+    var userMapCentered = false
+    var handle : AuthStateDidChangeListenerHandle?
+    let nonAuthUserLocationRadius : Double = 25000
+    let authedUserLocationRadius  : Double = 400
+    
     
     
     // MARK: - Outlets
     
-    @IBOutlet weak var mainMapView : MKMapView!
-    @IBOutlet weak var nextButton  : UIButton!
-    @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var fillerView: UIView!
-    @IBOutlet weak var searchView: UIView!
-    @IBOutlet weak var trayContainer: UIView!
-    @IBOutlet weak var trayHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var mainMapView          : MKMapView!
+    @IBOutlet weak var nextButton           : UIButton!
+    @IBOutlet weak var searchBar            : UISearchBar!
+    @IBOutlet weak var fillerView           : UIView!
+    @IBOutlet weak var searchView           : UIView!
+    @IBOutlet weak var trayContainer        : UIView!
+    @IBOutlet weak var trayHeightConstraint : NSLayoutConstraint!
+    @IBOutlet weak var dropPinButtonView    : UIView!
+    @IBOutlet weak var droppedPinButtonView : UIView!
+    
+    
+    // MARK: - LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.isHidden = true
+        searchBar.delegate = self
         trayContainer.translatesAutoresizingMaskIntoConstraints = false
         setupLocationManager()
-        searchBar.delegate = self
-        
+        addPinLongPress() 
     }
     
     
@@ -67,8 +75,90 @@ class MapViewVC: CustomSearchFieldVC {
     }
     
     
+    // Tapping the Blue GPS Arrow
     @IBAction func findUserLocationTapped(_ sender: Any) {
-        centerMapArrowTapped()
+        centerAuthedUserMapArrowTapped()
+    }
+    
+    // Drop pin at current GPS location
+    @IBAction func dropPinTapped(_ sender: Any) {
+        dropPinOnCurrentLocation()
+    }
+    
+    // Edit the dropped pin
+    @IBAction func droppedPinTapped(_ sender: Any) {
+        
+    }
+    
+    
+    // MARK: - MapMethods
+    
+    func dropPinOnCurrentLocation() {
+        centerMapOnAuthedUser {
+            let pinCoordinate = self.mainMapView.centerCoordinate
+            let currentLocationPinAnnotation: MKPointAnnotation = MKPointAnnotation()
+            currentLocationPinAnnotation.coordinate = pinCoordinate
+            self.mainMapView.addAnnotation(currentLocationPinAnnotation)
+                    UIView.animate(withDuration: 0, delay: 2, options: .curveEaseOut, animations: {
+                        let popover = self.storyboard?.instantiateViewController(withIdentifier: "NewPinPopOver")
+                        //        popover.view.backgroundColor = UIColor
+                        popover?.modalTransitionStyle = .coverVertical
+                        popover?.modalPresentationStyle = .overCurrentContext
+                        guard let popoverVC = popover else { return }
+                        self.present(popoverVC, animated: true, completion: nil)
+                    })
+        }
+    }
+//        centerMapOnAuthedUser {
+//            let pinCoordinate = self.mainMapView.centerCoordinate
+//            let currentLocationPinAnnotation: MKPointAnnotation = MKPointAnnotation()
+//            currentLocationPinAnnotation.coordinate = pinCoordinate
+//            self.mainMapView.addAnnotation(currentLocationPinAnnotation)
+//        }) { (success) in
+//            completion()
+//        }
+    
+        //        UIView.animate(withDuration: 0, delay: 2, options: .curveEaseOut, animations: {}) { (wait) in
+        //            let popover = self.storyboard?.instantiateViewController(withIdentifier: "NewPinPopOver")
+        //            //        popover.view.backgroundColor = UIColor
+        //            popover?.modalTransitionStyle = .coverVertical
+        //            popover?.modalPresentationStyle = .overCurrentContext
+        //            guard let popoverVC = popover else { return }
+        //            self.present(popoverVC, animated: true, completion: nil)
+        //        }
+   // }
+    
+    func addPinLongPress() {
+        if longPressActive == true {
+            let longPress = UILongPressGestureRecognizer(target: self, action: #selector(dropPin))
+            longPress.minimumPressDuration = 1
+            longPress.delegate = self
+            mainMapView.addGestureRecognizer(longPress)
+            longPressActive = false
+        } else if longPressActive == false {
+            longPressActive = true
+        }
+    }
+    
+    @objc func dropPin(sender: UILongPressGestureRecognizer) {
+        
+        removePin()
+        
+        let touchPoint = sender.location(in: mainMapView)
+        let touchCoOrdinate = mainMapView.convert(touchPoint, toCoordinateFrom: mainMapView)
+        
+        let annotation = DroppablePin(coordinate: touchCoOrdinate, identifier: "droppablePin")
+        mainMapView.addAnnotation(annotation)
+        
+        //        let coOdinateRegion = MKCoordinateRegion(center: touchCoOrdinate, latitudinalMeters: 200, longitudinalMeters: 200)
+        //        mainMapView.setRegion(coOdinateRegion, animated: true)
+    }
+    
+    
+    func removePin() {
+        for annotation in mainMapView.annotations {
+            mainMapView.removeAnnotation(annotation)
+        }
     }
     
     
@@ -80,32 +170,34 @@ class MapViewVC: CustomSearchFieldVC {
         return CLLocation(latitude: latitude, longitude: longitude)
     }
     
-    func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
-        searchBar.resignFirstResponder()
-        fillerView.isHidden = false
-        searchBar.isHidden = true
-    }
     
     func centerMapNonAuthUser() {
-        if let location = locationManager.location?.coordinate {
-            UIView.animate(withDuration: 2, delay: 0, options: [.curveEaseIn], animations: {
-                let region = MKCoordinateRegion.init(center: location, latitudinalMeters: self.nonAuthUserLocationRadius, longitudinalMeters: self.nonAuthUserLocationRadius)
-                self.mainMapView.setRegion(region, animated: true)
-            }, completion: nil)
+        if userMapCentered == false {
+            if let location = locationManager.location?.coordinate {
+                UIView.animate(withDuration: 2, delay: 0, options: [.curveEaseIn], animations: {
+                    let region = MKCoordinateRegion.init(center: location, latitudinalMeters: self.nonAuthUserLocationRadius, longitudinalMeters: self.nonAuthUserLocationRadius)
+                    self.mainMapView.setRegion(region, animated: true)
+                }, completion: nil)
+            }
+            userMapCentered = true
         }
     }
     
     
-    func centerMapOnAuthedUser() {
+    func centerMapOnAuthedUser(completion: @escaping () -> ()) {
         if let location = self.locationManager.location?.coordinate {
             UIView.animate(withDuration: 1, delay: 0, options: [.curveEaseIn], animations: {
                 let region = MKCoordinateRegion.init(center: location, latitudinalMeters: self.authedUserLocationRadius, longitudinalMeters: self.authedUserLocationRadius)
                 self.mainMapView.setRegion(region, animated: true)
-            }, completion: nil)
+            }) { (success) in
+                completion()
+            }
         }
     }
     
-    func centerMapArrowTapped() {
+    
+    // Method to accomodate the GPS Arrow
+    func centerAuthedUserMapArrowTapped() {
         if let location = self.locationManager.location?.coordinate {
             UIView.animate(withDuration: 0.8, delay: 0, options: [], animations: {
                 let region = MKCoordinateRegion.init(center: location, latitudinalMeters: self.authedUserLocationRadius, longitudinalMeters: self.authedUserLocationRadius)
@@ -115,7 +207,7 @@ class MapViewVC: CustomSearchFieldVC {
     }
     
     
-        // MARK: - Tray Methods
+    // MARK: - Tray Methods
     
     // shows where on the view you tapped
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -123,7 +215,8 @@ class MapViewVC: CustomSearchFieldVC {
         print(firstTouch.x)
     }
     
-        // MARK: - Search Methods
+    
+    // MARK: - Search Methods
     
     func searchToggled() {
         if searchIsActive == false {
@@ -139,33 +232,49 @@ class MapViewVC: CustomSearchFieldVC {
         }
     }
     
-        // MARK: - Auth Management
+    
+    // MARK: - Auth Management
     
     func checkUserState() {
         handle = AUTH.addStateDidChangeListener({ (auth, user) in
             if user != nil {
-                self.nextButton.isHidden = true
-                self.centerMapOnAuthedUser()
+//                self.dropPinButtonView.isHidden = false
+                self.centerMapOnAuthedUser {
+                }
             } else {
-                self.nextButton.isHidden = false
+//                self.nextButton.isHidden = false
+                self.centerMapNonAuthUser()
             }
+            AUTH.removeStateDidChangeListener(self.handle!)
         })
     }
 }
 
 
-    // MARK: - Map Delegate
+// MARK: - Map Delegate
 
 extension MapViewVC: MKMapViewDelegate {
     
+    // Set up map for user tracking
     func startTrackingUserLocation() {
         mainMapView.showsUserLocation = true
+        mainMapView.showsPointsOfInterest = true
+        mainMapView.showsBuildings = true
+        mainMapView.userTrackingMode = .follow
         locationManager.startUpdatingLocation()
+    }
+    
+    
+    // Hide keyboard and search bar when the user moved the map
+    func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
+        searchBar.resignFirstResponder()
+        fillerView.isHidden = false
+        searchBar.isHidden = true
     }
 }
 
 
-    // MARK: - Location Functions
+// MARK: - Location Functions
 
 extension MapViewVC: CLLocationManagerDelegate {
     
@@ -178,7 +287,6 @@ extension MapViewVC: CLLocationManagerDelegate {
     func setupLocationManager() {
         mainMapView.delegate = self
         locationManager.delegate = self
-        
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
     }
     
@@ -204,7 +312,7 @@ extension MapViewVC: CLLocationManagerDelegate {
 }
 
 
-    // MARK: - Tray Functions
+// MARK: - Tray Functions
 
 //1) Adopt the protocol (write that your qualified to be the boss on your resume)
 extension MapViewVC: TrayTabVCDelegate {
@@ -233,4 +341,8 @@ extension MapViewVC: TrayTabVCDelegate {
             destinationVC?.delegate = self
         }
     }
+}
+
+extension MapViewVC: UIGestureRecognizerDelegate {
+    
 }
