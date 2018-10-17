@@ -40,22 +40,18 @@ class MapViewVC: CustomSearchFieldVC {
         searchBar.delegate = self
         
     }
-    func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
-        searchBar.resignFirstResponder()
-        fillerView.isHidden = false
-        searchBar.isHidden = true
-    }
     
-
     
     override func viewWillAppear(_ animated: Bool) {
         checkUserState()
         searchView.isHidden = false
     }
     
+    
     override func viewDidAppear(_ animated: Bool) {
         centerMapNonAuthUser()
     }
+    
     
     // MARK: - Actions
     
@@ -64,9 +60,15 @@ class MapViewVC: CustomSearchFieldVC {
         self.resignFirstResponder()
     }
     
+    
     @IBAction func nextTapped(_ sender: UIButton) {
         searchView.isHidden = true
         nextButton.isHidden = true
+    }
+    
+    
+    @IBAction func findUserLocationTapped(_ sender: Any) {
+        centerMapArrowTapped()
     }
     
     
@@ -78,17 +80,11 @@ class MapViewVC: CustomSearchFieldVC {
         return CLLocation(latitude: latitude, longitude: longitude)
     }
     
-    
-        // MARK: - Tray Methods
-    
-    // shows where on the view you tapped
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let firstTouch = touches.first!.location(in: view)
-        print(firstTouch.x)
+    func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
+        searchBar.resignFirstResponder()
+        fillerView.isHidden = false
+        searchBar.isHidden = true
     }
-    
-    
-        // MARK: - MapKit Methods
     
     func centerMapNonAuthUser() {
         if let location = locationManager.location?.coordinate {
@@ -102,13 +98,30 @@ class MapViewVC: CustomSearchFieldVC {
     
     func centerMapOnAuthedUser() {
         if let location = self.locationManager.location?.coordinate {
-            UIView.animate(withDuration: 2, delay: 0, options: [.curveEaseIn], animations: {
+            UIView.animate(withDuration: 1, delay: 0, options: [.curveEaseIn], animations: {
                 let region = MKCoordinateRegion.init(center: location, latitudinalMeters: self.authedUserLocationRadius, longitudinalMeters: self.authedUserLocationRadius)
                 self.mainMapView.setRegion(region, animated: true)
             }, completion: nil)
         }
     }
     
+    func centerMapArrowTapped() {
+        if let location = self.locationManager.location?.coordinate {
+            UIView.animate(withDuration: 0.8, delay: 0, options: [], animations: {
+                let region = MKCoordinateRegion.init(center: location, latitudinalMeters: self.authedUserLocationRadius, longitudinalMeters: self.authedUserLocationRadius)
+                self.mainMapView.setRegion(region, animated: true)
+            }, completion: nil)
+        }
+    }
+    
+    
+        // MARK: - Tray Methods
+    
+    // shows where on the view you tapped
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let firstTouch = touches.first!.location(in: view)
+        print(firstTouch.x)
+    }
     
         // MARK: - Search Methods
     
@@ -140,6 +153,7 @@ class MapViewVC: CustomSearchFieldVC {
     }
 }
 
+
     // MARK: - Map Delegate
 
 extension MapViewVC: MKMapViewDelegate {
@@ -150,6 +164,7 @@ extension MapViewVC: MKMapViewDelegate {
     }
 }
 
+
     // MARK: - Location Functions
 
 extension MapViewVC: CLLocationManagerDelegate {
@@ -158,6 +173,7 @@ extension MapViewVC: CLLocationManagerDelegate {
         checkLocationAuth()
     }
     
+    
     // Delegates
     func setupLocationManager() {
         mainMapView.delegate = self
@@ -165,6 +181,7 @@ extension MapViewVC: CLLocationManagerDelegate {
         
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
     }
+    
     
     func checkLocationAuth() {
         switch CLLocationManager.authorizationStatus() {

@@ -28,10 +28,10 @@
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yJ4-aK-JLR">
-                                                <rect key="frame" x="0.0" y="2.5" width="25" height="25"/>
+                                                <rect key="frame" x="0.0" y="3.5" width="23" height="23"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="25" id="4AO-XC-hR9"/>
-                                                    <constraint firstAttribute="height" constant="25" id="PyA-OQ-Ni0"/>
+                                                    <constraint firstAttribute="width" constant="23" id="4AO-XC-hR9"/>
+                                                    <constraint firstAttribute="height" constant="23" id="PyA-OQ-Ni0"/>
                                                 </constraints>
                                                 <state key="normal" image="search"/>
                                                 <connections>
@@ -39,7 +39,7 @@
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TXo-Nz-TUn">
-                                                <rect key="frame" x="36" y="0.0" width="307" height="30"/>
+                                                <rect key="frame" x="34" y="0.0" width="309" height="30"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                             <searchBar hidden="YES" contentMode="redraw" searchBarStyle="minimal" placeholder="search map" translatesAutoresizingMaskIntoConstraints="NO" id="jPW-Es-U1u">
@@ -88,14 +88,27 @@
                                     <segue destination="uzX-QU-v97" kind="embed" identifier="toTrayContainer" id="KQX-UN-SzB"/>
                                 </connections>
                             </containerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XId-hC-rD0">
+                                <rect key="frame" x="335" y="88" width="24" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="LPB-T2-0vi"/>
+                                    <constraint firstAttribute="width" constant="24" id="qRZ-VC-dlc"/>
+                                </constraints>
+                                <state key="normal" image="navigationActive"/>
+                                <connections>
+                                    <action selector="findUserLocationTapped:" destination="KIQ-uS-6Qq" eventType="touchUpInside" id="twT-tk-WBR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="J9c-gc-Dyh" firstAttribute="bottom" secondItem="fcj-Zu-x1i" secondAttribute="bottom" constant="40" id="08F-iV-tpW"/>
                             <constraint firstItem="BZU-mu-CsJ" firstAttribute="leading" secondItem="LRg-IA-lru" secondAttribute="leading" id="8P1-wT-AwI"/>
+                            <constraint firstItem="XId-hC-rD0" firstAttribute="top" secondItem="LRg-IA-lru" secondAttribute="top" constant="88" id="BqR-93-j7f"/>
                             <constraint firstAttribute="bottom" secondItem="1e0-ld-Izd" secondAttribute="bottom" id="C6o-zR-Vq5"/>
                             <constraint firstItem="fcj-Zu-x1i" firstAttribute="leading" secondItem="J9c-gc-Dyh" secondAttribute="leading" constant="40" id="J6W-dg-xSm"/>
                             <constraint firstItem="1e0-ld-Izd" firstAttribute="leading" secondItem="LRg-IA-lru" secondAttribute="leading" id="JJH-93-hLT"/>
+                            <constraint firstItem="J9c-gc-Dyh" firstAttribute="trailing" secondItem="XId-hC-rD0" secondAttribute="trailing" constant="16" id="ROb-t6-mOY"/>
                             <constraint firstItem="1e0-ld-Izd" firstAttribute="top" secondItem="LRg-IA-lru" secondAttribute="top" id="WGo-V4-KzF"/>
                             <constraint firstItem="BZU-mu-CsJ" firstAttribute="bottom" secondItem="J9c-gc-Dyh" secondAttribute="bottom" id="XKV-ys-nI8"/>
                             <constraint firstItem="WYs-f5-foK" firstAttribute="top" secondItem="LRg-IA-lru" secondAttribute="top" constant="40" id="fYM-cG-D2x"/>
@@ -598,6 +611,7 @@
         <image name="active" width="332" height="48"/>
         <image name="glyphsTabBarMapIconActive" width="48" height="32"/>
         <image name="glyphsTabBarMapIconDisabled" width="48" height="32"/>
+        <image name="navigationActive" width="39.724136352539062" height="39.724136352539062"/>
         <image name="search" width="409.60000610351562" height="409.60000610351562"/>
     </resources>
 </document>
