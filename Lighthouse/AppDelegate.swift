@@ -22,18 +22,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
             // MARK: - Create a User
         
-//        AUTH.createUser(withEmail: "", password: "") { (auth, error) in
+//        AUTH.createUser(withEmail: "oh@oh.co", password: "123456") { (auth, error) in
 //            if let error = error {
 //                debugPrint(error)
 //            } else {
 //                print("user created")
 //            }
 //        }
-//
+
         
             // MARK: - Sign In
         
-//        AUTH.signIn(withEmail: "owenhenley@me.com", password: "123456") { (auth, error) in
+//        AUTH.signIn(withEmail: "oh@oh.co", password: "123456") { (auth, error) in
 //            if let error = error {
 //                debugPrint(error)
 //            } else {
@@ -44,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
             // MARK: - Sign Out
         
-//        try? AUTH.signOut()
+        try? AUTH.signOut()
         
         return true
     }

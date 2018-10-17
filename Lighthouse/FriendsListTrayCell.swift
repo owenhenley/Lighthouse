@@ -16,16 +16,20 @@ class FriendsListTrayCell: UITableViewCell {
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var friendNameLabel: UILabel!
     @IBOutlet weak var friendLocationLabel: UILabel!
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
+    
+    
+        // MARK: - Variables
+    
+    var friend: Friend?
+    
+    
+//    func updateViews() {
+//        guard var profileImage = profileImage.image,
+//        var friendName = friendNameLabel.text,
+//            var friendLocation = friendLocationLabel.text else { return }
+//
+//        profileImage = #imageLiteral(resourceName: "Jim")
+//        friendName = friend?.friendName.shuffled()
+//        friendLocation = friend?.friendLocation.shuffled()
+//    }
 }

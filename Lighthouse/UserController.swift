@@ -26,7 +26,7 @@ class UserController {
                 print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
                 completion(false)
             } else {
-                self.uid = AUTH.currentUser?.uid
+//                self.uid = AUTH.currentUser?.uid
                 self.fetchUser(completion: { (success) in
                     if success{
                         completion(true)
@@ -95,20 +95,7 @@ class UserController {
     }
     
     
-    func appendUserInFriendList(uid: String, username: String, profileImageUrl: String, completion: @escaping (_ success: Bool)->Void){
-        FIRESTORE.collection(USER).document(uid).collection(FRIENDLIST).document(FRIEND).updateData([
-            USERNAME : username,
-            PROFILE_IMAGE_URL : profileImageUrl
-        ]) { (error) in
-            if let error = error {
-                print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
-                completion(false)
-            } else {
-                completion(true)
-            }
-        }
-        
-    }
+    
     
     func updateUser(username: String, profileImage: UIImage?, firstName: String?, lastName: String?, favLocation1: String?, favLocation2: String?, favLocation3: String?, completion: @escaping (_ success: Bool)->Void){
         guard let userID = AUTH.currentUser?.uid else {return}
@@ -129,9 +116,9 @@ class UserController {
                     storageRef.downloadURL { (url, error) in
                         downloadURL = url?.absoluteString
                         
-                        self.appendUserInUserList(username: username, profielImageUrl: downloadURL!, uid: userID, completion: {(success)-> Void? in
-                            print("Not working")
-                        })
+//                        self.appendUserInUserList(username: username, profielImageUrl: downloadURL!, uid: userID, completion: {(success)-> Void? in
+//                            print("Not working")
+//                        })
                         
                         
                         self.db.collection(USER).document(userID).updateData([
@@ -160,9 +147,9 @@ class UserController {
                     return
                 }
             }
-            self.appendUserInUserList(username: username, profielImageUrl: "No Profile Image", uid: userID) { (success) -> Void? in
-                print("Not working")
-            }
+//            self.appendUserInUserList(username: username, profielImageUrl: "No Profile Image", uid: userID) { (success) -> Void? in
+//                print("Not working")
+//            }
             self.db.collection(USER).document(userID).updateData([
                 PROFILE_IMAGE_URL : "No profile Image",
                 USERNAME : username as Any,
@@ -186,23 +173,24 @@ class UserController {
     
     
     
-    func appendUserInUserList(username: String, profielImageUrl: String, uid: String, completion: @escaping (_ success: Bool)->Void?){
-        
-        FIRESTORE.collection(USERLIST).document(uid).updateData([
-            USERNAME : username,
-            PROFILE_IMAGE_URL : profielImageUrl
-        ]) { (error) in
-            if let error = error {
-                print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
-                completion(false)
-            } else {
-                completion(true)
-            }
-        }
-    }
+//    func appendUserInUserList(username: String, profielImageUrl: String, uid: String, completion: @escaping (_ success: Bool)->Void?){
+//
+//        FIRESTORE.collection(USERLIST).document(uid).updateData([
+//            USERNAME : username,
+//            PROFILE_IMAGE_URL : profielImageUrl
+//        ]) { (error) in
+//            if let error = error {
+//                print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
+//                completion(false)
+//            } else {
+//                completion(true)
+//            }
+//        }
+//    }
     
     
     func fetchUser(completion: @escaping (_ success: Bool)->Void){
+        self.uid = AUTH.currentUser?.uid
         guard let uid = uid else {return}
         db.collection(USER).document(uid).getDocument { (snapshot, error) in
             if let error = error {

@@ -7,24 +7,41 @@
 //
 
 import UIKit
+import CoreLocation
+import MapKit
 
 class UserProfileTableVC: UITableViewController {
     
+        // MARK: - Outlets
     
-    @IBOutlet weak var profilePicOutlet: UIImageView!
+    @IBOutlet weak var profilePicOutlet : UIImageView!
+    @IBOutlet weak var UsernameEdit     : UITextField!
+    @IBOutlet weak var firstNameEdit    : UITextField!
+    @IBOutlet weak var lastNameEdit     : UITextField!
+    @IBOutlet weak var editButtonOutlet : UIButton!
+    @IBOutlet weak var favLocation1Text : UITextField!
+    @IBOutlet weak var favLocation2Text : UITextField!
+    @IBOutlet weak var favLocation3Text : UITextField!
+    @IBOutlet weak var addImageOutlet   : UIButton!
+    @IBOutlet weak var cancelOutlet     : UIButton!
+    @IBOutlet weak var profileMapView   : MKMapView!
+
+  
+        // MARK: - Variables
     
-    @IBOutlet weak var UsernameEdit: UITextField!
-    @IBOutlet weak var firstNameEdit: UITextField!
-    @IBOutlet weak var lastNameEdit: UITextField!
-    @IBOutlet weak var editButtonOutlet: UIButton!
-    @IBOutlet weak var favLocation1Text: UITextField!
-    @IBOutlet weak var favLocation2Text: UITextField!
-    @IBOutlet weak var favLocation3Text: UITextField!
-    @IBOutlet weak var addImageOutlet: UIButton!
-    @IBOutlet weak var cancelOutlet: UIButton!
+    let locationManager = CLLocationManager()
+    let authedUserRadius: Double = 500
+    
+    
+        // MARK: - LifeCycle
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupLocationManager()
+        startTrackingUserLocation()
+        centerMapOnAuthedUser()
         
         disableEditing()
         picker.delegate = self
@@ -47,68 +64,24 @@ class UserProfileTableVC: UITableViewController {
     
     
     // MARK: - Table view data source
+    //Commented for modata
+//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        // #warning Incomplete implementation, return the number of rows
+//        return UserController.shared.user?.pastLocations?.count ?? 0
+//    }
+//
+//
+//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "pastLocationCell", for: indexPath)
+//
+//        guard let pastLocation = UserController.shared.user?.pastLocations?[indexPath.row] else {return UITableViewCell()}
+//        cell.textLabel?.text = pastLocation.title
+//        cell.detailTextLabel?.text = String(pastLocation.coOrdinates)
+//
+//        return cell
+//    }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return UserController.shared.user?.pastLocations?.count ?? 0
-    }
     
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "pastLocationCell", for: indexPath)
-        
-        guard let pastLocation = UserController.shared.user?.pastLocations?[indexPath.row] else {return UITableViewCell()}
-        cell.textLabel?.text = pastLocation.title
-        cell.detailTextLabel?.text = String(pastLocation.coOrdinates)
-        
-        return cell
-    }
-    
-    
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-    
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
     func disableEditing(){
         
@@ -120,6 +93,7 @@ class UserProfileTableVC: UITableViewController {
         firstNameEdit.isEnabled = false
         lastNameEdit.isEnabled = false
         UsernameEdit.isEnabled = false
+        cancelOutlet.isHidden = true
         
     }
     
@@ -132,6 +106,7 @@ class UserProfileTableVC: UITableViewController {
         firstNameEdit.isEnabled = true
         lastNameEdit.isEnabled = true
         UsernameEdit.isEnabled = true
+        cancelOutlet.isHidden = false
     }
     
     
@@ -173,3 +148,33 @@ class UserProfileTableVC: UITableViewController {
     
     
 }
+
+
+extension UserProfileTableVC: MKMapViewDelegate {
+    
+    func startTrackingUserLocation() {
+        profileMapView.showsUserLocation = true
+        locationManager.startUpdatingLocation()
+    }
+    
+    func setupLocationManager() {
+        profileMapView.delegate = self
+        locationManager.delegate = self
+        
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+    }
+}
+
+extension UserProfileTableVC: CLLocationManagerDelegate {
+    
+    func centerMapOnAuthedUser() {
+        if let location = locationManager.location?.coordinate {
+            UIView.animate(withDuration: 2, delay: 0, options: [.curveEaseIn], animations: {
+                let region = MKCoordinateRegion.init(center: location, latitudinalMeters: self.authedUserRadius, longitudinalMeters: self.authedUserRadius)
+                self.profileMapView.setRegion(region, animated: true)
+            }, completion: nil)
+        }
+    }
+    
+}
+

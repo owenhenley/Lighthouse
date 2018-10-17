@@ -8,29 +8,31 @@
 
 import UIKit
 
+//1) Define all of the qualificcations to be the TrayTabVC's Delegate (Boss)
+protocol TrayTabVCDelegate: class {
+    func changeTrayHeight(isTrayActive: Bool)
+}
+
 class TrayTabVC: UIViewController {
     
-        // MARK: - Outlets
     
-    @IBOutlet weak var trayTabImage: UIImageView!
+    // MARK: - Variables
+    
+    var trayIsActive = false
+    
+    //2) The child class defining a place in its heart where it recognizes it needs a boss
+    weak var delegate: TrayTabVCDelegate?
     
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func trayOpenTapped(_ sender: Any) {
+    
+        delegate?.changeTrayHeight(isTrayActive: trayIsActive)
+        trayIsActive = !trayIsActive
+        
     }
-    */
-
 }

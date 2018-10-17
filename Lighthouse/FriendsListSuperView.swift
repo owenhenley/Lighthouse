@@ -13,17 +13,18 @@ protocol tableViewIndex: class {
     var tableViewIndex: Int {get set}
 }
 
-class FriendsListSuperView: UIViewController, UISearchBarDelegate{
+class FriendsListSuperView: CustomSearchFieldVC{
     
     
-    
+    var pageViewController: FriendsListContainerVC?
 
     @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
+        
+        dissmisskeyBoard()
+        searchField = searchBar
         searchBar.delegate = self
     }
     
@@ -38,7 +39,7 @@ class FriendsListSuperView: UIViewController, UISearchBarDelegate{
         switch FriendsListSuperView.indexDelegate?.tableViewIndex {
         case 0:
             print("first index")
-                        FriendController.shared.searchFriends(text: searchText) { (success) in
+            FriendController.shared.searchFriends(text: searchText) { (success) in
                    }
         case 1:
             print("something")
@@ -47,6 +48,24 @@ class FriendsListSuperView: UIViewController, UISearchBarDelegate{
         }
         
         
+    }
+    
+    @IBAction func friendsTapped() {
+        guard let friends = pageViewController?.friendsViewController else { return }
+        // TODO: Get proper direction
+        pageViewController?.setViewControllers([friends], direction: .forward, animated: true)
+    }
+    
+    
+    @IBAction func addTapped(_ sender: Any) {
+        guard let add = pageViewController?.addViewController else {return}
+        pageViewController?.setViewControllers([add], direction: .reverse, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "embedContainer" {
+            pageViewController = segue.destination as? FriendsListContainerVC
+        }
     }
 
 }

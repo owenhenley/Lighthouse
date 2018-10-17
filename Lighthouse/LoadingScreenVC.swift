@@ -29,6 +29,7 @@ class LoadingScreenVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
+        
 //        AUTH.signIn(withEmail: "owenhenley@me.com", password: "123456") { (auth, error) in
 //            if let error = error {
 //                debugPrint(error)
@@ -36,7 +37,11 @@ class LoadingScreenVC: UIViewController {
 //                print("Signedin!")
 //            }
 //        }
+        
         checkUserState()
+        
+       
+        
     }
     
         // MARK: - Authentication
@@ -45,6 +50,14 @@ class LoadingScreenVC: UIViewController {
     func checkUserState() {
         handle = AUTH.addStateDidChangeListener({ (auth, user) in
             if user != nil {
+                UserController.shared.fetchUser { (success) in
+                    
+                }
+                FriendController.shared.fetchFriends { (success) in
+                    if success {
+                        print(FriendController.shared.friends)
+                    }
+                }
                 let storyboard = UIStoryboard(name: "TabBarController", bundle: nil)
                 let mainView = storyboard.instantiateViewController(withIdentifier: "tabBarController")
                 self.present(mainView, animated: true, completion: nil)
