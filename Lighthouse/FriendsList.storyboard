@@ -47,9 +47,9 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="HPd-iZ-Zla">
-                                <rect key="frame" x="16" y="20" width="343" height="60"/>
+                                <rect key="frame" x="16" y="40" width="343" height="60"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lola" translatesAutoresizingMaskIntoConstraints="NO" id="6kS-30-xjk">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="prisonMike" translatesAutoresizingMaskIntoConstraints="NO" id="6kS-30-xjk">
                                         <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="8VI-mQ-Uyr"/>
@@ -71,7 +71,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="hlI-3C-5Zd" firstAttribute="trailing" secondItem="ZUz-gP-Jc9" secondAttribute="trailing" id="91E-gZ-zNo"/>
-                            <constraint firstItem="HPd-iZ-Zla" firstAttribute="top" secondItem="ZUz-gP-Jc9" secondAttribute="top" id="9gl-K2-KpF"/>
+                            <constraint firstItem="HPd-iZ-Zla" firstAttribute="top" secondItem="ZUz-gP-Jc9" secondAttribute="top" constant="20" id="9gl-K2-KpF"/>
                             <constraint firstItem="hlI-3C-5Zd" firstAttribute="bottom" secondItem="ZUz-gP-Jc9" secondAttribute="bottom" id="EXz-pN-aGd"/>
                             <constraint firstItem="HPd-iZ-Zla" firstAttribute="leading" secondItem="ZUz-gP-Jc9" secondAttribute="leading" constant="16" id="cL5-uX-kHs"/>
                             <constraint firstItem="ZUz-gP-Jc9" firstAttribute="trailing" secondItem="HPd-iZ-Zla" secondAttribute="trailing" constant="16" id="dQZ-D9-bb7"/>
@@ -203,8 +203,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableFooterView" contentMode="scaleToFill" id="G9c-QP-ans">
-                            <rect key="frame" x="0.0" y="72" width="375" height="162"/>
+                        <view key="tableFooterView" hidden="YES" contentMode="scaleToFill" id="G9c-QP-ans">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="162"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="wSI-nk-gaP">
@@ -231,16 +231,6 @@
                                 <constraint firstItem="wSI-nk-gaP" firstAttribute="centerX" secondItem="G9c-QP-ans" secondAttribute="centerX" id="bkx-nq-RRW"/>
                             </constraints>
                         </view>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="AiC-Tt-mMr">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AiC-Tt-mMr" id="19y-Oa-YvF">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="utT-ZW-xFP" id="eNy-WW-haJ"/>
                             <outlet property="delegate" destination="utT-ZW-xFP" id="3F2-iE-eaf"/>
@@ -255,7 +245,6 @@
     <resources>
         <image name="glyphsTabBarFriendsActive" width="48" height="32"/>
         <image name="glyphsTabBarFriendsDisabledCopy" width="48" height="32"/>
-        <image name="glyphsTabBarMapIconActive" width="48" height="32"/>
-        <image name="lola" width="666" height="1180"/>
+        <image name="prisonMike" width="390" height="389"/>
     </resources>
 </document>

@@ -63,6 +63,7 @@
 		7E2128D52174E6DF000100DF /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2128D42174E6DF000100DF /* FriendCell.swift */; };
 		7E2390C921764D2B00D27CCB /* FriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E2390C821764D2B00D27CCB /* FriendCell.xib */; };
 		7E2390CB2176849900D27CCB /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2390CA2176849900D27CCB /* Group.swift */; };
+		7E2390CF2176A64E00D27CCB /* MocData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2390CE2176A64E00D27CCB /* MocData.swift */; };
 		7E38CF35216FA450009D44DF /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E38CF34216FA450009D44DF /* Animations.swift */; };
 		7E8EC58B217133E600B0275A /* FriendController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8EC58A217133E600B0275A /* FriendController.swift */; };
 		7E8EC58D217133F200B0275A /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8EC58C217133F200B0275A /* Friend.swift */; };
@@ -136,6 +137,7 @@
 		7E2128D42174E6DF000100DF /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 		7E2390C821764D2B00D27CCB /* FriendCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendCell.xib; sourceTree = "<group>"; };
 		7E2390CA2176849900D27CCB /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		7E2390CE2176A64E00D27CCB /* MocData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MocData.swift; sourceTree = "<group>"; };
 		7E38CF34216FA450009D44DF /* Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
 		7E8EC58A217133E600B0275A /* FriendController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendController.swift; sourceTree = "<group>"; };
 		7E8EC58C217133F200B0275A /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
@@ -226,7 +228,6 @@
 				3E28E86F216C1F8400E21331 /* SignIn.storyboard */,
 				3E28E8AD216D20BE00E21331 /* SignUp.storyboard */,
 				3E7B2B6C216D929500E4F0F1 /* ForgotPassword.storyboard */,
-				7E2390C821764D2B00D27CCB /* FriendCell.xib */,
 			);
 			name = User;
 			sourceTree = "<group>";
@@ -279,6 +280,7 @@
 				3EA99151216BDF1B0001F09D /* User.swift */,
 				7E8EC58C217133F200B0275A /* Friend.swift */,
 				7E2390CA2176849900D27CCB /* Group.swift */,
+				7E2390CE2176A64E00D27CCB /* MocData.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -410,6 +412,7 @@
 				3E28E8A7216D1E2F00E21331 /* MapView.storyboard */,
 				3EEC750B216EC0FF009572FB /* UserProfile.storyboard */,
 				3E28E8A9216D1E7000E21331 /* FriendsList.storyboard */,
+				7E2390C821764D2B00D27CCB /* FriendCell.xib */,
 			);
 			name = "Tab Bar";
 			sourceTree = "<group>";
@@ -652,6 +655,7 @@
 				7E2128D52174E6DF000100DF /* FriendCell.swift in Sources */,
 				7E8EC58B217133E600B0275A /* FriendController.swift in Sources */,
 				3E28E86C216BF29B00E21331 /* UserController.swift in Sources */,
+				7E2390CF2176A64E00D27CCB /* MocData.swift in Sources */,
 				7EF9A47B216C18FA0064DC47 /* AlertControllers.swift in Sources */,
 				3E5A1DDD2170F73E00170A9B /* ResetPasswordFromSettingsVC.swift in Sources */,
 				3E5A1DD52170F69900170A9B /* SettingsVC.swift in Sources */,

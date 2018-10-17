@@ -25,8 +25,8 @@ class UserProfileTableVC: UITableViewController {
     @IBOutlet weak var addImageOutlet   : UIButton!
     @IBOutlet weak var cancelOutlet     : UIButton!
     @IBOutlet weak var profileMapView   : MKMapView!
-    
-    
+
+  
         // MARK: - Variables
     
     let locationManager = CLLocationManager()
@@ -34,6 +34,7 @@ class UserProfileTableVC: UITableViewController {
     
     
         // MARK: - LifeCycle
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,22 +64,22 @@ class UserProfileTableVC: UITableViewController {
     
     
     // MARK: - Table view data source
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return UserController.shared.user?.pastLocations?.count ?? 0
-    }
-    
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "pastLocationCell", for: indexPath)
-        
-        guard let pastLocation = UserController.shared.user?.pastLocations?[indexPath.row] else {return UITableViewCell()}
-        cell.textLabel?.text = pastLocation.title
-        cell.detailTextLabel?.text = String(pastLocation.coOrdinates)
-        
-        return cell
-    }
+    //Commented for modata
+//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        // #warning Incomplete implementation, return the number of rows
+//        return UserController.shared.user?.pastLocations?.count ?? 0
+//    }
+//
+//
+//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "pastLocationCell", for: indexPath)
+//
+//        guard let pastLocation = UserController.shared.user?.pastLocations?[indexPath.row] else {return UITableViewCell()}
+//        cell.textLabel?.text = pastLocation.title
+//        cell.detailTextLabel?.text = String(pastLocation.coOrdinates)
+//
+//        return cell
+//    }
     
     
     

@@ -13,7 +13,7 @@ protocol tableViewIndex: class {
     var tableViewIndex: Int {get set}
 }
 
-class FriendsListSuperView: UIViewController, UISearchBarDelegate{
+class FriendsListSuperView: CustomSearchFieldVC{
     
     
     var pageViewController: FriendsListContainerVC?
@@ -22,8 +22,9 @@ class FriendsListSuperView: UIViewController, UISearchBarDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
+        
+        dissmisskeyBoard()
+        searchField = searchBar
         searchBar.delegate = self
     }
     

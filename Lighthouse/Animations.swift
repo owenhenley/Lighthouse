@@ -36,17 +36,31 @@ extension UIViewController {
 
 
 
+class CustomSearchFieldVC: UIViewController, UISearchBarDelegate{
+    var searchField: UISearchBar?
+    func dissmisskeyBoard(){
+        let tap = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func handlePan(){
+        searchField?.resignFirstResponder()
+    }
+
+}
 
 class CustomTextFieldVC: UIViewController, UITextFieldDelegate{
     
     var textFields: [UITextField] = []
     
+    
+    
     func dissmisskeyBoard(){
-        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        let tap = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
         view.addGestureRecognizer(tap)
     }
     
-    @objc func handleTap(){
+    @objc func handlePan(){
         textFields.forEach{$0.resignFirstResponder()}
     }
 
