@@ -27,7 +27,7 @@ class SignUpVC: CustomTextFieldVC {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if UserController.shared.user != nil {
+        if AUTH.currentUser != nil {
             self.dismiss(animated: true, completion: nil)
         }
     }

@@ -13,5 +13,17 @@ class TabBarControllerViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         selectedIndex = 1
+        
+    }
+
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        if AUTH.currentUser == nil{
+            self.tabBar.isHidden = true
+            self.selectedIndex = 1
+        } else {
+            self.tabBar.isHidden = false
+        }
     }
 }

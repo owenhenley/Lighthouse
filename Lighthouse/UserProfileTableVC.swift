@@ -90,10 +90,12 @@ class UserProfileTableVC: UITableViewController {
         favLocation3Text.isEnabled = false
         editButtonOutlet.setTitle("Edit", for: .normal)
         addImageOutlet.isEnabled = false
+        addImageOutlet.isHidden = true
         firstNameEdit.isEnabled = false
         lastNameEdit.isEnabled = false
         UsernameEdit.isEnabled = false
         cancelOutlet.isHidden = true
+        addImageOutlet.isHidden = true
         
     }
     
@@ -103,10 +105,12 @@ class UserProfileTableVC: UITableViewController {
         favLocation3Text.isEnabled = true
         editButtonOutlet.setTitle("Save", for: .normal)
         addImageOutlet.isEnabled = true
+        addImageOutlet.isHidden = false
         firstNameEdit.isEnabled = true
         lastNameEdit.isEnabled = true
         UsernameEdit.isEnabled = true
         cancelOutlet.isHidden = false
+        
     }
     
     

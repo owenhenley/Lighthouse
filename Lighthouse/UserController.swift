@@ -69,30 +69,13 @@ class UserController {
                         self.user = user
                     }
                 }
-                self.addToUserList(username: username, uid: result.user.uid, completion: { (success) in
-                    if !success {
-                        print("Not Working 💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩💩")
-                    }
-                })
+              
             }
             
         }
     }
     
-    func addToUserList(username: String, uid: String, completion: @escaping (_ success: Bool)->Void){
-        FIRESTORE.collection(USERLIST).document(uid).setData([
-            USERNAME : username,
-            PROFILE_IMAGE_URL : "No Profile Image",
-            USER_ID : AUTH.currentUser!.uid
-            ], completion: { (error) in
-                if let error = error {
-                    print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
-                    completion(false)
-                } else {
-                    completion(true)
-                }
-        })
-    }
+
     
     
     
@@ -116,9 +99,7 @@ class UserController {
                     storageRef.downloadURL { (url, error) in
                         downloadURL = url?.absoluteString
                         
-//                        self.appendUserInUserList(username: username, profielImageUrl: downloadURL!, uid: userID, completion: {(success)-> Void? in
-//                            print("Not working")
-//                        })
+
                         
                         
                         self.db.collection(USER).document(userID).updateData([
@@ -147,9 +128,7 @@ class UserController {
                     return
                 }
             }
-//            self.appendUserInUserList(username: username, profielImageUrl: "No Profile Image", uid: userID) { (success) -> Void? in
-//                print("Not working")
-//            }
+
             self.db.collection(USER).document(userID).updateData([
                 PROFILE_IMAGE_URL : "No profile Image",
                 USERNAME : username as Any,
@@ -168,25 +147,6 @@ class UserController {
     
     
     
-    
-    
-    
-    
-    
-//    func appendUserInUserList(username: String, profielImageUrl: String, uid: String, completion: @escaping (_ success: Bool)->Void?){
-//
-//        FIRESTORE.collection(USERLIST).document(uid).updateData([
-//            USERNAME : username,
-//            PROFILE_IMAGE_URL : profielImageUrl
-//        ]) { (error) in
-//            if let error = error {
-//                print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
-//                completion(false)
-//            } else {
-//                completion(true)
-//            }
-//        }
-//    }
     
     
     func fetchUser(completion: @escaping (_ success: Bool)->Void){

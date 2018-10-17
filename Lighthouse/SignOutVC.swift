@@ -23,6 +23,7 @@ class SignOutVC: UIViewController {
     
     @IBAction func signOutTapped(_ sender: Any) {
         try? AUTH.signOut()
+        UserController.shared.user = nil
         self.dismiss(animated: true, completion: nil)
     }
     
