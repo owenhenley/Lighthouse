@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="fN0-ma-zwF">
+                        <view key="tableHeaderView" contentMode="scaleToFill" misplaced="YES" id="fN0-ma-zwF">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="470"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
@@ -248,6 +248,7 @@
                         <outlet property="favLocation3Text" destination="D2v-1d-T5b" id="SOU-38-6tg"/>
                         <outlet property="firstNameEdit" destination="7u6-Zz-zxz" id="CG8-x5-J22"/>
                         <outlet property="lastNameEdit" destination="bzT-et-sHO" id="UL2-FM-Sea"/>
+                        <outlet property="profileMapView" destination="fxX-5u-h18" id="UHN-y3-Ki7"/>
                         <outlet property="profilePicOutlet" destination="0uo-FG-U0z" id="pNo-G6-CQI"/>
                     </connections>
                 </tableViewController>
