@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class NewPinPopUpVC: UIViewController {
     
@@ -37,7 +38,6 @@ class NewPinPopUpVC: UIViewController {
     ]
     
     
-
         // MARK: - LifeCycles
     
     override func viewDidLoad() {
@@ -55,6 +55,16 @@ class NewPinPopUpVC: UIViewController {
     
     
     @IBAction func shareWithFriendsTapped(_ sender: UIButton) {
+        
+        guard let pinName       = pinNameTF.text, !pinName.isEmpty,
+              let streetAddress = pinLocationLabel.text, !streetAddress.isEmpty,
+              let username      = UserController.shared.user?.username,
+              let profileImage  = UserController.shared.user?.profileImage
+           // let coordinates   =
+        else { return }
+        
+        let eventVibe = selectedVibe
+        
         // save pin to your account
         // segue to firend selection screen
     }
@@ -63,10 +73,8 @@ class NewPinPopUpVC: UIViewController {
     
     // Event Types
     @IBAction func eventVibeButtonTapped(_ sender: UIButton) {
-        selectedVibe = vibeDictionary[sender.tag] ?? ""
-        print(selectedVibe)
+        selectedVibe = vibeDictionary[sender.tag] ?? "No Vibe Selected"
     }
-    
     
 
         // MARK: - Navigation
