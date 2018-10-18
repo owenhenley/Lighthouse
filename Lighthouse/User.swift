@@ -6,10 +6,7 @@
 //  Copyright © 2018 Lighthouse. All rights reserved.
 //
 
-import Foundation
-import Firebase
-import CoreLocation
-
+import UIKit
 
 class User {
     

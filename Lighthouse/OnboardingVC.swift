@@ -39,8 +39,10 @@ class OnboardingVC: UIViewController {
         requestLocationAuth()
     }
     
+    
     @IBAction func allowLocationTapped(_ sender: Any) {
     }
+    
     
     @IBAction func showMeAroundTapped(_ sender: Any) {
     }

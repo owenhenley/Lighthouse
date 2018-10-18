@@ -12,5 +12,6 @@ target 'Lighthouse' do
   pod 'Firebase/Storage'
   pod 'Firebase/Firestore'
   pod 'FoursquareAPIClient'
+  pod 'SVProgressHUD'
 
 end

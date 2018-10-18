@@ -24,7 +24,7 @@
 		3E28E8A8216D1E2F00E21331 /* MapView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E28E8A7216D1E2F00E21331 /* MapView.storyboard */; };
 		3E28E8AA216D1E7000E21331 /* FriendsList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E28E8A9216D1E7000E21331 /* FriendsList.storyboard */; };
 		3E28E8AE216D20BE00E21331 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E28E8AD216D20BE00E21331 /* SignUp.storyboard */; };
-		3E32AEEA216D4F2D00C889DF /* TabBarControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E32AEE9216D4F2D00C889DF /* TabBarControllerViewController.swift */; };
+		3E32AEEA216D4F2D00C889DF /* TabBarControllerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E32AEE9216D4F2D00C889DF /* TabBarControllerVC.swift */; };
 		3E32AEEE216D4F7300C889DF /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E32AEED216D4F7300C889DF /* SignUpVC.swift */; };
 		3E32AEF1216D4FE900C889DF /* TrayTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E32AEF0216D4FE900C889DF /* TrayTabVC.swift */; };
 		3E32AEF3216D501000C889DF /* FriendsTrayListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E32AEF2216D501000C889DF /* FriendsTrayListVC.swift */; };
@@ -62,6 +62,8 @@
 		3EEC7506216EBAE6009572FB /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEC7505216EBAE6009572FB /* SignInVC.swift */; };
 		3EEC750A216EBF03009572FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EEC7509216EBF03009572FB /* Assets.xcassets */; };
 		3EEC750C216EC0FF009572FB /* UserProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EEC750B216EC0FF009572FB /* UserProfile.storyboard */; };
+		3EFDC044217919C10080C963 /* SelectFriends.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EFDC043217919C10080C963 /* SelectFriends.storyboard */; };
+		3EFDC04621791D770080C963 /* SelectFriendsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFDC04521791D770080C963 /* SelectFriendsVC.swift */; };
 		7E00ACF02173C1C8004C86E8 /* FriendsListSuperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E00ACEF2173C1C8004C86E8 /* FriendsListSuperView.swift */; };
 		7E2128D52174E6DF000100DF /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2128D42174E6DF000100DF /* FriendCell.swift */; };
 		7E2390C921764D2B00D27CCB /* FriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E2390C821764D2B00D27CCB /* FriendCell.xib */; };
@@ -98,7 +100,7 @@
 		3E28E8A7216D1E2F00E21331 /* MapView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MapView.storyboard; sourceTree = "<group>"; };
 		3E28E8A9216D1E7000E21331 /* FriendsList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FriendsList.storyboard; sourceTree = "<group>"; };
 		3E28E8AD216D20BE00E21331 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
-		3E32AEE9216D4F2D00C889DF /* TabBarControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllerViewController.swift; sourceTree = "<group>"; };
+		3E32AEE9216D4F2D00C889DF /* TabBarControllerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllerVC.swift; sourceTree = "<group>"; };
 		3E32AEED216D4F7300C889DF /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		3E32AEF0216D4FE900C889DF /* TrayTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrayTabVC.swift; sourceTree = "<group>"; };
 		3E32AEF2216D501000C889DF /* FriendsTrayListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTrayListVC.swift; sourceTree = "<group>"; };
@@ -139,6 +141,8 @@
 		3EEC7505216EBAE6009572FB /* SignInVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		3EEC7509216EBF03009572FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3EEC750B216EC0FF009572FB /* UserProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserProfile.storyboard; sourceTree = "<group>"; };
+		3EFDC043217919C10080C963 /* SelectFriends.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectFriends.storyboard; sourceTree = "<group>"; };
+		3EFDC04521791D770080C963 /* SelectFriendsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFriendsVC.swift; sourceTree = "<group>"; };
 		7E00ACEF2173C1C8004C86E8 /* FriendsListSuperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListSuperView.swift; sourceTree = "<group>"; };
 		7E2128D42174E6DF000100DF /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 		7E2390C821764D2B00D27CCB /* FriendCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendCell.xib; sourceTree = "<group>"; };
@@ -282,9 +286,9 @@
 		3EA99134216BDC9E0001F09D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3EA99150216BDF1B0001F09D /* Location.swift */,
 				3EA99151216BDF1B0001F09D /* User.swift */,
 				7E8EC58C217133F200B0275A /* Friend.swift */,
+				3EA99150216BDF1B0001F09D /* Location.swift */,
 				7E2390CA2176849900D27CCB /* Group.swift */,
 				7E2390CE2176A64E00D27CCB /* MocData.swift */,
 			);
@@ -319,7 +323,8 @@
 				3E28E867216BF24400E21331 /* LoadingScreenVC.swift */,
 				3E24CC5C216FFF4100BE957F /* OnboardingVC.swift */,
 				3E28E869216BF27000E21331 /* MapViewVC.swift */,
-				3E32AEE9216D4F2D00C889DF /* TabBarControllerViewController.swift */,
+				3E32AEE9216D4F2D00C889DF /* TabBarControllerVC.swift */,
+				3EFDC04521791D770080C963 /* SelectFriendsVC.swift */,
 				3E32AEEF216D4FB900C889DF /* Map View Tray */,
 				7E8EC5B02171A78B00B0275A /* FriendsList */,
 				3EEC7507216EBAFD009572FB /* User */,
@@ -348,6 +353,7 @@
 		3EA9915C216BDFC00001F09D /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				3EFDC043217919C10080C963 /* SelectFriends.storyboard */,
 				3ECDF76C21716A1C00C46C8E /* Launch */,
 				3ECDF76D21716A3E00C46C8E /* Tab Bar */,
 				3E7B2B6B216D8EC600E4F0F1 /* User */,
@@ -537,6 +543,7 @@
 				3E5A1DF12170FBB000170A9B /* SignOut.storyboard in Resources */,
 				3E5A1DED2170FB7D00170A9B /* ChangeEmail.storyboard in Resources */,
 				3E28E8A8216D1E2F00E21331 /* MapView.storyboard in Resources */,
+				3EFDC044217919C10080C963 /* SelectFriends.storyboard in Resources */,
 				3E28E8AE216D20BE00E21331 /* SignUp.storyboard in Resources */,
 				7E2390C921764D2B00D27CCB /* FriendCell.xib in Resources */,
 				3E28E8AA216D1E7000E21331 /* FriendsList.storyboard in Resources */,
@@ -604,12 +611,13 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Lighthouse/Pods-Lighthouse-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Lighthouse/Pods-Lighthouse-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/FoursquareAPIClient/FoursquareAPIClient.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
@@ -627,6 +635,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
@@ -637,7 +646,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Lighthouse/Pods-Lighthouse-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Lighthouse/Pods-Lighthouse-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -659,6 +668,7 @@
 				3E8BF77F2177A18900DB0014 /* NewPinPopUpVC.swift in Sources */,
 				3EA99152216BDF1B0001F09D /* Location.swift in Sources */,
 				3E7B2B70216D98F600E4F0F1 /* FoursquareAPIController.swift in Sources */,
+				3EFDC04621791D770080C963 /* SelectFriendsVC.swift in Sources */,
 				3E28E868216BF24400E21331 /* LoadingScreenVC.swift in Sources */,
 				3E5A1DD92170F70900170A9B /* ChangeEmailVC.swift in Sources */,
 				3EA99144216BDC9E0001F09D /* AppDelegate.swift in Sources */,
@@ -681,7 +691,7 @@
 				3EEC7504216EBAB8009572FB /* ForgotPasswordVC.swift in Sources */,
 				3EEC7506216EBAE6009572FB /* SignInVC.swift in Sources */,
 				3E06A53521750518004D1B24 /* DropNewPinVC.swift in Sources */,
-				3E32AEEA216D4F2D00C889DF /* TabBarControllerViewController.swift in Sources */,
+				3E32AEEA216D4F2D00C889DF /* TabBarControllerVC.swift in Sources */,
 				3EA99153216BDF1B0001F09D /* User.swift in Sources */,
 				3E32AEEE216D4F7300C889DF /* SignUpVC.swift in Sources */,
 				7EEF84A9216E6DAF00558093 /* UserProfileTableVC.swift in Sources */,

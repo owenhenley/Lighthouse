@@ -8,17 +8,9 @@
 
 import Foundation
 import CoreLocation
+import Firebase
 
 class LocationController {
     
-    
-   
-    var title: String?
-    var location: CLLocation
-    
-    init(title: String, location: CLLocation) {
-        self.title = title
-        self.location = location
-    }
     
 }
