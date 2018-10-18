@@ -31,7 +31,7 @@ class LoadingScreenVC: UIViewController {
         super.viewDidAppear(true)
         
         
-        checkUserState()
+        checkUserStateLoading()
         FriendController.shared.fetchPending()
        
         
@@ -40,7 +40,7 @@ class LoadingScreenVC: UIViewController {
         // MARK: - Authentication
     
     // Check to see if the user is already signed in. Ignore Loading screen if nessasary.
-    func checkUserState() {
+    fileprivate func checkUserStateLoading() {
         handle = AUTH.addStateDidChangeListener({ (auth, user) in
             if user != nil {
                 UserController.shared.fetchUser { (success) in

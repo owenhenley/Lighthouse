@@ -24,7 +24,6 @@ class MapViewVC: CustomSearchFieldVC {
     let authedUserLocationRadius  : Double = 400
     
     
-    
     // MARK: - Outlets
     
     @IBOutlet weak var mainMapView          : MKMapView!
@@ -65,13 +64,13 @@ class MapViewVC: CustomSearchFieldVC {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        checkUserState()
         searchView.isHidden = false
     }
     
     
     override func viewDidAppear(_ animated: Bool) {
-        centerMapNonAuthUser()
+        super.viewDidAppear(true)
+//        checkUserState()
     }
     
     
@@ -113,34 +112,18 @@ class MapViewVC: CustomSearchFieldVC {
             let currentLocationPinAnnotation: MKPointAnnotation = MKPointAnnotation()
             currentLocationPinAnnotation.coordinate = pinCoordinate
             self.mainMapView.addAnnotation(currentLocationPinAnnotation)
-                    UIView.animate(withDuration: 0, delay: 2, options: .curveEaseOut, animations: {
-                        let popover = self.storyboard?.instantiateViewController(withIdentifier: "NewPinPopOver")
-                        //        popover.view.backgroundColor = UIColor
-                        popover?.modalTransitionStyle = .coverVertical
-                        popover?.modalPresentationStyle = .overCurrentContext
-                        guard let popoverVC = popover else { return }
-                        self.present(popoverVC, animated: true, completion: nil)
-                    })
+            
+            let popover = self.storyboard?.instantiateViewController(withIdentifier: "NewPinPopOver")
+            popover?.modalTransitionStyle = .coverVertical
+            popover?.modalPresentationStyle = .overCurrentContext
+            guard let popoverVC = popover else { return }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.65) {
+                self.present(popoverVC, animated: true, completion: nil)
+            }
         }
     }
-//        centerMapOnAuthedUser {
-//            let pinCoordinate = self.mainMapView.centerCoordinate
-//            let currentLocationPinAnnotation: MKPointAnnotation = MKPointAnnotation()
-//            currentLocationPinAnnotation.coordinate = pinCoordinate
-//            self.mainMapView.addAnnotation(currentLocationPinAnnotation)
-//        }) { (success) in
-//            completion()
-//        }
     
-        //        UIView.animate(withDuration: 0, delay: 2, options: .curveEaseOut, animations: {}) { (wait) in
-        //            let popover = self.storyboard?.instantiateViewController(withIdentifier: "NewPinPopOver")
-        //            //        popover.view.backgroundColor = UIColor
-        //            popover?.modalTransitionStyle = .coverVertical
-        //            popover?.modalPresentationStyle = .overCurrentContext
-        //            guard let popoverVC = popover else { return }
-        //            self.present(popoverVC, animated: true, completion: nil)
-        //        }
-   // }
     
     func addPinLongPress() {
         if longPressActive == true {
@@ -153,6 +136,7 @@ class MapViewVC: CustomSearchFieldVC {
             longPressActive = true
         }
     }
+    
     
     @objc func dropPin(sender: UILongPressGestureRecognizer) {
         
@@ -224,10 +208,10 @@ class MapViewVC: CustomSearchFieldVC {
     // MARK: - Tray Methods
     
     // shows where on the view you tapped
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let firstTouch = touches.first!.location(in: view)
-        print(firstTouch.x)
-    }
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        let firstTouch = touches.first!.location(in: view)
+//        print(firstTouch.x)
+//    }
     
     
     // MARK: - Search Methods
@@ -249,17 +233,20 @@ class MapViewVC: CustomSearchFieldVC {
     
     // MARK: - Auth Management
     
-    func checkUserState() {
+    fileprivate func checkUserState() {
         handle = AUTH.addStateDidChangeListener({ (auth, user) in
             if user != nil {
                 
 //                self.dropPinButtonView.isHidden = false
-                self.centerMapOnAuthedUser {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    self.centerMapOnAuthedUser {
+                    }
                 }
             } else {
-                self.trayContainer.isHidden = true
-               self.nextButton.isHidden = false
-                self.centerMapNonAuthUser()
+//                self.nextButton.isHidden = false
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    self.centerMapNonAuthUser()
+                }
             }
             AUTH.removeStateDidChangeListener(self.handle!)
         })
@@ -337,6 +324,7 @@ extension MapViewVC: TrayTabVCDelegate {
     
     //2 - Implement protocol requirements (Actually fullfill the skills you said you had on your resume)
     func changeTrayHeight(isTrayActive: Bool) {
+        
         var height: CGFloat = 0
         if isTrayActive{
             height = self.view.frame.height * 0.55
@@ -351,7 +339,7 @@ extension MapViewVC: TrayTabVCDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toTrayContainer"{
+        if segue.identifier == "toTrayContainer" {
             
             // 3 -  Tell incoming view that you da boss
             let destinationVC = segue.destination as? TrayTabVC
@@ -359,6 +347,7 @@ extension MapViewVC: TrayTabVCDelegate {
         }
     }
 }
+
 
 extension MapViewVC: UIGestureRecognizerDelegate {
     

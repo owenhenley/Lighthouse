@@ -7,18 +7,15 @@
 //
 
 import Foundation
-import Firebase
 import CoreLocation
 
 class Location {
     
-    var title           : String!
-    var currentLocation : Double!
-    var coOrdinates     : Double!
+    var title       : String
+    var coordinates : CLLocationCoordinate2D
     
-    init(title: String, currentLocation: Double, coOrdinates: Double) {
-        self.title           = title
-        self.currentLocation = currentLocation
-        self.coOrdinates     = coOrdinates
+    init(title: String, currentLocation: Double, coordinates: CLLocationCoordinate2D) {
+        self.title       = title
+        self.coordinates = coordinates
     }
 }
