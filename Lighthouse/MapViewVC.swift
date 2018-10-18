@@ -242,7 +242,7 @@ class MapViewVC: CustomSearchFieldVC {
                 self.centerMapOnAuthedUser {
                 }
             } else {
-//                self.nextButton.isHidden = false
+               self.nextButton.isHidden = false
                 self.centerMapNonAuthUser()
             }
             AUTH.removeStateDidChangeListener(self.handle!)

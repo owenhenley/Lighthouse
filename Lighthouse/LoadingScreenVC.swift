@@ -53,6 +53,7 @@ class LoadingScreenVC: UIViewController {
                 }
                 let storyboard = UIStoryboard(name: "TabBarController", bundle: nil)
                 let mainView = storyboard.instantiateViewController(withIdentifier: "tabBarController")
+                mainView.tabBarController?.tabBar.isHidden = false
                 self.present(mainView, animated: true, completion: nil)
             } else {
                 let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
