@@ -18,7 +18,7 @@
 		3E28E868216BF24400E21331 /* LoadingScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E28E867216BF24400E21331 /* LoadingScreenVC.swift */; };
 		3E28E86A216BF27000E21331 /* MapViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E28E869216BF27000E21331 /* MapViewVC.swift */; };
 		3E28E86C216BF29B00E21331 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E28E86B216BF29B00E21331 /* UserController.swift */; };
-		3E28E86E216BF2B300E21331 /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E28E86D216BF2B300E21331 /* LocationController.swift */; };
+		3E28E86E216BF2B300E21331 /* EventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E28E86D216BF2B300E21331 /* EventController.swift */; };
 		3E28E870216C1F8400E21331 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E28E86F216C1F8400E21331 /* SignIn.storyboard */; };
 		3E28E8A2216D108500E21331 /* TabBarController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E28E8A1216D108500E21331 /* TabBarController.storyboard */; };
 		3E28E8A8216D1E2F00E21331 /* MapView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E28E8A7216D1E2F00E21331 /* MapView.storyboard */; };
@@ -53,7 +53,7 @@
 		3E8BF7832177ABB800DB0014 /* DroppablePin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8BF7822177ABB800DB0014 /* DroppablePin.swift */; };
 		3EA99144216BDC9E0001F09D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA99143216BDC9E0001F09D /* AppDelegate.swift */; };
 		3EA99149216BDC9F0001F09D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EA99147216BDC9F0001F09D /* LaunchScreen.storyboard */; };
-		3EA99152216BDF1B0001F09D /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA99150216BDF1B0001F09D /* Location.swift */; };
+		3EA99152216BDF1B0001F09D /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA99150216BDF1B0001F09D /* Event.swift */; };
 		3EA99153216BDF1B0001F09D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA99151216BDF1B0001F09D /* User.swift */; };
 		3EA99157216BDF8D0001F09D /* LoadingScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EA99154216BDF8D0001F09D /* LoadingScreen.storyboard */; };
 		3EA99162216BE0200001F09D /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA99161216BE0200001F09D /* DateFormatter.swift */; };
@@ -94,7 +94,7 @@
 		3E28E867216BF24400E21331 /* LoadingScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreenVC.swift; sourceTree = "<group>"; };
 		3E28E869216BF27000E21331 /* MapViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewVC.swift; sourceTree = "<group>"; };
 		3E28E86B216BF29B00E21331 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
-		3E28E86D216BF2B300E21331 /* LocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
+		3E28E86D216BF2B300E21331 /* EventController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventController.swift; sourceTree = "<group>"; };
 		3E28E86F216C1F8400E21331 /* SignIn.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignIn.storyboard; sourceTree = "<group>"; };
 		3E28E8A1216D108500E21331 /* TabBarController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBarController.storyboard; sourceTree = "<group>"; };
 		3E28E8A7216D1E2F00E21331 /* MapView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MapView.storyboard; sourceTree = "<group>"; };
@@ -131,7 +131,7 @@
 		3EA99143216BDC9E0001F09D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3EA99148216BDC9F0001F09D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3EA9914A216BDC9F0001F09D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3EA99150216BDF1B0001F09D /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		3EA99150216BDF1B0001F09D /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		3EA99151216BDF1B0001F09D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3EA99154216BDF8D0001F09D /* LoadingScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoadingScreen.storyboard; sourceTree = "<group>"; };
 		3EA99161216BE0200001F09D /* DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
@@ -288,7 +288,7 @@
 			children = (
 				3EA99151216BDF1B0001F09D /* User.swift */,
 				7E8EC58C217133F200B0275A /* Friend.swift */,
-				3EA99150216BDF1B0001F09D /* Location.swift */,
+				3EA99150216BDF1B0001F09D /* Event.swift */,
 				7E2390CA2176849900D27CCB /* Group.swift */,
 			);
 			name = Models;
@@ -309,7 +309,7 @@
 			children = (
 				3E28E86B216BF29B00E21331 /* UserController.swift */,
 				7E8EC58A217133E600B0275A /* FriendController.swift */,
-				3E28E86D216BF2B300E21331 /* LocationController.swift */,
+				3E28E86D216BF2B300E21331 /* EventController.swift */,
 			);
 			name = "Model Controllers";
 			sourceTree = "<group>";
@@ -658,7 +658,7 @@
 			files = (
 				3E5526842175727E00035D2D /* StyleGuide.swift in Sources */,
 				7E8EC5B22171A7E800B0275A /* FriendsListContainerVC.swift in Sources */,
-				3E28E86E216BF2B300E21331 /* LocationController.swift in Sources */,
+				3E28E86E216BF2B300E21331 /* EventController.swift in Sources */,
 				3E32AEF5216D502600C889DF /* DroppedPinVC.swift in Sources */,
 				3E32AEF3216D501000C889DF /* FriendsTrayListVC.swift in Sources */,
 				3E5A1DD32170F65400170A9B /* PPVC.swift in Sources */,
@@ -666,7 +666,7 @@
 				3EA99162216BE0200001F09D /* DateFormatter.swift in Sources */,
 				3E24CC5D216FFF4100BE957F /* OnboardingVC.swift in Sources */,
 				3E8BF77F2177A18900DB0014 /* NewPinPopUpVC.swift in Sources */,
-				3EA99152216BDF1B0001F09D /* Location.swift in Sources */,
+				3EA99152216BDF1B0001F09D /* Event.swift in Sources */,
 				3E7B2B70216D98F600E4F0F1 /* FoursquareAPIController.swift in Sources */,
 				3EFDC04621791D770080C963 /* SelectFriendsVC.swift in Sources */,
 				3E28E868216BF24400E21331 /* LoadingScreenVC.swift in Sources */,

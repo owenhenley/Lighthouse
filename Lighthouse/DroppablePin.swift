@@ -13,7 +13,7 @@ class DroppablePin: NSObject, MKAnnotation {
     
     var coordinate: CLLocationCoordinate2D
     var identifier: String
-    var location: Location?
+    var location: Event?
     
     init(coordinate: CLLocationCoordinate2D, identifier: String) {
         self.coordinate = coordinate

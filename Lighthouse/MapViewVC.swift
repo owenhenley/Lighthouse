@@ -65,12 +65,13 @@ class MapViewVC: CustomSearchFieldVC {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         searchView.isHidden = false
+        
     }
     
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-//        checkUserState()
+        checkUserState()
     }
     
     
@@ -237,13 +238,13 @@ class MapViewVC: CustomSearchFieldVC {
         handle = AUTH.addStateDidChangeListener({ (auth, user) in
             if user != nil {
                 
-//                self.dropPinButtonView.isHidden = false
+                self.dropPinButtonView.isHidden = false
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                     self.centerMapOnAuthedUser {
                     }
                 }
             } else {
-//                self.nextButton.isHidden = false
+                self.nextButton.isHidden = false
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                     self.centerMapNonAuthUser()
                 }
