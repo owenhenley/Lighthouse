@@ -14,19 +14,18 @@ class FriendController {
     
     static let shared = FriendController()
     
-    let resultsUpdated = Notification.Name("ResultsUpdated")
-    let friendsUpdated = Notification.Name("FriendsUpdated")
+    
     
     var results: [Friend] = []{
         didSet{
            
-            NotificationCenter.default.post(name: resultsUpdated, object: nil)
+            NotificationCenter.default.post(name: .resultsUpdated, object: nil)
         }
     }
     
     var friends: [Friend] = []{
         didSet{
-            NotificationCenter.default.post(name: friendsUpdated, object: nil)
+            NotificationCenter.default.post(name: .friendsUpdated, object: nil)
         }
     }
     
@@ -118,9 +117,12 @@ class FriendController {
                 let username = user[USERNAME] as! String
                 let urlString = user[PROFILE_IMAGE_URL] as! String
                 let friendID = user[USER_ID] as! String
+                let firstName = user[FIRST_NAME] as! String
+                let lastName = user[LAST_NAME] as! String
+                let name = firstName + " " + lastName
                 
                 self.fetchRequest(friendID: friendID, completion: { (request) -> Void in
-                    let friend = Friend(username: username, image: nil, imageUrl: urlString, friendID: friendID, request: request)
+                    let friend = Friend(username: username, image: nil, imageUrl: urlString, friendID: friendID, request: request, name: name)
                     self.results.append(friend)
                 })
                 
@@ -167,7 +169,10 @@ class FriendController {
             let username = user[USERNAME] as! String
             let urlString = user[PROFILE_IMAGE_URL] as! String
             let friendID = user[USER_ID] as! String
-            let friend = Friend(username: username, image: nil, imageUrl: urlString, friendID: friendID, request: true)
+            let firstName = user[FIRST_NAME] as! String
+            let lastName = user[LAST_NAME] as! String
+            let name = firstName + " " + lastName
+            let friend = Friend(username: username, image: nil, imageUrl: urlString, friendID: friendID, request: true, name: name)
             completion(friend)
             
         })

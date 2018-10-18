@@ -12,10 +12,10 @@ import UIKit
 extension UIViewController {
     func shake(){
         UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0, initialSpringVelocity: 0.09, options: [], animations: {
-            self.view.center = CGPoint(x: 0.508 * self.view.frame.width, y: 0.5 * self.view.frame.height)
+            self.view.center.x = 0.508 * self.view.frame.width
         }, completion: { (done) in
             if done {
-                self.view.center = CGPoint(x: 0.5 * self.view.frame.width, y: 0.5 * self.view.frame.height)
+                self.view.center.x = 0.5 * self.view.frame.width
             }
         })
     }

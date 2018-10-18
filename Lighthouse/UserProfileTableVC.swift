@@ -45,15 +45,7 @@ class UserProfileTableVC: UITableViewController {
         
         disableEditing()
         picker.delegate = self
-        if let user = UserController.shared.user {
-            UsernameEdit.text = user.username
-            firstNameEdit.text = user.firstName
-            lastNameEdit.text = user.lastName
-            favLocation1Text.text = user.favLocation1
-            favLocation2Text.text = user.favLocation2
-            favLocation3Text.text = user.favLocation3
-            profilePicOutlet.image = user.profileImage
-        }
+        updateViews()
     }
     
         // MARK: - Actions
@@ -113,25 +105,54 @@ class UserProfileTableVC: UITableViewController {
         
     }
     
+    func updateViews(){
+        guard let user = UserController.shared.user else {return}
+        UsernameEdit.text = user.username
+        firstNameEdit.text = user.firstName
+        lastNameEdit.text = user.lastName
+        favLocation1Text.text = user.favLocation1
+        favLocation2Text.text = user.favLocation2
+        favLocation3Text.text = user.favLocation3
+        if user.profileImage == nil {
+            profilePicOutlet.image = #imageLiteral(resourceName: "personIconDisabled")
+        } else {
+            profilePicOutlet.image = user.profileImage
+        }
+        
+    }
+    
     
     @IBAction func editButtonTapped(_ sender: Any) {
         if editButtonOutlet.titleLabel?.text == "Edit"{
             enableEditing()
         } else {
-            guard let username = UsernameEdit.text,
-                let firstName = firstNameEdit.text,
-                let lastName = lastNameEdit.text,
-                let profileImage = profilePicOutlet.image,
-                let favLocation1 = favLocation1Text.text,
-                let favLocation2 = favLocation2Text.text,
-                let favLocation3 = favLocation3Text.text else {return}
-            UserController.shared.updateUser(username: username, profileImage: profileImage, firstName: firstName, lastName: lastName, favLocation1: favLocation1, favLocation2: favLocation2, favLocation3: favLocation3) { (success) in
+            guard let user = UserController.shared.user else {return}
+            user.username = UsernameEdit.text
+            user.firstName = firstNameEdit.text
+            user.lastName = lastNameEdit.text
+            user.favLocation1 = favLocation1Text.text
+            user.favLocation2 = favLocation2Text.text
+            user.favLocation3 = favLocation3Text.text
+            
+            if profilePicOutlet.image == #imageLiteral(resourceName: "personIconDisabled") {
+                user.profileImage = nil
+            } else {
+                user.profileImage = profilePicOutlet.image
+            }
+            
+            UserController.shared.updateUser(user: user) { (success) in
                 if success{
                     self.disableEditing()
                 }
             }
         }
     }
+    
+    @IBAction func cancelTapped(_ sender: Any) {
+        updateViews()
+        disableEditing()
+    }
+    
     
     let picker = UIImagePickerController()
     @IBAction func addImageTapped(_ sender: Any) {

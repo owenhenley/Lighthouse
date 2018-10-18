@@ -16,7 +16,7 @@ class FriendsTVC: UITableViewController, RequestTableViewCellDelegate {
         super.viewDidLoad()
         setupTableView()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: FriendController.shared.friendsUpdated, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .friendsUpdated, object: nil)
         
     }
     

@@ -44,17 +44,21 @@ class LoadingScreenVC: UIViewController {
         handle = AUTH.addStateDidChangeListener({ (auth, user) in
             if user != nil {
                 UserController.shared.fetchUser { (success) in
-                    
-                }
-                FriendController.shared.fetchFriends { (success) in
                     if success {
-                        print(FriendController.shared.friends)
+                        let storyboard = UIStoryboard(name: "TabBarController", bundle: nil)
+                        let mainView = storyboard.instantiateViewController(withIdentifier: "tabBarController")
+                        mainView.tabBarController?.tabBar.isHidden = false
+                        self.present(mainView, animated: true, completion: nil)
+                        
+                        FriendController.shared.fetchFriends { (success) in
+                            if success {
+                            
+                            }
+                        }
+    
                     }
                 }
-                let storyboard = UIStoryboard(name: "TabBarController", bundle: nil)
-                let mainView = storyboard.instantiateViewController(withIdentifier: "tabBarController")
-                mainView.tabBarController?.tabBar.isHidden = false
-                self.present(mainView, animated: true, completion: nil)
+                
             } else {
                 let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
                 let onboarding = storyboard.instantiateViewController(withIdentifier: "onboarding")
