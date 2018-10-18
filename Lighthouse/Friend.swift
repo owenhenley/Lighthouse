@@ -8,10 +8,14 @@
 
 import UIKit
 
-struct Friend {
+struct Friend: Equatable {
+    
+    
     let username: String
     let image: UIImage?
     let imageUrl: String
     let friendID: String
     var request: Bool?
+    var name: String
+    
 }

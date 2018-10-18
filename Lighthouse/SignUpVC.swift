@@ -39,6 +39,9 @@ class SignUpVC: CustomTextFieldVC {
 
     @IBAction func backTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+        NotificationCenter.default.post(name: .backButtonTapped, object: nil)
+        
+        
     }
     
 //    func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -54,6 +57,7 @@ class SignUpVC: CustomTextFieldVC {
         visualEffectView.frame = self.blurView.bounds
         visualEffectView.translatesAutoresizingMaskIntoConstraints = true
         self.blurView.addSubview(visualEffectView)
+        
     }
     
     /*
@@ -73,6 +77,9 @@ class SignUpVC: CustomTextFieldVC {
             let username = usernameOutlet.text else {return}
         UserController.shared.createUser(username: username, email: email, password: password) { (success) in
             if success {
+                NotificationCenter.default.post(name: .signInTapped, object: nil)
+                
+
                 self.dismiss(animated: true, completion: nil)
             } else {
                 self.shake()

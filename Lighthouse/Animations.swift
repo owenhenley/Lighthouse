@@ -12,10 +12,10 @@ import UIKit
 extension UIViewController {
     func shake(){
         UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0, initialSpringVelocity: 0.09, options: [], animations: {
-            self.view.center = CGPoint(x: 0.508 * self.view.frame.width, y: 0.5 * self.view.frame.height)
+            self.view.center.x = 0.508 * self.view.frame.width
         }, completion: { (done) in
             if done {
-                self.view.center = CGPoint(x: 0.5 * self.view.frame.width, y: 0.5 * self.view.frame.height)
+                self.view.center.x = 0.5 * self.view.frame.width
             }
         })
     }
@@ -77,7 +77,7 @@ class CustomTextFieldVC: UIViewController, UITextFieldDelegate{
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             
             if self.view.frame.origin.y == 0{
-                self.view.frame.origin.y -= keyboardSize.height
+                self.view.frame.origin.y -= keyboardSize.height-100
             }
         }
     }

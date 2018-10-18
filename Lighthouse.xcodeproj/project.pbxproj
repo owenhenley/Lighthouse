@@ -68,6 +68,7 @@
 		7E2390CB2176849900D27CCB /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2390CA2176849900D27CCB /* Group.swift */; };
 		7E2390CF2176A64E00D27CCB /* MocData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2390CE2176A64E00D27CCB /* MocData.swift */; };
 		7E38CF35216FA450009D44DF /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E38CF34216FA450009D44DF /* Animations.swift */; };
+		7E565AA02178FB9B006C1271 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E565A9F2178FB9B006C1271 /* NotificationName.swift */; };
 		7E8EC58B217133E600B0275A /* FriendController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8EC58A217133E600B0275A /* FriendController.swift */; };
 		7E8EC58D217133F200B0275A /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8EC58C217133F200B0275A /* Friend.swift */; };
 		7E8EC5B22171A7E800B0275A /* FriendsListContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8EC5B12171A7E800B0275A /* FriendsListContainerVC.swift */; };
@@ -145,6 +146,7 @@
 		7E2390CA2176849900D27CCB /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		7E2390CE2176A64E00D27CCB /* MocData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MocData.swift; sourceTree = "<group>"; };
 		7E38CF34216FA450009D44DF /* Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
+		7E565A9F2178FB9B006C1271 /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		7E8EC58A217133E600B0275A /* FriendController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendController.swift; sourceTree = "<group>"; };
 		7E8EC58C217133F200B0275A /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		7E8EC5B12171A7E800B0275A /* FriendsListContainerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListContainerVC.swift; sourceTree = "<group>"; };
@@ -372,6 +374,7 @@
 				3E8BF7822177ABB800DB0014 /* DroppablePin.swift */,
 				3E5526832175727E00035D2D /* StyleGuide.swift */,
 				7EF9A478216C0D480064DC47 /* Constants.swift */,
+				7E565A9F2178FB9B006C1271 /* NotificationName.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -680,6 +683,7 @@
 				7E8EC58D217133F200B0275A /* Friend.swift in Sources */,
 				3EEC7504216EBAB8009572FB /* ForgotPasswordVC.swift in Sources */,
 				3EEC7506216EBAE6009572FB /* SignInVC.swift in Sources */,
+				7E565AA02178FB9B006C1271 /* NotificationName.swift in Sources */,
 				3E06A53521750518004D1B24 /* DropNewPinVC.swift in Sources */,
 				3E32AEEA216D4F2D00C889DF /* TabBarControllerViewController.swift in Sources */,
 				3EA99153216BDF1B0001F09D /* User.swift in Sources */,
@@ -832,14 +836,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Lighthouse/Lighthouse.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CYZA2EE6W8;
+				DEVELOPMENT_TEAM = ASRKL3D2BB;
 				INFOPLIST_FILE = Lighthouse/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.owenhenley.Lighthouse;
+				PRODUCT_BUNDLE_IDENTIFIER = com.levilinchenko.lighthouse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -853,14 +857,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Lighthouse/Lighthouse.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = CYZA2EE6W8;
+				DEVELOPMENT_TEAM = ASRKL3D2BB;
 				INFOPLIST_FILE = Lighthouse/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.owenhenley.Lighthouse;
+				PRODUCT_BUNDLE_IDENTIFIER = com.levilinchenko.lighthouse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;

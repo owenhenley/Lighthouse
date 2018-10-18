@@ -11,7 +11,25 @@ import CoreLocation
 
 class LocationController {
     
-    
+//    func uploadPin(){
+//        guard let uid = UID else {return}
+//        FIRESTORE.collection(USER).document(uid).collection(LOCATION).addDocument(data: [
+//            LOCATION : "",
+//            "title" : ""
+//
+//            ])
+//    }
+//
+//    func fetchFriendsPins(){
+//
+//        let friendIDS: [String] = FriendController.shared.friends.compactMap{$0.friendID}
+//        for friendID in friendIDS {
+//            FIRESTORE.collection(USER).document(friendID).collection(LOCATION).addSnapshotListener { (snapshot, error) in
+//
+//            }
+//
+//        }
+//    }
    
     var title: String?
     var location: CLLocation
@@ -20,5 +38,7 @@ class LocationController {
         self.title = title
         self.location = location
     }
+    
+    
     
 }
