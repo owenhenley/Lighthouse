@@ -122,7 +122,7 @@ class FriendController {
                 let name = firstName + " " + lastName
                 
                 self.fetchRequest(friendID: friendID, completion: { (request) -> Void in
-                    let friend = Friend(username: username, image: nil, imageUrl: urlString, friendID: friendID, request: request, name: name)
+                    let friend = Friend(username: username, image: nil, imageUrl: urlString, friendID: friendID, request: request, name: name, location: nil)
                     self.results.append(friend)
                 })
                 
@@ -172,7 +172,7 @@ class FriendController {
             let firstName = user[FIRST_NAME] as! String
             let lastName = user[LAST_NAME] as! String
             let name = firstName + " " + lastName
-            let friend = Friend(username: username, image: nil, imageUrl: urlString, friendID: friendID, request: true, name: name)
+            let friend = Friend(username: username, image: nil, imageUrl: urlString, friendID: friendID, request: true, name: name, location: nil)
             completion(friend)
             
         })

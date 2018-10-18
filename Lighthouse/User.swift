@@ -16,13 +16,13 @@ class User {
     let friends         : [User] = []
 //    var profileImageURL : URL?
     var profileImage    : UIImage?
-    var currentLocation : Location?
+    var currentLocation : Event?
     var firstName       : String?
     var lastName        : String?
     var favLocation1    : String?
     var favLocation2    : String?
     var favLocation3    : String?
-    var pastLocations   : [Location]?
+    var pastLocations   : [Event]?
     
     var isActive        : Bool = true
 //    var groups          : [User] = []

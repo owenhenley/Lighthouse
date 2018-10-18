@@ -9,6 +9,10 @@
 import UIKit
 
 struct Friend: Equatable {
+    static func == (lhs: Friend, rhs: Friend) -> Bool {
+        return lhs.username == rhs.username
+    }
+    
     
     
     let username: String
@@ -17,5 +21,6 @@ struct Friend: Equatable {
     let friendID: String
     var request: Bool?
     var name: String
+    var location: Event?
     
 }

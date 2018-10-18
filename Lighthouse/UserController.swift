@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 
+
 class UserController {
     
     private init() {}
@@ -43,6 +44,7 @@ class UserController {
                 completion(false)
                 return
             }
+            
             if let result = result {
                 
                 FIRESTORE.collection(USER).document(result.user.uid).setData([
@@ -55,7 +57,7 @@ class UserController {
                     FAV_LOCATION2 : "",
                     FAV_LOCATION3 : "",
                     PROFILE_IMAGE_URL : "No Profile Image",
-                    //CURRENT_LOCATION
+                    
                     //PAST_LOCATIONS
                     
                 ]) { (error) in
