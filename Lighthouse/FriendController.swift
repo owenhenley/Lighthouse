@@ -75,7 +75,9 @@ class FriendController {
     }
 
     func fetchPending(){
-        FIRESTORE.collection(USER).document(AUTH.currentUser!.uid).collection(REQUESTS)
+        
+        guard let currentUser = UID else { return }
+        FIRESTORE.collection(USER).document(currentUser).collection(REQUESTS)
             .getDocuments { (snapShot, error) in
                 if let error = error {
                     print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
