@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M4N-bu-9LN">
-                                <rect key="frame" x="22" y="571.5" width="331" height="50"/>
+                                <rect key="frame" x="22" y="497" width="331" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.4793452024" blue="0.99908632040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="2MF-CI-K4Z"/>
@@ -134,7 +134,7 @@
                             <constraint firstItem="M4N-bu-9LN" firstAttribute="leading" secondItem="g6a-Ow-bBB" secondAttribute="leading" constant="22" id="Dy2-jv-bPE"/>
                             <constraint firstItem="g6a-Ow-bBB" firstAttribute="trailing" secondItem="fbO-Kb-dTx" secondAttribute="trailing" constant="20" id="I9Y-sg-Xmh"/>
                             <constraint firstItem="fbO-Kb-dTx" firstAttribute="centerY" secondItem="5jl-Ue-lxb" secondAttribute="centerY" id="QpA-Ul-5NN"/>
-                            <constraint firstItem="g6a-Ow-bBB" firstAttribute="bottom" secondItem="M4N-bu-9LN" secondAttribute="bottom" constant="45.5" id="Rzs-FO-87u"/>
+                            <constraint firstItem="g6a-Ow-bBB" firstAttribute="bottom" secondItem="M4N-bu-9LN" secondAttribute="bottom" constant="120" id="Rzs-FO-87u"/>
                             <constraint firstItem="g6a-Ow-bBB" firstAttribute="trailing" secondItem="M4N-bu-9LN" secondAttribute="trailing" constant="22" id="YAM-HT-hru"/>
                             <constraint firstItem="g6a-Ow-bBB" firstAttribute="trailing" secondItem="tdG-rU-TJY" secondAttribute="trailing" constant="22" id="g46-IT-l3U"/>
                             <constraint firstItem="fbO-Kb-dTx" firstAttribute="leading" secondItem="g6a-Ow-bBB" secondAttribute="leading" constant="20" id="lKe-iu-Jrs"/>

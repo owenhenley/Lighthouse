@@ -16,7 +16,7 @@ class AddTVC: UITableViewController, UISearchBarDelegate, RequestTableViewCellDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: FriendController.shared.resultsUpdated, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .resultsUpdated, object: nil)
         
         setupTableView()
 

@@ -11,8 +11,8 @@ import UIKit
 class User {
     
     let userID          : String
-    let username        : String
-    let email           : String?
+    var username        : String?
+    var email           : String?
     let friends         : [User] = []
 //    var profileImageURL : URL?
     var profileImage    : UIImage?

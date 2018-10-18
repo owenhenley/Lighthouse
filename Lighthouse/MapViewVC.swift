@@ -37,9 +37,6 @@ class MapViewVC: CustomSearchFieldVC {
     @IBOutlet weak var droppedPinButtonView : UIView!
     
     
-        // MARK: - UnwindSegue's
-    
-    @IBAction func unwindToMapView(_ sender: UIStoryboardSegue) {}
     
     // MARK: - LifeCycle
     
@@ -49,7 +46,19 @@ class MapViewVC: CustomSearchFieldVC {
         searchBar.delegate = self
         trayContainer.translatesAutoresizingMaskIntoConstraints = false
         setupLocationManager()
-        addPinLongPress() 
+        addPinLongPress()
+        NotificationCenter.default.addObserver(self, selector: #selector(showNextButton), name: .backButtonTapped, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(showTray), name: .showTray, object: nil)
+    }
+    
+    
+    //FIXME: Get conainer view to show when user logs in
+    @objc func showTray(){
+        trayContainer.isHidden = false
+    }
+    @objc func showNextButton(){
+        nextButton.isHidden = false
+        
     }
     
     
@@ -227,6 +236,7 @@ class MapViewVC: CustomSearchFieldVC {
     fileprivate func checkUserState() {
         handle = AUTH.addStateDidChangeListener({ (auth, user) in
             if user != nil {
+                
 //                self.dropPinButtonView.isHidden = false
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                     self.centerMapOnAuthedUser {
@@ -259,11 +269,12 @@ extension MapViewVC: MKMapViewDelegate {
     
     
     // Hide keyboard and search bar when the user moved the map
-    func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
+    func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
         searchBar.resignFirstResponder()
         fillerView.isHidden = false
         searchBar.isHidden = true
     }
+  
 }
 
 

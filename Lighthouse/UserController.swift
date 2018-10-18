@@ -80,12 +80,13 @@ class UserController {
     
     
     
-    func updateUser(username: String, profileImage: UIImage?, firstName: String?, lastName: String?, favLocation1: String?, favLocation2: String?, favLocation3: String?, completion: @escaping (_ success: Bool)->Void){
+    func updateUser(user: User, completion: @escaping (_ success: Bool)->Void){
+        
         guard let userID = AUTH.currentUser?.uid else {return}
         let storageRef = Storage.storage().reference(withPath: "profileImages").child("\(userID).png")
         var downloadURL: String?
         
-        if let profileImage = profileImage {
+        if let profileImage = user.profileImage {
             if let imageData = profileImage.jpegData(compressionQuality: 0.4) {
                 
                 let metaData = StorageMetadata()
@@ -104,12 +105,12 @@ class UserController {
                         
                         self.db.collection(USER).document(userID).updateData([
                             PROFILE_IMAGE_URL : downloadURL!,
-                            USERNAME : username as Any,
-                            FIRST_NAME : firstName as Any,
-                            LAST_NAME : lastName as Any,
-                            FAV_LOCATION1 : favLocation1 as Any,
-                            FAV_LOCATION2 : favLocation2 as Any,
-                            FAV_LOCATION3 : favLocation3 as Any
+                            USERNAME : user.username as Any,
+                            FIRST_NAME : user.firstName as Any,
+                            LAST_NAME : user.lastName as Any,
+                            FAV_LOCATION1 : user.favLocation1 as Any,
+                            FAV_LOCATION2 : user.favLocation2 as Any,
+                            FAV_LOCATION3 : user.favLocation3 as Any
                         ]) { (error) in
                             if let error = error {
                                 print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
@@ -124,22 +125,23 @@ class UserController {
         } else {
             Storage.storage().reference(withPath: storageRef.fullPath).delete { (error) in
                 if let error = error {
-                    print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
-                    return
+                    print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription) No profile Image to delete 💩💩")
                 }
             }
 
             self.db.collection(USER).document(userID).updateData([
                 PROFILE_IMAGE_URL : "No profile Image",
-                USERNAME : username as Any,
-                FIRST_NAME : firstName as Any,
-                LAST_NAME : lastName as Any,
-                FAV_LOCATION1 : favLocation1 as Any,
-                FAV_LOCATION2 : favLocation2 as Any,
-                FAV_LOCATION3 : favLocation3 as Any
+                USERNAME : user.username as Any,
+                FIRST_NAME : user.firstName as Any,
+                LAST_NAME : user.lastName as Any,
+                FAV_LOCATION1 : user.favLocation1 as Any,
+                FAV_LOCATION2 : user.favLocation2 as Any,
+                FAV_LOCATION3 : user.favLocation3 as Any
             ]) { (error) in
                 if let error = error {
                     print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
+                } else {
+                    completion(true)
                 }
             }
         }
@@ -219,6 +221,8 @@ class UserController {
             }
         }
     }
+    
+    
     
     
 }

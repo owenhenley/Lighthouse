@@ -85,6 +85,7 @@
                     <tabBarItem key="tabBarItem" title="Friends" image="glyphsTabBarFriendsDisabledCopy" selectedImage="glyphsTabBarFriendsActive" id="IMl-mT-tYd"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="profileImagePic" destination="6kS-30-xjk" id="2SA-56-JK9"/>
                         <outlet property="searchBar" destination="5lJ-SL-w6Y" id="Qxk-m6-3to"/>
                     </connections>
                 </viewController>

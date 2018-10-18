@@ -21,6 +21,12 @@ class TabBarControllerVC: UITabBarController {
         super.viewDidLoad()
         selectedIndex = 1
         customiseTabBar()
+        NotificationCenter.default.addObserver(self, selector: #selector(showTabBar), name: .signInTapped, object: nil)
+    }
+    
+    @objc func showTabBar(){
+        tabBar.isHidden = false
+        NotificationCenter.default.post(name: .showTray, object: nil)
     }
 
     

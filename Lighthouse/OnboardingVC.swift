@@ -28,6 +28,7 @@ class OnboardingVC: UIViewController {
         
         setUpLocationManager()
         blurBackground()
+     
     }
     
     override func viewWillAppear(_ animated: Bool) {
