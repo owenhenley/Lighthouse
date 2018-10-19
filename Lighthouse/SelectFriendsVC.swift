@@ -7,17 +7,103 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class SelectFriendsVC: UIViewController {
-
+    
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    
+    
+    var event: Event?
+    var friendIDs: [Int:String] = [:]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tableView.dataSource = self
+        tableView.delegate = self
+        
     }
     
     @IBAction func backTapped(_ sender: Any) {
         print("back tapped")
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func shareTapped(_ sender: Any) {
+        SVProgressHUD.show()
+        guard let event = event else {return}
+        let friendIDS: [String] = friendIDs.compactMap{$0.value}
+        EventController.shared.uploadEvent(event: event, friendIDs: friendIDS) { (true) in
+            if true {
+                self.performSegue(withIdentifier: "toMapView", sender: self)
+            }
+        }
+        print("Shared")
+    }
+}
+
+
+extension SelectFriendsVC: UITableViewDataSource, UITableViewDelegate {
+    
+  
+    
+
+    //MARK: UITableViewDataSource
+    
+//    func numberOfSections(in tableView: UITableView) -> Int {
+//        return 1
+//    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return FriendController.shared.friends.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "selectFriendCell", for: indexPath) as? SelectFriendCell
+//        cell?.delegate = self
+        let friend = FriendController.shared.friends[indexPath.row]
+        cell?.friendID = friend.friendID
+        FriendController.shared.fetchFriendsImage(urlString: friend.imageUrl) { (image) in
+            DispatchQueue.main.async {
+                cell?.imageOutlet.image = image
+            }
+        }
+        cell?.nameOutlet.text = friend.name
+        cell?.activityStatusOutlet.text = friend.event?.streetAdrees ?? "Inactive"
+        return cell ?? UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+            // Delete the row from the table view
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectFriend(indexPath: indexPath)
+    }
+    
+    func selectFriend(indexPath: IndexPath) {
+        guard let indexPath = tableView.indexPathForSelectedRow else {return}
+        let cell = tableView.cellForRow(at: indexPath) as? SelectFriendCell
+        guard let friendID = cell?.friendID else {return}
+        if cell?.imageOverlayOutlet.isHidden == true {
+            self.friendIDs.updateValue(friendID, forKey: indexPath.row)
+            cell?.imageOverlayOutlet.isHidden = false
+            cell?.imageOverlayOutlet.backgroundColor = .black
+            cell?.imageOverlayOutlet.alpha = 0.5
+            cell?.imageOverlayOutlet.layer.cornerRadius = 30
+        } else {
+            
+            self.friendIDs.removeValue(forKey: indexPath.row)
+            cell?.imageOverlayOutlet.isHidden = true
+        }
     }
     
 }

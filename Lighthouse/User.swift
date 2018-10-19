@@ -11,7 +11,7 @@ import UIKit
 class User {
     
     let userID          : String
-    var username        : String?
+    var fullName        : String?
     var email           : String?
     let friends         : [User] = []
     var profileImageURL : String?
@@ -29,7 +29,7 @@ class User {
 
     init(userID: String, username: String, email: String) {
         self.userID   = userID
-        self.username = username
+//        self.username = username
         self.email    = email
         
     }

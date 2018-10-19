@@ -107,7 +107,7 @@ class UserProfileTableVC: UITableViewController {
     
     func updateViews(){
         guard let user = UserController.shared.user else {return}
-        UsernameEdit.text = user.username
+        UsernameEdit.text = user.fullName
         firstNameEdit.text = user.firstName
         lastNameEdit.text = user.lastName
         favLocation1Text.text = user.favLocation1
@@ -128,7 +128,7 @@ class UserProfileTableVC: UITableViewController {
         } else {
             SVProgressHUD.show()
             guard let user = UserController.shared.user else {return}
-            user.username = UsernameEdit.text
+            user.fullName = UsernameEdit.text
             user.firstName = firstNameEdit.text
             user.lastName = lastNameEdit.text
             user.favLocation1 = favLocation1Text.text

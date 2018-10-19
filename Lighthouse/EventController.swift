@@ -10,6 +10,7 @@ import Foundation
 import CoreLocation
 import Firebase
 import MapKit
+import SVProgressHUD
 
 
 class EventController {
@@ -19,9 +20,9 @@ class EventController {
     var events: [Event] = []
     
     
-    func uploadPin(UserLocation: CLLocation, eventVibe: String, eventTitle: String, friendIDs: [String]){
+    func uploadEvent(event: Event, friendIDs: [String], completion: @escaping (Bool) -> Void){
         guard let uid = UID else {return}
-        let location = GeoPoint(latitude: UserLocation.coordinate.latitude, longitude: UserLocation.coordinate.longitude)
+        let location = GeoPoint(latitude: event.coordinates.latitude, longitude: event.coordinates.longitude)
         let user = UserController.shared.user!
         let firstName = user.firstName ?? ""
         let lastName = user.lastName ?? ""
@@ -29,14 +30,18 @@ class EventController {
         let profileImage = user.profileImageURL ?? "No Profile Image"
         FIRESTORE.collection(USER).document(uid).collection(EVENT).document(uid).setData([
             NAME : name,
-            EVENT : eventTitle,
+            EVENT : event.title,
             PROFILE_IMAGE_URL : profileImage,
             ACTIVE_FRIENDS : location,
-            EVENT_VIBE : eventVibe
+            EVENT_VIBE : event.vibe
         ]) { (error) in
             if let error = error {
                 print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
             }
+            SVProgressHUD.dismiss()
+            completion(true)
+
+            
         }
         for friendID in friendIDs {
             inviteFriend(friendID: friendID)
