@@ -42,7 +42,6 @@ class UserProfileTableVC: UITableViewController {
         setupLocationManager()
         startTrackingUserLocation()
         centerMapOnAuthedUser()
-        
         disableEditing()
         picker.delegate = self
         updateViews()

@@ -61,45 +61,6 @@
                                     <action selector="findUserLocationTapped:" destination="KIQ-uS-6Qq" eventType="touchUpInside" id="twT-tk-WBR"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="73E-Lg-Kdw" userLabel="Drop Pin">
-                                <rect key="frame" x="104" y="572" width="167" height="55"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfPic" translatesAutoresizingMaskIntoConstraints="NO" id="cpO-8a-jfV">
-                                        <rect key="frame" x="0.0" y="0.0" width="167" height="55"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Drop Pin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ve1-am-wCW">
-                                        <rect key="frame" x="35" y="17" width="66" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KP1-qD-tHA">
-                                        <rect key="frame" x="0.0" y="0.0" width="167" height="55"/>
-                                        <connections>
-                                            <action selector="dropPinTapped:" destination="KIQ-uS-6Qq" eventType="touchUpInside" id="6LU-oN-FOx"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="167" id="BZ2-iW-Q2s"/>
-                                    <constraint firstAttribute="height" constant="55" id="Cl8-3V-4Ku"/>
-                                    <constraint firstItem="KP1-qD-tHA" firstAttribute="leading" secondItem="73E-Lg-Kdw" secondAttribute="leading" id="DJ4-Xa-q14"/>
-                                    <constraint firstAttribute="trailing" secondItem="cpO-8a-jfV" secondAttribute="trailing" id="KL8-YP-gat"/>
-                                    <constraint firstAttribute="bottom" secondItem="KP1-qD-tHA" secondAttribute="bottom" id="Pwx-Zr-0Lw"/>
-                                    <constraint firstAttribute="bottom" secondItem="cpO-8a-jfV" secondAttribute="bottom" id="j7B-u8-eQR"/>
-                                    <constraint firstItem="KP1-qD-tHA" firstAttribute="top" secondItem="73E-Lg-Kdw" secondAttribute="top" id="jjd-Mf-mNr"/>
-                                    <constraint firstItem="cpO-8a-jfV" firstAttribute="leading" secondItem="73E-Lg-Kdw" secondAttribute="leading" id="oAg-FB-wTD"/>
-                                    <constraint firstItem="cpO-8a-jfV" firstAttribute="top" secondItem="73E-Lg-Kdw" secondAttribute="top" id="ouR-2A-iTY"/>
-                                    <constraint firstAttribute="trailing" secondItem="KP1-qD-tHA" secondAttribute="trailing" id="vun-bE-eFA"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="25"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KTe-UA-s3H" userLabel="Dropped Pin">
                                 <rect key="frame" x="104" y="571" width="167" height="55"/>
                                 <subviews>
@@ -172,6 +133,29 @@
                                     <constraint firstItem="uVw-Xk-7vU" firstAttribute="top" secondItem="WYs-f5-foK" secondAttribute="top" id="eIP-j2-hMp"/>
                                     <constraint firstAttribute="height" constant="30" id="g69-cZ-Mzc"/>
                                 </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="73E-Lg-Kdw" userLabel="Drop Pin">
+                                <rect key="frame" x="104" y="572" width="167" height="55"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KP1-qD-tHA" userLabel="DropPin">
+                                        <rect key="frame" x="0.0" y="0.0" width="190" height="64"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="dropPin"/>
+                                        <connections>
+                                            <action selector="dropPinTapped:" destination="KIQ-uS-6Qq" eventType="touchUpInside" id="6LU-oN-FOx"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="167" id="BZ2-iW-Q2s"/>
+                                    <constraint firstAttribute="height" constant="55" id="Cl8-3V-4Ku"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -489,6 +473,7 @@
     <resources>
         <image name="Jim" width="186" height="186"/>
         <image name="defaultProfPic" width="50" height="50"/>
+        <image name="dropPin" width="184" height="64"/>
         <image name="glyphsTabBarMapIconActive" width="48" height="32"/>
         <image name="glyphsTabBarMapIconDisabled" width="48" height="32"/>
         <image name="navigationActive" width="39.724136352539062" height="39.724136352539062"/>
