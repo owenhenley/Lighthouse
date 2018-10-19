@@ -69,7 +69,7 @@ class AddTVC: UITableViewController, UISearchBarDelegate, RequestTableViewCellDe
             cell?.imageOutlet.isHidden = true
         } else {
             cell?.imageOutlet.isHidden = false
-            FriendController.shared.fetchFreindsImage(urlString: friend.imageUrl) { (image) in
+            FriendController.shared.fetchFriendsImage(urlString: friend.imageUrl) { (image) in
                 DispatchQueue.main.async {
                     cell?.imageOutlet.image = image
                 }
