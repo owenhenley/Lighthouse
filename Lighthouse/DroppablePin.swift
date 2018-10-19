@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 
+#warning("Delete if Not Needed")
 class DroppablePin: NSObject, MKAnnotation {
     
     var coordinate: CLLocationCoordinate2D
