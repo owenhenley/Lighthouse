@@ -8,20 +8,19 @@
 
 import UIKit
 import Firebase
+import CoreLocation
 
 class NewPinPopUpVC: UIViewController {
+    
+    var event: Event?
     
         // MARK: - Outlets
     
     @IBOutlet weak var exitButton             : UIButton!
     @IBOutlet weak var pinNameTF              : UITextField!
-    @IBOutlet weak var pinLocationLabel       : UILabel!
+    @IBOutlet weak var latitudeLabel          : UILabel!
+    @IBOutlet weak var longitudeLabel         : UILabel!
     @IBOutlet weak var shareWithFriendsButton : UIButton!
-    
-    
-        // Vibe Outlets
-    
-    
     
         // MARK: - Properties
     
@@ -56,19 +55,22 @@ class NewPinPopUpVC: UIViewController {
     
     @IBAction func shareWithFriendsTapped(_ sender: UIButton) {
         
-        guard let pinName       = pinNameTF.text, !pinName.isEmpty,
-              let streetAddress = pinLocationLabel.text, !streetAddress.isEmpty,
-              let username      = UserController.shared.user?.username,
-              let profileImage  = UserController.shared.user?.profileImage
-           // let coordinates   =
+        guard let eventTitle  = pinNameTF.text,
+//            let latitude      = latitudeLabel.text,
+//            let longitude     = longitudeLabel.text,
+            let name          = UserController.shared.user?.firstName
         else { return }
         
         let eventVibe = selectedVibe
+        let coordinates = CLLocationCoordinate2D(latitude: 40.7608, longitude: 111.8910)
+        let event = Event.init(name: name, profileImage: nil, title: eventTitle, coordinates: coordinates, streetAdrees: nil, invited: [], vibe: eventVibe)
+        self.event = event
+        self.performSegue(withIdentifier: "selectFreinds", sender: self)
+        
         
         // save pin to your account
         // segue to firend selection screen
     }
-    
     
     
     // Event Types
@@ -81,6 +83,9 @@ class NewPinPopUpVC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+        if segue.identifier == "selectFreinds" {
+            guard let destinationVC = segue.destination as? SelectFriendsVC else {return}
+            destinationVC.event = event
+        }
     }
-
 }

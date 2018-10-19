@@ -104,6 +104,8 @@ class MapViewVC: CustomSearchFieldVC {
         
     }
     
+    @IBAction func unwindToMapViewSegue(_ sender: UIStoryboardSegue) {}
+    
     
     // MARK: - MapMethods
     

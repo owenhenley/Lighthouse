@@ -67,6 +67,7 @@
 		3EF0A834217A180E00C6541D /* EditPinPopup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EF0A833217A180E00C6541D /* EditPinPopup.storyboard */; };
 		3EF0A836217A184400C6541D /* PinDetailsPopUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EF0A835217A184400C6541D /* PinDetailsPopUp.storyboard */; };
 		3EF0A838217A3E4900C6541D /* CustomConfirmationPopup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EF0A837217A3E4900C6541D /* CustomConfirmationPopup.storyboard */; };
+		3EF0A83A217A7D3100C6541D /* SelectFriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF0A839217A7D3100C6541D /* SelectFriendCell.swift */; };
 		3EFDC044217919C10080C963 /* SelectFriends.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EFDC043217919C10080C963 /* SelectFriends.storyboard */; };
 		3EFDC04621791D770080C963 /* SelectFriendsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFDC04521791D770080C963 /* SelectFriendsVC.swift */; };
 		7E00ACF02173C1C8004C86E8 /* FriendsListSuperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E00ACEF2173C1C8004C86E8 /* FriendsListSuperView.swift */; };
@@ -151,6 +152,7 @@
 		3EF0A833217A180E00C6541D /* EditPinPopup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditPinPopup.storyboard; sourceTree = "<group>"; };
 		3EF0A835217A184400C6541D /* PinDetailsPopUp.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PinDetailsPopUp.storyboard; sourceTree = "<group>"; };
 		3EF0A837217A3E4900C6541D /* CustomConfirmationPopup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CustomConfirmationPopup.storyboard; sourceTree = "<group>"; };
+		3EF0A839217A7D3100C6541D /* SelectFriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFriendCell.swift; sourceTree = "<group>"; };
 		3EFDC043217919C10080C963 /* SelectFriends.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectFriends.storyboard; sourceTree = "<group>"; };
 		3EFDC04521791D770080C963 /* SelectFriendsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFriendsVC.swift; sourceTree = "<group>"; };
 		7E00ACEF2173C1C8004C86E8 /* FriendsListSuperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListSuperView.swift; sourceTree = "<group>"; };
@@ -334,6 +336,7 @@
 				3E28E869216BF27000E21331 /* MapViewVC.swift */,
 				3E32AEE9216D4F2D00C889DF /* TabBarControllerVC.swift */,
 				3EFDC04521791D770080C963 /* SelectFriendsVC.swift */,
+				3EF0A839217A7D3100C6541D /* SelectFriendCell.swift */,
 				3E32AEEF216D4FB900C889DF /* Map View Tray */,
 				7E8EC5B02171A78B00B0275A /* FriendsList */,
 				3EEC7507216EBAFD009572FB /* User */,
@@ -716,6 +719,7 @@
 				7EEF84A9216E6DAF00558093 /* UserProfileTableVC.swift in Sources */,
 				7E8EC5B82171A84F00B0275A /* GroupTVC.swift in Sources */,
 				7E8EC5BA2171A86200B0275A /* FriendsTVC.swift in Sources */,
+				3EF0A83A217A7D3100C6541D /* SelectFriendCell.swift in Sources */,
 				3E32AEF7216D524C00C889DF /* FriendsListTrayCell.swift in Sources */,
 				3E5A1DD72170F6C300170A9B /* AccountSettingsVC.swift in Sources */,
 				3E79784B2179823800CB24EA /* GIFLoader.swift in Sources */,
@@ -862,14 +866,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Lighthouse/Lighthouse.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ASRKL3D2BB;
+				DEVELOPMENT_TEAM = CYZA2EE6W8;
 				INFOPLIST_FILE = Lighthouse/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.levilinchenko.lighthouse;
+				PRODUCT_BUNDLE_IDENTIFIER = io.owenhenley.Lighthouse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -883,14 +887,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Lighthouse/Lighthouse.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ASRKL3D2BB;
+				DEVELOPMENT_TEAM = CYZA2EE6W8;
 				INFOPLIST_FILE = Lighthouse/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.levilinchenko.lighthouse;
+				PRODUCT_BUNDLE_IDENTIFIER = io.owenhenley.Lighthouse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;

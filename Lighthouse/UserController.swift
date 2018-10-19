@@ -107,7 +107,7 @@ class UserController {
                         
                         self.db.collection(USER).document(userID).updateData([
                             PROFILE_IMAGE_URL : downloadURL!,
-                            USERNAME : user.username as Any,
+                            USERNAME : user.fullName as Any,
                             FIRST_NAME : user.firstName as Any,
                             LAST_NAME : user.lastName as Any,
                             FAV_LOCATION1 : user.favLocation1 as Any,
@@ -133,7 +133,7 @@ class UserController {
 
             self.db.collection(USER).document(userID).updateData([
                 PROFILE_IMAGE_URL : "No profile Image",
-                USERNAME : user.username as Any,
+                USERNAME : user.fullName as Any,
                 FIRST_NAME : user.firstName as Any,
                 LAST_NAME : user.lastName as Any,
                 FAV_LOCATION1 : user.favLocation1 as Any,

@@ -21,6 +21,6 @@ struct Friend: Equatable {
     let friendID: String
     var request: Bool?
     var name: String
-    var location: Event?
+    var event: Event?
     
 }
