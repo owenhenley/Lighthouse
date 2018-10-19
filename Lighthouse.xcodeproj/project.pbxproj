@@ -46,6 +46,7 @@
 		3E5A1DEF2170FB9B00170A9B /* ResetPasswordFromSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E5A1DEE2170FB9B00170A9B /* ResetPasswordFromSettings.storyboard */; };
 		3E5A1DF12170FBB000170A9B /* SignOut.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E5A1DF02170FBB000170A9B /* SignOut.storyboard */; };
 		3E5A1DF32170FBE500170A9B /* DeleteAccount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E5A1DF22170FBE500170A9B /* DeleteAccount.storyboard */; };
+		3E79784B2179823800CB24EA /* GIFLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E79784A2179823800CB24EA /* GIFLoader.swift */; };
 		3E7B2B6D216D929500E4F0F1 /* ForgotPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E7B2B6C216D929500E4F0F1 /* ForgotPassword.storyboard */; };
 		3E7B2B70216D98F600E4F0F1 /* FoursquareAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7B2B6F216D98F600E4F0F1 /* FoursquareAPIController.swift */; };
 		3E8BF77F2177A18900DB0014 /* NewPinPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8BF77E2177A18900DB0014 /* NewPinPopUpVC.swift */; };
@@ -62,6 +63,9 @@
 		3EEC7506216EBAE6009572FB /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEC7505216EBAE6009572FB /* SignInVC.swift */; };
 		3EEC750A216EBF03009572FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EEC7509216EBF03009572FB /* Assets.xcassets */; };
 		3EEC750C216EC0FF009572FB /* UserProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EEC750B216EC0FF009572FB /* UserProfile.storyboard */; };
+		3EF0A832217A17F200C6541D /* NewPinPopUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EF0A831217A17F200C6541D /* NewPinPopUp.storyboard */; };
+		3EF0A834217A180E00C6541D /* EditPinPopup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EF0A833217A180E00C6541D /* EditPinPopup.storyboard */; };
+		3EF0A836217A184400C6541D /* PinDetailsPopUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EF0A835217A184400C6541D /* PinDetailsPopUp.storyboard */; };
 		3EFDC044217919C10080C963 /* SelectFriends.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EFDC043217919C10080C963 /* SelectFriends.storyboard */; };
 		3EFDC04621791D770080C963 /* SelectFriendsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFDC04521791D770080C963 /* SelectFriendsVC.swift */; };
 		7E00ACF02173C1C8004C86E8 /* FriendsListSuperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E00ACEF2173C1C8004C86E8 /* FriendsListSuperView.swift */; };
@@ -122,6 +126,7 @@
 		3E5A1DEE2170FB9B00170A9B /* ResetPasswordFromSettings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ResetPasswordFromSettings.storyboard; sourceTree = "<group>"; };
 		3E5A1DF02170FBB000170A9B /* SignOut.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignOut.storyboard; sourceTree = "<group>"; };
 		3E5A1DF22170FBE500170A9B /* DeleteAccount.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DeleteAccount.storyboard; sourceTree = "<group>"; };
+		3E79784A2179823800CB24EA /* GIFLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFLoader.swift; sourceTree = "<group>"; };
 		3E7B2B6C216D929500E4F0F1 /* ForgotPassword.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ForgotPassword.storyboard; sourceTree = "<group>"; };
 		3E7B2B6F216D98F600E4F0F1 /* FoursquareAPIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoursquareAPIController.swift; sourceTree = "<group>"; };
 		3E8BF77E2177A18900DB0014 /* NewPinPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPinPopUpVC.swift; sourceTree = "<group>"; };
@@ -141,6 +146,9 @@
 		3EEC7505216EBAE6009572FB /* SignInVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		3EEC7509216EBF03009572FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3EEC750B216EC0FF009572FB /* UserProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserProfile.storyboard; sourceTree = "<group>"; };
+		3EF0A831217A17F200C6541D /* NewPinPopUp.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewPinPopUp.storyboard; sourceTree = "<group>"; };
+		3EF0A833217A180E00C6541D /* EditPinPopup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditPinPopup.storyboard; sourceTree = "<group>"; };
+		3EF0A835217A184400C6541D /* PinDetailsPopUp.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PinDetailsPopUp.storyboard; sourceTree = "<group>"; };
 		3EFDC043217919C10080C963 /* SelectFriends.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelectFriends.storyboard; sourceTree = "<group>"; };
 		3EFDC04521791D770080C963 /* SelectFriendsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectFriendsVC.swift; sourceTree = "<group>"; };
 		7E00ACEF2173C1C8004C86E8 /* FriendsListSuperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListSuperView.swift; sourceTree = "<group>"; };
@@ -352,6 +360,9 @@
 		3EA9915C216BDFC00001F09D /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				3EF0A835217A184400C6541D /* PinDetailsPopUp.storyboard */,
+				3EF0A833217A180E00C6541D /* EditPinPopup.storyboard */,
+				3EF0A831217A17F200C6541D /* NewPinPopUp.storyboard */,
 				3EFDC043217919C10080C963 /* SelectFriends.storyboard */,
 				3ECDF76C21716A1C00C46C8E /* Launch */,
 				3ECDF76D21716A3E00C46C8E /* Tab Bar */,
@@ -378,6 +389,7 @@
 				3E5526832175727E00035D2D /* StyleGuide.swift */,
 				7EF9A478216C0D480064DC47 /* Constants.swift */,
 				7E565A9F2178FB9B006C1271 /* NotificationName.swift */,
+				3E79784A2179823800CB24EA /* GIFLoader.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -544,6 +556,7 @@
 				3E5A1DED2170FB7D00170A9B /* ChangeEmail.storyboard in Resources */,
 				3E28E8A8216D1E2F00E21331 /* MapView.storyboard in Resources */,
 				3EFDC044217919C10080C963 /* SelectFriends.storyboard in Resources */,
+				3EF0A834217A180E00C6541D /* EditPinPopup.storyboard in Resources */,
 				3E28E8AE216D20BE00E21331 /* SignUp.storyboard in Resources */,
 				7E2390C921764D2B00D27CCB /* FriendCell.xib in Resources */,
 				3E28E8AA216D1E7000E21331 /* FriendsList.storyboard in Resources */,
@@ -553,7 +566,9 @@
 				3E06A5332174E121004D1B24 /* Pods-Lighthouse.debug.xcconfig in Resources */,
 				3EEC750C216EC0FF009572FB /* UserProfile.storyboard in Resources */,
 				3E5A1DF32170FBE500170A9B /* DeleteAccount.storyboard in Resources */,
+				3EF0A836217A184400C6541D /* PinDetailsPopUp.storyboard in Resources */,
 				3E24CC5B216FEF5B00BE957F /* Settings.storyboard in Resources */,
+				3EF0A832217A17F200C6541D /* NewPinPopUp.storyboard in Resources */,
 				3E7B2B6D216D929500E4F0F1 /* ForgotPassword.storyboard in Resources */,
 				3E5A1DEF2170FB9B00170A9B /* ResetPasswordFromSettings.storyboard in Resources */,
 				3E5A1DEA2170F88F00170A9B /* AccountSettings.storyboard in Resources */,
@@ -699,6 +714,7 @@
 				7E8EC5BA2171A86200B0275A /* FriendsTVC.swift in Sources */,
 				3E32AEF7216D524C00C889DF /* FriendsListTrayCell.swift in Sources */,
 				3E5A1DD72170F6C300170A9B /* AccountSettingsVC.swift in Sources */,
+				3E79784B2179823800CB24EA /* GIFLoader.swift in Sources */,
 				7E38CF35216FA450009D44DF /* Animations.swift in Sources */,
 				3E5A1DDB2170F71A00170A9B /* SignOutVC.swift in Sources */,
 				7EF9A479216C0D480064DC47 /* Constants.swift in Sources */,

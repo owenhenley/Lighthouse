@@ -8,8 +8,8 @@
 
 import Foundation
 
-    // MARK: - Colours
+    // MARK: - Colour
 
 
 
-    // MARK: - Typeface's
+    // MARK: - Typeface
