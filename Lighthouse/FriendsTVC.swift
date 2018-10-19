@@ -66,7 +66,7 @@ class FriendsTVC: UITableViewController, RequestTableViewCellDelegate {
             cell?.imageOutlet.isHidden = true
         } else {
             cell?.imageOutlet.isHidden = false
-            FriendController.shared.fetchFreindsImage(urlString: friend.imageUrl) { (image) in
+            FriendController.shared.fetchFriendsImage(urlString: friend.imageUrl) { (image) in
                 DispatchQueue.main.async {
                     cell?.imageOutlet.image = image
                 }
@@ -76,6 +76,7 @@ class FriendsTVC: UITableViewController, RequestTableViewCellDelegate {
 
         return cell ?? UITableViewCell()
     }
+    
     var indexPath: IndexPath?
     func buttonTapped(sender: FriendCell, indexPath: IndexPath?) {
         guard let indexPath = indexPath else {return}

@@ -9,6 +9,7 @@
 import UIKit
 import CoreLocation
 import MapKit
+import SVProgressHUD
 
 class UserProfileTableVC: UITableViewController {
     
@@ -125,6 +126,7 @@ class UserProfileTableVC: UITableViewController {
         if editButtonOutlet.titleLabel?.text == "Edit"{
             enableEditing()
         } else {
+            SVProgressHUD.show()
             guard let user = UserController.shared.user else {return}
             user.username = UsernameEdit.text
             user.firstName = firstNameEdit.text
@@ -133,7 +135,7 @@ class UserProfileTableVC: UITableViewController {
             user.favLocation2 = favLocation2Text.text
             user.favLocation3 = favLocation3Text.text
             
-            if profilePicOutlet.image == #imageLiteral(resourceName: "personIconDisabled") {
+            if profilePicOutlet.image == UIImage(named: "defaultProfPic") {
                 user.profileImage = nil
             } else {
                 user.profileImage = profilePicOutlet.image
@@ -142,6 +144,7 @@ class UserProfileTableVC: UITableViewController {
             UserController.shared.updateUser(user: user) { (success) in
                 if success{
                     self.disableEditing()
+                    SVProgressHUD.dismiss()
                 }
             }
         }
