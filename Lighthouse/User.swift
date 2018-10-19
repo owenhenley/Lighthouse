@@ -14,7 +14,7 @@ class User {
     var username        : String?
     var email           : String?
     let friends         : [User] = []
-//    var profileImageURL : URL?
+    var profileImageURL : String?
     var profileImage    : UIImage?
     var currentLocation : Event?
     var firstName       : String?
