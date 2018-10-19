@@ -12,12 +12,13 @@ import Firebase
 
 struct Event {
     
-    var username    : String
-    var profileImage: UIImage
+    var name        : String
+    var profileImage: UIImage?
     var title       : String
     var coordinates : CLLocationCoordinate2D
-    var streetAdrees: String
+    var streetAdrees: String?
     var invited     : [Friend]
+    var vibe        : String
     
 
     
