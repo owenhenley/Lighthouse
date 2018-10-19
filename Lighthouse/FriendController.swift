@@ -182,7 +182,7 @@ class FriendController {
     
     
     
-    func fetchFreindsImage(urlString: String, completion: @escaping (_ success: UIImage?)->Void) {
+    func fetchFriendsImage(urlString: String, completion: @escaping (_ success: UIImage?)->Void) {
         guard let url = URL(string: urlString) else {return}
         var profileImage: UIImage?
         URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
@@ -192,7 +192,6 @@ class FriendController {
             }
             if let data = data {
                 profileImage = UIImage(data: data)
-                
             }
             completion(profileImage)
             

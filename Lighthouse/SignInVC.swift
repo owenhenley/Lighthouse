@@ -8,6 +8,7 @@
 
 import UIKit
 import AudioToolbox
+import SVProgressHUD
 
 //protocol PopScreen: class {
 //    func popScreen()
@@ -33,6 +34,7 @@ class SignInVC: CustomTextFieldVC {
     
 //    weak var delegate: PopScreen?
     
+        // MARK: - Unwind
     @IBAction func backToSignin(_ sender: UIStoryboardSegue) {}
     
     @IBAction func backTapped(_ sender: Any) {
@@ -46,23 +48,23 @@ class SignInVC: CustomTextFieldVC {
     
     @IBAction func signInTapped(_ sender: Any) {
         
+        SVProgressHUD.show()
         
         guard let password = passwordOutlet.text,
             let email = emailOutlet.text else {return}
         UserController.shared.logInUser(email: email, password: password) { (success) in
             if success {
-                
                 DispatchQueue.main.async {
                     self.passwordOutlet.resignFirstResponder()
                     NotificationCenter.default.post(name: .signInTapped, object: nil)
                     self.dismiss(animated: true, completion: nil)
+                    SVProgressHUD.dismiss()
                 }
             } else {
                self.shake()
                 AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+                SVProgressHUD.dismiss()
             }
         }
     }
-    
-
 }

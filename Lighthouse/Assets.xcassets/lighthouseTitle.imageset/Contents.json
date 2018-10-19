@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "active.png",
+      "filename" : "lighthouseTitle.png",
       "scale" : "1x",
       "idiom" : "universal"
     },
     {
-      "filename" : "active@2x.png",
+      "filename" : "lighthouseTitle@2x.png",
       "scale" : "2x",
       "idiom" : "universal"
     },
     {
-      "filename" : "active@3x.png",
+      "filename" : "lighthouseTitle@3x.png",
       "scale" : "3x",
       "idiom" : "universal"
     }
