@@ -102,8 +102,8 @@ class UserController {
                     storageRef.downloadURL { (url, error) in
                         downloadURL = url?.absoluteString
                         
-
-                        
+                        //UpdateLocalProlileImageURL
+                        user.profileImageURL = downloadURL
                         
                         self.db.collection(USER).document(userID).updateData([
                             PROFILE_IMAGE_URL : downloadURL!,
@@ -178,6 +178,7 @@ class UserController {
                 user.favLocation1 = favLocation1
                 user.favLocation2 = favLocation2
                 user.favLocation3 = favLocation3
+                user.profileImageURL = profileImageURLString
                 
                 if let profileImageURL = URL(string: profileImageURLString) {
                     URLSession.shared.dataTask(with: profileImageURL, completionHandler: { (data, response, error) in
