@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import CoreLocation
 
 class LoadingScreenVC: UIViewController {
     
