@@ -66,7 +66,7 @@ class FriendsTVC: UITableViewController, RequestTableViewCellDelegate {
             cell?.imageOutlet.isHidden = true
         } else {
             cell?.imageOutlet.isHidden = false
-            FriendController.shared.fetchImageWithUrlString(urlString: friend.imageUrl) { (image) in
+            fetchImageWithUrlString(urlString: friend.imageUrl) { (image) in
                 DispatchQueue.main.async {
                     cell?.imageOutlet.image = image
                 }

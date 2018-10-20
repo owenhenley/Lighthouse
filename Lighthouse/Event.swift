@@ -12,8 +12,11 @@ import Firebase
 
 struct Event {
     
+    
+    var friendID    : String
     var name        : String
     var profileImage: UIImage?
+    var profileImageUrl : String?
     var title       : String
     var coordinates : CLLocationCoordinate2D
     var streetAdrees: String?

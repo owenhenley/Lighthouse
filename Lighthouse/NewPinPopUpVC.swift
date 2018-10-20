@@ -58,12 +58,13 @@ class NewPinPopUpVC: UIViewController {
         guard let eventTitle  = pinNameTF.text,
 //            let latitude      = latitudeLabel.text,
 //            let longitude     = longitudeLabel.text,
-            let name          = UserController.shared.user?.firstName
+            let name          = UserController.shared.user?.firstName,
+            let uid = UID
         else { return }
         
         let eventVibe = selectedVibe
         let coordinates = CLLocationCoordinate2D(latitude: 40.7608, longitude: 111.8910)
-        let event = Event.init(name: name, profileImage: nil, title: eventTitle, coordinates: coordinates, streetAdrees: nil, invited: [], vibe: eventVibe)
+        let event = Event.init(friendID: uid, name: name, profileImage: nil, profileImageUrl: nil, title: eventTitle, coordinates: coordinates, streetAdrees: nil, invited: [], vibe: eventVibe)
         self.event = event
         self.performSegue(withIdentifier: "selectFreinds", sender: self)
         

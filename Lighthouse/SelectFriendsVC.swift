@@ -67,10 +67,20 @@ extension SelectFriendsVC: UITableViewDataSource, UITableViewDelegate {
 //        cell?.delegate = self
         let friend = FriendController.shared.friends[indexPath.row]
         cell?.friendID = friend.friendID
-        FriendController.shared.fetchFriendsImage(urlString: friend.imageUrl) { (image) in
-            DispatchQueue.main.async {
-                cell?.imageOutlet.image = image
+
+        if friend.image == nil {
+            if friend.imageUrl == "No Profile Image" {
+                cell?.imageOutlet.image = UIImage(named: "defaultProfPic")
+            } else {
+                fetchImageWithUrlString(urlString: friend.imageUrl) { (image) in
+                    DispatchQueue.main.async {
+                        cell?.imageOutlet.image = image
+                        FriendController.shared.friends[indexPath.row].image = image
+                    }
+                }
             }
+        } else {
+            cell?.imageOutlet.image = friend.image
         }
         cell?.nameOutlet.text = friend.name
         cell?.activityStatusOutlet.text = friend.event?.streetAdrees ?? "Inactive"
