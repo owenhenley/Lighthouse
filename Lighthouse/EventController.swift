@@ -93,41 +93,44 @@ class EventController {
                     })
                     
                     let address = (streetAddress ?? "") + " " + (streetNumber ?? "")
-                    getProfileImage(urlString: profileImageURL, completion: { (profileImage) in
-                        
-                        let event = Event(name: name, profileImage: profileImage, title: title, coordinates: location, streetAdrees: address, invited: [], vibe: vibe)
-                        self.events.append(event)
-                        
-                    })
+                    let event = Event(name: name, profileImage: nil, title: title, coordinates: location, streetAdrees: address, invited: [], vibe: vibe)
+                    self.events.append(event)
                     
                 })
-                FIRESTORE.collection(USER).document(friendID).collection(EVENT).document(friendID).collection(USER_ID).limit(to: 5).addSnapshotListener({ (snapshot, error) in
-                    guard let documents = snapshot?.documents else {return}
-                    let friendIDS: [String] = documents.compactMap{$0[FRIEND_ID]} as! [String]
-                    for friendID in friendIDS {
-                        FriendController.shared.fetchFriend(friendID: friendID, completion: { (friend) in
-                            
-                        })
-                    }
-                    
-                })
-            }
-        }
-        
-        func getProfileImage(urlString: String, completion: @escaping (_ success: UIImage?) -> Void) {
-            guard let url = URL(string: urlString) else {return}
-            URLSession.shared.dataTask(with: url) { (data, response, error) in
-                guard let data = data else {return}
-                let image = UIImage(data: data)
-                completion(image)
-                if let error = error {
-                    print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
-                    completion(nil
-                    )
-                }
                 
             }
         }
+        
+        func pinTapped(event: Event){
+            FIRESTORE.collection(USER).document(friendID).collection(EVENT).document(friendID).collection(USER_ID).limit(to: 5).addSnapshotListener({ (snapshot, error) in
+                guard let documents = snapshot?.documents else {return}
+                let friendIDS: [String] = documents.compactMap{$0[FRIEND_ID]} as! [String]
+                for friendID in friendIDS {
+                    FriendController.shared.fetchFriend(friendID: friendID, completion: { (friend) in
+                        event.invited.append(friend)
+                    })
+                    
+                }
+                
+            })
+        }
+        
+        
+//
+//        func getProfileImage(urlString: String, completion: @escaping (_ success: UIImage?) -> Void) {
+//            guard let url = URL(string: urlString) else {return}
+//            URLSession.shared.dataTask(with: url) { (data, response, error) in
+//                guard let data = data else {return}
+//                let image = UIImage(data: data)
+//                completion(image)
+//                if let error = error {
+//                    print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
+//                    completion(nil
+//                    )
+//                }
+//
+//            }
+//        }
         
     }
     

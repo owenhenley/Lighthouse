@@ -72,7 +72,7 @@ extension FriendsTrayListVC: UITableViewDelegate, UITableViewDataSource {
         if friend.imageUrl == "No Profile Image" {
             cell?.profileImage.image = UIImage(named: "defaultProfPic")
         } else {
-            FriendController.shared.fetchFriendsImage(urlString: friend.imageUrl) { (image) in
+            FriendController.shared.fetchImageWithUrlString(urlString: friend.imageUrl) { (image) in
                 DispatchQueue.main.async {
                     cell?.profileImage.image = image
                 }
