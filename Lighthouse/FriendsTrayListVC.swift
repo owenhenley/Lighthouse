@@ -68,15 +68,19 @@ extension FriendsTrayListVC: UITableViewDelegate, UITableViewDataSource {
         
         cell?.friendNameLabel.text = friend.name
 //        cell?.friendLocationLabel.text = friend.
-        
-        if friend.imageUrl == "No Profile Image" {
-            cell?.profileImage.image = UIImage(named: "defaultProfPic")
-        } else {
-            FriendController.shared.fetchFriendsImage(urlString: friend.imageUrl) { (image) in
-                DispatchQueue.main.async {
-                    cell?.profileImage.image = image
+        if friend.image == nil {
+            if friend.imageUrl == "No Profile Image" {
+                cell?.profileImage.image = UIImage(named: "defaultProfPic")
+            } else {
+                fetchImageWithUrlString(urlString: friend.imageUrl) { (image) in
+                    DispatchQueue.main.async {
+                        cell?.profileImage.image = image
+                        FriendController.shared.friends[indexPath.row].image = image
+                    }
                 }
             }
+        } else {
+            cell?.profileImage.image = friend.image
         }
         
 //        let friendRealName = friendName[indexPath.row]

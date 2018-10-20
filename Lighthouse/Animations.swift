@@ -32,6 +32,22 @@ extension UIViewController {
         }
     }
     
+    func fetchImageWithUrlString(urlString: String, completion: @escaping (_ success: UIImage?)->Void) {
+        guard let url = URL(string: urlString) else {return}
+        var profileImage: UIImage?
+        URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+            if let error = error {
+                print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
+                return
+            }
+            if let data = data {
+                profileImage = UIImage(data: data)
+            }
+            completion(profileImage)
+            
+        }).resume()
+    }
+    
 }
 
 
@@ -46,7 +62,7 @@ class CustomSearchFieldVC: UIViewController, UISearchBarDelegate{
     @objc func handlePan(){
         searchField?.resignFirstResponder()
     }
-
+    
 }
 
 class CustomTextFieldVC: UIViewController, UITextFieldDelegate{
@@ -63,11 +79,11 @@ class CustomTextFieldVC: UIViewController, UITextFieldDelegate{
     @objc func handlePan(){
         textFields.forEach{$0.resignFirstResponder()}
     }
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         dissmisskeyBoard()
@@ -83,11 +99,14 @@ class CustomTextFieldVC: UIViewController, UITextFieldDelegate{
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
-
-            if self.view.frame.origin.y != 0{
-                self.view.frame.origin.y = 0
-            }
+        
+        if self.view.frame.origin.y != 0{
+            self.view.frame.origin.y = 0
+        }
     }
+    
+    
+    
 }
 
 
