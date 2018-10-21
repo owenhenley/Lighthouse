@@ -16,7 +16,7 @@ class AddTVC: UITableViewController, UISearchBarDelegate, RequestTableViewCellDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: FriendController.shared.resultsUpdated, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .resultsUpdated, object: nil)
         
         setupTableView()
 
@@ -33,18 +33,27 @@ class AddTVC: UITableViewController, UISearchBarDelegate, RequestTableViewCellDe
 
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return FriendController.shared.results.count
+        
+        if FriendController.shared.results.isEmpty {
+            return FriendController.shared.pendingReuests.count
+        } else {
+            return FriendController.shared.results.count
+        }
+        
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell", for: indexPath) as? FriendCell
-        
-
         cell?.delegate = self
-        let friend = FriendController.shared.results[indexPath.row]
-        self.friend = friend
+        cell?.indexPath = indexPath
+        if FriendController.shared.results.isEmpty {
+            friend = FriendController.shared.pendingReuests[indexPath.row]
+        } else {
+            friend = FriendController.shared.results[indexPath.row]
+        }
+        guard let friend = self.friend else {return UITableViewCell()}
+        
         switch friend.request {
         case true:
             cell?.buttonOutlet.setTitle("Pending", for: .normal)
@@ -60,7 +69,7 @@ class AddTVC: UITableViewController, UISearchBarDelegate, RequestTableViewCellDe
             cell?.imageOutlet.isHidden = true
         } else {
             cell?.imageOutlet.isHidden = false
-            FriendController.shared.fetchFreindsImage(urlString: friend.imageUrl) { (image) in
+            fetchImageWithUrlString(urlString: friend.imageUrl) { (image) in
                 DispatchQueue.main.async {
                     cell?.imageOutlet.image = image
                 }
@@ -73,13 +82,14 @@ class AddTVC: UITableViewController, UISearchBarDelegate, RequestTableViewCellDe
     
     
     
-    func buttonTapped(sender: FriendCell) {
+    func buttonTapped(sender: FriendCell, indexPath: IndexPath?) {
         let friendID = friend!.friendID
         switch friend?.request {
         case false:
-            FriendController.shared.acceptRequest(friendID: friendID)
-            sender.buttonOutlet.isHidden = true
-            
+            FriendController.shared.acceptRequest(friend: friend!)
+            FriendController.shared.pendingReuests.remove(at: indexPath!.row)
+            tableView.reloadData()
+        
             
         case true:
             FriendController.shared.cancelRequest(friendID: friendID)

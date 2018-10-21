@@ -82,9 +82,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZUz-gP-Jc9"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Friends" image="glyphsTabBarFriendsDisabledCopy" selectedImage="glyphsTabBarFriendsActive" id="IMl-mT-tYd"/>
+                    <tabBarItem key="tabBarItem" title="Friends" image="friendsDisabled" selectedImage="friendsEnabled" id="IMl-mT-tYd"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="profileImagePic" destination="6kS-30-xjk" id="2SA-56-JK9"/>
                         <outlet property="searchBar" destination="5lJ-SL-w6Y" id="Qxk-m6-3to"/>
                     </connections>
                 </viewController>
@@ -243,8 +244,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="glyphsTabBarFriendsActive" width="48" height="32"/>
-        <image name="glyphsTabBarFriendsDisabledCopy" width="48" height="32"/>
+        <image name="friendsDisabled" width="30" height="29.5"/>
+        <image name="friendsEnabled" width="30" height="30"/>
         <image name="prisonMike" width="390" height="389"/>
     </resources>
 </document>

@@ -6,33 +6,30 @@
 //  Copyright © 2018 Lighthouse. All rights reserved.
 //
 
-import Foundation
-import Firebase
-import CoreLocation
-
+import UIKit
 
 class User {
     
     let userID          : String
-    let username        : String
-    let email           : String?
+    var fullName        : String?
+    var email           : String?
     let friends         : [User] = []
-//    var profileImageURL : URL?
+    var profileImageURL : String?
     var profileImage    : UIImage?
-    var currentLocation : Location?
+    var currentLocation : Event?
     var firstName       : String?
     var lastName        : String?
     var favLocation1    : String?
     var favLocation2    : String?
     var favLocation3    : String?
-    var pastLocations   : [Location]?
+    var pastLocations   : [Event]?
     
     var isActive        : Bool = true
 //    var groups          : [User] = []
 
     init(userID: String, username: String, email: String) {
         self.userID   = userID
-        self.username = username
+//        self.username = username
         self.email    = email
         
     }

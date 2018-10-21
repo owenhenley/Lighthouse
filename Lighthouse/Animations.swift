@@ -12,10 +12,10 @@ import UIKit
 extension UIViewController {
     func shake(){
         UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0, initialSpringVelocity: 0.09, options: [], animations: {
-            self.view.center = CGPoint(x: 0.508 * self.view.frame.width, y: 0.5 * self.view.frame.height)
+            self.view.center.x = 0.508 * self.view.frame.width
         }, completion: { (done) in
             if done {
-                self.view.center = CGPoint(x: 0.5 * self.view.frame.width, y: 0.5 * self.view.frame.height)
+                self.view.center.x = 0.5 * self.view.frame.width
             }
         })
     }
@@ -32,6 +32,22 @@ extension UIViewController {
         }
     }
     
+    func fetchImageWithUrlString(urlString: String, completion: @escaping (_ success: UIImage?)->Void) {
+        guard let url = URL(string: urlString) else {return}
+        var profileImage: UIImage?
+        URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
+            if let error = error {
+                print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
+                return
+            }
+            if let data = data {
+                profileImage = UIImage(data: data)
+            }
+            completion(profileImage)
+            
+        }).resume()
+    }
+    
 }
 
 
@@ -46,7 +62,7 @@ class CustomSearchFieldVC: UIViewController, UISearchBarDelegate{
     @objc func handlePan(){
         searchField?.resignFirstResponder()
     }
-
+    
 }
 
 class CustomTextFieldVC: UIViewController, UITextFieldDelegate{
@@ -63,11 +79,11 @@ class CustomTextFieldVC: UIViewController, UITextFieldDelegate{
     @objc func handlePan(){
         textFields.forEach{$0.resignFirstResponder()}
     }
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         dissmisskeyBoard()
@@ -77,17 +93,20 @@ class CustomTextFieldVC: UIViewController, UITextFieldDelegate{
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             
             if self.view.frame.origin.y == 0{
-                self.view.frame.origin.y -= keyboardSize.height
+                self.view.frame.origin.y -= keyboardSize.height-100
             }
         }
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
-
-            if self.view.frame.origin.y != 0{
-                self.view.frame.origin.y = 0
-            }
+        
+        if self.view.frame.origin.y != 0{
+            self.view.frame.origin.y = 0
+        }
     }
+    
+    
+    
 }
 
 

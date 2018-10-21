@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import CoreLocation
 
 class LoadingScreenVC: UIViewController {
     
@@ -30,16 +31,9 @@ class LoadingScreenVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
-//        AUTH.signIn(withEmail: "owenhenley@me.com", password: "123456") { (auth, error) in
-//            if let error = error {
-//                debugPrint(error)
-//            } else {
-//                print("Signedin!")
-//            }
-//        }
         
-        checkUserState()
-        
+        checkUserStateLoading()
+        FriendController.shared.fetchPending()
        
         
     }
@@ -47,20 +41,26 @@ class LoadingScreenVC: UIViewController {
         // MARK: - Authentication
     
     // Check to see if the user is already signed in. Ignore Loading screen if nessasary.
-    func checkUserState() {
+    fileprivate func checkUserStateLoading() {
         handle = AUTH.addStateDidChangeListener({ (auth, user) in
             if user != nil {
                 UserController.shared.fetchUser { (success) in
-                    
-                }
-                FriendController.shared.fetchFriends { (success) in
                     if success {
-                        print(FriendController.shared.friends)
+                        let storyboard = UIStoryboard(name: "TabBarController", bundle: nil)
+                        let mainView = storyboard.instantiateViewController(withIdentifier: "tabBarController")
+                        mainView.tabBarController?.tabBar.isHidden = false
+                        self.present(mainView, animated: true, completion: nil)
+                        EventController.shared.fetchActivePins()
+
+                        FriendController.shared.fetchFriends { (success) in
+                            if success {
+                            
+                            }
+                        }
+    
                     }
                 }
-                let storyboard = UIStoryboard(name: "TabBarController", bundle: nil)
-                let mainView = storyboard.instantiateViewController(withIdentifier: "tabBarController")
-                self.present(mainView, animated: true, completion: nil)
+                
             } else {
                 let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
                 let onboarding = storyboard.instantiateViewController(withIdentifier: "onboarding")
@@ -68,4 +68,9 @@ class LoadingScreenVC: UIViewController {
             }
         })
     }
+    
+    
+        
+    
+    
 }

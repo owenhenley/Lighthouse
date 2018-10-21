@@ -15,6 +15,7 @@ protocol tableViewIndex: class {
 
 class FriendsListSuperView: CustomSearchFieldVC{
     
+    @IBOutlet weak var profileImagePic: UIImageView!
     
     var pageViewController: FriendsListContainerVC?
 
@@ -22,10 +23,14 @@ class FriendsListSuperView: CustomSearchFieldVC{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         dissmisskeyBoard()
         searchField = searchBar
         searchBar.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        profileImagePic.image = UserController.shared.user?.profileImage ?? #imageLiteral(resourceName: "personIconDisabled")
     }
     
     static weak var indexDelegate: tableViewIndex?

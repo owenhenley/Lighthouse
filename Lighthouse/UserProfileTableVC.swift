@@ -9,6 +9,7 @@
 import UIKit
 import CoreLocation
 import MapKit
+import SVProgressHUD
 
 class UserProfileTableVC: UITableViewController {
     
@@ -42,18 +43,9 @@ class UserProfileTableVC: UITableViewController {
         setupLocationManager()
         startTrackingUserLocation()
         centerMapOnAuthedUser()
-        
         disableEditing()
         picker.delegate = self
-        if let user = UserController.shared.user {
-            UsernameEdit.text = user.username
-            firstNameEdit.text = user.firstName
-            lastNameEdit.text = user.lastName
-            favLocation1Text.text = user.favLocation1
-            favLocation2Text.text = user.favLocation2
-            favLocation3Text.text = user.favLocation3
-            profilePicOutlet.image = user.profileImage
-        }
+        updateViews()
     }
     
         // MARK: - Actions
@@ -90,10 +82,12 @@ class UserProfileTableVC: UITableViewController {
         favLocation3Text.isEnabled = false
         editButtonOutlet.setTitle("Edit", for: .normal)
         addImageOutlet.isEnabled = false
+        addImageOutlet.isHidden = true
         firstNameEdit.isEnabled = false
         lastNameEdit.isEnabled = false
         UsernameEdit.isEnabled = false
         cancelOutlet.isHidden = true
+        addImageOutlet.isHidden = true
         
     }
     
@@ -103,10 +97,28 @@ class UserProfileTableVC: UITableViewController {
         favLocation3Text.isEnabled = true
         editButtonOutlet.setTitle("Save", for: .normal)
         addImageOutlet.isEnabled = true
+        addImageOutlet.isHidden = false
         firstNameEdit.isEnabled = true
         lastNameEdit.isEnabled = true
         UsernameEdit.isEnabled = true
         cancelOutlet.isHidden = false
+        
+    }
+    
+    func updateViews(){
+        guard let user = UserController.shared.user else {return}
+        UsernameEdit.text = user.fullName
+        firstNameEdit.text = user.firstName
+        lastNameEdit.text = user.lastName
+        favLocation1Text.text = user.favLocation1
+        favLocation2Text.text = user.favLocation2
+        favLocation3Text.text = user.favLocation3
+        if user.profileImage == nil {
+            profilePicOutlet.image = #imageLiteral(resourceName: "personIconDisabled")
+        } else {
+            profilePicOutlet.image = user.profileImage
+        }
+        
     }
     
     
@@ -114,20 +126,35 @@ class UserProfileTableVC: UITableViewController {
         if editButtonOutlet.titleLabel?.text == "Edit"{
             enableEditing()
         } else {
-            guard let username = UsernameEdit.text,
-                let firstName = firstNameEdit.text,
-                let lastName = lastNameEdit.text,
-                let profileImage = profilePicOutlet.image,
-                let favLocation1 = favLocation1Text.text,
-                let favLocation2 = favLocation2Text.text,
-                let favLocation3 = favLocation3Text.text else {return}
-            UserController.shared.updateUser(username: username, profileImage: profileImage, firstName: firstName, lastName: lastName, favLocation1: favLocation1, favLocation2: favLocation2, favLocation3: favLocation3) { (success) in
+            SVProgressHUD.show()
+            guard let user = UserController.shared.user else {return}
+            user.fullName = UsernameEdit.text
+            user.firstName = firstNameEdit.text
+            user.lastName = lastNameEdit.text
+            user.favLocation1 = favLocation1Text.text
+            user.favLocation2 = favLocation2Text.text
+            user.favLocation3 = favLocation3Text.text
+            
+            if profilePicOutlet.image == UIImage(named: "defaultProfPic") {
+                user.profileImage = nil
+            } else {
+                user.profileImage = profilePicOutlet.image
+            }
+            
+            UserController.shared.updateUser(user: user) { (success) in
                 if success{
                     self.disableEditing()
+                    SVProgressHUD.dismiss()
                 }
             }
         }
     }
+    
+    @IBAction func cancelTapped(_ sender: Any) {
+        updateViews()
+        disableEditing()
+    }
+    
     
     let picker = UIImagePickerController()
     @IBAction func addImageTapped(_ sender: Any) {

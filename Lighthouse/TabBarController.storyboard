@@ -9,16 +9,17 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Controller View Controller-->
+        <!--Tab Bar ControllerVC-->
         <scene sceneID="Qqt-U5-Nne">
             <objects>
-                <tabBarController storyboardIdentifier="tabBarController" id="Thi-B6-bs0" customClass="TabBarControllerViewController" customModule="Lighthouse" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBarController" id="Thi-B6-bs0" customClass="TabBarControllerVC" customModule="Lighthouse" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LLF-Gn-Ote">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="selectedImageTintColor" red="0.90980392156862744" green="0.45882352941176469" blue="0.047058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
-                        <outlet property="tabBar" destination="LLF-Gn-Ote" id="31f-SG-gJR"/>
+                        <outlet property="customTabBar" destination="LLF-Gn-Ote" id="t8g-Ut-J4q"/>
                         <segue destination="bLF-fP-3vU" kind="relationship" relationship="viewControllers" id="9ve-fa-ohA"/>
                         <segue destination="mWA-Bi-0vI" kind="relationship" relationship="viewControllers" id="Wk1-vp-2Cf"/>
                         <segue destination="YhF-Uo-W5b" kind="relationship" relationship="viewControllers" id="BcC-5F-i47"/>

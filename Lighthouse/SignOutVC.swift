@@ -23,7 +23,12 @@ class SignOutVC: UIViewController {
     
     @IBAction func signOutTapped(_ sender: Any) {
         try? AUTH.signOut()
+        UserController.shared.user = nil
+        let storyboard = UIStoryboard(name: "TabBarController", bundle: nil)
+        let mainView = storyboard.instantiateViewController(withIdentifier: "tabBarController")
+        mainView.tabBarController?.tabBar.isHidden = false
         self.dismiss(animated: true, completion: nil)
+        self.present(mainView, animated: true, completion: nil)
     }
     
 

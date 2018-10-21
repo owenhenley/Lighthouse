@@ -8,8 +8,11 @@
 
 import UIKit
 import AudioToolbox
+import SVProgressHUD
 
 class SignUpVC: CustomTextFieldVC {
+    
+        // MARK: - Outlets
     
     @IBOutlet weak var emailOutlet: UITextField!
     @IBOutlet weak var passwordOutlet: UITextField!
@@ -17,6 +20,8 @@ class SignUpVC: CustomTextFieldVC {
     @IBOutlet weak var signUpConstraint: NSLayoutConstraint!
     @IBOutlet weak var blurView: UIView!
     
+    
+        // MARK: - LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +32,7 @@ class SignUpVC: CustomTextFieldVC {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if UserController.shared.user != nil {
+        if AUTH.currentUser != nil {
             self.dismiss(animated: true, completion: nil)
         }
     }
@@ -36,9 +41,13 @@ class SignUpVC: CustomTextFieldVC {
         createProfileTapped(self)
         return true
     }
+    
+    
+        // MARK: - Actions
 
     @IBAction func backTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+        NotificationCenter.default.post(name: .backButtonTapped, object: nil)
     }
     
 //    func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -56,34 +65,26 @@ class SignUpVC: CustomTextFieldVC {
         self.blurView.addSubview(visualEffectView)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
     
     @IBAction func createProfileTapped(_ sender: Any) {
+        SVProgressHUD.show()
         guard let email = emailOutlet.text,
             let password = passwordOutlet.text,
             let username = usernameOutlet.text else {return}
         UserController.shared.createUser(username: username, email: email, password: password) { (success) in
             if success {
+                NotificationCenter.default.post(name: .signInTapped, object: nil)
                 self.dismiss(animated: true, completion: nil)
+                SVProgressHUD.dismiss()
             } else {
                 self.shake()
                 AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+                SVProgressHUD.dismiss()
             }
         }
-        
     }
     
     @IBAction func signInTapped(_ sender: Any) {
-        
         UIView.animate(withDuration: 0.5) {
             self.view.center = CGPoint(x: 0.5 * self.view.frame.width, y: -self.view.frame.height)
         }

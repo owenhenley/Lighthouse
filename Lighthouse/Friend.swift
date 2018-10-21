@@ -8,10 +8,19 @@
 
 import UIKit
 
-struct Friend {
-    let username: String
-    let image: UIImage?
-    let imageUrl: String
-    let friendID: String
-    var request: Bool?
+struct Friend: Equatable {
+    static func == (lhs: Friend, rhs: Friend) -> Bool {
+        return lhs.username == rhs.username
+    }
+    
+    
+    
+    let username : String
+    var image    : UIImage?
+    let imageUrl : String
+    let friendID : String
+    var request  : Bool?
+    var name     : String
+    var event    : Event?
+    
 }
