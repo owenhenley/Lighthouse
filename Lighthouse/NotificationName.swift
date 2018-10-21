@@ -14,4 +14,5 @@ extension Notification.Name {
     static let friendsUpdated = Notification.Name("FriendsUpdated")
     static let signInTapped = Notification.Name("signInTapped")
     static let showTray = Notification.Name("showTray")
+    static let eventsUpdated = Notification.Name("eventsUpdated")
 }

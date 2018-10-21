@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 import CoreLocation
-import FirebaseAuth
+import Firebase
 
 class MapViewVC: CustomSearchFieldVC {
     
@@ -22,6 +22,7 @@ class MapViewVC: CustomSearchFieldVC {
     var handle : AuthStateDidChangeListenerHandle?
     let nonAuthUserLocationRadius : Double = 25000
     let authedUserLocationRadius  : Double = 400
+    var pinCoordinates: CLLocationCoordinate2D?
     
     
     // MARK: - Outlets
@@ -49,6 +50,8 @@ class MapViewVC: CustomSearchFieldVC {
         addPinLongPress()
         NotificationCenter.default.addObserver(self, selector: #selector(showNextButton), name: .backButtonTapped, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(showTray), name: .showTray, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(placePins), name: .eventsUpdated, object: nil)
+        placePins()
     }
     
     
@@ -107,52 +110,27 @@ class MapViewVC: CustomSearchFieldVC {
     @IBAction func unwindToMapViewSegue(_ sender: UIStoryboardSegue) {}
     
     
-    // MARK: - MapMethods
+    // MARK: - Map Methods
     
     func dropPinOnCurrentLocation() {
         centerMapOnAuthedUser {
-            let pinCoordinate = self.mainMapView.centerCoordinate
+            self.pinCoordinates = self.mainMapView.centerCoordinate
             let currentLocationPinAnnotation: MKPointAnnotation = MKPointAnnotation()
-            currentLocationPinAnnotation.coordinate = pinCoordinate
+            currentLocationPinAnnotation.coordinate = self.mainMapView.centerCoordinate
+            
             self.mainMapView.addAnnotation(currentLocationPinAnnotation)
             
-            let popover = self.storyboard?.instantiateViewController(withIdentifier: "NewPinPopOver")
-            popover?.modalTransitionStyle = .coverVertical
-            popover?.modalPresentationStyle = .overCurrentContext
-            guard let popoverVC = popover else { return }
+//            let popover = self.storyboard?.instantiateViewController(withIdentifier: "NewPinPopOver")
+//            popover?.modalTransitionStyle = .coverVertical
+//            popover?.modalPresentationStyle = .overCurrentContext
+//            guard let popoverVC = popover else { return }
             
+//             Delays the segue
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.65) {
-                self.present(popoverVC, animated: true, completion: nil)
+                self.performSegue(withIdentifier: "toNewPinVC", sender: self)
             }
+            
         }
-    }
-    
-    
-    func addPinLongPress() {
-        if longPressActive == true {
-            let longPress = UILongPressGestureRecognizer(target: self, action: #selector(dropPin))
-            longPress.minimumPressDuration = 1
-            longPress.delegate = self
-            mainMapView.addGestureRecognizer(longPress)
-            longPressActive = false
-        } else if longPressActive == false {
-            longPressActive = true
-        }
-    }
-    
-    
-    @objc func dropPin(sender: UILongPressGestureRecognizer) {
-        
-        removePin()
-        
-        let touchPoint = sender.location(in: mainMapView)
-        let touchCoOrdinate = mainMapView.convert(touchPoint, toCoordinateFrom: mainMapView)
-        
-        let annotation = DroppablePin(coordinate: touchCoOrdinate, identifier: "droppablePin")
-        mainMapView.addAnnotation(annotation)
-        
-        //        let coOdinateRegion = MKCoordinateRegion(center: touchCoOrdinate, latitudinalMeters: 200, longitudinalMeters: 200)
-        //        mainMapView.setRegion(coOdinateRegion, animated: true)
     }
     
     
@@ -162,13 +140,17 @@ class MapViewVC: CustomSearchFieldVC {
         }
     }
     
-    
-    // MARK: - Location Methods
-    
-    func getCenterLocation(for map: MKMapView) -> CLLocation {
-        let latitude = mainMapView.centerCoordinate.latitude
-        let longitude = mainMapView.centerCoordinate.longitude
-        return CLLocation(latitude: latitude, longitude: longitude)
+    @objc func placePins(){
+        let events = EventController.shared.events
+        for event in events {
+            
+            let friendEventCoordinate = event.coordinates
+            let friendEventPinAnnotation: MKPointAnnotation = MKPointAnnotation()
+            friendEventPinAnnotation.coordinate = friendEventCoordinate
+            
+//            let friendAnnotation = DroppablePin(coordinate: event.coordinates, identifier: event.friendID)
+            mainMapView.addAnnotation(friendEventPinAnnotation)
+        }
     }
     
     
@@ -207,34 +189,24 @@ class MapViewVC: CustomSearchFieldVC {
         }
     }
     
-    
-    // MARK: - Tray Methods
-    
-    // shows where on the view you tapped
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        let firstTouch = touches.first!.location(in: view)
-//        print(firstTouch.x)
-//    }
-    
-    
-    // MARK: - Search Methods
+        // MARK: - Search Methods
     
     func searchToggled() {
         if searchIsActive == false {
             searchIsActive = true
             fillerView.isHidden = true
-            searchBar.isHidden = false
+            searchBar.isHidden  = false
             searchBar.becomeFirstResponder()
         } else {
             searchIsActive = false
             fillerView.isHidden = false
-            searchBar.isHidden = true
+            searchBar.isHidden  = true
             searchBar.resignFirstResponder()
         }
     }
     
     
-    // MARK: - Auth Management
+        // MARK: - Auth Management
     
     fileprivate func checkUserState() {
         handle = AUTH.addStateDidChangeListener({ (auth, user) in
@@ -257,16 +229,16 @@ class MapViewVC: CustomSearchFieldVC {
 }
 
 
-// MARK: - Map Delegate
+    // MARK: - Map Delegate
 
 extension MapViewVC: MKMapViewDelegate {
     
     // Set up map for user tracking
     func startTrackingUserLocation() {
-        mainMapView.showsUserLocation = true
+        mainMapView.showsUserLocation     = true
         mainMapView.showsPointsOfInterest = true
-        mainMapView.showsBuildings = true
-        mainMapView.userTrackingMode = .follow
+        mainMapView.showsBuildings        = true
+        mainMapView.userTrackingMode      = .follow
         locationManager.startUpdatingLocation()
     }
     
@@ -275,15 +247,20 @@ extension MapViewVC: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
         searchBar.resignFirstResponder()
         fillerView.isHidden = false
-        searchBar.isHidden = true
+        searchBar.isHidden  = true
     }
-  
 }
 
 
-// MARK: - Location Functions
+    // MARK: - Location Methods
 
 extension MapViewVC: CLLocationManagerDelegate {
+    
+    func getCenterLocation(for map: MKMapView) -> CLLocation {
+        let latitude  = mainMapView.centerCoordinate.latitude
+        let longitude = mainMapView.centerCoordinate.longitude
+        return CLLocation(latitude: latitude, longitude: longitude)
+    }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         checkLocationAuth()
@@ -292,7 +269,7 @@ extension MapViewVC: CLLocationManagerDelegate {
     
     // Delegates
     func setupLocationManager() {
-        mainMapView.delegate = self
+        mainMapView.delegate     = self
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
     }
@@ -303,13 +280,13 @@ extension MapViewVC: CLLocationManagerDelegate {
         case . authorizedWhenInUse:
             startTrackingUserLocation()
         case .denied:
-            // Show alert instructions
+            #warning("Show alert instructions")
             break
         case .notDetermined:
             // Show location request alert
             locationManager.requestWhenInUseAuthorization()
         case .restricted:
-            // Show alert letting them know whats up
+            #warning("Show alert letting them know whats up")
             break
         case .authorizedAlways:
             startTrackingUserLocation()
@@ -319,7 +296,7 @@ extension MapViewVC: CLLocationManagerDelegate {
 }
 
 
-// MARK: - Tray Functions
+    // MARK: - Tray Functions
 
 //1) Adopt the protocol (write that your qualified to be the boss on your resume)
 extension MapViewVC: TrayTabVCDelegate {
@@ -347,11 +324,44 @@ extension MapViewVC: TrayTabVCDelegate {
             // 3 -  Tell incoming view that you da boss
             let destinationVC = segue.destination as? TrayTabVC
             destinationVC?.delegate = self
+        } else if segue.identifier == "toNewPinVC" {
+            let destinationVC = segue.destination as? NewPinPopUpVC
+            destinationVC?.coordinates = self.pinCoordinates
         }
     }
 }
 
+    // MARK: - Long press tap gesture
 
 extension MapViewVC: UIGestureRecognizerDelegate {
     
+    func addPinLongPress() {
+        if longPressActive == true {
+            let longPress = UILongPressGestureRecognizer(target: self, action: #selector(dropPin))
+            longPress.minimumPressDuration = 1
+            longPress.delegate = self
+            mainMapView.addGestureRecognizer(longPress)
+            longPressActive = false
+        } else if longPressActive == false {
+            longPressActive = true
+        }
+    }
+    
+    
+    @objc func dropPin(sender: UILongPressGestureRecognizer) {
+        
+        removePin()
+        
+        let touchPoint = sender.location(in: mainMapView)
+        let touchCoOrdinate = mainMapView.convert(touchPoint, toCoordinateFrom: mainMapView)
+        
+        let annotation = DroppablePin(coordinate: touchCoOrdinate, identifier: "droppablePin")
+        mainMapView.addAnnotation(annotation)
+        
+        //        let coOdinateRegion = MKCoordinateRegion(center: touchCoOrdinate, latitudinalMeters: 200, longitudinalMeters: 200)
+        //        mainMapView.setRegion(coOdinateRegion, animated: true)
+        
+        
+        
+    }
 }

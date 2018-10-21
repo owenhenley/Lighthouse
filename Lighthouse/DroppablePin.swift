@@ -9,18 +9,14 @@
 import UIKit
 import MapKit
 
-#warning("Delete if Not Needed")
 class DroppablePin: NSObject, MKAnnotation {
     
     var coordinate: CLLocationCoordinate2D
     var identifier: String
-    var location: Event?
     
     init(coordinate: CLLocationCoordinate2D, identifier: String) {
         self.coordinate = coordinate
         self.identifier = identifier
         super.init()
     }
-    
-    
 }

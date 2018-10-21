@@ -15,12 +15,12 @@ struct Friend: Equatable {
     
     
     
-    let username: String
-    var image: UIImage?
-    let imageUrl: String
-    let friendID: String
-    var request: Bool?
-    var name: String
-    var event: Event?
+    let username : String
+    var image    : UIImage?
+    let imageUrl : String
+    let friendID : String
+    var request  : Bool?
+    var name     : String
+    var event    : Event?
     
 }

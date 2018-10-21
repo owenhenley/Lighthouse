@@ -50,7 +50,8 @@ class LoadingScreenVC: UIViewController {
                         let mainView = storyboard.instantiateViewController(withIdentifier: "tabBarController")
                         mainView.tabBarController?.tabBar.isHidden = false
                         self.present(mainView, animated: true, completion: nil)
-                        
+                        EventController.shared.fetchActivePins()
+
                         FriendController.shared.fetchFriends { (success) in
                             if success {
                             
@@ -67,4 +68,9 @@ class LoadingScreenVC: UIViewController {
             }
         })
     }
+    
+    
+        
+    
+    
 }
