@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 import Firebase
+import SVProgressHUD
 
 class MapViewVC: CustomSearchFieldVC {
     
@@ -23,6 +24,7 @@ class MapViewVC: CustomSearchFieldVC {
     let nonAuthUserLocationRadius : Double = 25000
     let authedUserLocationRadius  : Double = 400
     var pinCoordinates: CLLocationCoordinate2D?
+    var friendID: String?
     
     
     // MARK: - Outlets
@@ -147,8 +149,12 @@ class MapViewVC: CustomSearchFieldVC {
             let friendEventCoordinate = event.coordinates
             let friendEventPinAnnotation: MKPointAnnotation = MKPointAnnotation()
             friendEventPinAnnotation.coordinate = friendEventCoordinate
+            friendEventPinAnnotation.title = event.name
             
-//            let friendAnnotation = DroppablePin(coordinate: event.coordinates, identifier: event.friendID)
+            friendEventPinAnnotation.subtitle = event.friendID
+            
+            
+//           let friendAnnotation = DroppablePin(coordinate: event.coordinates, identifier: event.friendID)
             mainMapView.addAnnotation(friendEventPinAnnotation)
         }
     }
@@ -225,6 +231,12 @@ class MapViewVC: CustomSearchFieldVC {
             }
             AUTH.removeStateDidChangeListener(self.handle!)
         })
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        guard view.annotation?.title != "My Location" else {return}
+        self.friendID = view.annotation?.subtitle ?? ""
+        self.performSegue(withIdentifier: "toPinDetails", sender: self)
     }
 }
 
@@ -318,6 +330,9 @@ extension MapViewVC: TrayTabVCDelegate {
         }
     }
     
+    
+        // MARK: - Prepare For Segue
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toTrayContainer" {
             
@@ -327,6 +342,12 @@ extension MapViewVC: TrayTabVCDelegate {
         } else if segue.identifier == "toNewPinVC" {
             let destinationVC = segue.destination as? NewPinPopUpVC
             destinationVC?.coordinates = self.pinCoordinates
+        } else if segue.identifier == "toPinDetails" {
+            SVProgressHUD.show()
+            let destinationVC = segue.destination as? PinDetailsVC
+            let events = EventController.shared.events.filter{ $0.friendID == self.friendID}
+            destinationVC?.event = events.first
+//            SVProgressHUD.dismiss()
         }
     }
 }
