@@ -13,6 +13,7 @@ import CoreLocation
 class NewPinPopUpVC: UIViewController {
     
     var event: Event?
+    var coordinates: CLLocationCoordinate2D?
     
         // MARK: - Outlets
     
@@ -59,11 +60,11 @@ class NewPinPopUpVC: UIViewController {
 //            let latitude      = latitudeLabel.text,
 //            let longitude     = longitudeLabel.text,
             let name          = UserController.shared.user?.firstName,
-            let uid = UID
+            let uid = UID,
+            let coordinates = coordinates
         else { return }
         
         let eventVibe = selectedVibe
-        let coordinates = CLLocationCoordinate2D(latitude: 40.7608, longitude: 111.8910)
         let event = Event.init(friendID: uid, name: name, profileImage: nil, profileImageUrl: nil, title: eventTitle, coordinates: coordinates, streetAdrees: nil, invited: [], vibe: eventVibe)
         self.event = event
         self.performSegue(withIdentifier: "selectFreinds", sender: self)

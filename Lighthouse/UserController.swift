@@ -16,8 +16,8 @@ class UserController {
     
     static let shared = UserController()
     
-    var user: User?
-    var uid: String?
+    var user : User?
+    var uid  : String?
     let db = FIRESTORE
     
     func logInUser(email: String, password: String, completion: @escaping (_ success: Bool) -> ()){
@@ -48,14 +48,14 @@ class UserController {
             if let result = result {
                 
                 FIRESTORE.collection(USER).document(result.user.uid).setData([
-                    USER_ID : result.user.uid,
-                    USERNAME : username,
-                    EMAIL : email,
-                    FIRST_NAME : "",
-                    LAST_NAME : "",
-                    FAV_LOCATION1 : "",
-                    FAV_LOCATION2 : "",
-                    FAV_LOCATION3 : "",
+                    USER_ID           : result.user.uid,
+                    USERNAME          : username,
+                    EMAIL             : email,
+                    FIRST_NAME        : "",
+                    LAST_NAME         : "",
+                    FAV_LOCATION1     : "",
+                    FAV_LOCATION2     : "",
+                    FAV_LOCATION3     : "",
                     PROFILE_IMAGE_URL : "No Profile Image",
                     
                     //PAST_LOCATIONS
@@ -107,12 +107,12 @@ class UserController {
                         
                         self.db.collection(USER).document(userID).updateData([
                             PROFILE_IMAGE_URL : downloadURL!,
-                            USERNAME : user.fullName as Any,
-                            FIRST_NAME : user.firstName as Any,
-                            LAST_NAME : user.lastName as Any,
-                            FAV_LOCATION1 : user.favLocation1 as Any,
-                            FAV_LOCATION2 : user.favLocation2 as Any,
-                            FAV_LOCATION3 : user.favLocation3 as Any
+                            USERNAME          : user.fullName as Any,
+                            FIRST_NAME        : user.firstName as Any,
+                            LAST_NAME         : user.lastName as Any,
+                            FAV_LOCATION1     : user.favLocation1 as Any,
+                            FAV_LOCATION2     : user.favLocation2 as Any,
+                            FAV_LOCATION3     : user.favLocation3 as Any
                         ]) { (error) in
                             if let error = error {
                                 print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
@@ -133,12 +133,12 @@ class UserController {
 
             self.db.collection(USER).document(userID).updateData([
                 PROFILE_IMAGE_URL : "No profile Image",
-                USERNAME : user.fullName as Any,
-                FIRST_NAME : user.firstName as Any,
-                LAST_NAME : user.lastName as Any,
-                FAV_LOCATION1 : user.favLocation1 as Any,
-                FAV_LOCATION2 : user.favLocation2 as Any,
-                FAV_LOCATION3 : user.favLocation3 as Any
+                USERNAME          : user.fullName as Any,
+                FIRST_NAME        : user.firstName as Any,
+                LAST_NAME         : user.lastName as Any,
+                FAV_LOCATION1     : user.favLocation1 as Any,
+                FAV_LOCATION2     : user.favLocation2 as Any,
+                FAV_LOCATION3     : user.favLocation3 as Any
             ]) { (error) in
                 if let error = error {
                     print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
@@ -163,22 +163,22 @@ class UserController {
                 return
             }
             guard let data = snapshot?.data() else {completion(false); return}
-            if let username = data[USERNAME] as? String,
-                let email = data[EMAIL] as? String,
-                let profileImageURLString = data[PROFILE_IMAGE_URL] as? String,
-                let userID = data[USER_ID] as? String,
-                let firstname = data[FIRST_NAME] as? String,
-                let lastname = data[LAST_NAME] as? String,
-                let favLocation1 = data[FAV_LOCATION1] as? String,
-                let favLocation2 = data[FAV_LOCATION2] as? String,
-                let favLocation3 = data[FAV_LOCATION3] as? String {
-                let user = User(userID: userID, username: username, email: email)
-                user.firstName = firstname
-                user.lastName = lastname
-                user.favLocation1 = favLocation1
-                user.favLocation2 = favLocation2
-                user.favLocation3 = favLocation3
-                user.profileImageURL = profileImageURLString
+            if let username              = data[USERNAME] as? String,
+               let email                 = data[EMAIL] as? String,
+               let profileImageURLString = data[PROFILE_IMAGE_URL] as? String,
+               let userID                = data[USER_ID] as? String,
+               let firstname             = data[FIRST_NAME] as? String,
+               let lastname              = data[LAST_NAME] as? String,
+               let favLocation1          = data[FAV_LOCATION1] as? String,
+               let favLocation2          = data[FAV_LOCATION2] as? String,
+               let favLocation3          = data[FAV_LOCATION3] as? String {
+               let user                  = User(userID : userID, username : username, email : email)
+               user.firstName            = firstname
+               user.lastName             = lastname
+               user.favLocation1         = favLocation1
+               user.favLocation2         = favLocation2
+               user.favLocation3         = favLocation3
+               user.profileImageURL      = profileImageURLString
                 
                 if let profileImageURL = URL(string: profileImageURLString) {
                     URLSession.shared.dataTask(with: profileImageURL, completionHandler: { (data, response, error) in
