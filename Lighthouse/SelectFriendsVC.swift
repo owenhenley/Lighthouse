@@ -78,7 +78,7 @@ extension SelectFriendsVC: UITableViewDataSource, UITableViewDelegate {
         }
         
         cell?.nameOutlet.text = friend.name
-        cell?.activityStatusOutlet.text = friend.event?.streetAdrees ?? "Inactive"
+        cell?.activityStatusOutlet.text = friend.event?.streetAddress ?? "Inactive"
         return cell ?? UITableViewCell()
     }
     

@@ -27,6 +27,8 @@ class MapViewVC: CustomSearchFieldVC {
     let authedUserLocationRadius  : Double = 400
     var pinCoordinates: CLLocationCoordinate2D?
     var friendID: String?
+    var placedAnnotations: Set<String> = []
+
     
     
     // MARK: - Outlets
@@ -115,7 +117,7 @@ class MapViewVC: CustomSearchFieldVC {
     
     
     // MARK: - Map Methods
-    
+    // FIXME: - Change to take event as annotation
     func dropPinOnCurrentLocation() {
         centerMapOnAuthedUser {
             self.pinCoordinates = self.mainMapView.centerCoordinate
@@ -137,22 +139,29 @@ class MapViewVC: CustomSearchFieldVC {
             mainMapView.removeAnnotation(annotation)
         }
     }
-    
-    
+ 
+
     @objc func placePins(){
         let events = EventController.shared.events
         for event in events {
+
+            let event = event.value
+            let usedKey = placedAnnotations.filter{$0 == event.friendID}
+            if usedKey.isEmpty {
+                placedAnnotations.insert(event.friendID)
+                mainMapView.addAnnotation(event)
+            }
             
-            let friendEventCoordinate = event.coordinates
-            let friendEventPinAnnotation: MKPointAnnotation = MKPointAnnotation()
-            friendEventPinAnnotation.coordinate = friendEventCoordinate
-            friendEventPinAnnotation.title = event.name
             
-            friendEventPinAnnotation.subtitle = event.friendID
+//            let friendEventCoordinate = event.coordinate
+//            let friendEventPinAnnotation: MKPointAnnotation = MKPointAnnotation()
+//            friendEventPinAnnotation.coordinate = friendEventCoordinate
+//            friendEventPinAnnotation.title = event.name
+//
+//            friendEventPinAnnotation.subtitle = event.friendID
             
             
 //           let friendAnnotation = DroppablePin(coordinate: event.coordinates, identifier: event.friendID)
-            mainMapView.addAnnotation(friendEventPinAnnotation)
         }
     }
     
@@ -230,9 +239,13 @@ class MapViewVC: CustomSearchFieldVC {
         })
     }
     
+  
+    
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        guard view.annotation?.title != "My Location" else { return }
-        self.friendID = view.annotation?.subtitle ?? ""
+       
+        
+        guard let annotation = view.annotation as? Event else {return}
+        self.friendID = annotation.friendID
         self.performSegue(withIdentifier: "toPinDetails", sender: self)
     }
 }
@@ -331,6 +344,7 @@ extension MapViewVC: TrayTabVCDelegate {
         // MARK: - Prepare For Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+       
         if segue.identifier == "toTrayContainer" {
             
             // 3 -  Tell incoming view that you da boss
@@ -340,10 +354,11 @@ extension MapViewVC: TrayTabVCDelegate {
             let destinationVC = segue.destination as? NewPinPopUpVC
             destinationVC?.coordinates = self.pinCoordinates
         } else if segue.identifier == "toPinDetails" {
+            guard let friendID = friendID else {return}
             SVProgressHUD.show()
             let destinationVC = segue.destination as? PinDetailsVC
-            let events = EventController.shared.events.filter{ $0.friendID == self.friendID}
-            destinationVC?.event = events.first
+            let event = EventController.shared.events[friendID]
+            destinationVC?.event = event
 //            SVProgressHUD.dismiss()
         }
     }
@@ -381,3 +396,5 @@ extension MapViewVC: UIGestureRecognizerDelegate {
 //
 //    }
 }
+
+

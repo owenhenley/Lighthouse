@@ -33,6 +33,7 @@ class UserController {
                         completion(true)
                     }
                 })
+                EventController.shared.fetchActivePins()
             }
         }
     }
