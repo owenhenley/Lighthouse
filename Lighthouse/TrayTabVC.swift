@@ -27,6 +27,7 @@ class TrayTabVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        swipeTray()
         
     }
     
@@ -36,24 +37,30 @@ class TrayTabVC: UIViewController {
         trayIsActive = !trayIsActive
     }
     
+}
+
+
+extension TrayTabVC: UIGestureRecognizerDelegate {
+
     
     func swipeTray() {
         
+        delegate?.changeTrayHeight(isTrayActive: trayIsActive)
+        trayIsActive = !trayIsActive
         
         let swipeTray = UISwipeGestureRecognizer(target: self, action: #selector(moveTray))
-        swipeTray.direction = .up
+        swipeTray.delegate = self
         trayTabImage.addGestureRecognizer(swipeTray)
         
+        if swipeTray.direction == .up {
+
+        } else if swipeTray.direction == .down {
+
+        }
     }
-    
-    
+
     @objc func moveTray(sender: UISwipeGestureRecognizer) {
         
     }
-    
-}
-
-extension TrayTabVC: UISwipeGestureRecognizer {
-    
     
 }

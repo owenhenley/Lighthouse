@@ -175,7 +175,7 @@
                                 </constraints>
                                 <state key="normal" backgroundImage="back"/>
                                 <connections>
-                                    <segue destination="Wmr-03-zzd" kind="unwind" unwindAction="unwindToSettings:" id="wbZ-uR-fcR"/>
+                                    <segue destination="Wmr-03-zzd" kind="unwind" unwindAction="returnToUserProfile:" id="VJC-Bw-tQz"/>
                                 </connections>
                             </button>
                         </subviews>

@@ -45,7 +45,6 @@
 		3E5A1DEF2170FB9B00170A9B /* ResetPasswordFromSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E5A1DEE2170FB9B00170A9B /* ResetPasswordFromSettings.storyboard */; };
 		3E5A1DF12170FBB000170A9B /* SignOut.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E5A1DF02170FBB000170A9B /* SignOut.storyboard */; };
 		3E5A1DF32170FBE500170A9B /* DeleteAccount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E5A1DF22170FBE500170A9B /* DeleteAccount.storyboard */; };
-		3E79784B2179823800CB24EA /* GIFLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E79784A2179823800CB24EA /* GIFLoader.swift */; };
 		3E7B2B6D216D929500E4F0F1 /* ForgotPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E7B2B6C216D929500E4F0F1 /* ForgotPassword.storyboard */; };
 		3E7B2B70216D98F600E4F0F1 /* FoursquareAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7B2B6F216D98F600E4F0F1 /* FoursquareAPIController.swift */; };
 		3E8BF77F2177A18900DB0014 /* NewPinPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8BF77E2177A18900DB0014 /* NewPinPopUpVC.swift */; };
@@ -129,7 +128,6 @@
 		3E5A1DEE2170FB9B00170A9B /* ResetPasswordFromSettings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ResetPasswordFromSettings.storyboard; sourceTree = "<group>"; };
 		3E5A1DF02170FBB000170A9B /* SignOut.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignOut.storyboard; sourceTree = "<group>"; };
 		3E5A1DF22170FBE500170A9B /* DeleteAccount.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DeleteAccount.storyboard; sourceTree = "<group>"; };
-		3E79784A2179823800CB24EA /* GIFLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFLoader.swift; sourceTree = "<group>"; };
 		3E7B2B6C216D929500E4F0F1 /* ForgotPassword.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ForgotPassword.storyboard; sourceTree = "<group>"; };
 		3E7B2B6F216D98F600E4F0F1 /* FoursquareAPIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoursquareAPIController.swift; sourceTree = "<group>"; };
 		3E8BF77E2177A18900DB0014 /* NewPinPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPinPopUpVC.swift; sourceTree = "<group>"; };
@@ -397,7 +395,6 @@
 				3E5526832175727E00035D2D /* StyleGuide.swift */,
 				7EF9A478216C0D480064DC47 /* Constants.swift */,
 				7E565A9F2178FB9B006C1271 /* NotificationName.swift */,
-				3E79784A2179823800CB24EA /* GIFLoader.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -444,9 +441,9 @@
 		3ECDF76D21716A3E00C46C8E /* Tab Bar */ = {
 			isa = PBXGroup;
 			children = (
+				3E28E8A1216D108500E21331 /* TabBarController.storyboard */,
 				3EEC750B216EC0FF009572FB /* UserProfile.storyboard */,
 				3E28E8A7216D1E2F00E21331 /* MapView.storyboard */,
-				3E28E8A1216D108500E21331 /* TabBarController.storyboard */,
 				3EEA6ED6217E5ED0009DD278 /* FriendsTab.storyboard */,
 			);
 			name = "Tab Bar";
@@ -761,7 +758,6 @@
 				3EF0A83A217A7D3100C6541D /* SelectFriendCell.swift in Sources */,
 				3E32AEF7216D524C00C889DF /* FriendsListTrayCell.swift in Sources */,
 				3E5A1DD72170F6C300170A9B /* AccountSettingsVC.swift in Sources */,
-				3E79784B2179823800CB24EA /* GIFLoader.swift in Sources */,
 				7E38CF35216FA450009D44DF /* Animations.swift in Sources */,
 				3E5A1DDB2170F71A00170A9B /* SignOutVC.swift in Sources */,
 				3EEA6EDB217E61BD009DD278 /* AddFriendsVC.swift in Sources */,

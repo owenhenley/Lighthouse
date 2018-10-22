@@ -190,12 +190,13 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
                                         <gestureRecognizers/>
                                         <connections>
-                                            <outletCollection property="gestureRecognizers" destination="FhW-hp-grb" appends="YES" id="F6D-qp-mAk"/>
+                                            <outletCollection property="gestureRecognizers" destination="1YE-TV-JIO" appends="YES" id="nw0-GV-apS"/>
                                         </connections>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hYU-sI-09r">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hYU-sI-09r">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <gestureRecognizers/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="3"/>
@@ -240,7 +241,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e91-Tz-iu7" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ckd-tS-2q1" userLabel="Exit" sceneMemberID="exit"/>
-                <swipeGestureRecognizer direction="right" id="FhW-hp-grb"/>
+                <swipeGestureRecognizer direction="right" id="1YE-TV-JIO"/>
             </objects>
             <point key="canvasLocation" x="1040.8" y="571.21439280359823"/>
         </scene>

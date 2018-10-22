@@ -24,9 +24,8 @@
                                     <constraint firstAttribute="height" constant="200" id="eor-Hb-B4k"/>
                                 </constraints>
                             </mapView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pbn-4Y-Dxn">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pbn-4Y-Dxn">
                                 <rect key="frame" x="16" y="139" width="130" height="130"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultProfPic" translatesAutoresizingMaskIntoConstraints="NO" id="0uo-FG-U0z">
                                         <rect key="frame" x="0.0" y="0.0" width="130" height="130"/>
@@ -41,7 +40,9 @@
                                         <rect key="frame" x="0.0" y="0.0" width="130" height="130"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.90980392160000001" green="0.45882352939999999" blue="0.047058823530000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Add Photo"/>
+                                        <state key="normal" title="Change Photo">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="65"/>
@@ -49,11 +50,10 @@
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" distribution="equalSpacing" spacing="158" translatesAutoresizingMaskIntoConstraints="NO" id="lLm-Yb-qch">
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="equalSpacing" spacing="158" translatesAutoresizingMaskIntoConstraints="NO" id="lLm-Yb-qch">
                                 <rect key="frame" x="303" y="208" width="56" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r5o-NN-9NS">
                                         <rect key="frame" x="0.0" y="0.0" width="56" height="0.0"/>
@@ -74,7 +74,7 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="HiA-x7-P4Z">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="HiA-x7-P4Z">
                                 <rect key="frame" x="166" y="171" width="128" height="66"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="First Name" placeholder="Username" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N7n-TF-BZY">
@@ -281,12 +281,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="HiA-x7-P4Z" firstAttribute="top" secondItem="08T-CB-oSP" secondAttribute="top" constant="151" id="3tW-ly-u18"/>
+                            <constraint firstItem="HiA-x7-P4Z" firstAttribute="leading" secondItem="TF1-BA-JCj" secondAttribute="leading" constant="166" id="6U7-mj-Jdl"/>
                             <constraint firstItem="08T-CB-oSP" firstAttribute="bottom" secondItem="4O9-hb-YcY" secondAttribute="bottom" constant="27" id="6Y7-9M-CO3"/>
                             <constraint firstItem="08T-CB-oSP" firstAttribute="trailing" secondItem="4O9-hb-YcY" secondAttribute="trailing" constant="16" id="DSp-DT-YKJ"/>
+                            <constraint firstItem="HiA-x7-P4Z" firstAttribute="leading" secondItem="pbn-4Y-Dxn" secondAttribute="trailing" constant="20" id="Lgn-xf-v5g"/>
                             <constraint firstAttribute="trailing" secondItem="fxX-5u-h18" secondAttribute="trailing" id="NCb-EP-l6d"/>
                             <constraint firstItem="fxX-5u-h18" firstAttribute="top" secondItem="TF1-BA-JCj" secondAttribute="top" id="ehl-XP-EYs"/>
                             <constraint firstItem="4O9-hb-YcY" firstAttribute="leading" secondItem="08T-CB-oSP" secondAttribute="leading" constant="16" id="jv7-8I-yaO"/>
                             <constraint firstItem="fxX-5u-h18" firstAttribute="leading" secondItem="TF1-BA-JCj" secondAttribute="leading" id="nrE-0v-nxX"/>
+                            <constraint firstItem="lLm-Yb-qch" firstAttribute="leading" secondItem="HiA-x7-P4Z" secondAttribute="trailing" constant="9" id="s8d-bP-Twu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="08T-CB-oSP"/>
                     </view>
@@ -295,6 +299,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="addImageOutlet" destination="6HA-uZ-rhF" id="cOu-wO-I34"/>
+                        <outlet property="cancelOutlet" destination="r5o-NN-9NS" id="RRd-Np-E87"/>
                         <outlet property="editButtonOutlet" destination="8N3-Lt-1vi" id="aBw-CD-aSB"/>
                         <outlet property="firstNameEdit" destination="N7n-TF-BZY" id="Lqd-aY-mQP"/>
                         <outlet property="lastNameEdit" destination="7u6-Zz-zxz" id="MeW-Di-w9f"/>

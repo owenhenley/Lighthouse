@@ -316,7 +316,7 @@ extension MapViewVC: TrayTabVCDelegate {
         
         var height: CGFloat = 0
         if isTrayActive{
-            height = self.view.frame.height * 0.55
+            height = self.view.frame.height * 0.60
         } else {
             height = 24
         }

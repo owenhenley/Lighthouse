@@ -46,6 +46,8 @@ class UserProfileVC: UIViewController {
     
         // MARK: - Actions
     
+    @IBAction func returnToUserProfile(_ sender: UIStoryboardSegue) {}
+    
     @IBAction func settingsTapped(_ sender: UIButton) {
         
     }
