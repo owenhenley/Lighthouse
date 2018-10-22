@@ -49,9 +49,11 @@ class MapViewVC: CustomSearchFieldVC {
         super.viewDidLoad()
         searchBar.isHidden = true
         searchBar.delegate = self
-        trayContainer.translatesAutoresizingMaskIntoConstraints = false
+        dropPinButton.isHidden = true
+//        trayContainer.translatesAutoresizingMaskIntoConstraints = false
         setupLocationManager()
-        addPinLongPress()
+//        addPinLongPress()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(showNextButton), name: .backButtonTapped, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(showTray), name: .showTray, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(placePins), name: .eventsUpdated, object: nil)
@@ -63,16 +65,16 @@ class MapViewVC: CustomSearchFieldVC {
     @objc func showTray(){
         trayContainer.isHidden = false
     }
+    
+    
     @objc func showNextButton(){
         nextButton.isHidden = false
-        
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         searchView.isHidden = false
-        
     }
     
     
@@ -98,7 +100,7 @@ class MapViewVC: CustomSearchFieldVC {
     
     // Tapping the Blue GPS Arrow
     @IBAction func findUserLocationTapped(_ sender: Any) {
-        centerAuthedUserMapArrowTapped()
+        centerAuthedUserGPSArrowTapped()
     }
     
     // Drop pin at current GPS location
@@ -123,15 +125,9 @@ class MapViewVC: CustomSearchFieldVC {
             currentLocationPinAnnotation.coordinate = self.mainMapView.centerCoordinate
             
             self.mainMapView.addAnnotation(currentLocationPinAnnotation)
-            
-//            let popover = self.storyboard?.instantiateViewController(withIdentifier: "NewPinPopOver")
-//            popover?.modalTransitionStyle = .coverVertical
-//            popover?.modalPresentationStyle = .overCurrentContext
-//            guard let popoverVC = popover else { return }
-            
-//             Delays the segue
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.65) {
                 self.performSegue(withIdentifier: "toNewPinVC", sender: self)
+                self.removePin()
             }
             
         }
@@ -196,7 +192,7 @@ class MapViewVC: CustomSearchFieldVC {
     
     
     // Method to accomodate the GPS Arrow
-    func centerAuthedUserMapArrowTapped() {
+    func centerAuthedUserGPSArrowTapped() {
         if let location = self.locationManager.location?.coordinate {
             UIView.animate(withDuration: 0.8, delay: 0, options: [], animations: {
                 let region = MKCoordinateRegion.init(center: location, latitudinalMeters: self.authedUserLocationRadius, longitudinalMeters: self.authedUserLocationRadius)
@@ -227,12 +223,12 @@ class MapViewVC: CustomSearchFieldVC {
     fileprivate func checkUserState() {
         handle = AUTH.addStateDidChangeListener({ (auth, user) in
             if user != nil {
-                
                 self.dropPinButton.isHidden = false
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                     self.centerMapOnAuthedUser {
                     }
                 }
+                
             } else {
                 self.nextButton.isHidden = false
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -333,8 +329,8 @@ extension MapViewVC: TrayTabVCDelegate {
         
         var height: CGFloat = 0
         if isTrayActive{
-            height = self.view.frame.height * 0.55
-        }else {
+            height = self.view.frame.height * 0.60
+        } else {
             height = 24
         }
         
@@ -372,35 +368,33 @@ extension MapViewVC: TrayTabVCDelegate {
 
 extension MapViewVC: UIGestureRecognizerDelegate {
     
-    func addPinLongPress() {
-        if longPressActive == true {
-            let longPress = UILongPressGestureRecognizer(target: self, action: #selector(dropPin))
-            longPress.minimumPressDuration = 1
-            longPress.delegate = self
-            mainMapView.addGestureRecognizer(longPress)
-            longPressActive = false
-        } else if longPressActive == false {
-            longPressActive = true
-        }
-    }
+//    func addPinLongPress() {
+//        if longPressActive == true {
+//            let longPress = UILongPressGestureRecognizer(target: self, action: #selector(dropPin))
+//            longPress.minimumPressDuration = 1
+//            longPress.delegate = self
+//            mainMapView.addGestureRecognizer(longPress)
+//            longPressActive = false
+//        } else if longPressActive == false {
+//            longPressActive = true
+//        }
+//    }
     
     
-    @objc func dropPin(sender: UILongPressGestureRecognizer) {
-        
-        removePin()
-        
-        let touchPoint = sender.location(in: mainMapView)
-        let touchCoOrdinate = mainMapView.convert(touchPoint, toCoordinateFrom: mainMapView)
-        
-        let annotation = DroppablePin(coordinate: touchCoOrdinate, identifier: "droppablePin")
-        mainMapView.addAnnotation(annotation)
-        
-        //        let coOdinateRegion = MKCoordinateRegion(center: touchCoOrdinate, latitudinalMeters: 200, longitudinalMeters: 200)
-        //        mainMapView.setRegion(coOdinateRegion, animated: true)
-        
-        
-        
-    }
+//    @objc func dropPin(sender: UILongPressGestureRecognizer) {
+//
+//        removePin()
+//
+//        let touchPoint = sender.location(in: mainMapView)
+//        let touchCoOrdinate = mainMapView.convert(touchPoint, toCoordinateFrom: mainMapView)
+//
+//        let annotation = DroppablePin(coordinate: touchCoOrdinate, identifier: "droppablePin")
+//        mainMapView.addAnnotation(annotation)
+//
+//        //        let coOdinateRegion = MKCoordinateRegion(center: touchCoOrdinate, latitudinalMeters: 200, longitudinalMeters: 200)
+//        //        mainMapView.setRegion(coOdinateRegion, animated: true)
+//
+//    }
 }
 
 

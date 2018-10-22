@@ -2,7 +2,7 @@
 //  SelectFriendsVC.swift
 //  Lighthouse
 //
-//  Created by Owen Henley on 10/18/18.
+//  Created by Levi Linchenko on 10/18/18.
 //  Copyright © 2018 Lighthouse. All rights reserved.
 //
 
@@ -48,14 +48,7 @@ class SelectFriendsVC: UIViewController {
 
 extension SelectFriendsVC: UITableViewDataSource, UITableViewDelegate {
     
-  
-    
-
     //MARK: UITableViewDataSource
-    
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        return 1
-//    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return FriendController.shared.friends.count
@@ -64,7 +57,7 @@ extension SelectFriendsVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "selectFriendCell", for: indexPath) as? SelectFriendCell
-//        cell?.delegate = self
+        
         let friend = FriendController.shared.friends[indexPath.row]
         cell?.friendID = friend.friendID
 
@@ -79,25 +72,21 @@ extension SelectFriendsVC: UITableViewDataSource, UITableViewDelegate {
                     }
                 }
             }
+            
         } else {
             cell?.imageOutlet.image = friend.image
         }
+        
         cell?.nameOutlet.text = friend.name
         cell?.activityStatusOutlet.text = friend.event?.streetAddress ?? "Inactive"
         return cell ?? UITableViewCell()
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            
-            // Delete the row from the table view
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        }
-    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectFriend(indexPath: indexPath)
     }
+    
     
     func selectFriend(indexPath: IndexPath) {
         guard let indexPath = tableView.indexPathForSelectedRow else {return}

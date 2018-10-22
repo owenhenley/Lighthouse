@@ -49,8 +49,8 @@ class FriendsTVC: UITableViewController, RequestTableViewCellDelegate {
     
     
     func resignParentResponder(){
-        guard let grandpa = parent?.parent as? FriendsListSuperView else {return}
-        grandpa.searchBar.resignFirstResponder()
+        guard let superView = parent?.parent as? FriendsListSuperView else {return}
+        superView.searchBar.resignFirstResponder()
     }
     
     
@@ -71,7 +71,6 @@ class FriendsTVC: UITableViewController, RequestTableViewCellDelegate {
                     cell?.imageOutlet.image = image
                 }
             }
-
         }
 
         return cell ?? UITableViewCell()

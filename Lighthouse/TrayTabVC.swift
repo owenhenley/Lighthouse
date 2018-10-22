@@ -8,12 +8,14 @@
 
 import UIKit
 
-//1) Define all of the qualificcations to be the TrayTabVC's Delegate (Boss)
+//1) Define all of the qualifications to be the TrayTabVC's Delegate (Boss)
 protocol TrayTabVCDelegate: class {
     func changeTrayHeight(isTrayActive: Bool)
 }
 
 class TrayTabVC: UIViewController {
+    
+    @IBOutlet weak var trayTabImage: UIImageView!
     
     // MARK: - Variables
     
@@ -25,6 +27,8 @@ class TrayTabVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        swipeTray()
+        
     }
     
     
@@ -32,4 +36,31 @@ class TrayTabVC: UIViewController {
         delegate?.changeTrayHeight(isTrayActive: trayIsActive)
         trayIsActive = !trayIsActive
     }
+    
+}
+
+
+extension TrayTabVC: UIGestureRecognizerDelegate {
+
+    
+    func swipeTray() {
+        
+        delegate?.changeTrayHeight(isTrayActive: trayIsActive)
+        trayIsActive = !trayIsActive
+        
+        let swipeTray = UISwipeGestureRecognizer(target: self, action: #selector(moveTray))
+        swipeTray.delegate = self
+        trayTabImage.addGestureRecognizer(swipeTray)
+        
+        if swipeTray.direction == .up {
+
+        } else if swipeTray.direction == .down {
+
+        }
+    }
+
+    @objc func moveTray(sender: UISwipeGestureRecognizer) {
+        
+    }
+    
 }

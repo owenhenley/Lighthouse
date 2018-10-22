@@ -1,14 +1,14 @@
 //
-//  SettingsVC.swift
+//  AddFriendsVC.swift
 //  Lighthouse
 //
-//  Created by Owen Henley on 10/12/18.
+//  Created by Owen Henley on 10/22/18.
 //  Copyright © 2018 Lighthouse. All rights reserved.
 //
 
 import UIKit
 
-class SettingsVC: UIViewController {
+class AddFriendsVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,13 +17,6 @@ class SettingsVC: UIViewController {
     }
     
 
-    @IBAction func backTapped(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func unwindToSettings(_ sender: UIStoryboardSegue) {}
-    
-    
     /*
     // MARK: - Navigation
 

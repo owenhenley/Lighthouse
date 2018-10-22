@@ -154,33 +154,31 @@
                 <viewControllerPlaceholder storyboardName="SignUp" id="2Am-nQ-tSa" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qFF-oZ-cW9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1280" y="469"/>
+            <point key="canvasLocation" x="1533" y="336"/>
         </scene>
         <!--Tray TabVC-->
         <scene sceneID="YPC-yE-cD4">
             <objects>
                 <viewController id="uzX-QU-v97" customClass="TrayTabVC" customModule="Lighthouse" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WBp-uB-mEF">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zyK-mc-klD">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tray Tab" translatesAutoresizingMaskIntoConstraints="NO" id="l5x-Py-OCG">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="24"/>
-                                    </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DNX-wE-aiw" userLabel="Tray View Container">
-                                        <rect key="frame" x="0.0" y="24" width="375" height="26"/>
+                                        <rect key="frame" x="0.0" y="30" width="375" height="70"/>
                                         <subviews>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z1d-6N-eeZ" userLabel="Friends Tray">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="26"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                                 <connections>
                                                     <segue destination="SNw-hE-q1g" kind="embed" id="Qc6-7y-5Pn"/>
                                                 </connections>
                                             </containerView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstItem="Z1d-6N-eeZ" firstAttribute="top" secondItem="DNX-wE-aiw" secondAttribute="top" id="1BU-I4-k0t"/>
                                             <constraint firstAttribute="trailing" secondItem="Z1d-6N-eeZ" secondAttribute="trailing" id="5hU-w8-WXY"/>
@@ -188,9 +186,17 @@
                                             <constraint firstItem="Z1d-6N-eeZ" firstAttribute="leading" secondItem="DNX-wE-aiw" secondAttribute="leading" id="Xua-FA-YLr"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hYU-sI-09r">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tray Tab" translatesAutoresizingMaskIntoConstraints="NO" id="l5x-Py-OCG">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="1YE-TV-JIO" appends="YES" id="nw0-GV-apS"/>
+                                        </connections>
+                                    </imageView>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hYU-sI-09r">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <gestureRecognizers/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="3"/>
@@ -208,6 +214,7 @@
                                     <constraint firstAttribute="trailing" secondItem="l5x-Py-OCG" secondAttribute="trailing" id="HFK-iW-NVQ"/>
                                     <constraint firstAttribute="bottom" secondItem="DNX-wE-aiw" secondAttribute="bottom" id="PzB-DE-zUC"/>
                                     <constraint firstItem="l5x-Py-OCG" firstAttribute="top" secondItem="zyK-mc-klD" secondAttribute="top" id="SIT-IV-wU9"/>
+                                    <constraint firstItem="DNX-wE-aiw" firstAttribute="top" secondItem="hYU-sI-09r" secondAttribute="bottom" id="T9R-H9-Jk8"/>
                                     <constraint firstItem="hYU-sI-09r" firstAttribute="leading" secondItem="zyK-mc-klD" secondAttribute="leading" id="XbU-4B-Esu"/>
                                     <constraint firstItem="DNX-wE-aiw" firstAttribute="top" secondItem="l5x-Py-OCG" secondAttribute="bottom" id="XhF-pQ-kkb"/>
                                     <constraint firstItem="DNX-wE-aiw" firstAttribute="leading" secondItem="zyK-mc-klD" secondAttribute="leading" id="hOf-TF-BQm"/>
@@ -227,10 +234,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kTT-fa-qIU"/>
                     </view>
-                    <size key="freeformSize" width="375" height="50"/>
+                    <size key="freeformSize" width="375" height="100"/>
+                    <connections>
+                        <outlet property="trayTabImage" destination="l5x-Py-OCG" id="vHb-TO-6vx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e91-Tz-iu7" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ckd-tS-2q1" userLabel="Exit" sceneMemberID="exit"/>
+                <swipeGestureRecognizer direction="right" id="1YE-TV-JIO"/>
             </objects>
             <point key="canvasLocation" x="1040.8" y="571.21439280359823"/>
         </scene>
@@ -251,7 +262,7 @@
                                 <rect key="frame" x="0.0" y="56" width="375" height="526"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="friendCell" rowHeight="80" id="mCQ-Sc-46M" customClass="FriendsListTrayCell" customModule="Lighthouse" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="friendTrayCell" rowHeight="80" id="mCQ-Sc-46M" customClass="FriendsListTrayCell" customModule="Lighthouse" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mCQ-Sc-46M" id="g0o-dJ-EdG">
@@ -363,8 +374,9 @@
                     </view>
                     <size key="freeformSize" width="375" height="582"/>
                     <connections>
-                        <outlet property="friendsTableView" destination="WR9-4r-j5a" id="LLN-2N-ElI"/>
+                        <outlet property="friendsTableView" destination="WR9-4r-j5a" id="M2M-SG-He6"/>
                         <outlet property="getStartedView" destination="y3B-yq-X2G" id="EL2-Hh-ZVA"/>
+                        <outlet property="searchBar" destination="2f6-ee-Rs2" id="Gva-SZ-Idz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vdr-Qz-ffZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -401,8 +413,8 @@
         <image name="Tray Tab" width="375" height="24"/>
         <image name="currentLocationFilled" width="32" height="32"/>
         <image name="dropPin" width="184" height="64"/>
-        <image name="mapDisabled" width="48" height="32"/>
-        <image name="mapEnabled" width="48" height="32"/>
+        <image name="mapDisabled" width="28" height="37"/>
+        <image name="mapEnabled" width="18" height="24"/>
         <image name="search" width="409.60000610351562" height="409.60000610351562"/>
     </resources>
 </document>
