@@ -65,7 +65,7 @@ class NewPinPopUpVC: UIViewController {
         else { return }
         
         let eventVibe = selectedVibe
-        let event = Event.init(friendID: uid, name: name, profileImage: nil, profileImageUrl: nil, title: eventTitle, coordinates: coordinates, streetAdrees: nil, invited: [], vibe: eventVibe)
+        let event = Event(friendID: uid, name: name, profileImage: nil, profileImageUrl: nil, title: eventTitle, coordinates: coordinates, streetAddress: nil, invited: [:], vibe: eventVibe, eventTitle: eventTitle)
         self.event = event
         self.performSegue(withIdentifier: "selectFreinds", sender: self)
         
