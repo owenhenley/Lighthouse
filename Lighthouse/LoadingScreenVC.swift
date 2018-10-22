@@ -16,6 +16,7 @@ class LoadingScreenVC: UIViewController {
     
     @IBOutlet weak var activityWheel: UIActivityIndicatorView!
     
+    
         // MARK: - Variables
     
     var handle: AuthStateDidChangeListenerHandle?
@@ -28,15 +29,15 @@ class LoadingScreenVC: UIViewController {
         activityWheel.startAnimating()
     }
     
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        
-        
+    
         checkUserStateLoading()
         FriendController.shared.fetchPending()
        
-        
     }
+    
     
         // MARK: - Authentication
     
@@ -54,10 +55,9 @@ class LoadingScreenVC: UIViewController {
 
                         FriendController.shared.fetchFriends { (success) in
                             if success {
-                            
+                                // Notification centre, let tray tableview know
                             }
                         }
-    
                     }
                 }
                 
@@ -68,9 +68,4 @@ class LoadingScreenVC: UIViewController {
             }
         })
     }
-    
-    
-        
-    
-    
 }

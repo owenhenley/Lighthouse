@@ -11,12 +11,11 @@ import CoreLocation
 import MapKit
 import SVProgressHUD
 
-class UserProfileTableVC: UITableViewController {
+class UserProfileVC: UIViewController {
     
         // MARK: - Outlets
     
     @IBOutlet weak var profilePicOutlet : UIImageView!
-    @IBOutlet weak var UsernameEdit     : UITextField!
     @IBOutlet weak var firstNameEdit    : UITextField!
     @IBOutlet weak var lastNameEdit     : UITextField!
     @IBOutlet weak var editButtonOutlet : UIButton!
@@ -52,25 +51,6 @@ class UserProfileTableVC: UITableViewController {
     }
     
     
-    // MARK: - Table view data source
-    //Commented for modata
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        // #warning Incomplete implementation, return the number of rows
-//        return UserController.shared.user?.pastLocations?.count ?? 0
-//    }
-//
-//
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "pastLocationCell", for: indexPath)
-//
-//        guard let pastLocation = UserController.shared.user?.pastLocations?[indexPath.row] else {return UITableViewCell()}
-//        cell.textLabel?.text = pastLocation.title
-//        cell.detailTextLabel?.text = String(pastLocation.coOrdinates)
-//
-//        return cell
-//    }
-    
-    
     
     func disableEditing(){
         
@@ -79,8 +59,7 @@ class UserProfileTableVC: UITableViewController {
         addImageOutlet.isHidden = true
         firstNameEdit.isEnabled = false
         lastNameEdit.isEnabled = false
-        UsernameEdit.isEnabled = false
-        cancelOutlet.isHidden = true
+//        cancelOutlet.isHidden = true
         addImageOutlet.isHidden = true
         
     }
@@ -91,18 +70,16 @@ class UserProfileTableVC: UITableViewController {
         addImageOutlet.isHidden = false
         firstNameEdit.isEnabled = true
         lastNameEdit.isEnabled = true
-        UsernameEdit.isEnabled = true
         cancelOutlet.isHidden = false
     }
     
     
     func updateViews(){
         guard let user = UserController.shared.user else {return}
-        UsernameEdit.text = user.fullName
         firstNameEdit.text = user.firstName
         lastNameEdit.text = user.lastName
         if user.profileImage == nil {
-            profilePicOutlet.image = #imageLiteral(resourceName: "personIconDisabled")
+            profilePicOutlet.image = #imageLiteral(resourceName: "defaultProfPic")
         } else {
             profilePicOutlet.image = user.profileImage
         }
@@ -116,7 +93,6 @@ class UserProfileTableVC: UITableViewController {
         } else {
             SVProgressHUD.show()
             guard let user = UserController.shared.user else {return}
-            user.fullName = UsernameEdit.text
             user.firstName = firstNameEdit.text
             user.lastName = lastNameEdit.text
             
@@ -156,13 +132,10 @@ class UserProfileTableVC: UITableViewController {
         }
         picker.dismiss(animated: true, completion: nil)
     }
-    
-    
-    
 }
 
 
-extension UserProfileTableVC: MKMapViewDelegate {
+extension UserProfileVC: MKMapViewDelegate {
     
     func startTrackingUserLocation() {
         profileMapView.showsUserLocation = true
@@ -177,7 +150,7 @@ extension UserProfileTableVC: MKMapViewDelegate {
     }
 }
 
-extension UserProfileTableVC: CLLocationManagerDelegate {
+extension UserProfileVC: CLLocationManagerDelegate {
     
     func centerMapOnAuthedUser() {
         if let location = locationManager.location?.coordinate {

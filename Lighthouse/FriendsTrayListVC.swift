@@ -8,46 +8,49 @@
 
 import UIKit
 
-class FriendsTrayListVC: UIViewController {
+class FriendsTrayListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     static let shared = FriendsTrayListVC()
     
-    @IBOutlet weak var friendsTableView: UITableView!
-    @IBOutlet weak var getStartedView: UIView!
+    @IBOutlet weak var friendsTableView : UITableView!
+    @IBOutlet weak var getStartedView   : UIView!
+    @IBOutlet weak var searchBar        : UISearchBar!
     
     
-        // MARK: - Variables
+    // MARK: - LifeCycle
     
-    // MOCK DATA
-//    var friendName = ["Jim Halpert", "Hugo Bean", "Lola Henley", "Pam Beasley", "Creed Bratton"]
-//    var friendLocation = ["J-Dawgs","Jimmy Johns", "Robins Nest", "Apollo", "Apple"]
-//    var friendImage = [UIImage(named: "Jim"), #imageLiteral(resourceName: "hugo"), #imageLiteral(resourceName: "lola"), #imageLiteral(resourceName: "pam"), #imageLiteral(resourceName: "creed")]
-    
-    
-        // MARK: - LifeCycle
-
     override func viewDidLoad() {
         super.viewDidLoad()
         view.translatesAutoresizingMaskIntoConstraints = false
         friendsTableView.delegate = self
         friendsTableView.dataSource = self
         getStartedView.isHidden = true
+        //        friendsTableView.isHidden = true
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTableView), name: .friendsTrayUpdated, object: nil)
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
+        super.viewWillAppear(animated)
         // If has friends, show get started + hide tableView, else show populated tableView.
+        friendsTableView.reloadData()
+        
+        if FriendController.shared.friends.count == 0 {
+            getStartedView.isHidden = false
+            friendsTableView.isHidden = true
+            searchBar.isHidden = true
+        } else if FriendController.shared.friends.count > 0 {
+            getStartedView.isHidden = true
+            friendsTableView.isHidden = false
+            searchBar.isHidden = false
+        }
     }
     
     
-        // MARK: - Actions
-    
-}
-
-
-extension FriendsTrayListVC: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return FriendController.shared.friends.count
+    // Reload tableview when friends list gets fetched or updated
+    @objc func reloadTableView() {
+        friendsTableView.reloadData()
     }
     
     //MARK: UITableViewDataSource
@@ -57,42 +60,34 @@ extension FriendsTrayListVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return FriendController.shared.friends.count
+    }
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as? FriendsListTrayCell
-        
-        
-        // If user had no friends, Hide TableView, show "Find Friends View"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "friendTrayCell", for: indexPath) as? FriendsListTrayCell
         
         let friend = FriendController.shared.friends[indexPath.row]
+        cell?.friendID = friend.friendID
         
-        cell?.friendNameLabel.text = friend.name
-//        cell?.friendLocationLabel.text = friend.
         if friend.image == nil {
             if friend.imageUrl == "No Profile Image" {
                 cell?.profileImage.image = UIImage(named: "defaultProfPic")
             } else {
-                fetchImageWithUrlString(urlString: friend.imageUrl) { (image) in
+                fetchImageWithUrlString(urlString: friend.imageUrl) { (profileImage) in
                     DispatchQueue.main.async {
-                        cell?.profileImage.image = image
-                        FriendController.shared.friends[indexPath.row].image = image
+                        cell?.profileImage.image = profileImage
+                        FriendController.shared.friends[indexPath.row].image = profileImage
                     }
                 }
             }
-        } else {
-            cell?.profileImage.image = friend.image
         }
         
-//        let friendRealName = friendName[indexPath.row]
-//        let FriendLocation = friendLocation[indexPath.row]
-//        let images = friendImage[indexPath.row]
-        
-//        cell?.profileImage.image = images
-//        cell?.friendNameLabel.text = friendRealName
-//        cell?.friendLocationLabel.text = FriendLocation
-        
+        cell?.friendNameLabel.text = friend.name
+        cell?.friendLocationLabel.text = "needs filling"
         
         return cell ?? UITableViewCell()
     }
-    
 }

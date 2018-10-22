@@ -28,6 +28,12 @@ class EventController {
         }
     }
     
+    var friendsTrayList: [Friend] = [] {
+        didSet {
+            NotificationCenter.default.post(name: .friendsTrayUpdated, object: nil)
+        }
+    }
+    
     
     func uploadEvent(event: Event, friendIDs: [String], completion: @escaping (Bool) -> Void){
         guard let uid = UID else {return}

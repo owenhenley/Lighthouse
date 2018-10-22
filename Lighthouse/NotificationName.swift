@@ -2,7 +2,7 @@
 //  NotificationName.swift
 //  Lighthouse
 //
-//  Created by Levi Linchenko on 18/10/2018.
+//  Created by Levi Linchenko & Owen Henley on 18/10/2018.
 //  Copyright © 2018 Lighthouse. All rights reserved.
 //
 
@@ -15,4 +15,5 @@ extension Notification.Name {
     static let signInTapped = Notification.Name("signInTapped")
     static let showTray = Notification.Name("showTray")
     static let eventsUpdated = Notification.Name("eventsUpdated")
+    static let friendsTrayUpdated = Notification.Name("friendsTrayUpdated")
 }
