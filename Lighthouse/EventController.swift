@@ -16,30 +16,33 @@ class EventController {
     
     static let shared = EventController()
     
-    var events: [Event] = []{
+    var events: [String:Event] = [:]{
         didSet{
             NotificationCenter.default.post(name: .eventsUpdated, object: nil)
-
         }
     }
     var ativeFriends: [String] = []{
         didSet{
-            fetchFriendsPins(friendIDs: ativeFriends)
+            fetchFriendsPins(friendIDs: self.ativeFriends)
+//            newActiveFriends = []
         }
     }
+    
+    var myEvent: Event?
+    
+    var invitedFriends: [String] = []
+//    var newActiveFriends: [String] = []
     
     
     func uploadEvent(event: Event, friendIDs: [String], completion: @escaping (Bool) -> Void){
         guard let uid = UID else {return}
-        let location     = GeoPoint(latitude : event.coordinates.latitude, longitude : event.coordinates.longitude)
+        let location     = GeoPoint(latitude : event.coordinate.latitude, longitude : event.coordinate.longitude)
         let user         = UserController.shared.user!
-        let firstName    = user.firstName ?? ""
-        let lastName     = user.lastName ?? ""
-        let name         = firstName + " " + lastName
+        let name         = user.fullName
         let profileImage = user.profileImageURL ?? "No Profile Image"
         FIRESTORE.collection(USER).document(uid).collection(EVENT).document(uid).setData([
             NAME              : name,
-            EVENT             : event.title,
+            EVENT             : event.eventTitle,
             PROFILE_IMAGE_URL : profileImage,
             GEO_POINT         : location,
             EVENT_VIBE        : event.vibe
@@ -54,8 +57,29 @@ class EventController {
         }
         for friendID in friendIDs {
             inviteFriend(friendID: friendID)
+            invitedFriends.append(friendID)
         }
-        
+        myEvent = event
+    }
+    
+    func deleteEvent(){
+        guard let uid = UID else {return}
+        if !invitedFriends.isEmpty {
+            FIRESTORE.collection(USER).document(uid).collection(EVENT).document(uid).collection(INVITES).getDocuments { (snapShot, error) in
+                guard let documents = snapShot?.documents else {return}
+                let friendIDs = documents.compactMap{$0[FRIEND_ID]} as! [String]
+                for friendID in friendIDs {
+                    FIRESTORE.collection(USER).document(friendID).collection(INVITES).document(uid).delete()
+                }
+                FIRESTORE.collection(USER).document(uid).collection(EVENT).document(uid).delete()
+            }
+        } else {
+            for friendID in invitedFriends {
+                FIRESTORE.collection(USER).document(friendID).collection(INVITES).document(uid).delete()
+            }
+            FIRESTORE.collection(USER).document(uid).collection(EVENT).document(uid).delete()
+        }
+        myEvent = nil
     }
     
     func inviteFriend(friendID: String){
@@ -78,6 +102,8 @@ class EventController {
             guard let documents = snapshot?.documents else {return}
             let friendIDS: [String] = documents.compactMap{$0[FRIEND_ID]} as! [String]
             self.ativeFriends = friendIDS
+            
+            
         }
     }
     
@@ -95,18 +121,18 @@ class EventController {
                 
                 let location   = CLLocationCoordinate2D(latitude: geoPoint.latitude, longitude: geoPoint.longitude)
                 
-                var event = Event(friendID: friendID, name: name, profileImage: nil, profileImageUrl: profileImageURL, title: title, coordinates: location, streetAdrees: "", invited: [], vibe: vibe)
-                FIRESTORE.collection(USER).document(friendID).collection(EVENT).document(friendID).collection(USER_ID).addSnapshotListener({ (snapshot, error) in
+                let event = Event(friendID: friendID, name: name, profileImage: nil, profileImageUrl: profileImageURL, title: title, coordinates: location, streetAddress: "", invited: [:], vibe: vibe, eventTitle: title)
+                FIRESTORE.collection(USER).document(friendID).collection(EVENT).document(friendID).collection(INVITES).addSnapshotListener({ (snapshot, error) in
                     guard let documents = snapshot?.documents else {return}
                     let friendIDS: [String] = documents.compactMap{$0[FRIEND_ID]} as! [String]
                     
                     for friendID in friendIDS {
                         FriendController.shared.fetchFriend(friendID: friendID, completion: { (friend) in
-                            event.invited.append(friend)
+                            event.invited.updateValue(friend, forKey: friendID)
                         })
                         
                     }
-                    self.events.append(event)
+                    self.events.updateValue(event, forKey: friendID)
                 })
             })
         }

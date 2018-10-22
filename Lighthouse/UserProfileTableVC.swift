@@ -116,7 +116,7 @@ class UserProfileTableVC: UITableViewController {
         } else {
             SVProgressHUD.show()
             guard let user = UserController.shared.user else {return}
-            user.fullName = UsernameEdit.text
+//            user.fullName = UsernameEdit.text
             user.firstName = firstNameEdit.text
             user.lastName = lastNameEdit.text
             

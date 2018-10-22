@@ -11,14 +11,18 @@ import UIKit
 class User {
     
     let userID          : String
-    var fullName        : String?
+    var firstName       : String?
+    var lastName        : String?
+    var fullName        : String{
+        let firstName = self.firstName ?? ""
+        let lastName = self.lastName ?? ""
+        return firstName + " " + lastName
+    }
     var email           : String?
     let friends         : [User] = []
     var profileImageURL : String?
     var profileImage    : UIImage?
     var currentLocation : Event?
-    var firstName       : String?
-    var lastName        : String?
     var favLocation1    : String?
     var favLocation2    : String?
     var favLocation3    : String?
