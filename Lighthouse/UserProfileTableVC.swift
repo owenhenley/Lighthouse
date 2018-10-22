@@ -20,9 +20,6 @@ class UserProfileTableVC: UITableViewController {
     @IBOutlet weak var firstNameEdit    : UITextField!
     @IBOutlet weak var lastNameEdit     : UITextField!
     @IBOutlet weak var editButtonOutlet : UIButton!
-    @IBOutlet weak var favLocation1Text : UITextField!
-    @IBOutlet weak var favLocation2Text : UITextField!
-    @IBOutlet weak var favLocation3Text : UITextField!
     @IBOutlet weak var addImageOutlet   : UIButton!
     @IBOutlet weak var cancelOutlet     : UIButton!
     @IBOutlet weak var profileMapView   : MKMapView!
@@ -77,9 +74,6 @@ class UserProfileTableVC: UITableViewController {
     
     func disableEditing(){
         
-        favLocation1Text.isEnabled = false
-        favLocation2Text.isEnabled = false
-        favLocation3Text.isEnabled = false
         editButtonOutlet.setTitle("Edit", for: .normal)
         addImageOutlet.isEnabled = false
         addImageOutlet.isHidden = true
@@ -92,9 +86,6 @@ class UserProfileTableVC: UITableViewController {
     }
     
     func enableEditing(){
-        favLocation1Text.isEnabled = true
-        favLocation2Text.isEnabled = true
-        favLocation3Text.isEnabled = true
         editButtonOutlet.setTitle("Save", for: .normal)
         addImageOutlet.isEnabled = true
         addImageOutlet.isHidden = false
@@ -102,17 +93,14 @@ class UserProfileTableVC: UITableViewController {
         lastNameEdit.isEnabled = true
         UsernameEdit.isEnabled = true
         cancelOutlet.isHidden = false
-        
     }
+    
     
     func updateViews(){
         guard let user = UserController.shared.user else {return}
         UsernameEdit.text = user.fullName
         firstNameEdit.text = user.firstName
         lastNameEdit.text = user.lastName
-        favLocation1Text.text = user.favLocation1
-        favLocation2Text.text = user.favLocation2
-        favLocation3Text.text = user.favLocation3
         if user.profileImage == nil {
             profilePicOutlet.image = #imageLiteral(resourceName: "personIconDisabled")
         } else {
@@ -131,9 +119,6 @@ class UserProfileTableVC: UITableViewController {
             user.fullName = UsernameEdit.text
             user.firstName = firstNameEdit.text
             user.lastName = lastNameEdit.text
-            user.favLocation1 = favLocation1Text.text
-            user.favLocation2 = favLocation2Text.text
-            user.favLocation3 = favLocation3Text.text
             
             if profilePicOutlet.image == UIImage(named: "defaultProfPic") {
                 user.profileImage = nil

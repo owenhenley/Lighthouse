@@ -14,6 +14,8 @@ import SVProgressHUD
 
 class MapViewVC: CustomSearchFieldVC {
     
+    static let shared = MapViewVC()
+    
     // MARK: - Properties
     
     var locationManager = CLLocationManager()
@@ -36,9 +38,7 @@ class MapViewVC: CustomSearchFieldVC {
     @IBOutlet weak var searchView           : UIView!
     @IBOutlet weak var trayContainer        : UIView!
     @IBOutlet weak var trayHeightConstraint : NSLayoutConstraint!
-    @IBOutlet weak var dropPinButtonView    : UIView!
-    @IBOutlet weak var droppedPinButtonView : UIView!
-    
+    @IBOutlet weak var dropPinButton        : UIButton!
     
     
     // MARK: - LifeCycle
@@ -218,7 +218,7 @@ class MapViewVC: CustomSearchFieldVC {
         handle = AUTH.addStateDidChangeListener({ (auth, user) in
             if user != nil {
                 
-                self.dropPinButtonView.isHidden = false
+                self.dropPinButton.isHidden = false
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                     self.centerMapOnAuthedUser {
                     }

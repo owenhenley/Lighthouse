@@ -15,11 +15,11 @@
             <objects>
                 <tableViewController id="IWC-ei-1TJ" customClass="UserProfileTableVC" customModule="Lighthouse" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="zKz-jG-jza">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" misplaced="YES" id="fN0-ma-zwF">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="553"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="fN0-ma-zwF">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="420"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="fxX-5u-h18">
@@ -28,73 +28,6 @@
                                         <constraint firstAttribute="height" constant="200" id="eor-Hb-B4k"/>
                                     </constraints>
                                 </mapView>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="EcZ-tH-k9h">
-                                    <rect key="frame" x="24" y="304.5" width="318.5" height="81"/>
-                                    <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="hpq-GO-R6k">
-                                            <rect key="frame" x="0.0" y="0.0" width="318.5" height="25"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vNo-Bo-8vm">
-                                                    <rect key="frame" x="0.0" y="0.0" width="15.5" height="25"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
-                                                    <color key="textColor" red="0.41953593490000002" green="0.41176351900000002" blue="0.4117648304" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="The Office" placeholder="Favorite Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YYn-D0-zcc">
-                                                    <rect key="frame" x="18.5" y="0.0" width="300" height="25"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="300" id="eXb-gH-WfL"/>
-                                                    </constraints>
-                                                    <color key="textColor" red="0.41953593490000002" green="0.41176351900000002" blue="0.4117648304" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
-                                            </subviews>
-                                        </stackView>
-                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="GLa-uO-uSd">
-                                            <rect key="frame" x="0.0" y="28" width="318.5" height="25"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IrJ-nw-r5O">
-                                                    <rect key="frame" x="0.0" y="0.0" width="15.5" height="25"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
-                                                    <color key="textColor" red="0.41953593490000002" green="0.41176351900000002" blue="0.4117648304" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Sandals Jamaica" placeholder="Favorite Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oJ0-Y0-HJM">
-                                                    <rect key="frame" x="18.5" y="0.0" width="300" height="25"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="300" id="QgO-gZ-hvR"/>
-                                                    </constraints>
-                                                    <color key="textColor" red="0.41953593490000002" green="0.41176351900000002" blue="0.4117648304" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
-                                            </subviews>
-                                            <viewLayoutGuide key="safeArea" id="oMA-ze-hhf"/>
-                                        </stackView>
-                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="c0V-kZ-pQw">
-                                            <rect key="frame" x="0.0" y="56" width="318.5" height="25"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E0M-xc-uFO">
-                                                    <rect key="frame" x="0.0" y="0.0" width="15.5" height="25"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
-                                                    <color key="textColor" red="0.41953593490000002" green="0.41176351900000002" blue="0.4117648304" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Chillis" placeholder="Favorite Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D2v-1d-T5b">
-                                                    <rect key="frame" x="18.5" y="0.0" width="300" height="25"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="300" id="ufb-MX-xky"/>
-                                                    </constraints>
-                                                    <color key="textColor" red="0.41953593490000002" green="0.41176351900000002" blue="0.4117648304" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
-                                            </subviews>
-                                            <viewLayoutGuide key="safeArea" id="LJM-g9-B6j"/>
-                                        </stackView>
-                                    </subviews>
-                                </stackView>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="prisonMike" translatesAutoresizingMaskIntoConstraints="NO" id="0uo-FG-U0z">
                                     <rect key="frame" x="8" y="109.5" width="130" height="130"/>
                                     <constraints>
@@ -178,18 +111,6 @@
                                         <constraint firstAttribute="trailing" secondItem="N7n-TF-BZY" secondAttribute="trailing" id="Sk4-rZ-c0J"/>
                                     </constraints>
                                 </stackView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favorite Locations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hK2-48-scc">
-                                    <rect key="frame" x="16" y="263.5" width="195.5" height="33"/>
-                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="24"/>
-                                    <color key="textColor" red="0.41953593490000002" green="0.41176351900000002" blue="0.4117648304" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where I've Been" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wmc-9I-3dZ">
-                                    <rect key="frame" x="16" y="409.5" width="176.5" height="33"/>
-                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="24"/>
-                                    <color key="textColor" red="0.41953593490000002" green="0.41176351900000002" blue="0.4117648304" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
                                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6HA-uZ-rhF">
                                     <rect key="frame" x="8" y="109.5" width="130" height="130"/>
                                     <state key="normal" title="+ Add Image"/>
@@ -205,165 +126,31 @@
                                 <constraint firstItem="6HA-uZ-rhF" firstAttribute="centerX" secondItem="0uo-FG-U0z" secondAttribute="centerX" id="8Y6-Pw-e7g"/>
                                 <constraint firstItem="Ndw-Kk-XI2" firstAttribute="trailing" secondItem="HiA-x7-P4Z" secondAttribute="trailing" constant="8" id="Csg-eq-ncM"/>
                                 <constraint firstItem="fxX-5u-h18" firstAttribute="top" secondItem="fN0-ma-zwF" secondAttribute="top" constant="-22" id="HbA-mV-FUS"/>
-                                <constraint firstItem="hK2-48-scc" firstAttribute="leading" secondItem="Ndw-Kk-XI2" secondAttribute="leading" constant="16" id="Mk6-Az-jlS"/>
                                 <constraint firstItem="fxX-5u-h18" firstAttribute="leading" secondItem="Ndw-Kk-XI2" secondAttribute="leading" id="MsZ-AG-RTA"/>
                                 <constraint firstItem="6HA-uZ-rhF" firstAttribute="width" secondItem="0uo-FG-U0z" secondAttribute="width" id="MwS-VA-QAg"/>
-                                <constraint firstItem="Wmc-9I-3dZ" firstAttribute="leading" secondItem="Ndw-Kk-XI2" secondAttribute="leading" constant="16" id="O3v-gk-uQR"/>
-                                <constraint firstItem="Wmc-9I-3dZ" firstAttribute="top" secondItem="EcZ-tH-k9h" secondAttribute="bottom" constant="24" id="P8z-Ym-aUT"/>
                                 <constraint firstItem="6HA-uZ-rhF" firstAttribute="centerY" secondItem="0uo-FG-U0z" secondAttribute="centerY" id="Rdy-UP-0O6"/>
                                 <constraint firstItem="fxX-5u-h18" firstAttribute="baseline" secondItem="HiA-x7-P4Z" secondAttribute="firstBaseline" constant="15" id="W9a-Ta-Gin"/>
-                                <constraint firstItem="EcZ-tH-k9h" firstAttribute="top" secondItem="hK2-48-scc" secondAttribute="bottom" constant="8" id="XQq-Su-cTA"/>
                                 <constraint firstItem="0uo-FG-U0z" firstAttribute="leading" secondItem="Ndw-Kk-XI2" secondAttribute="leading" constant="8" id="Zh1-q4-9hc"/>
-                                <constraint firstItem="EcZ-tH-k9h" firstAttribute="leading" secondItem="Ndw-Kk-XI2" secondAttribute="leading" constant="24" id="f7n-18-2Ma"/>
                                 <constraint firstItem="lLm-Yb-qch" firstAttribute="top" secondItem="Ndw-Kk-XI2" secondAttribute="top" id="fqf-hk-YiG"/>
                                 <constraint firstItem="fxX-5u-h18" firstAttribute="baseline" secondItem="0uo-FG-U0z" secondAttribute="firstBaseline" multiplier="1.55" constant="8" symbolType="layoutAnchor" id="h8q-hn-92s"/>
-                                <constraint firstItem="hK2-48-scc" firstAttribute="top" secondItem="0uo-FG-U0z" secondAttribute="bottom" constant="24" id="oR8-yM-yvw"/>
                                 <constraint firstItem="fxX-5u-h18" firstAttribute="trailing" secondItem="Ndw-Kk-XI2" secondAttribute="trailing" id="rJY-bq-SGK"/>
                                 <constraint firstItem="6HA-uZ-rhF" firstAttribute="height" secondItem="0uo-FG-U0z" secondAttribute="height" id="vxM-aP-hmN"/>
                                 <constraint firstAttribute="trailing" secondItem="lLm-Yb-qch" secondAttribute="trailing" constant="16" id="xJt-yW-pU0"/>
                             </constraints>
                             <viewLayoutGuide key="safeArea" id="Ndw-Kk-XI2"/>
                         </view>
-                        <sections>
-                            <tableViewSection id="Sgn-jN-bPJ">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="pastLocationCell" textLabel="lqz-2I-Ubf" rowHeight="64" style="IBUITableViewCellStyleDefault" id="M3i-wy-mDx">
-                                        <rect key="frame" x="0.0" y="553" width="375" height="64"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="M3i-wy-mDx" id="5Nf-YA-6TA">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Jans" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lqz-2I-Ubf">
-                                                    <rect key="frame" x="16" y="0.0" width="343" height="64"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="pastLocationCell" textLabel="NHD-Jy-Lrx" style="IBUITableViewCellStyleDefault" id="wWi-dn-FBh">
-                                        <rect key="frame" x="0.0" y="617" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wWi-dn-FBh" id="0AO-3M-ERP">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="The Office" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NHD-Jy-Lrx">
-                                                    <rect key="frame" x="16" y="0.0" width="343" height="44"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="pastLocationCell" textLabel="StZ-MY-17C" style="IBUITableViewCellStyleDefault" id="8hN-Kq-tBQ">
-                                        <rect key="frame" x="0.0" y="661" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8hN-Kq-tBQ" id="xH9-dv-JOG">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Chillis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="StZ-MY-17C">
-                                                    <rect key="frame" x="16" y="0.0" width="343" height="44"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="pastLocationCell" textLabel="Xbb-bR-bbc" style="IBUITableViewCellStyleDefault" id="UiW-fc-ktf">
-                                        <rect key="frame" x="0.0" y="705" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UiW-fc-ktf" id="NBY-sp-FuW">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="The Office" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xbb-bR-bbc">
-                                                    <rect key="frame" x="16" y="0.0" width="343" height="44"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="pastLocationCell" textLabel="oSU-vJ-0H3" style="IBUITableViewCellStyleDefault" id="Meu-AY-M63">
-                                        <rect key="frame" x="0.0" y="749" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Meu-AY-M63" id="DZ0-Vd-ok2">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="The Condo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oSU-vJ-0H3">
-                                                    <rect key="frame" x="16" y="0.0" width="343" height="44"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="pastLocationCell" textLabel="AYk-FE-DdC" style="IBUITableViewCellStyleDefault" id="4UI-U0-cdB">
-                                        <rect key="frame" x="0.0" y="793" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4UI-U0-cdB" id="tf4-s4-VDz">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="The Office" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AYk-FE-DdC">
-                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="pastLocationCell" textLabel="dSk-Ta-q2X" style="IBUITableViewCellStyleDefault" id="T9A-AF-Wcu">
-                                        <rect key="frame" x="0.0" y="837" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="T9A-AF-Wcu" id="yvM-na-rrY">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Jans" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dSk-Ta-q2X">
-                                                    <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="IWC-ei-1TJ" id="sO3-zo-dSu"/>
                             <outlet property="delegate" destination="IWC-ei-1TJ" id="v2e-st-iiJ"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Y8d-0C-u7w"/>
-                    <size key="freeformSize" width="375" height="800"/>
                     <connections>
                         <outlet property="UsernameEdit" destination="N7n-TF-BZY" id="CG3-Ux-27G"/>
                         <outlet property="addImageOutlet" destination="6HA-uZ-rhF" id="J5b-wy-emc"/>
                         <outlet property="cancelOutlet" destination="r5o-NN-9NS" id="4nN-E3-878"/>
                         <outlet property="editButtonOutlet" destination="8N3-Lt-1vi" id="ZGA-D0-Ugf"/>
-                        <outlet property="favLocation1Text" destination="YYn-D0-zcc" id="oNb-ea-JrX"/>
-                        <outlet property="favLocation2Text" destination="oJ0-Y0-HJM" id="grv-0j-oBV"/>
-                        <outlet property="favLocation3Text" destination="D2v-1d-T5b" id="SOU-38-6tg"/>
                         <outlet property="firstNameEdit" destination="7u6-Zz-zxz" id="CG8-x5-J22"/>
                         <outlet property="lastNameEdit" destination="bzT-et-sHO" id="UL2-FM-Sea"/>
                         <outlet property="profileMapView" destination="fxX-5u-h18" id="UHN-y3-Ki7"/>
