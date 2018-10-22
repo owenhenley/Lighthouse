@@ -372,11 +372,15 @@
 				3EF0A833217A180E00C6541D /* EditPinPopup.storyboard */,
 				3EF0A831217A17F200C6541D /* NewPinPopUp.storyboard */,
 				3EFDC043217919C10080C963 /* SelectFriends.storyboard */,
+				3E28E8A7216D1E2F00E21331 /* MapView.storyboard */,
+				3EEC750B216EC0FF009572FB /* UserProfile.storyboard */,
+				3E28E8A9216D1E7000E21331 /* FriendsList.storyboard */,
 				3ECDF76C21716A1C00C46C8E /* Launch */,
 				3ECDF76D21716A3E00C46C8E /* Tab Bar */,
 				3E7B2B6B216D8EC600E4F0F1 /* User */,
 				3E5A1DE22170F7D300170A9B /* Settings */,
 				3EF0A837217A3E4900C6541D /* CustomConfirmationPopup.storyboard */,
+				7E2390C821764D2B00D27CCB /* FriendCell.xib */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -446,10 +450,6 @@
 			isa = PBXGroup;
 			children = (
 				3E28E8A1216D108500E21331 /* TabBarController.storyboard */,
-				3E28E8A7216D1E2F00E21331 /* MapView.storyboard */,
-				3EEC750B216EC0FF009572FB /* UserProfile.storyboard */,
-				3E28E8A9216D1E7000E21331 /* FriendsList.storyboard */,
-				7E2390C821764D2B00D27CCB /* FriendCell.xib */,
 			);
 			name = "Tab Bar";
 			sourceTree = "<group>";
