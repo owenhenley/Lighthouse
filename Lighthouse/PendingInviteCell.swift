@@ -28,12 +28,16 @@ class PendingInviteCell: UITableViewCell {
     
     @IBAction func acceptTapped(_ sender: Any) {
         delegate?.pendingDidChange()
-        
     }
     
     @IBAction func deleteTapped(_ sender: Any) {
         delegate?.removeRequestTapped()
-        
+    }
+    
+    
+    func updateViews() {
+        // if accepted, remove and reload data
+        // if removed, remove and reload data
     }
     
 }
