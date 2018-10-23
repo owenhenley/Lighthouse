@@ -37,7 +37,6 @@ class FriendsListSuperView: CustomSearchFieldVC{
    
     
     
-    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchText = searchBar.text else {return}
         
