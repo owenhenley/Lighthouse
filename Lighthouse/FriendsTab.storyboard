@@ -224,8 +224,8 @@ or invite them to the app!</string>
                                 <rect key="frame" x="0.0" y="132" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Added Me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NRi-LP-h8b">
-                                <rect key="frame" x="24" y="240" width="72" height="19"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Added Me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NRi-LP-h8b">
+                                <rect key="frame" x="24" y="239" width="72" height="19"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -235,6 +235,7 @@ or invite them to the app!</string>
                         <constraints>
                             <constraint firstItem="UYb-Y8-YvQ" firstAttribute="top" secondItem="ppA-MC-lvO" secondAttribute="bottom" constant="36" id="0ei-qR-Sua"/>
                             <constraint firstAttribute="trailing" secondItem="ouM-ip-7VC" secondAttribute="trailing" id="0ka-kw-osq"/>
+                            <constraint firstItem="UYb-Y8-YvQ" firstAttribute="top" secondItem="NRi-LP-h8b" secondAttribute="bottom" constant="8" id="78u-cl-aWg"/>
                             <constraint firstItem="ouM-ip-7VC" firstAttribute="top" secondItem="b40-7Y-LJt" secondAttribute="top" id="8td-Pd-1qL"/>
                             <constraint firstItem="ppA-MC-lvO" firstAttribute="centerX" secondItem="b40-7Y-LJt" secondAttribute="centerX" id="9Aw-fe-VQm"/>
                             <constraint firstItem="UYb-Y8-YvQ" firstAttribute="bottom" secondItem="M88-dd-oSd" secondAttribute="bottom" id="Egh-bZ-hhg"/>

@@ -13,13 +13,15 @@ class AddFriendsVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     
+    var friend: Friend?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
         
-
-        // Do any additional setup after loading the view.
+        NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .resultsUpdated, object: nil)
     }
     
     @IBAction func backTapped(_ sender: Any) {
@@ -37,6 +39,38 @@ class AddFriendsVC: UIViewController {
         shareAlert.popoverPresentationController?.sourceView = sender
         present(shareAlert, animated: true, completion: nil)
     }
+    
+    
+    @objc func updateViews(){
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
+    func friendRequestTapped() {
+        
+        guard let friendID = friend?.friendID else { return }
+        
+//        switch friend?.request {
+//        case false:
+//            FriendController.shared.acceptRequest(friend: friend)
+//            FriendController.shared.pendingReuests.remove(at: indexPath.row)
+//            tableView.reloadData()
+//
+//
+//        case true:
+//            FriendController.shared.cancelRequest(friendID: friendID)
+//            sender.buttonOutlet.setTitle("Add Friend", for: .normal)
+//            friend?.request = nil
+//
+//        default:
+//            FriendController.shared.requestFriend(friendID: friendID)
+//            sender.buttonOutlet.setTitle("Pending", for: .normal)
+//            friend?.request = true
+//
+        }
+//    }
+    
 }
 
 extension AddFriendsVC: UITableViewDataSource, UITableViewDelegate {
@@ -46,14 +80,20 @@ extension AddFriendsVC: UITableViewDataSource, UITableViewDelegate {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return FriendController.shared.pendingReuests.count
+        
+        if FriendController.shared.results.isEmpty {
+            return FriendController.shared.pendingReuests.count
+        } else {
+            return FriendController.shared.results.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "<#CellID#>", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "friendPendingCell", for: indexPath) as? PendingPendingCell
         
-        return cell
+        
+        return cell ?? UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
