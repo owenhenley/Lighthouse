@@ -60,6 +60,7 @@
 		3EEA6ED7217E5ED0009DD278 /* FriendsTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EEA6ED6217E5ED0009DD278 /* FriendsTab.storyboard */; };
 		3EEA6ED9217E61AF009DD278 /* FriendsTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEA6ED8217E61AF009DD278 /* FriendsTabVC.swift */; };
 		3EEA6EDB217E61BD009DD278 /* AddFriendsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEA6EDA217E61BD009DD278 /* AddFriendsVC.swift */; };
+		3EEA6EE1217EB433009DD278 /* PendingPendingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEA6EE0217EB433009DD278 /* PendingPendingCell.swift */; };
 		3EEC7504216EBAB8009572FB /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEC7503216EBAB8009572FB /* ForgotPasswordVC.swift */; };
 		3EEC7506216EBAE6009572FB /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEC7505216EBAE6009572FB /* SignInVC.swift */; };
 		3EEC750A216EBF03009572FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EEC7509216EBF03009572FB /* Assets.xcassets */; };
@@ -146,6 +147,7 @@
 		3EEA6ED6217E5ED0009DD278 /* FriendsTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FriendsTab.storyboard; sourceTree = "<group>"; };
 		3EEA6ED8217E61AF009DD278 /* FriendsTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTabVC.swift; sourceTree = "<group>"; };
 		3EEA6EDA217E61BD009DD278 /* AddFriendsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendsVC.swift; sourceTree = "<group>"; };
+		3EEA6EE0217EB433009DD278 /* PendingPendingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingPendingCell.swift; sourceTree = "<group>"; };
 		3EEC7503216EBAB8009572FB /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
 		3EEC7505216EBAE6009572FB /* SignInVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
 		3EEC7509216EBF03009572FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -454,6 +456,7 @@
 			children = (
 				3EEA6ED8217E61AF009DD278 /* FriendsTabVC.swift */,
 				3EEA6EDA217E61BD009DD278 /* AddFriendsVC.swift */,
+				3EEA6EE0217EB433009DD278 /* PendingPendingCell.swift */,
 				3EEA6EDD217E61D7009DD278 /* Old */,
 			);
 			name = "Friends Tab";
@@ -752,6 +755,7 @@
 				3EA99153216BDF1B0001F09D /* User.swift in Sources */,
 				3E3694A4217C193F0070D2EB /* PinDetailsVC.swift in Sources */,
 				3E32AEEE216D4F7300C889DF /* SignUpVC.swift in Sources */,
+				3EEA6EE1217EB433009DD278 /* PendingPendingCell.swift in Sources */,
 				7EEF84A9216E6DAF00558093 /* UserProfileVC.swift in Sources */,
 				7E8EC5B82171A84F00B0275A /* GroupTVC.swift in Sources */,
 				7E8EC5BA2171A86200B0275A /* FriendsTVC.swift in Sources */,
