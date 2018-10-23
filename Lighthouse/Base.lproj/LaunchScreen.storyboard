@@ -18,57 +18,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mYf-z9-Vka">
-                                <rect key="frame" x="136.5" y="492" width="102" height="45"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find the party." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rUI-uX-kMQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="102" height="18.5"/>
-                                        <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="16"/>
-                                        <color key="textColor" red="0.8552970290184021" green="0.48171567916870117" blue="0.18811792135238647" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Be the party." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b2r-e9-sGv">
-                                        <rect key="frame" x="6" y="26.5" width="90.5" height="18.5"/>
-                                        <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="16"/>
-                                        <color key="textColor" red="0.85529702900000004" green="0.48171567920000002" blue="0.1881179214" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lighthouseTitle" translatesAutoresizingMaskIntoConstraints="NO" id="jdj-vX-K6P">
-                                <rect key="frame" x="65.5" y="372" width="244" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="GPp-RR-ZZ6"/>
-                                    <constraint firstAttribute="width" constant="244" id="foQ-nc-AR3"/>
-                                </constraints>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Orange Logo 144px" translatesAutoresizingMaskIntoConstraints="NO" id="72W-2w-OWi">
-                                <rect key="frame" x="115.5" y="204" width="144" height="144"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoOrange144px" translatesAutoresizingMaskIntoConstraints="NO" id="72W-2w-OWi">
+                                <rect key="frame" x="115.5" y="184" width="144" height="144"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="144" id="2i6-jW-MzT"/>
                                     <constraint firstAttribute="height" constant="144" id="ReN-i0-YeM"/>
                                 </constraints>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lighthouseTitle" translatesAutoresizingMaskIntoConstraints="NO" id="jdj-vX-K6P">
+                                <rect key="frame" x="65.5" y="352" width="244" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="GPp-RR-ZZ6"/>
+                                    <constraint firstAttribute="width" constant="244" id="foQ-nc-AR3"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="jdj-vX-K6P" firstAttribute="top" secondItem="72W-2w-OWi" secondAttribute="bottom" constant="24" id="1Gc-cd-fYl"/>
-                            <constraint firstItem="mYf-z9-Vka" firstAttribute="top" secondItem="jdj-vX-K6P" secondAttribute="bottom" constant="72" id="1yS-kH-aHI"/>
-                            <constraint firstItem="72W-2w-OWi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="184" id="cKU-20-lLo"/>
-                            <constraint firstItem="mYf-z9-Vka" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="obu-Be-bxJ"/>
-                            <constraint firstItem="72W-2w-OWi" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="uFR-Cj-K3B"/>
-                            <constraint firstItem="jdj-vX-K6P" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="xe4-JD-wF4"/>
+                            <constraint firstItem="jdj-vX-K6P" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="4nf-Oo-vYW"/>
+                            <constraint firstItem="72W-2w-OWi" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" constant="184" id="VRW-f7-qQD"/>
+                            <constraint firstItem="72W-2w-OWi" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="gnC-oQ-C4r"/>
+                            <constraint firstItem="jdj-vX-K6P" firstAttribute="top" secondItem="72W-2w-OWi" secondAttribute="bottom" constant="24" id="ybw-Ik-Sdl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-218" y="392"/>
+            <point key="canvasLocation" x="-218.40000000000001" y="391.75412293853077"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Orange Logo 144px" width="144" height="144"/>
         <image name="lighthouseTitle" width="643" height="108"/>
+        <image name="logoOrange144px" width="144" height="144"/>
     </resources>
 </document>
