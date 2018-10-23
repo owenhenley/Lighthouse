@@ -38,25 +38,25 @@ class UserController {
         }
     }
     
-    func createUser(username: String, email: String, password: String, completion: @escaping (_ success: Bool) ->Void){
+    func createUser(name: String, email: String, password: String, completion: @escaping (_ success: Bool) ->Void){
         AUTH.createUser(withEmail: email, password: password) { (result, error) in
             if let error = error {
                 print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
                 completion(false)
                 return
             }
+            let splitName = name.components(separatedBy: " ")
+            let firstName = splitName.dropLast().joined(separator: " ")
+            let lastName = splitName.last
             
             if let result = result {
                 
                 FIRESTORE.collection(USER).document(result.user.uid).setData([
                     USER_ID           : result.user.uid,
-                    USERNAME          : username,
+                    NAME              : name,
                     EMAIL             : email,
-                    FIRST_NAME        : "",
-                    LAST_NAME         : "",
-                    FAV_LOCATION1     : "",
-                    FAV_LOCATION2     : "",
-                    FAV_LOCATION3     : "",
+                    FIRST_NAME        : firstName,
+                    LAST_NAME         : lastName ?? "",
                     PROFILE_IMAGE_URL : "No Profile Image",
                     
                     //PAST_LOCATIONS
@@ -68,7 +68,7 @@ class UserController {
                         return
                     } else {
                         completion(true)
-                        let user = User(userID: result.user.uid, username: username, email: email)
+                        let user = User(userID: result.user.uid, name: name, email: email)
                         self.user = user
                     }
                 }
@@ -164,21 +164,15 @@ class UserController {
                 return
             }
             guard let data = snapshot?.data() else {completion(false); return}
-            if let username              = data[USERNAME] as? String,
+            if let name                  = data[NAME] as? String,
                let email                 = data[EMAIL] as? String,
                let profileImageURLString = data[PROFILE_IMAGE_URL] as? String,
                let userID                = data[USER_ID] as? String,
                let firstname             = data[FIRST_NAME] as? String,
-               let lastname              = data[LAST_NAME] as? String,
-               let favLocation1          = data[FAV_LOCATION1] as? String,
-               let favLocation2          = data[FAV_LOCATION2] as? String,
-               let favLocation3          = data[FAV_LOCATION3] as? String {
-               let user                  = User(userID : userID, username : username, email : email)
+               let lastname              = data[LAST_NAME] as? String {
+               let user                 = User(userID : userID, name : name, email : email)
                user.firstName            = firstname
                user.lastName             = lastname
-               user.favLocation1         = favLocation1
-               user.favLocation2         = favLocation2
-               user.favLocation3         = favLocation3
                user.profileImageURL      = profileImageURLString
                 
                 if let profileImageURL = URL(string: profileImageURLString) {

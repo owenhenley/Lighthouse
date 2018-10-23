@@ -10,12 +10,12 @@ import UIKit
 
 struct Friend: Equatable {
     static func == (lhs: Friend, rhs: Friend) -> Bool {
-        return lhs.username == rhs.username
+        return lhs.name == rhs.name
     }
     
     
     
-    let username : String
+//    let username : String
     var image    : UIImage?
     let imageUrl : String
     let friendID : String

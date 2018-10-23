@@ -61,7 +61,7 @@ class FriendsTVC: UITableViewController, RequestTableViewCellDelegate {
         let friend = FriendController.shared.friends[indexPath.row]
         self.indexPath = indexPath
 
-        cell?.titleOutlet.text = friend.username
+        cell?.titleOutlet.text = friend.name
 
         if friend.imageUrl == "No Profile Image" {
             cell?.imageOutlet.isHidden = true

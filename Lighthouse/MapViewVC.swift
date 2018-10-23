@@ -123,7 +123,6 @@ class MapViewVC: CustomSearchFieldVC {
             self.pinCoordinates = self.mainMapView.centerCoordinate
             let currentLocationPinAnnotation: MKPointAnnotation = MKPointAnnotation()
             currentLocationPinAnnotation.coordinate = self.mainMapView.centerCoordinate
-            
             self.mainMapView.addAnnotation(currentLocationPinAnnotation)
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.65) {
                 self.performSegue(withIdentifier: "toNewPinVC", sender: self)

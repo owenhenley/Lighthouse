@@ -104,7 +104,7 @@ class FriendController {
     
     func searchFriends(text: String, completion: @escaping (_ success: Bool) -> Void){
         self.results = []
-        FIRESTORE.collection(USER).whereField(USERNAME, isEqualTo: text).limit(to: 15).getDocuments { (snapShotBlock, error) in
+        FIRESTORE.collection(USER).whereField(NAME, isEqualTo: text).limit(to: 15).getDocuments { (snapShotBlock, error) in
             if let error = error {
                 print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
                 completion (false)
@@ -122,7 +122,7 @@ class FriendController {
                 let name      = firstName + " " + lastName
                 
                 self.fetchRequest(friendID: friendID, completion: { (request) -> Void in
-                    let friend = Friend(username: username, image: nil, imageUrl: urlString, friendID: friendID, request: request, name: name, event: nil)
+                    let friend = Friend(image: nil, imageUrl: urlString, friendID: friendID, request: request, name: name, event: nil)
                     self.results.append(friend)
                 })
                 
@@ -166,13 +166,13 @@ class FriendController {
     func fetchFriend(friendID: String, completion: @escaping (_ success: Friend)->Void){
         FIRESTORE.collection(USER).document(friendID).getDocument(completion: { (user, error) in
             guard let user = user else {return}
-            let username   = user[USERNAME] as! String
+//            let username   = user[USERNAME] as! String
             let urlString  = user[PROFILE_IMAGE_URL] as! String
             let friendID   = user[USER_ID] as! String
             let firstName  = user[FIRST_NAME] as! String
             let lastName   = user[LAST_NAME] as! String
             let name       = firstName + " " + lastName
-            let friend     = Friend(username : username, image : nil, imageUrl : urlString, friendID : friendID, request : true, name : name, event : nil)
+            let friend     = Friend(image : nil, imageUrl : urlString, friendID : friendID, request : true, name : name, event : nil)
             completion(friend)
             
         })
