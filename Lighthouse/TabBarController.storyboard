@@ -39,10 +39,10 @@
             </objects>
             <point key="canvasLocation" x="-418" y="459"/>
         </scene>
-        <!--FriendsList-->
+        <!--FriendsTab-->
         <scene sceneID="IXN-Ks-whT">
             <objects>
-                <viewControllerPlaceholder storyboardName="FriendsList" id="YhF-Uo-W5b" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="FriendsTab" id="YhF-Uo-W5b" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Friends" image="friendsDisabled" selectedImage="friendsEnabled" id="O31-3U-nf8"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HEx-BQ-Qxx" userLabel="First Responder" sceneMemberID="firstResponder"/>

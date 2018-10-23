@@ -34,6 +34,7 @@ class FriendsTVC: UITableViewController, RequestTableViewCellDelegate {
         return FriendController.shared.friends.count
     }
     
+    
     // These functions resign the text field on the super view
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         resignParentResponder()
@@ -75,6 +76,7 @@ class FriendsTVC: UITableViewController, RequestTableViewCellDelegate {
 
         return cell ?? UITableViewCell()
     }
+    
     
     var indexPath: IndexPath?
     func buttonTapped(sender: FriendCell, indexPath: IndexPath?) {

@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="8jh-B6-yWs">
-                        <rect key="frame" x="11" y="10" width="238" height="50"/>
+                        <rect key="frame" x="11" y="20" width="238" height="50"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OaH-vr-zBV">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -53,7 +53,7 @@
                         </subviews>
                     </stackView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bpq-ck-es6">
-                        <rect key="frame" x="259" y="20" width="100" height="30"/>
+                        <rect key="frame" x="259" y="30" width="100" height="30"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="100" id="1cm-Ot-BsY"/>
                         </constraints>
@@ -66,10 +66,8 @@
                 <constraints>
                     <constraint firstItem="8jh-B6-yWs" firstAttribute="leading" secondItem="zlV-7d-gQx" secondAttribute="leading" constant="11" id="5Rx-iq-ZXt"/>
                     <constraint firstItem="bpq-ck-es6" firstAttribute="trailing" secondItem="zlV-7d-gQx" secondAttribute="trailingMargin" id="OKf-KL-f5v"/>
-                    <constraint firstAttribute="bottom" secondItem="8jh-B6-yWs" secondAttribute="bottom" constant="10" id="PKG-uy-sNe"/>
                     <constraint firstItem="8jh-B6-yWs" firstAttribute="centerY" secondItem="zlV-7d-gQx" secondAttribute="centerY" id="R1W-1Y-I92"/>
                     <constraint firstItem="bpq-ck-es6" firstAttribute="leading" secondItem="8jh-B6-yWs" secondAttribute="trailing" constant="10" id="Rzo-Wx-KoH"/>
-                    <constraint firstItem="8jh-B6-yWs" firstAttribute="top" secondItem="zlV-7d-gQx" secondAttribute="top" constant="10" id="i4V-64-uAv"/>
                     <constraint firstItem="bpq-ck-es6" firstAttribute="centerY" secondItem="zlV-7d-gQx" secondAttribute="centerY" id="t92-Yd-auk"/>
                 </constraints>
             </tableViewCellContentView>
