@@ -22,7 +22,8 @@ class UserProfileVC: UIViewController {
     @IBOutlet weak var changeImageButton   : UIButton!
     @IBOutlet weak var cancelOutlet     : UIButton!
     @IBOutlet weak var profileMapView   : MKMapView!
-
+    @IBOutlet weak var appVersionNumber: UILabel!
+    
   
         // MARK: - Variables
     
@@ -36,6 +37,7 @@ class UserProfileVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        appVersionNumber.text = GetAppVersion.getVersion()
         setupLocationManager()
         startTrackingUserLocation()
         centerMapOnAuthedUser()

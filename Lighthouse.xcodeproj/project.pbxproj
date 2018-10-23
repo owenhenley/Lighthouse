@@ -52,6 +52,7 @@
 		3E8BF7832177ABB800DB0014 /* DroppablePin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8BF7822177ABB800DB0014 /* DroppablePin.swift */; };
 		3EA6BD9B217F42FC006C8FF0 /* CustomButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA6BD9A217F42FC006C8FF0 /* CustomButtons.swift */; };
 		3EA6BD9D217F43EA006C8FF0 /* CustomUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA6BD9C217F43EA006C8FF0 /* CustomUIView.swift */; };
+		3EA6BD9F217F85B6006C8FF0 /* GetAppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA6BD9E217F85B6006C8FF0 /* GetAppVersion.swift */; };
 		3EA99144216BDC9E0001F09D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA99143216BDC9E0001F09D /* AppDelegate.swift */; };
 		3EA99149216BDC9F0001F09D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EA99147216BDC9F0001F09D /* LaunchScreen.storyboard */; };
 		3EA99152216BDF1B0001F09D /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA99150216BDF1B0001F09D /* Event.swift */; };
@@ -138,6 +139,7 @@
 		3E8BF7822177ABB800DB0014 /* DroppablePin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroppablePin.swift; sourceTree = "<group>"; };
 		3EA6BD9A217F42FC006C8FF0 /* CustomButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtons.swift; sourceTree = "<group>"; };
 		3EA6BD9C217F43EA006C8FF0 /* CustomUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIView.swift; sourceTree = "<group>"; };
+		3EA6BD9E217F85B6006C8FF0 /* GetAppVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAppVersion.swift; sourceTree = "<group>"; };
 		3EA99131216BDC9E0001F09D /* Lighthouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lighthouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EA99143216BDC9E0001F09D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3EA99148216BDC9F0001F09D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -403,6 +405,7 @@
 				3E8BF7822177ABB800DB0014 /* DroppablePin.swift */,
 				7EF9A478216C0D480064DC47 /* Constants.swift */,
 				7E565A9F2178FB9B006C1271 /* NotificationName.swift */,
+				3EA6BD9E217F85B6006C8FF0 /* GetAppVersion.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -749,6 +752,7 @@
 				7E8EC58D217133F200B0275A /* Friend.swift in Sources */,
 				3EEC7504216EBAB8009572FB /* ForgotPasswordVC.swift in Sources */,
 				3EEC7506216EBAE6009572FB /* SignInVC.swift in Sources */,
+				3EA6BD9F217F85B6006C8FF0 /* GetAppVersion.swift in Sources */,
 				7E565AA02178FB9B006C1271 /* NotificationName.swift in Sources */,
 				3E06A53521750518004D1B24 /* DropNewPinVC.swift in Sources */,
 				3E32AEEA216D4F2D00C889DF /* TabBarControllerVC.swift in Sources */,
