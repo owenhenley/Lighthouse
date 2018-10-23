@@ -21,10 +21,16 @@ class EventController {
             NotificationCenter.default.post(name: .eventsUpdated, object: nil)
         }
     }
-    var ativeFriends: [String] = []{
+    var activeFriends: [String] = []{
         didSet{
-            fetchFriendsPins(friendIDs: self.ativeFriends)
+            fetchFriendsPins(friendIDs: self.activeFriends)
 //            newActiveFriends = []
+        }
+    }
+    
+    var removedEvents: [Event] = [] {
+        didSet{
+            NotificationCenter.default.post(name: .removedFriends, object: nil)
         }
     }
     
@@ -107,9 +113,9 @@ class EventController {
          FIRESTORE.collection(USER).document(uid).collection(ACTIVE_FRIENDS).addSnapshotListener { (snapshot, error) in
             guard let documents = snapshot?.documents else {return}
             let friendIDS: [String] = documents.compactMap{$0[FRIEND_ID]} as! [String]
-            self.ativeFriends = friendIDS
-            
-            
+            let removedFriends = Set(self.activeFriends).subtracting(Set(friendIDS))
+            self.removedEvents = Array(removedFriends).compactMap{self.events[$0]}
+            self.activeFriends = friendIDS
         }
     }
     

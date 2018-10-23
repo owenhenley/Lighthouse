@@ -16,4 +16,5 @@ extension Notification.Name {
     static let showTray = Notification.Name("showTray")
     static let eventsUpdated = Notification.Name("eventsUpdated")
     static let friendsTrayUpdated = Notification.Name("friendsTrayUpdated")
+    static let removedFriends = Notification.Name("removedFriends")
 }

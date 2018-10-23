@@ -57,6 +57,7 @@ class MapViewVC: CustomSearchFieldVC {
         NotificationCenter.default.addObserver(self, selector: #selector(showNextButton), name: .backButtonTapped, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(showTray), name: .showTray, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(placePins), name: .eventsUpdated, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(removePins), name: .removedFriends, object: nil)
         placePins()
     }
     
@@ -140,6 +141,13 @@ class MapViewVC: CustomSearchFieldVC {
     }
  
 
+    @objc func removePins(){
+        for event in EventController.shared.removedEvents {
+            EventController.shared.events.removeValue(forKey: event.friendID)
+            mainMapView.removeAnnotation(event)
+        }
+    }
+    
     @objc func placePins(){
         let events = EventController.shared.events
         for event in events {
