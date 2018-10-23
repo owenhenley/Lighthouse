@@ -284,6 +284,23 @@
                                     <constraint firstAttribute="trailing" secondItem="59z-Os-KUs" secondAttribute="trailing" id="w61-0j-cxM"/>
                                 </constraints>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="tPz-rO-UcN">
+                                <rect key="frame" x="134" y="595.5" width="107" height="14.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App Version:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ckj-z0-dOd">
+                                        <rect key="frame" x="0.0" y="0.0" width="63.5" height="14.5"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="12"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="version" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8w3-ul-XoR">
+                                        <rect key="frame" x="71.5" y="0.0" width="35.5" height="14.5"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="12"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -291,8 +308,10 @@
                             <constraint firstItem="HiA-x7-P4Z" firstAttribute="top" secondItem="TF1-BA-JCj" secondAttribute="top" constant="160" id="BIK-8L-KSd"/>
                             <constraint firstAttribute="trailing" secondItem="lLm-Yb-qch" secondAttribute="trailing" constant="12" id="D4W-UX-lGI"/>
                             <constraint firstItem="08T-CB-oSP" firstAttribute="trailing" secondItem="4O9-hb-YcY" secondAttribute="trailing" constant="16" id="DSp-DT-YKJ"/>
+                            <constraint firstItem="08T-CB-oSP" firstAttribute="bottom" secondItem="tPz-rO-UcN" secondAttribute="bottom" constant="8" id="JGv-ZN-KHG"/>
                             <constraint firstItem="lLm-Yb-qch" firstAttribute="top" secondItem="fxX-5u-h18" secondAttribute="bottom" constant="2" id="KfD-7I-ufX"/>
                             <constraint firstAttribute="trailing" secondItem="fxX-5u-h18" secondAttribute="trailing" id="NCb-EP-l6d"/>
+                            <constraint firstItem="tPz-rO-UcN" firstAttribute="centerX" secondItem="TF1-BA-JCj" secondAttribute="centerX" id="RMr-8i-Cbf"/>
                             <constraint firstItem="pbn-4Y-Dxn" firstAttribute="leading" secondItem="08T-CB-oSP" secondAttribute="leading" constant="16" id="UDC-4Y-8Jj"/>
                             <constraint firstItem="4O9-hb-YcY" firstAttribute="top" secondItem="mJ6-4y-NTC" secondAttribute="bottom" constant="32" id="ZVJ-tX-yZN"/>
                             <constraint firstItem="fxX-5u-h18" firstAttribute="top" secondItem="TF1-BA-JCj" secondAttribute="top" id="ehl-XP-EYs"/>
@@ -308,6 +327,7 @@
                     <navigationItem key="navigationItem" id="wbQ-rh-jVF"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="appVersionNumber" destination="8w3-ul-XoR" id="2iv-cU-5id"/>
                         <outlet property="cancelOutlet" destination="r5o-NN-9NS" id="RRd-Np-E87"/>
                         <outlet property="changeImageButton" destination="6HA-uZ-rhF" id="cOu-wO-I34"/>
                         <outlet property="editButton" destination="8N3-Lt-1vi" id="aBw-CD-aSB"/>
