@@ -70,8 +70,8 @@ class SignUpVC: CustomTextFieldVC {
         SVProgressHUD.show()
         guard let email = emailOutlet.text,
             let password = passwordOutlet.text,
-            let username = usernameOutlet.text else {return}
-        UserController.shared.createUser(username: username, email: email, password: password) { (success) in
+            let name = usernameOutlet.text else {return}
+        UserController.shared.createUser(name: name, email: email, password: password) { (success) in
             if success {
                 NotificationCenter.default.post(name: .signInTapped, object: nil)
                 self.dismiss(animated: true, completion: nil)

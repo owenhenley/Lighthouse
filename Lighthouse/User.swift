@@ -14,9 +14,12 @@ class User {
     var firstName       : String?
     var lastName        : String?
     var fullName        : String{
+        set{}
+        get{
         let firstName = self.firstName ?? ""
         let lastName = self.lastName ?? ""
         return firstName + " " + lastName
+        }
     }
     var email           : String?
     let friends         : [User] = []
@@ -31,9 +34,9 @@ class User {
     var isActive        : Bool = true
 //    var groups          : [User] = []
 
-    init(userID: String, username: String, email: String) {
+    init(userID: String, name: String, email: String) {
         self.userID   = userID
-//        self.username = username
+        self.fullName = name
         self.email    = email
         
     }

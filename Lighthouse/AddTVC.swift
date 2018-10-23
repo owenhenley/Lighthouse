@@ -63,7 +63,7 @@ class AddTVC: UITableViewController, UISearchBarDelegate, RequestTableViewCellDe
             cell?.buttonOutlet.setTitle("Add Friend", for: .normal)
         }
         
-        cell?.titleOutlet.text = friend.username
+        cell?.titleOutlet.text = friend.name
         
         if friend.imageUrl == "No Profile Image" {
             cell?.imageOutlet.isHidden = true
