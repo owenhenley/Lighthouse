@@ -8,26 +8,32 @@
 
 import UIKit
 
-class FriendsTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+class FriendsTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource, RequestTableViewCellDelegate {
+    
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     
     var indexPath: IndexPath?
+    var searchField: UISearchBar?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate   = self
         tableView.dataSource = self
+        searchBar.delegate = self
+    
+        searchField = searchBar
         
+        dissmisskeyBoard()
         setupTableView()
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .friendsUpdated, object: nil)
     }
     
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         resignParentResponder()
@@ -57,6 +63,10 @@ class FriendsTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return FriendController.shared.friends.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
     }
     
     
@@ -97,15 +107,32 @@ class FriendsTabVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         let nib = UINib(nibName: "FriendCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "FriendCell")
     }
-}
-
-extension FriendsTabVC: RequestTableViewCellDelegate {
     
     func buttonTapped(sender: FriendCell, indexPath: IndexPath?) {
-        guard let indexPath = indexPath else {return}
+        guard let indexPath = indexPath else { return }
         let friend = FriendController.shared.friends[indexPath.row]
         FriendController.shared.deleteFriend(friendID: friend.friendID)
         tableView.deleteRows(at: [indexPath], with: .left)
         tableView.reloadData()
+    }
+}
+
+extension FriendsTabVC: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchText = searchBar.text else { return }
+        
+        FriendController.shared.searchFriends(text: searchText) { (success) in
+        }
+    }
+    
+    
+    func dissmisskeyBoard(){
+        let tap = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func handlePan(){
+        searchField?.resignFirstResponder()
     }
 }

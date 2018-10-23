@@ -72,7 +72,7 @@ or invite them to the app!</string>
                                     <constraint firstItem="E2l-Gw-V3Y" firstAttribute="top" secondItem="feZ-uc-MnC" secondAttribute="top" constant="84" id="y7g-RO-Gew"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cec-bz-00M">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cec-bz-00M">
                                 <rect key="frame" x="0.0" y="188" width="375" height="430"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -80,7 +80,7 @@ or invite them to the app!</string>
                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dFd-y8-NH0" id="pIu-Te-fcU" customClass="FriendCell" customModule="Lighthouse" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -112,6 +112,7 @@ or invite them to the app!</string>
                     <tabBarItem key="tabBarItem" title="Friends" image="friendsDisabled" selectedImage="friendsEnabled" id="QuD-Os-xBZ"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="searchBar" destination="MAu-og-fii" id="2ZP-5F-UD4"/>
                         <outlet property="tableView" destination="cec-bz-00M" id="Cxe-t2-dOP"/>
                     </connections>
                 </viewController>
