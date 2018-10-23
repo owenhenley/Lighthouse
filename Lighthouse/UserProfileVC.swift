@@ -71,6 +71,7 @@ class UserProfileVC: UIViewController {
                 if success{
                     self.disableEditing()
                     SVProgressHUD.dismiss()
+                    self.cancelOutlet.isHidden = true
                 }
             }
         }
@@ -81,6 +82,11 @@ class UserProfileVC: UIViewController {
         updateViews()
         disableEditing()
         cancelOutlet.isHidden = true
+    }
+    
+    
+    @IBAction func addImageTapped(_ sender: Any) {
+        self.presentImagePicker(picker: picker)
     }
     
     
@@ -97,7 +103,6 @@ class UserProfileVC: UIViewController {
         lastNameTF.borderStyle = .none
         lastNameTF.backgroundColor = .clear
         changeImageButton.isHidden = true
-        
     }
     
     func enableEditing(){
@@ -127,11 +132,6 @@ class UserProfileVC: UIViewController {
         
     }
     
-    
-
-    @IBAction func addImageTapped(_ sender: Any) {
-        self.presentImagePicker(picker: picker)
-    }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         

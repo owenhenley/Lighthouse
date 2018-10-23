@@ -54,9 +54,9 @@
                                     <constraint firstAttribute="width" constant="25" id="EFc-px-FFc"/>
                                     <constraint firstAttribute="height" constant="25" id="UbO-3q-gDi"/>
                                 </constraints>
-                                <state key="normal" image="back"/>
+                                <state key="normal" image="backchevronDark"/>
                                 <connections>
-                                    <segue destination="8w5-h8-rfo" kind="unwind" unwindAction="returnToAccountSettings:" id="kv7-9B-bIh"/>
+                                    <segue destination="8w5-h8-rfo" kind="unwind" unwindAction="returnToAccountSettings:" id="f9I-r6-shh"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Change Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GjC-J6-vee">
@@ -85,6 +85,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="back" width="409.60000610351562" height="409.60000610351562"/>
+        <image name="backchevronDark" width="56" height="56"/>
     </resources>
 </document>

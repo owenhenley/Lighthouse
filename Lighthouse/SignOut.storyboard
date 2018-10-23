@@ -33,13 +33,13 @@
                                     <action selector="signOutTapped:" destination="srI-aW-GX9" eventType="touchUpInside" id="C33-rn-3SX"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h5Z-Ah-l0a">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h5Z-Ah-l0a">
                                 <rect key="frame" x="16" y="32" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="Mlj-6E-0v6"/>
                                     <constraint firstAttribute="height" constant="25" id="o1N-a1-ool"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="back"/>
+                                <state key="normal" image="backchevronDark"/>
                                 <connections>
                                     <segue destination="p4V-vH-Ca4" kind="unwind" unwindAction="returnToAccountSettings:" id="pfV-Jv-6AL"/>
                                 </connections>
@@ -60,6 +60,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="back" width="409.60000610351562" height="409.60000610351562"/>
+        <image name="backchevronDark" width="56" height="56"/>
     </resources>
 </document>
