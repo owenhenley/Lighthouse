@@ -16,10 +16,10 @@ class UserProfileVC: UIViewController {
         // MARK: - Outlets
     
     @IBOutlet weak var profilePicOutlet : UIImageView!
-    @IBOutlet weak var firstNameEdit    : UITextField!
-    @IBOutlet weak var lastNameEdit     : UITextField!
-    @IBOutlet weak var editButtonOutlet : UIButton!
-    @IBOutlet weak var addImageOutlet   : UIButton!
+    @IBOutlet weak var firstNameTF    : UITextField!
+    @IBOutlet weak var lastNameTF     : UITextField!
+    @IBOutlet weak var editButton : UIButton!
+    @IBOutlet weak var changeImageButton   : UIButton!
     @IBOutlet weak var cancelOutlet     : UIButton!
     @IBOutlet weak var profileMapView   : MKMapView!
 
@@ -28,10 +28,10 @@ class UserProfileVC: UIViewController {
     
     let locationManager = CLLocationManager()
     let authedUserRadius: Double = 500
+    let picker = UIImagePickerController()
     
     
         // MARK: - LifeCycle
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,57 +46,18 @@ class UserProfileVC: UIViewController {
     
         // MARK: - Actions
     
+    // Unwind Segue
     @IBAction func returnToUserProfile(_ sender: UIStoryboardSegue) {}
-    
-    @IBAction func settingsTapped(_ sender: UIButton) {
-        
-    }
-    
-    
-    
-    func disableEditing(){
-        
-        editButtonOutlet.setTitle("Edit", for: .normal)
-        addImageOutlet.isEnabled = false
-        addImageOutlet.isHidden = true
-        firstNameEdit.isEnabled = false
-        lastNameEdit.isEnabled = false
-//        cancelOutlet.isHidden = true
-        addImageOutlet.isHidden = true
-        
-    }
-    
-    func enableEditing(){
-        editButtonOutlet.setTitle("Save", for: .normal)
-        addImageOutlet.isEnabled = true
-        addImageOutlet.isHidden = false
-        firstNameEdit.isEnabled = true
-        lastNameEdit.isEnabled = true
-        cancelOutlet.isHidden = false
-    }
-    
-    
-    func updateViews(){
-        guard let user = UserController.shared.user else {return}
-        firstNameEdit.text = user.firstName
-        lastNameEdit.text = user.lastName
-        if user.profileImage == nil {
-            profilePicOutlet.image = #imageLiteral(resourceName: "defaultProfPic")
-        } else {
-            profilePicOutlet.image = user.profileImage
-        }
-        
-    }
     
     
     @IBAction func editButtonTapped(_ sender: Any) {
-        if editButtonOutlet.titleLabel?.text == "Edit"{
+        if editButton.titleLabel?.text == "Edit"{
             enableEditing()
         } else {
             SVProgressHUD.show()
             guard let user = UserController.shared.user else {return}
-            user.firstName = firstNameEdit.text
-            user.lastName = lastNameEdit.text
+            user.firstName = firstNameTF.text
+            user.lastName = lastNameTF.text
             
             if profilePicOutlet.image == UIImage(named: "defaultProfPic") {
                 user.profileImage = nil
@@ -113,17 +74,61 @@ class UserProfileVC: UIViewController {
         }
     }
     
+    
     @IBAction func cancelTapped(_ sender: Any) {
         updateViews()
         disableEditing()
+        cancelOutlet.isHidden = true
     }
     
     
-    let picker = UIImagePickerController()
+        // MARK: - Methods
+    
+    func disableEditing(){
+        editButton.setTitle("Edit", for: .normal)
+        changeImageButton.isEnabled = false
+        changeImageButton.isHidden = true
+        firstNameTF.isEnabled = false
+        firstNameTF.borderStyle = .none
+        firstNameTF.backgroundColor = .clear
+        lastNameTF.isEnabled = false
+        lastNameTF.borderStyle = .none
+        lastNameTF.backgroundColor = .clear
+        changeImageButton.isHidden = true
+        
+    }
+    
+    func enableEditing(){
+        editButton.setTitle("Save", for: .normal)
+        changeImageButton.isEnabled = true
+        changeImageButton.isHidden = false
+        firstNameTF.isEnabled = true
+        firstNameTF.borderStyle = .roundedRect
+        firstNameTF.backgroundColor = .white
+        lastNameTF.isEnabled = true
+        lastNameTF.borderStyle = .roundedRect
+        lastNameTF.backgroundColor = .white
+        cancelOutlet.isHidden = false
+    }
+    
+    
+    func updateViews(){
+        guard let user = UserController.shared.user else {return}
+        firstNameTF.text = user.firstName
+        lastNameTF.text = user.lastName
+        
+        if user.profileImage == nil {
+            profilePicOutlet.image = #imageLiteral(resourceName: "defaultProfPic")
+        } else {
+            profilePicOutlet.image = user.profileImage
+        }
+        
+    }
+    
+    
+
     @IBAction func addImageTapped(_ sender: Any) {
         self.presentImagePicker(picker: picker)
-        
-        
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
