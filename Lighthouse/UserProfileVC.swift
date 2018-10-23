@@ -37,7 +37,9 @@ class UserProfileVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        changeImageButton.titleLabel?.textAlignment = .center
         appVersionNumber.text = GetAppVersion.getVersion()
+        
         setupLocationManager()
         startTrackingUserLocation()
         centerMapOnAuthedUser()
@@ -50,6 +52,21 @@ class UserProfileVC: UIViewController {
     
     // Unwind Segue
     @IBAction func returnToUserProfile(_ sender: UIStoryboardSegue) {}
+    
+    @IBAction func locationSwitched(_ sender: UISwitch) {
+        
+        if CLLocationManager.locationServicesEnabled() {
+            if let url = URL(string: "App-prefs:root=LOCATION_SERVICES") {
+                // If general location settings are disabled then open general location settings
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            } else {
+                if let url = URL(string: UIApplication.openSettingsURLString) {
+                    // If general location settings are enabled then open location settings for the app
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                }
+            }
+        }
+    }
     
     
     @IBAction func editButtonTapped(_ sender: Any) {

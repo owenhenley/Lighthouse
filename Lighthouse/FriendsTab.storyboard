@@ -137,9 +137,13 @@ or invite them to the app!</string>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ry4-zS-DDf">
-                                        <rect key="frame" x="16" y="40" width="30" height="30"/>
-                                        <state key="normal" title="&lt;"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ry4-zS-DDf">
+                                        <rect key="frame" x="16" y="40" width="23" height="23"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="23" id="2FU-IR-9ik"/>
+                                            <constraint firstAttribute="width" constant="23" id="Zkz-cG-muN"/>
+                                        </constraints>
+                                        <state key="normal" image="backchevronDark"/>
                                         <connections>
                                             <action selector="backTapped:" destination="Aa7-Gz-Zt9" eventType="touchUpInside" id="Qk1-0q-vj1"/>
                                             <action selector="backTapped:" destination="gYu-wD-g0S" eventType="touchUpInside" id="f0j-Tk-LlG"/>
@@ -159,49 +163,65 @@ or invite them to the app!</string>
                                 <rect key="frame" x="0.0" y="266" width="375" height="352"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="pendingFriendCell" rowHeight="74" id="gP4-QF-fPs" customClass="PendingPendingCell" customModule="Lighthouse" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="pendingFriendCell" rowHeight="74" id="gP4-QF-fPs" customClass="PendingInviteCell" customModule="Lighthouse" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="74"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gP4-QF-fPs" id="3hK-hc-ql1">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="74"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="41k-cE-EBk">
-                                                    <rect key="frame" x="15" y="11" width="126" height="52"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="41k-cE-EBk">
+                                                    <rect key="frame" x="16" y="12" width="215" height="50"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Ug-fx-y6v">
-                                                            <rect key="frame" x="0.0" y="0.0" width="60" height="52"/>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Ug-fx-y6v">
+                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="50" id="ESJ-fa-vz0"/>
+                                                                <constraint firstAttribute="height" constant="50" id="oBM-hq-UOv"/>
+                                                            </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BYq-Xi-7nO">
-                                                            <rect key="frame" x="84" y="0.0" width="42" height="52"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nameefekrjfnerlkfnlrenflernfelrfn" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BYq-Xi-7nO">
+                                                            <rect key="frame" x="60" y="0.0" width="155" height="50"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Pxv-b5-mad">
-                                                    <rect key="frame" x="259" y="21" width="95" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Pxv-b5-mad">
+                                                    <rect key="frame" x="239" y="29" width="120" height="16"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a1e-fw-Td5">
-                                                            <rect key="frame" x="0.0" y="0.0" width="49" height="30"/>
-                                                            <state key="normal" title="Accept"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="88" height="16"/>
+                                                            <state key="normal" title="friendwaiting"/>
                                                             <connections>
                                                                 <action selector="acceptTapped:" destination="gP4-QF-fPs" eventType="touchUpInside" id="VW8-7K-eX5"/>
                                                             </connections>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cE1-k9-m6q">
-                                                            <rect key="frame" x="65" y="0.0" width="30" height="30"/>
-                                                            <state key="normal" title="X"/>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cE1-k9-m6q">
+                                                            <rect key="frame" x="104" y="0.0" width="16" height="16"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="16" id="aWE-EB-OB3"/>
+                                                                <constraint firstAttribute="width" constant="16" id="jx3-A2-wOj"/>
+                                                            </constraints>
+                                                            <state key="normal" title="X" image="closeDark"/>
                                                             <connections>
                                                                 <action selector="deleteTapped:" destination="gP4-QF-fPs" eventType="touchUpInside" id="Z1J-yl-PfZ"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="120" id="Hl4-Nl-JfC"/>
+                                                    </constraints>
                                                 </stackView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Pxv-b5-mad" firstAttribute="centerY" secondItem="3hK-hc-ql1" secondAttribute="centerY" id="5hc-5U-Xk1"/>
+                                                <constraint firstAttribute="trailing" secondItem="Pxv-b5-mad" secondAttribute="trailing" constant="16" id="6DO-9V-BV7"/>
+                                                <constraint firstItem="41k-cE-EBk" firstAttribute="centerY" secondItem="3hK-hc-ql1" secondAttribute="centerY" id="VUf-jR-Bhx"/>
+                                                <constraint firstItem="41k-cE-EBk" firstAttribute="leading" secondItem="3hK-hc-ql1" secondAttribute="leading" constant="16" id="jw9-vi-HPh"/>
+                                                <constraint firstItem="Pxv-b5-mad" firstAttribute="leading" secondItem="41k-cE-EBk" secondAttribute="trailing" constant="8" id="nXn-sz-klE"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="acceptButton" destination="a1e-fw-Td5" id="x2r-ZJ-f7h"/>
@@ -280,7 +300,9 @@ or invite them to the app!</string>
         </scene>
     </scenes>
     <resources>
-        <image name="friendsDisabled" width="43" height="42"/>
-        <image name="friendsEnabled" width="24" height="24"/>
+        <image name="backchevronDark" width="56" height="56"/>
+        <image name="closeDark" width="56" height="56"/>
+        <image name="friendsDisabled" width="48" height="32"/>
+        <image name="friendsEnabled" width="48" height="32"/>
     </resources>
 </document>

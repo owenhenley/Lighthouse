@@ -90,7 +90,7 @@ extension AddFriendsVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "friendPendingCell", for: indexPath) as? PendingPendingCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "friendPendingCell", for: indexPath) as? PendingInviteCell
         
         
         return cell ?? UITableViewCell()
