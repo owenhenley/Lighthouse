@@ -32,10 +32,21 @@
                                     <constraint firstAttribute="width" constant="244" id="foQ-nc-AR3"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find the party. Be the party." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ylb-zS-IHx">
+                                <rect key="frame" x="126.5" y="461" width="122" height="40.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="122" id="ow5-gA-nYd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="0.85529702900000004" green="0.48171567920000002" blue="0.1881179214" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="jdj-vX-K6P" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="4nf-Oo-vYW"/>
+                            <constraint firstItem="ylb-zS-IHx" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="6RO-Bm-F12"/>
+                            <constraint firstItem="ylb-zS-IHx" firstAttribute="top" secondItem="jdj-vX-K6P" secondAttribute="bottom" constant="61" id="Qy6-Yr-tLh"/>
                             <constraint firstItem="72W-2w-OWi" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" constant="184" id="VRW-f7-qQD"/>
                             <constraint firstItem="72W-2w-OWi" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="gnC-oQ-C4r"/>
                             <constraint firstItem="jdj-vX-K6P" firstAttribute="top" secondItem="72W-2w-OWi" secondAttribute="bottom" constant="24" id="ybw-Ik-Sdl"/>

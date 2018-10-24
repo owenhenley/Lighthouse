@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol PendingCellInteractableDelegate: class {
+    func pendingDidChange()
+    func removeRequestTapped()
+}
+
 class PendingInviteCell: UITableViewCell {
     
         // MARK: - Outlets
@@ -17,13 +22,22 @@ class PendingInviteCell: UITableViewCell {
     @IBOutlet weak var acceptButton : UIButton!
     @IBOutlet weak var deleteButton : UIButton!
     
+    weak var delegate: PendingCellInteractableDelegate?
     
         // MARK: - Actions
     
     @IBAction func acceptTapped(_ sender: Any) {
+        delegate?.pendingDidChange()
     }
     
     @IBAction func deleteTapped(_ sender: Any) {
+        delegate?.removeRequestTapped()
+    }
+    
+    
+    func updateViews() {
+        // if accepted, remove and reload data
+        // if removed, remove and reload data
     }
     
 }

@@ -429,6 +429,7 @@
 			children = (
 				7E2128D42174E6DF000100DF /* FriendCell.swift */,
 				3E32AEF6216D524C00C889DF /* FriendsListTrayCell.swift */,
+				3EEA6EE0217EB433009DD278 /* PendingInviteCell.swift */,
 			);
 			name = "Custom Views";
 			sourceTree = "<group>";

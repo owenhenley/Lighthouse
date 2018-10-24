@@ -50,7 +50,7 @@ class MapViewVC: CustomSearchFieldVC {
         searchBar.isHidden = true
         searchBar.delegate = self
         dropPinButton.isHidden = true
-//        trayContainer.translatesAutoresizingMaskIntoConstraints = false
+        trayContainer.translatesAutoresizingMaskIntoConstraints = false
         setupLocationManager()
 //        addPinLongPress()
         

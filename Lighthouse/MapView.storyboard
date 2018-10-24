@@ -187,14 +187,14 @@
                                             <constraint firstItem="Z1d-6N-eeZ" firstAttribute="leading" secondItem="DNX-wE-aiw" secondAttribute="leading" id="Xua-FA-YLr"/>
                                         </constraints>
                                     </view>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tray Tab" translatesAutoresizingMaskIntoConstraints="NO" id="l5x-Py-OCG">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="traytab" translatesAutoresizingMaskIntoConstraints="NO" id="l5x-Py-OCG">
+                                        <rect key="frame" x="0.0" y="1" width="375" height="24"/>
                                         <gestureRecognizers/>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="1YE-TV-JIO" appends="YES" id="nw0-GV-apS"/>
                                         </connections>
                                     </imageView>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hYU-sI-09r">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hYU-sI-09r">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <gestureRecognizers/>
@@ -214,10 +214,9 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="l5x-Py-OCG" secondAttribute="trailing" id="HFK-iW-NVQ"/>
                                     <constraint firstAttribute="bottom" secondItem="DNX-wE-aiw" secondAttribute="bottom" id="PzB-DE-zUC"/>
-                                    <constraint firstItem="l5x-Py-OCG" firstAttribute="top" secondItem="zyK-mc-klD" secondAttribute="top" id="SIT-IV-wU9"/>
+                                    <constraint firstItem="l5x-Py-OCG" firstAttribute="top" secondItem="zyK-mc-klD" secondAttribute="top" constant="1" id="SIT-IV-wU9"/>
                                     <constraint firstItem="DNX-wE-aiw" firstAttribute="top" secondItem="hYU-sI-09r" secondAttribute="bottom" id="T9R-H9-Jk8"/>
                                     <constraint firstItem="hYU-sI-09r" firstAttribute="leading" secondItem="zyK-mc-klD" secondAttribute="leading" id="XbU-4B-Esu"/>
-                                    <constraint firstItem="DNX-wE-aiw" firstAttribute="top" secondItem="l5x-Py-OCG" secondAttribute="bottom" id="XhF-pQ-kkb"/>
                                     <constraint firstItem="DNX-wE-aiw" firstAttribute="leading" secondItem="zyK-mc-klD" secondAttribute="leading" id="hOf-TF-BQm"/>
                                     <constraint firstItem="l5x-Py-OCG" firstAttribute="leading" secondItem="zyK-mc-klD" secondAttribute="leading" id="i7q-my-0cA"/>
                                     <constraint firstItem="hYU-sI-09r" firstAttribute="top" secondItem="zyK-mc-klD" secondAttribute="top" id="lna-KB-LsN"/>
@@ -411,11 +410,11 @@
     </scenes>
     <resources>
         <image name="Jim" width="186" height="186"/>
-        <image name="Tray Tab" width="375" height="24"/>
         <image name="currentLocationFilled" width="32" height="32"/>
         <image name="dropPin" width="184" height="64"/>
         <image name="mapDisabled" width="48" height="32"/>
         <image name="mapEnabled" width="48" height="32"/>
         <image name="search" width="409.60000610351562" height="409.60000610351562"/>
+        <image name="traytab" width="375" height="24"/>
     </resources>
 </document>
