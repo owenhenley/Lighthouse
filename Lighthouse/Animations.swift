@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import CoreLocation
+import MapKit
 
 
 extension UIViewController {
@@ -30,6 +32,20 @@ extension UIViewController {
         UIView.animate(withDuration: 1) {
             view.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi * -0.999999))
         }
+    }
+    
+    func getDistanceWithCoordinate(otherCoordinate: CLLocationCoordinate2D, completion: @escaping (_ distance: String)->Void){
+        
+        let locationManager = CLLocationManager()
+        guard let coordinate = locationManager.location?.coordinate else
+        {completion("Unkown"); return}
+        
+        let eventLocation = CLLocation(latitude: otherCoordinate.latitude, longitude: otherCoordinate.longitude)
+        let currentLocation = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
+        let distance = eventLocation.distance(from: currentLocation)
+        let distanceFormatter = MKDistanceFormatter()
+        let stringDistance = distanceFormatter.string(fromDistance: distance)
+        completion(stringDistance)
     }
     
     func fetchImageWithUrlString(urlString: String, completion: @escaping (_ success: UIImage?)->Void) {

@@ -87,17 +87,50 @@ class FriendsTrayListVC: CustomSearchFieldVC, UITableViewDataSource, UITableView
         return FriendController.shared.friends.count
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        var friendID: String!
+        if searchBar.text == "" {
+            friendID = FriendController.shared.friends[indexPath.row].friendID
+        } else {
+            friendID = searchFriends[indexPath.row].friendID
+        }
+        guard let event = EventController.shared.events[friendID] else {return}
+        NotificationCenter.default.post(name: .selectedFriend, object: nil, userInfo: [1:event])
+    }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendTrayCell", for: indexPath) as? FriendsListTrayCell
         
         var friend: Friend!
+        
         if !searchFriends.isEmpty {
             friend = searchFriends[indexPath.row]
         } else {
             friend = FriendController.shared.friends[indexPath.row]
         }
+        
+        if (EventController.shared.events[friend.friendID] == nil) {
+            cell?.distanceLabel.isHidden = true
+            cell?.friendLocationLabel.isHidden = true
+            cell?.activeIcon.isHidden = true
+        } else {
+            let event = EventController.shared.events[friend.friendID]
+            if let coordinate = event?.coordinate {
+                getDistanceWithCoordinate(otherCoordinate: coordinate) { (distance) in
+                    cell?.distanceLabel.text = distance
+                }
+            }
+            
+            cell?.friendLocationLabel.text = event?.eventTitle
+        }
+
+        cell?.friendNameLabel.text = friend.name
+        
+        
         
         cell?.friendID = friend.friendID
         
@@ -114,8 +147,7 @@ class FriendsTrayListVC: CustomSearchFieldVC, UITableViewDataSource, UITableView
             }
         }
         
-        cell?.friendNameLabel.text = friend.name
-        cell?.friendLocationLabel.text = "needs filling"
+        
         
         return cell ?? UITableViewCell()
     }
