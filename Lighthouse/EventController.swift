@@ -34,12 +34,6 @@ class EventController {
         }
     }
     
-    var friendsTrayList: [Friend] = [] {
-        didSet {
-            NotificationCenter.default.post(name: .friendsTrayUpdated, object: nil)
-        }
-    }
-    
     var myEvent: Event?
     
     var invitedFriends: [String] = []

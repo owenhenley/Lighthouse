@@ -27,14 +27,14 @@ class FriendsTrayListVC: UIViewController, UITableViewDataSource, UITableViewDel
         getStartedView.isHidden = true
         //        friendsTableView.isHidden = true
         
-        NotificationCenter.default.addObserver(self, selector: #selector(reloadTableView), name: .friendsTrayUpdated, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTableView), name: .friendsUpdated, object: nil)
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // If has friends, show get started + hide tableView, else show populated tableView.
-        friendsTableView.reloadData()
+//        friendsTableView.reloadData()
         
         if FriendController.shared.friends.count == 0 {
             getStartedView.isHidden = false
@@ -50,6 +50,8 @@ class FriendsTrayListVC: UIViewController, UITableViewDataSource, UITableViewDel
     
     // Reload tableview when friends list gets fetched or updated
     @objc func reloadTableView() {
+        friendsTableView.isHidden = false
+        getStartedView.isHidden = true
         friendsTableView.reloadData()
     }
     
