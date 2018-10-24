@@ -14,7 +14,7 @@ import SVProgressHUD
 
 class MapViewVC: CustomSearchFieldVC {
     
-    static let shared = MapViewVC()
+    
     
     // MARK: - Properties
     
@@ -25,9 +25,9 @@ class MapViewVC: CustomSearchFieldVC {
     var handle : AuthStateDidChangeListenerHandle?
     let nonAuthUserLocationRadius : Double = 25000
     let authedUserLocationRadius  : Double = 400
-    var pinCoordinates: CLLocationCoordinate2D?
     var friendID: String?
     var placedAnnotations: Set<String> = []
+    var myPin: Event?
 
     
     
@@ -57,8 +57,21 @@ class MapViewVC: CustomSearchFieldVC {
         NotificationCenter.default.addObserver(self, selector: #selector(showNextButton), name: .backButtonTapped, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(showTray), name: .showTray, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(placePins), name: .eventsUpdated, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(removePins), name: .removedFriends, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(removePin), name: .removePin, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(placeMyPin), name: .myPinFetched, object: nil)
         placePins()
     }
+    
+    @objc func placeMyPin(notification: Notification){
+        guard let dictionary = notification.userInfo as? [String:Event],
+            let uid = UID,
+        let myPin = dictionary[uid] else {return}
+        self.myPin = myPin
+        mainMapView.addAnnotation(myPin)
+    }
+    
+    
     
     
     //FIXME: Get conainer view to show when user logs in
@@ -119,27 +132,54 @@ class MapViewVC: CustomSearchFieldVC {
     // MARK: - Map Methods
     // FIXME: - Change to take event as annotation
     func dropPinOnCurrentLocation() {
+        let locationManager = CLLocationManager()
+        guard let user = UserController.shared.user,
+            let location = locationManager.location?.coordinate,
+            let uid = UID else {return}
         centerMapOnAuthedUser {
-            self.pinCoordinates = self.mainMapView.centerCoordinate
-            let currentLocationPinAnnotation: MKPointAnnotation = MKPointAnnotation()
-            currentLocationPinAnnotation.coordinate = self.mainMapView.centerCoordinate
-            self.mainMapView.addAnnotation(currentLocationPinAnnotation)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.65) {
-                self.performSegue(withIdentifier: "toNewPinVC", sender: self)
-                self.removePin()
+            
+            let event = Event(friendID: uid, name: user.fullName, profileImage: user.profileImage, profileImageUrl: user.profileImageURL, title: "", coordinates: location, streetAddress: nil, invited: [:], vibe: "", eventTitle: "")
+           
+            let eventLocation = CLLocation(latitude: location.latitude, longitude: location.longitude)
+            let geoCoder = CLGeocoder()
+            geoCoder.reverseGeocodeLocation(eventLocation) { (placemarks, error) in
+                guard let placemark = placemarks?.first,
+                    let street = placemark.thoroughfare,
+                    let number = placemark.subThoroughfare  else {return}
+                let address = street + " " + number
+                event.streetAddress = address
+                self.mainMapView.addAnnotation(event)
+                self.myPin = event
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.65) {
+                    self.performSegue(withIdentifier: "toNewPinVC", sender: self)
+                    //                self.removePin(annotation: event)
+                }
+                
             }
+            
+            
+            
+            
+            
             
         }
     }
     
     
-    func removePin() {
-        for annotation in mainMapView.annotations {
-            mainMapView.removeAnnotation(annotation)
-        }
+    @objc func removePin() {
+        guard let myPin = myPin else {return}
+        mainMapView.removeAnnotation(myPin)
+        
     }
  
 
+    @objc func removePins(){
+        for event in EventController.shared.removedEvents {
+            EventController.shared.events.removeValue(forKey: event.friendID)
+            mainMapView.removeAnnotation(event)
+        }
+    }
+    
     @objc func placePins(){
         let events = EventController.shared.events
         for event in events {
@@ -243,7 +283,12 @@ class MapViewVC: CustomSearchFieldVC {
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
        
         
-        guard let annotation = view.annotation as? Event else {return}
+        guard let annotation = view.annotation as? Event,
+            let uid = UID else {return}
+        if annotation.friendID == uid {
+            self.performSegue(withIdentifier: "toEditPin", sender: self)
+            return
+        }
         self.friendID = annotation.friendID
         self.performSegue(withIdentifier: "toPinDetails", sender: self)
     }
@@ -351,7 +396,7 @@ extension MapViewVC: TrayTabVCDelegate {
             destinationVC?.delegate = self
         } else if segue.identifier == "toNewPinVC" {
             let destinationVC = segue.destination as? NewPinPopUpVC
-            destinationVC?.coordinates = self.pinCoordinates
+            destinationVC?.event = self.myPin
         } else if segue.identifier == "toPinDetails" {
             guard let friendID = friendID else {return}
             SVProgressHUD.show()

@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import CoreLocation
 
-class NewPinPopUpVC: UIViewController {
+class NewPinPopUpVC: UIViewController, UITextFieldDelegate {
     
     var event: Event?
     var coordinates: CLLocationCoordinate2D?
@@ -19,8 +19,7 @@ class NewPinPopUpVC: UIViewController {
     
     @IBOutlet weak var exitButton             : UIButton!
     @IBOutlet weak var pinNameTF              : UITextField!
-    @IBOutlet weak var latitudeLabel          : UILabel!
-    @IBOutlet weak var longitudeLabel         : UILabel!
+    @IBOutlet weak var addressLabel          : UILabel!
     @IBOutlet weak var shareWithFriendsButton : UIButton!
     
         // MARK: - Properties
@@ -42,14 +41,38 @@ class NewPinPopUpVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addTapGesture()
+        pinNameTF.delegate = self
+        updateViews()
 
     }
+    
+    func updateViews(){
+        addressLabel.text = event?.streetAddress
+    }
+    
+    func addTapGesture(){
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(gesture)
+
+    }
+    
+    @objc func dismissKeyboard(){
+        pinNameTF.resignFirstResponder()
+    }
+    
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        dismissKeyboard()
+        return true
+    }
+    
     
     
         // MARK: - Actions
     
     @IBAction func exitTapped(_ sender: Any) {
-        self.resignFirstResponder()
+        dismissKeyboard()
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -57,15 +80,13 @@ class NewPinPopUpVC: UIViewController {
     @IBAction func shareWithFriendsTapped(_ sender: UIButton) {
         
         guard let eventTitle  = pinNameTF.text,
-//            let latitude      = latitudeLabel.text,
-//            let longitude     = longitudeLabel.text,
-            let name          = UserController.shared.user?.firstName,
-            let uid = UID,
-            let coordinates = coordinates
-        else { return }
+            let event = event else { return }
         
         let eventVibe = selectedVibe
-        let event = Event(friendID: uid, name: name, profileImage: nil, profileImageUrl: nil, title: eventTitle, coordinates: coordinates, streetAddress: nil, invited: [:], vibe: eventVibe, eventTitle: eventTitle)
+        
+        event.vibe = eventVibe
+        event.eventTitle = eventTitle
+        
         self.event = event
         self.performSegue(withIdentifier: "selectFreinds", sender: self)
         
@@ -78,7 +99,10 @@ class NewPinPopUpVC: UIViewController {
     // Event Types
     @IBAction func eventVibeButtonTapped(_ sender: UIButton) {
         selectedVibe = vibeDictionary[sender.tag] ?? "No Vibe Selected"
+        dismissKeyboard()
     }
+    
+    
     
 
         // MARK: - Navigation

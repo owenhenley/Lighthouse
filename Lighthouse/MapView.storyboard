@@ -142,6 +142,7 @@
                         <outlet property="trayHeightConstraint" destination="ERc-sZ-HyH" id="cS0-Vc-GVw"/>
                         <segue destination="KLv-9f-si4" kind="presentation" identifier="toNewPinVC" modalPresentationStyle="overCurrentContext" id="lW0-J9-YNA"/>
                         <segue destination="UbY-96-Yqr" kind="presentation" identifier="toPinDetails" modalPresentationStyle="overCurrentContext" id="gLL-WZ-gsG"/>
+                        <segue destination="qpk-hm-WVi" kind="presentation" identifier="toEditPin" modalPresentationStyle="overCurrentContext" id="RzX-EL-55E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fqI-Ac-3Lb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -413,8 +414,8 @@
         <image name="Tray Tab" width="375" height="24"/>
         <image name="currentLocationFilled" width="32" height="32"/>
         <image name="dropPin" width="184" height="64"/>
-        <image name="mapDisabled" width="28" height="37"/>
-        <image name="mapEnabled" width="18" height="24"/>
+        <image name="mapDisabled" width="48" height="32"/>
+        <image name="mapEnabled" width="48" height="32"/>
         <image name="search" width="409.60000610351562" height="409.60000610351562"/>
     </resources>
 </document>

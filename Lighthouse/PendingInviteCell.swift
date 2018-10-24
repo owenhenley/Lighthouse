@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PendingPendingCell: UITableViewCell {
+class PendingInviteCell: UITableViewCell {
     
         // MARK: - Outlets
 

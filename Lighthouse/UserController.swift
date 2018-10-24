@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import CoreLocation
 
 
 class UserController {
@@ -19,6 +20,11 @@ class UserController {
     var user : User?
     var uid  : String?
     let db = FIRESTORE
+    var myPin : Event?{
+        didSet{
+            NotificationCenter.default.post(name: .myPinFetched, object: nil, userInfo: [myPin?.friendID : myPin!])
+        }
+    }
     
     func logInUser(email: String, password: String, completion: @escaping (_ success: Bool) -> ()){
         
@@ -193,6 +199,35 @@ class UserController {
                 completion(true)
             }
         }
+    }
+    
+    func fetchMyPin() {
+        guard let uid = UID else {return}
+        FIRESTORE.collection(USER).document(uid).collection(EVENT).document(uid).getDocument { (document, error) in
+            guard let document          = document,
+                    let name            = document[NAME] as? String,
+                    let profileImageURL = document[PROFILE_IMAGE_URL] as? String,
+                    let title           = document[EVENT] as? String,
+                    let vibe            = document[EVENT_VIBE] as? String,
+                    let geoPoint        = document[GEO_POINT] as? GeoPoint
+                    else { return }
+                
+                let location   = CLLocationCoordinate2D(latitude: geoPoint.latitude, longitude: geoPoint.longitude)
+                
+                let event = Event(friendID: uid, name: name, profileImage: nil, profileImageUrl: profileImageURL, title: title, coordinates: location, streetAddress: "", invited: [:], vibe: vibe, eventTitle: title)
+                FIRESTORE.collection(USER).document(uid).collection(EVENT).document(uid).collection(INVITES).addSnapshotListener({ (snapshot, error) in
+                    guard let documents = snapshot?.documents else {return}
+                    let friendIDS: [String] = documents.compactMap{$0[FRIEND_ID]} as! [String]
+                    
+                    for friendID in friendIDS {
+                        FriendController.shared.fetchFriend(friendID: friendID, completion: { (friend) in
+                            event.invited.updateValue(friend, forKey: friendID)
+                        })
+                        
+                    }
+                    self.myPin = event
+                })
+            }
     }
     
     
