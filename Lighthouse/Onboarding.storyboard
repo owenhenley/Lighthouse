@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BnB-Ix-xhS">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--OnboardingVC-->
+        <!--View Controller-->
         <scene sceneID="SDv-uB-Mhd">
             <objects>
-                <viewController storyboardIdentifier="onboarding" id="1ef-g2-ao3" customClass="OnboardingVC" customModule="Lighthouse" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="onboarding" id="1ef-g2-ao3" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="I2w-Up-lQE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -104,7 +104,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WXT-JK-sUq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1167.2" y="62.518740629685162"/>
+            <point key="canvasLocation" x="-2132" y="474"/>
         </scene>
         <!--TabBarController-->
         <scene sceneID="G85-be-nF1">
@@ -140,13 +140,13 @@
             </objects>
             <point key="canvasLocation" x="-4290" y="475"/>
         </scene>
-        <!--Page View Controller-->
+        <!--OnboardingVC-->
         <scene sceneID="wy2-vf-GKm">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="BnB-Ix-xhS" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="BnB-Ix-xhS" customClass="OnboardingVC" customModule="Lighthouse" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vnp-pG-HrW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3600" y="-205"/>
+            <point key="canvasLocation" x="-3207" y="-229"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="6qq-nN-Nvf">
