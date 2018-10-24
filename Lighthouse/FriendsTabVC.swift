@@ -76,8 +76,7 @@ extension FriendsTabVC: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchText = searchBar.text else { return }
         
-        FriendController.shared.searchFriends(text: searchText) { (success) in
-        }
+        
     }
     
     
@@ -98,7 +97,12 @@ extension FriendsTabVC: UITableViewDelegate, UITableViewDataSource {
     //MARK: UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return FriendController.shared.friends.count
+        guard let searchText = searchBar.text else {return 0}
+        
+        if searchText == "" {
+            return FriendController.shared.friends.count
+        }
+        return FriendController.shared.friends.filter{$0.name <= searchText}.count
     }
     
     
