@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FriendsTabVC: UIViewController, RequestTableViewCellDelegate {
+class FriendsTabVC: UIViewController {
     
     
     // MARK: - Outlets
@@ -66,6 +66,9 @@ class FriendsTabVC: UIViewController, RequestTableViewCellDelegate {
         tableView.deleteRows(at: [indexPath], with: .left)
         tableView.reloadData()
     }
+    
+    var searchFriends: [Friend] = []
+
 }
 
 
@@ -73,12 +76,16 @@ class FriendsTabVC: UIViewController, RequestTableViewCellDelegate {
 
 extension FriendsTabVC: UISearchBarDelegate {
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard let searchText = searchBar.text else { return }
-        
-        
+        self.searchFriends = FriendController.shared.friends.filter{$0.name.lowercased().contains(searchText.lowercased())}
+        tableView.reloadData()
     }
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        searchBar.resignFirstResponder()
+    }
     
     func dissmisskeyBoard() {
         let tap = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
@@ -97,12 +104,12 @@ extension FriendsTabVC: UITableViewDelegate, UITableViewDataSource {
     //MARK: UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let searchText = searchBar.text else {return 0}
-        
+        guard let searchText = searchBar.text else { return 0}
+
         if searchText == "" {
             return FriendController.shared.friends.count
         }
-        return FriendController.shared.friends.filter{$0.name <= searchText}.count
+        return searchFriends.count
     }
     
     
@@ -115,8 +122,13 @@ extension FriendsTabVC: UITableViewDelegate, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell", for: indexPath) as? FriendCell
         
-        cell?.delegate = self
-        let friend = FriendController.shared.friends[indexPath.row]
+//        cell?.delegate = self
+        var friend: Friend!
+        if searchFriends.isEmpty {
+            friend = FriendController.shared.friends[indexPath.row]
+        } else {
+            friend = searchFriends[indexPath.row]
+        }
         self.indexPath = indexPath
         
         cell?.titleOutlet.text = friend.name

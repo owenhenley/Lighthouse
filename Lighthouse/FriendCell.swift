@@ -8,9 +8,7 @@
 
 import UIKit
 
-protocol RequestTableViewCellDelegate: class {
-    func buttonTapped(sender: FriendCell, indexPath: IndexPath?)
-}
+
 
 class FriendCell: UITableViewCell {
     
@@ -20,7 +18,7 @@ class FriendCell: UITableViewCell {
     @IBOutlet weak var buttonOutlet: UIButton!
     
 
-    weak var delegate: RequestTableViewCellDelegate?
+
     var indexPath: IndexPath?
     
     override func awakeFromNib() {
@@ -38,7 +36,7 @@ class FriendCell: UITableViewCell {
     
     
     @IBAction func buttonTapped(_ sender: Any) {
-        delegate?.buttonTapped(sender: self, indexPath: indexPath)
+//        delegate?.buttonTapped(sender: self, indexPath: indexPath)
         
     }
     

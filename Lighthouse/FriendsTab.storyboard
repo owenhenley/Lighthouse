@@ -238,7 +238,14 @@ or invite them to the app!</string>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ppA-MC-lvO">
                                 <rect key="frame" x="133.5" y="200" width="108" height="30"/>
                                 <color key="backgroundColor" red="0.90980392160000001" green="0.45882352939999999" blue="0.047058823530000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="  Invite Friends  "/>
+                                <state key="normal" title="  Invite Friends  ">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="14"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="inviteFriendsTapped:" destination="Aa7-Gz-Zt9" eventType="touchUpInside" id="V6H-Tz-1fr"/>
                                 </connections>
