@@ -61,8 +61,16 @@ class MapViewVC: CustomSearchFieldVC {
         NotificationCenter.default.addObserver(self, selector: #selector(removePins), name: .removedFriends, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(removePin), name: .removePin, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(placeMyPin), name: .myPinFetched, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(displaySelectedPin), name: .selectedFriend, object: nil)
         placePins()
 
+    }
+    
+    @objc func displaySelectedPin(notification: NSNotification) {
+        guard let event = notification.userInfo?[1] as? Event else {return}
+        let span = MKCoordinateSpan(latitudeDelta: 0.07, longitudeDelta: 0.07)
+        let region = MKCoordinateRegion(center: event.coordinate, span: span)
+        self.mainMapView.setRegion(region, animated: true)
     }
     
     @objc func placeMyPin(notification: Notification){

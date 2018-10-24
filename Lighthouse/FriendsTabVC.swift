@@ -124,11 +124,24 @@ extension FriendsTabVC: UITableViewDelegate, UITableViewDataSource {
         
 //        cell?.delegate = self
         var friend: Friend!
+        
         if searchFriends.isEmpty {
             friend = FriendController.shared.friends[indexPath.row]
         } else {
             friend = searchFriends[indexPath.row]
         }
+        
+        if let event = EventController.shared.events[friend.friendID] {
+            cell?.activeIcon.isHidden = false
+            cell?.subTitleOutlet.text = event.eventTitle
+            cell?.subTitleOutlet.font = UIFont.systemFont(ofSize: 16)
+            
+        } else {
+            cell?.activeIcon.isHidden = true
+            cell?.subTitleOutlet.font = UIFont.italicSystemFont(ofSize: 16)
+            cell?.subTitleOutlet.text = "inactive"
+        }
+        
         self.indexPath = indexPath
         
         cell?.titleOutlet.text = friend.name

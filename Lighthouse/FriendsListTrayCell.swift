@@ -16,6 +16,7 @@ class FriendsListTrayCell: UITableViewCell {
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var friendNameLabel: UILabel!
     @IBOutlet weak var friendLocationLabel: UILabel!
+    @IBOutlet weak var activeIcon: UIImageView!
     
     
         // MARK: - Variables
