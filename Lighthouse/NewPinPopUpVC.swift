@@ -21,18 +21,7 @@ class NewPinPopUpVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var pinNameTF              : UITextField!
     @IBOutlet weak var addressLabel           : UILabel!
     @IBOutlet weak var shareWithFriendsButton : UIButton!
-    
-    // Vibe Buttons
-//    @IBOutlet weak var movieVibe   : UIButton!
-//    @IBOutlet weak var foodVibe    : UIButton!
-//    @IBOutlet weak var barVibe     : UIButton!
-//    @IBOutlet weak var clubVibe    : UIButton!
-//    @IBOutlet weak var concertVibe : UIButton!
-//    @IBOutlet weak var partyVibe   : UIButton!
-//    @IBOutlet weak var chillVibe   : UIButton!
-//    @IBOutlet weak var studyVibe   : UIButton!
-    
-    @IBOutlet var vibeButtonCollection: [UIButton]!
+    @IBOutlet var vibeButtonCollection        : [UIButton]!
     
         // MARK: - Properties
     
@@ -59,7 +48,6 @@ class NewPinPopUpVC: UIViewController, UITextFieldDelegate {
         6 : UIImage(named: "chillActive") ?? UIImage(),
         7 : UIImage(named: "studyingActive") ?? UIImage()
     ]
-    
     
     fileprivate let vibeImageDeselectedDict: [Int : UIImage] = [
         0 : UIImage(named: "moviesDisabled") ?? UIImage(),
@@ -96,7 +84,6 @@ class NewPinPopUpVC: UIViewController, UITextFieldDelegate {
     func addTapGesture(){
         let gesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(gesture)
-
     }
     
     
