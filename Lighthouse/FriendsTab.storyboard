@@ -76,11 +76,11 @@ or invite them to the app!</string>
                                 <rect key="frame" x="0.0" y="188" width="375" height="430"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendTabCell" rowHeight="80" id="dFd-y8-NH0">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendTabCell" rowHeight="77" id="dFd-y8-NH0">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="77"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dFd-y8-NH0" id="pIu-Te-fcU" customClass="FriendCell" customModule="Lighthouse" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="77"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -159,7 +159,7 @@ or invite them to the app!</string>
                                 <rect key="frame" x="0.0" y="266" width="375" height="352"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="pendingFriendCell" rowHeight="74" id="gP4-QF-fPs" customClass="PendingPendingCell" customModule="Lighthouse" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="pendingFriendCell" rowHeight="74" id="gP4-QF-fPs" customClass="PendingInviteCell" customModule="Lighthouse" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="74"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gP4-QF-fPs" id="3hK-hc-ql1">
@@ -251,6 +251,7 @@ or invite them to the app!</string>
                         <viewLayoutGuide key="safeArea" id="M88-dd-oSd"/>
                     </view>
                     <connections>
+                        <outlet property="searchBar" destination="ajT-Pb-CEq" id="XcH-2s-NcV"/>
                         <outlet property="tableView" destination="UYb-Y8-YvQ" id="eyV-68-Obi"/>
                     </connections>
                 </viewController>
@@ -280,7 +281,7 @@ or invite them to the app!</string>
         </scene>
     </scenes>
     <resources>
-        <image name="friendsDisabled" width="43" height="42"/>
-        <image name="friendsEnabled" width="24" height="24"/>
+        <image name="friendsDisabled" width="48" height="32"/>
+        <image name="friendsEnabled" width="48" height="32"/>
     </resources>
 </document>

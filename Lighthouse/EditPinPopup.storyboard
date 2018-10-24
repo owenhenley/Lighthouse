@@ -1,21 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UJ5-X0-24O">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Dropped Pin Pop UpVC-->
+        <!--Edit PinVC-->
         <scene sceneID="5Ew-Yt-iFo">
             <objects>
-                <viewController id="UJ5-X0-24O" customClass="DroppedPinPopUpVC" customModule="Lighthouse" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="UJ5-X0-24O" customClass="EditPinVC" customModule="Lighthouse" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rJ8-Sk-PPd">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xWz-QJ-yLz">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="bBl-HV-4rJ" kind="unwind" unwindAction="unwindToMapViewSegue:" id="xKP-64-k5x"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bfn-Ma-Iqi">
-                                <rect key="frame" x="0.0" y="233.5" width="375" height="200"/>
+                                <rect key="frame" x="0.0" y="154" width="375" height="312"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vET-X9-46P">
                                         <rect key="frame" x="16" y="16" width="221" height="45"/>
@@ -25,6 +36,9 @@
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="titleTextField:" destination="bBl-HV-4rJ" eventType="editingDidEnd" id="itS-Vd-mjE"/>
+                                                </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bub-6r-yWU">
                                                 <rect key="frame" x="0.0" y="28" width="51.5" height="17"/>
@@ -45,39 +59,188 @@
                                             <constraint firstAttribute="height" constant="30" id="gbO-bE-w68"/>
                                         </constraints>
                                         <state key="normal" title="X"/>
+                                        <connections>
+                                            <segue destination="bBl-HV-4rJ" kind="unwind" unwindAction="unwindToMapViewSegue:" id="aXZ-hq-lBP"/>
+                                        </connections>
                                     </button>
-                                    <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="4SD-4a-Hko">
-                                        <rect key="frame" x="8" y="97" width="158" height="50.5"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PwS-1L-oQi">
+                                        <rect key="frame" x="270" y="266" width="89" height="30"/>
+                                        <state key="normal" title="Stop Sharing"/>
+                                        <connections>
+                                            <action selector="stopSharringTapped:" destination="UJ5-X0-24O" eventType="touchUpInside" id="YVj-lx-Wel"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u8E-Sk-RKe">
+                                        <rect key="frame" x="289" y="8" width="34" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Save"/>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="AWV-Im-Abj">
+                                        <rect key="frame" x="16" y="125.5" width="279" height="61.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a Event Vibe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tAD-Yt-MNU">
-                                                <rect key="frame" x="0.0" y="0.0" width="158" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Vibe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kp1-n0-bSA">
+                                                <rect key="frame" x="0.0" y="0.0" width="82" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="URW-ad-TPx">
-                                                <rect key="frame" x="0.0" y="20.5" width="150" height="30"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ygx-m4-aQq" userLabel="Event Vibes">
+                                                <rect key="frame" x="0.0" y="21.5" width="279" height="40"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SKF-yD-o1R">
-                                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                                        <state key="normal" title="X"/>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jFc-0C-bTN">
-                                                        <rect key="frame" x="60" y="0.0" width="30" height="30"/>
-                                                        <state key="normal" title="X"/>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a7R-GD-6Du">
-                                                        <rect key="frame" x="120" y="0.0" width="30" height="30"/>
-                                                        <state key="normal" title="X"/>
-                                                    </button>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="WVF-n9-QkA">
+                                                        <rect key="frame" x="0.0" y="0.0" width="35" height="40"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Z7-tS-YZZ">
+                                                                <rect key="frame" x="0.0" y="0.0" width="35" height="32.5"/>
+                                                                <state key="normal" image="moviesDisabled"/>
+                                                                <connections>
+                                                                    <action selector="eventVibeSelected:" destination="UJ5-X0-24O" eventType="touchUpInside" id="jYd-pg-pdR"/>
+                                                                </connections>
+                                                            </button>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QJe-27-Nay">
+                                                                <rect key="frame" x="3" y="32.5" width="29" height="7.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="dbI-Uu-LXH">
+                                                        <rect key="frame" x="35" y="0.0" width="35" height="40"/>
+                                                        <subviews>
+                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qT7-gC-gXt">
+                                                                <rect key="frame" x="0.0" y="0.0" width="35" height="32.5"/>
+                                                                <state key="normal" image="foodDisabled"/>
+                                                                <connections>
+                                                                    <action selector="eventVibeSelected:" destination="UJ5-X0-24O" eventType="touchUpInside" id="6eg-tc-dfS"/>
+                                                                </connections>
+                                                            </button>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Food" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FHD-1d-4BE">
+                                                                <rect key="frame" x="5" y="32.5" width="24.5" height="7.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="I2a-qb-5AP">
+                                                        <rect key="frame" x="70" y="0.0" width="34.5" height="40"/>
+                                                        <subviews>
+                                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6uP-Q2-cwk">
+                                                                <rect key="frame" x="0.0" y="0.0" width="34.5" height="32.5"/>
+                                                                <state key="normal" title="X" image="barDisabled"/>
+                                                                <connections>
+                                                                    <action selector="eventVibeSelected:" destination="UJ5-X0-24O" eventType="touchUpInside" id="rmZ-TA-CJC"/>
+                                                                </connections>
+                                                            </button>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w6f-mh-URB">
+                                                                <rect key="frame" x="9" y="32.5" width="16.5" height="7.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="mn0-6G-jhg">
+                                                        <rect key="frame" x="104.5" y="0.0" width="35" height="40"/>
+                                                        <subviews>
+                                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="woa-rT-9XU">
+                                                                <rect key="frame" x="0.0" y="0.0" width="35" height="32.5"/>
+                                                                <state key="normal" title="X" image="clubDisabled"/>
+                                                                <connections>
+                                                                    <action selector="eventVibeSelected:" destination="UJ5-X0-24O" eventType="touchUpInside" id="wyi-VE-TLP"/>
+                                                                </connections>
+                                                            </button>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Club" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yae-67-DWE">
+                                                                <rect key="frame" x="6.5" y="32.5" width="22.5" height="7.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="UaM-nw-DCk">
+                                                        <rect key="frame" x="139.5" y="0.0" width="35" height="40"/>
+                                                        <subviews>
+                                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sOY-gR-xpd">
+                                                                <rect key="frame" x="0.0" y="0.0" width="35" height="32.5"/>
+                                                                <state key="normal" title="X" image="concertDisabled"/>
+                                                                <connections>
+                                                                    <action selector="eventVibeSelected:" destination="UJ5-X0-24O" eventType="touchUpInside" id="zmE-KP-TT3"/>
+                                                                </connections>
+                                                            </button>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Concert" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="een-g8-d49">
+                                                                <rect key="frame" x="0.0" y="32.5" width="35" height="7.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vpU-2g-xAT">
+                                                        <rect key="frame" x="174.5" y="0.0" width="35" height="40"/>
+                                                        <subviews>
+                                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jgZ-VY-nhV">
+                                                                <rect key="frame" x="0.0" y="0.0" width="35" height="32.5"/>
+                                                                <state key="normal" title="X" image="partyDisabled"/>
+                                                                <connections>
+                                                                    <action selector="eventVibeSelected:" destination="UJ5-X0-24O" eventType="touchUpInside" id="f5K-s7-d1c"/>
+                                                                </connections>
+                                                            </button>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Party" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lBy-R4-c3v">
+                                                                <rect key="frame" x="4.5" y="32.5" width="25.5" height="7.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Jkm-xn-ygm">
+                                                        <rect key="frame" x="209.5" y="0.0" width="34.5" height="40"/>
+                                                        <subviews>
+                                                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U5E-u9-gv8">
+                                                                <rect key="frame" x="0.0" y="0.0" width="34.5" height="32.5"/>
+                                                                <state key="normal" title="X" image="chillDisabled"/>
+                                                                <connections>
+                                                                    <action selector="eventVibeSelected:" destination="UJ5-X0-24O" eventType="touchUpInside" id="rWI-nz-fzi"/>
+                                                                </connections>
+                                                            </button>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chill" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bIz-MB-zJt">
+                                                                <rect key="frame" x="6.5" y="32.5" width="21.5" height="7.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Gay-Ss-Ysz">
+                                                        <rect key="frame" x="244" y="0.0" width="35" height="40"/>
+                                                        <subviews>
+                                                            <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NIP-ef-8W6">
+                                                                <rect key="frame" x="0.0" y="0.0" width="35" height="32.5"/>
+                                                                <state key="normal" title="X" image="studyingDisabled"/>
+                                                                <connections>
+                                                                    <action selector="eventVibeSelected:" destination="UJ5-X0-24O" eventType="touchUpInside" id="w5d-2T-da3"/>
+                                                                </connections>
+                                                            </button>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Study" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zgO-aT-QgH">
+                                                                <rect key="frame" x="3.5" y="32.5" width="28.5" height="7.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="Ko8-wo-SrZ"/>
+                                                </constraints>
                                             </stackView>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PwS-1L-oQi">
-                                        <rect key="frame" x="308" y="154" width="51" height="30"/>
-                                        <state key="normal" title="Update"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O6o-yM-4Qp">
+                                        <rect key="frame" x="133" y="103" width="30" height="30"/>
+                                        <state key="normal" title="Edit"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -87,9 +250,14 @@
                                     <constraint firstAttribute="bottom" secondItem="PwS-1L-oQi" secondAttribute="bottom" constant="16" id="IcD-qC-UVB"/>
                                     <constraint firstAttribute="trailing" secondItem="PwS-1L-oQi" secondAttribute="trailing" constant="16" id="Jg9-fh-GSk"/>
                                     <constraint firstItem="vET-X9-46P" firstAttribute="leading" secondItem="Bfn-Ma-Iqi" secondAttribute="leading" constant="16" id="Oo1-Ma-7Pe"/>
-                                    <constraint firstAttribute="height" constant="200" id="dqH-lN-u6b"/>
+                                    <constraint firstAttribute="height" constant="312" id="dqH-lN-u6b"/>
+                                    <constraint firstAttribute="trailing" secondItem="AWV-Im-Abj" secondAttribute="trailing" constant="80" id="mOh-M1-tdE"/>
                                     <constraint firstItem="FHk-Gl-MwX" firstAttribute="top" secondItem="Bfn-Ma-Iqi" secondAttribute="top" constant="8" id="nMN-Ir-Iqf"/>
+                                    <constraint firstItem="O6o-yM-4Qp" firstAttribute="top" secondItem="vET-X9-46P" secondAttribute="bottom" constant="42" id="phl-cC-6g8"/>
+                                    <constraint firstItem="AWV-Im-Abj" firstAttribute="centerY" secondItem="Bfn-Ma-Iqi" secondAttribute="centerY" id="qt1-4C-fSm"/>
+                                    <constraint firstItem="O6o-yM-4Qp" firstAttribute="leading" secondItem="Bfn-Ma-Iqi" secondAttribute="leading" constant="133" id="rfd-Sc-HPA"/>
                                     <constraint firstItem="FHk-Gl-MwX" firstAttribute="leading" secondItem="vET-X9-46P" secondAttribute="trailing" constant="100" id="sIS-1p-4m5"/>
+                                    <constraint firstItem="AWV-Im-Abj" firstAttribute="leading" secondItem="Bfn-Ma-Iqi" secondAttribute="leading" constant="16" id="uP3-5f-r7y"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -99,17 +267,38 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="sTe-40-qB9" firstAttribute="trailing" secondItem="Bfn-Ma-Iqi" secondAttribute="trailing" id="2UD-m6-ytN"/>
-                            <constraint firstItem="Bfn-Ma-Iqi" firstAttribute="centerY" secondItem="rJ8-Sk-PPd" secondAttribute="centerY" id="5PO-IM-PRL"/>
+                            <constraint firstItem="sTe-40-qB9" firstAttribute="trailing" secondItem="xWz-QJ-yLz" secondAttribute="trailing" id="5cs-Uy-5CZ"/>
                             <constraint firstItem="Bfn-Ma-Iqi" firstAttribute="leading" secondItem="sTe-40-qB9" secondAttribute="leading" id="7vr-JY-xUo"/>
+                            <constraint firstItem="Bfn-Ma-Iqi" firstAttribute="top" secondItem="rJ8-Sk-PPd" secondAttribute="top" constant="154" id="HXg-m6-v7Y"/>
+                            <constraint firstItem="xWz-QJ-yLz" firstAttribute="top" secondItem="rJ8-Sk-PPd" secondAttribute="top" id="rUr-C7-hdG"/>
+                            <constraint firstItem="sTe-40-qB9" firstAttribute="bottom" secondItem="xWz-QJ-yLz" secondAttribute="bottom" id="w2m-IN-Qeb"/>
+                            <constraint firstItem="xWz-QJ-yLz" firstAttribute="leading" secondItem="sTe-40-qB9" secondAttribute="leading" id="yJV-bS-FCp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sTe-40-qB9"/>
                     </view>
+                    <connections>
+                        <outlet property="editButtonOutlet" destination="u8E-Sk-RKe" id="RXW-9x-UWs"/>
+                        <outlet property="locationOutlet" destination="Bub-6r-yWU" id="quo-3W-JkP"/>
+                        <outlet property="titleTextField" destination="Adk-gG-aY9" id="2p5-wv-gej"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rix-PP-IKn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="bBl-HV-4rJ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1878" y="291"/>
+            <point key="canvasLocation" x="1877.5999999999999" y="290.10494752623691"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="barDisabled" width="56" height="56"/>
+        <image name="chillDisabled" width="56" height="56"/>
+        <image name="clubDisabled" width="56" height="56"/>
+        <image name="concertDisabled" width="56" height="56"/>
+        <image name="foodDisabled" width="56" height="56"/>
+        <image name="moviesDisabled" width="56" height="56"/>
+        <image name="partyDisabled" width="56" height="56"/>
+        <image name="studyingDisabled" width="56" height="56"/>
+    </resources>
 </document>

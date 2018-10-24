@@ -48,10 +48,10 @@ class SignInVC: CustomTextFieldVC {
     
     @IBAction func signInTapped(_ sender: Any) {
         
-        SVProgressHUD.show()
         
         guard let password = passwordOutlet.text,
             let email = emailOutlet.text else {return}
+        SVProgressHUD.show()
         UserController.shared.logInUser(email: email, password: password) { (success) in
             if success {
                 DispatchQueue.main.async {

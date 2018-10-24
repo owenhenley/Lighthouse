@@ -81,7 +81,7 @@ class EventController {
                 guard let documents = snapShot?.documents else {return}
                 let friendIDs = documents.compactMap{$0[FRIEND_ID]} as! [String]
                 for friendID in friendIDs {
-                    FIRESTORE.collection(USER).document(friendID).collection(INVITES).document(uid).delete()
+                    FIRESTORE.collection(USER).document(friendID).collection(ACTIVE_FRIENDS).document(uid).delete()
                 }
                 FIRESTORE.collection(USER).document(uid).collection(EVENT).document(uid).delete()
             }
@@ -122,31 +122,35 @@ class EventController {
     
     func fetchFriendsPins(friendIDs: [String]){
         for  friendID in friendIDs {
-            FIRESTORE.collection(USER).document(friendID).collection(EVENT).addSnapshotListener({ (snapshot, error) in
-                guard let document        = snapshot?.documents.first,
-                      let name            = document[NAME] as? String,
-                      let profileImageURL = document[PROFILE_IMAGE_URL] as? String,
-                      let title           = document[EVENT] as? String,
-                      let vibe            = document[EVENT_VIBE] as? String,
-                      let geoPoint        = document[GEO_POINT] as? GeoPoint
-                    else { return }
-                
-                let location   = CLLocationCoordinate2D(latitude: geoPoint.latitude, longitude: geoPoint.longitude)
-                
-                let event = Event(friendID: friendID, name: name, profileImage: nil, profileImageUrl: profileImageURL, title: title, coordinates: location, streetAddress: "", invited: [:], vibe: vibe, eventTitle: title)
-                FIRESTORE.collection(USER).document(friendID).collection(EVENT).document(friendID).collection(INVITES).addSnapshotListener({ (snapshot, error) in
-                    guard let documents = snapshot?.documents else {return}
-                    let friendIDS: [String] = documents.compactMap{$0[FRIEND_ID]} as! [String]
-                    
-                    for friendID in friendIDS {
-                        FriendController.shared.fetchFriend(friendID: friendID, completion: { (friend) in
-                            event.invited.updateValue(friend, forKey: friendID)
-                        })
-                        
-                    }
-                    self.events.updateValue(event, forKey: friendID)
-                })
-            })
+            fetchPin(friendID: friendID)
         }
+    }
+    
+    func fetchPin(friendID: String){
+        FIRESTORE.collection(USER).document(friendID).collection(EVENT).addSnapshotListener({ (snapshot, error) in
+            guard let document        = snapshot?.documents.first,
+                let name            = document[NAME] as? String,
+                let profileImageURL = document[PROFILE_IMAGE_URL] as? String,
+                let title           = document[EVENT] as? String,
+                let vibe            = document[EVENT_VIBE] as? String,
+                let geoPoint        = document[GEO_POINT] as? GeoPoint
+                else { return }
+            
+            let location   = CLLocationCoordinate2D(latitude: geoPoint.latitude, longitude: geoPoint.longitude)
+            
+            let event = Event(friendID: friendID, name: name, profileImage: nil, profileImageUrl: profileImageURL, title: title, coordinates: location, streetAddress: "", invited: [:], vibe: vibe, eventTitle: title)
+            FIRESTORE.collection(USER).document(friendID).collection(EVENT).document(friendID).collection(INVITES).addSnapshotListener({ (snapshot, error) in
+                guard let documents = snapshot?.documents else {return}
+                let friendIDS: [String] = documents.compactMap{$0[FRIEND_ID]} as! [String]
+                
+                for friendID in friendIDS {
+                    FriendController.shared.fetchFriend(friendID: friendID, completion: { (friend) in
+                        event.invited.updateValue(friend, forKey: friendID)
+                    })
+                    
+                }
+                self.events.updateValue(event, forKey: friendID)
+            })
+        })
     }
 }

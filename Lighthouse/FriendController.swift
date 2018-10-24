@@ -114,7 +114,6 @@ class FriendController {
             guard let users = snapShotBlock?.documents else {return}
             for user in users {
                 
-                let username  = user[USERNAME] as! String
                 let urlString = user[PROFILE_IMAGE_URL] as! String
                 let friendID  = user[USER_ID] as! String
                 let firstName = user[FIRST_NAME] as! String

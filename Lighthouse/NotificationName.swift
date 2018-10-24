@@ -17,4 +17,6 @@ extension Notification.Name {
     static let eventsUpdated = Notification.Name("eventsUpdated")
     static let friendsTrayUpdated = Notification.Name("friendsTrayUpdated")
     static let removedFriends = Notification.Name("removedFriends")
+    static let removePin = Notification.Name("removePin")
+    static let myPinFetched = Notification.Name("myPinFetched")
 }
