@@ -56,7 +56,7 @@
                                     <constraint firstAttribute="height" constant="24" id="LPB-T2-0vi"/>
                                     <constraint firstAttribute="width" constant="24" id="qRZ-VC-dlc"/>
                                 </constraints>
-                                <state key="normal" image="currentLocationFilled"/>
+                                <state key="normal" image="gpsActive"/>
                                 <connections>
                                     <action selector="findUserLocationTapped:" destination="KIQ-uS-6Qq" eventType="touchUpInside" id="twT-tk-WBR"/>
                                 </connections>
@@ -136,6 +136,7 @@
                     <connections>
                         <outlet property="dropPinButton" destination="KP1-qD-tHA" id="k70-gy-uby"/>
                         <outlet property="fillerView" destination="TXo-Nz-TUn" id="5hL-xY-c05"/>
+                        <outlet property="gpsButton" destination="XId-hC-rD0" id="FUw-se-HFg"/>
                         <outlet property="mainMapView" destination="1e0-ld-Izd" id="ZBc-Jk-6Id"/>
                         <outlet property="nextButton" destination="fcj-Zu-x1i" id="zGi-Wu-er1"/>
                         <outlet property="searchBar" destination="jPW-Es-U1u" id="I3R-Tg-EOE"/>
@@ -427,8 +428,8 @@
     </scenes>
     <resources>
         <image name="Jim" width="186" height="186"/>
-        <image name="currentLocationFilled" width="32" height="32"/>
         <image name="dropPin" width="184" height="64"/>
+        <image name="gpsActive" width="32" height="32"/>
         <image name="mapDisabled" width="48" height="32"/>
         <image name="mapEnabled" width="48" height="32"/>
         <image name="mapfriendsiconActive" width="24" height="24"/>

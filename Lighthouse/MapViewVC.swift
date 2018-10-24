@@ -14,8 +14,7 @@ import SVProgressHUD
 
 class MapViewVC: CustomSearchFieldVC {
     
-    
-    
+
     // MARK: - Properties
     
     var locationManager = CLLocationManager()
@@ -34,8 +33,6 @@ class MapViewVC: CustomSearchFieldVC {
         }
     }
 
-
-    
     
     // MARK: - Outlets
     
@@ -47,6 +44,7 @@ class MapViewVC: CustomSearchFieldVC {
     @IBOutlet weak var trayContainer        : UIView!
     @IBOutlet weak var trayHeightConstraint : NSLayoutConstraint!
     @IBOutlet weak var dropPinButton        : UIButton!
+    @IBOutlet weak var gpsButton            : UIButton!
     
     
     // MARK: - LifeCycle
@@ -86,8 +84,6 @@ class MapViewVC: CustomSearchFieldVC {
         self.myPin = myPin
         mainMapView.addAnnotation(myPin)
     }
-    
-    
     
     
     //FIXME: Get conainer view to show when user logs in
@@ -131,6 +127,8 @@ class MapViewVC: CustomSearchFieldVC {
     // Tapping the Blue GPS Arrow
     @IBAction func findUserLocationTapped(_ sender: Any) {
         centerAuthedUserGPSArrowTapped()
+        userMapCentered = true
+        gpsButton.setImage(UIImage(named: "gpsActive"), for: .normal)
     }
     
     // Drop pin at current GPS location
@@ -332,6 +330,10 @@ extension MapViewVC: MKMapViewDelegate {
         if trayActive {
             changeTrayHeight()
         }
+        
+        userMapCentered = false
+        gpsButton.setImage(UIImage(named: "gpsDisabled"), for: .normal)
+        
     }
 }
 
