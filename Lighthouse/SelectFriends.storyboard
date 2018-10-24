@@ -24,7 +24,7 @@
                                     <constraint firstAttribute="width" constant="23" id="3sG-X5-0ty"/>
                                     <constraint firstAttribute="height" constant="23" id="6RA-zw-Ktq"/>
                                 </constraints>
-                                <state key="normal" image="back"/>
+                                <state key="normal" image="backchevronDark"/>
                                 <connections>
                                     <action selector="backTapped:" destination="mCy-iH-Uqr" eventType="touchUpInside" id="ht4-Nq-k9L"/>
                                 </connections>
@@ -64,7 +64,7 @@
                                                 <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="voH-aa-lgJ">
                                                     <rect key="frame" x="25" y="21.5" width="60" height="60"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Orange Logo 144px" translatesAutoresizingMaskIntoConstraints="NO" id="7KP-AZ-8OT">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoWhite144px" translatesAutoresizingMaskIntoConstraints="NO" id="7KP-AZ-8OT">
                                                             <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </imageView>
@@ -156,8 +156,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Orange Logo 144px" width="144" height="144"/>
         <image name="]" width="16" height="16"/>
-        <image name="back" width="409.60000610351562" height="409.60000610351562"/>
+        <image name="backchevronDark" width="56" height="56"/>
+        <image name="logoWhite144px" width="144" height="144"/>
     </resources>
 </document>
