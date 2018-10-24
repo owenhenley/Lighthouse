@@ -23,7 +23,23 @@ class AddFriendsVC: CustomSearchFieldVC {
         tableView.dataSource = self
         searchBar.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .resultsUpdated, object: nil)
+        setUpKeyboardDissmiss()
     }
+    
+    func setUpKeyboardDissmiss() {
+        let tap = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture))
+        view.addGestureRecognizer(tap)
+    }
+    
+    
+    @objc func handlePanGesture() {
+        searchBar.resignFirstResponder()
+    }
+
+
+    
+
+
     
     @IBAction func backTapped(_ sender: Any) {
         navigationController?.popViewController(animated: true)
@@ -108,6 +124,10 @@ extension AddFriendsVC: UITableViewDataSource, UITableViewDelegate, PendingCellI
 //        }
 //        return cell ?? UITableViewCell()
 //    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        searchBar.resignFirstResponder()
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         

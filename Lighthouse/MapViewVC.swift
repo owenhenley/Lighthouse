@@ -28,6 +28,12 @@ class MapViewVC: CustomSearchFieldVC {
     var friendID: String?
     var placedAnnotations: Set<String> = []
     var myPin: Event?
+    var trayActive = false {
+        didSet{
+            print(trayActive)
+        }
+    }
+
 
     
     
@@ -322,6 +328,10 @@ extension MapViewVC: MKMapViewDelegate {
         searchBar.resignFirstResponder()
         fillerView.isHidden = false
         searchBar.isHidden  = true
+        NotificationCenter.default.post(name: .regionChanged, object: nil)
+        if trayActive {
+            changeTrayHeight()
+        }
     }
 }
 
@@ -368,6 +378,7 @@ extension MapViewVC: CLLocationManagerDelegate {
             break
         }
     }
+
 }
 
 
@@ -376,14 +387,14 @@ extension MapViewVC: CLLocationManagerDelegate {
 //1) Adopt the protocol (write that your qualified to be the boss on your resume)
 extension MapViewVC: TrayTabVCDelegate {
     
-    
     //2 - Implement protocol requirements (Actually fullfill the skills you said you had on your resume)
-    func changeTrayHeight(isTrayActive: Bool) {
-        
+    func changeTrayHeight() {
+        trayActive = !trayActive
         var height: CGFloat = 0
-        if isTrayActive{
+        if trayActive{
             height = self.view.frame.height * 0.60
         } else {
+            NotificationCenter.default.post(name: .regionChanged, object: nil)
             height = 24
         }
         

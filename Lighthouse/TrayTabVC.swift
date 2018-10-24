@@ -10,7 +10,7 @@ import UIKit
 
 //1) Define all of the qualifications to be the TrayTabVC's Delegate (Boss)
 protocol TrayTabVCDelegate: class {
-    func changeTrayHeight(isTrayActive: Bool)
+    func changeTrayHeight()
 }
 
 class TrayTabVC: UIViewController {
@@ -19,7 +19,7 @@ class TrayTabVC: UIViewController {
     
     // MARK: - Variables
     
-    var trayIsActive = false
+    
     
     //2) The child class defining a place in its heart where it recognizes it needs a boss
     weak var delegate: TrayTabVCDelegate?
@@ -33,8 +33,10 @@ class TrayTabVC: UIViewController {
     
     
     @IBAction func trayOpenTapped(_ sender: Any) {
-        delegate?.changeTrayHeight(isTrayActive: trayIsActive)
-        trayIsActive = !trayIsActive
+        
+        delegate?.changeTrayHeight()
+        NotificationCenter.default.post(name: .trayLifted, object: nil)
+//        trayIsActive = !trayIsActive
     }
     
 }
@@ -45,8 +47,8 @@ extension TrayTabVC: UIGestureRecognizerDelegate {
     
     func swipeTray() {
         
-        delegate?.changeTrayHeight(isTrayActive: trayIsActive)
-        trayIsActive = !trayIsActive
+        delegate?.changeTrayHeight()
+//        trayIsActive = !trayIsActive
         
         let swipeTray = UISwipeGestureRecognizer(target: self, action: #selector(moveTray))
         swipeTray.delegate = self
