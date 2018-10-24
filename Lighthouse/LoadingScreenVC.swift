@@ -54,10 +54,8 @@ class LoadingScreenVC: UIViewController {
                         self.present(mainView, animated: true, completion: nil)
                         EventController.shared.fetchActivePins()
                         UserController.shared.fetchMyPin()
-
                         FriendController.shared.fetchFriends { (success) in
                             if success {
-                                // Notification centre, let tray tableview know
                             }
                         }
                     }

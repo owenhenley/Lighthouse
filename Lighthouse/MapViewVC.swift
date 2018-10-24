@@ -153,7 +153,8 @@ class MapViewVC: CustomSearchFieldVC {
         let locationManager = CLLocationManager()
         guard let user = UserController.shared.user,
             let location = locationManager.location?.coordinate,
-            let uid = UID else {return}
+            let uid = UID else { return }
+        
         centerMapOnAuthedUser {
             
             let event = Event(friendID: uid, name: user.fullName, profileImage: user.profileImage, profileImageUrl: user.profileImageURL, title: "", coordinates: location, streetAddress: nil, invited: [:], vibe: "", eventTitle: "")
@@ -170,16 +171,8 @@ class MapViewVC: CustomSearchFieldVC {
                 self.myPin = event
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.65) {
                     self.performSegue(withIdentifier: "toNewPinVC", sender: self)
-                    //                self.removePin(annotation: event)
                 }
-                
             }
-            
-            
-            
-            
-            
-            
         }
     }
     
@@ -187,7 +180,6 @@ class MapViewVC: CustomSearchFieldVC {
     @objc func removePin() {
         guard let myPin = myPin else {return}
         mainMapView.removeAnnotation(myPin)
-        
     }
  
 
@@ -208,8 +200,6 @@ class MapViewVC: CustomSearchFieldVC {
                 placedAnnotations.insert(event.friendID)
                 mainMapView.addAnnotation(event)
             }
-            
-            
 //            let friendEventCoordinate = event.coordinate
 //            let friendEventPinAnnotation: MKPointAnnotation = MKPointAnnotation()
 //            friendEventPinAnnotation.coordinate = friendEventCoordinate
@@ -243,7 +233,6 @@ class MapViewVC: CustomSearchFieldVC {
                 self.mainMapView.setRegion(region, animated: true)
             }) { (success) in
                 completion()
-
             }
         }
     }
@@ -356,7 +345,7 @@ extension MapViewVC: CLLocationManagerDelegate {
     func setupLocationManager() {
         mainMapView.delegate     = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        self.locationManager.delegate = self
+        locationManager.delegate = self
 
     }
     

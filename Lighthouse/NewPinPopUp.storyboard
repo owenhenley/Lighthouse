@@ -71,7 +71,7 @@
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="eyz-0w-2Ix">
-                                        <rect key="frame" x="16" y="78" width="353" height="94"/>
+                                        <rect key="frame" x="16" y="78" width="343" height="94"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a Event Vibe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zA6-Kl-ltV">
                                                 <rect key="frame" x="0.0" y="0.0" width="158" height="30"/>
@@ -83,23 +83,23 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="aCy-kD-TkG">
-                                                <rect key="frame" x="0.0" y="39" width="353" height="55"/>
+                                                <rect key="frame" x="0.0" y="39" width="343" height="55"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="7If-CT-60S" userLabel="Event Vibes">
-                                                        <rect key="frame" x="0.0" y="0.0" width="353" height="55"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="55"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="XLY-Ql-yIK">
-                                                                <rect key="frame" x="0.0" y="0.0" width="44" height="55"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="43" height="55"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I6a-9U-kJT">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="44" height="45.5"/>
-                                                                        <state key="normal" image="moviesDisabled"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="43" height="45.5"/>
+                                                                        <state key="normal" backgroundImage="moviesDisabled"/>
                                                                         <connections>
                                                                             <action selector="eventVibeButtonTapped:" destination="WCS-DN-vAu" eventType="touchUpInside" id="nHX-s9-sG6"/>
                                                                         </connections>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sjk-P3-9hB">
-                                                                        <rect key="frame" x="7.5" y="45.5" width="29" height="9.5"/>
+                                                                        <rect key="frame" x="7" y="45.5" width="29" height="9.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -107,17 +107,17 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="93N-Xc-f4E">
-                                                                <rect key="frame" x="44" y="0.0" width="44.5" height="55"/>
+                                                                <rect key="frame" x="43" y="0.0" width="43" height="55"/>
                                                                 <subviews>
                                                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Snl-1b-YB3">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="44.5" height="45.5"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="43" height="45.5"/>
                                                                         <state key="normal" image="foodDisabled"/>
                                                                         <connections>
                                                                             <action selector="eventVibeButtonTapped:" destination="WCS-DN-vAu" eventType="touchUpInside" id="hPj-f1-K4k"/>
                                                                         </connections>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Food" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zFj-cR-Tb0">
-                                                                        <rect key="frame" x="10" y="45.5" width="24.5" height="9.5"/>
+                                                                        <rect key="frame" x="9" y="45.5" width="24.5" height="9.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -125,17 +125,17 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="QUC-9o-OZr">
-                                                                <rect key="frame" x="88.5" y="0.0" width="44" height="55"/>
+                                                                <rect key="frame" x="86" y="0.0" width="42.5" height="55"/>
                                                                 <subviews>
                                                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bov-sI-8dD">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="44" height="45.5"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="42.5" height="45.5"/>
                                                                         <state key="normal" title="X" image="barDisabled"/>
                                                                         <connections>
                                                                             <action selector="eventVibeButtonTapped:" destination="WCS-DN-vAu" eventType="touchUpInside" id="ClX-zb-o3A"/>
                                                                         </connections>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pJP-Wb-8Du">
-                                                                        <rect key="frame" x="13.5" y="45.5" width="16.5" height="9.5"/>
+                                                                        <rect key="frame" x="13" y="45.5" width="16.5" height="9.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -143,10 +143,10 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="yov-qd-3XT">
-                                                                <rect key="frame" x="132.5" y="0.0" width="44" height="55"/>
+                                                                <rect key="frame" x="128.5" y="0.0" width="43" height="55"/>
                                                                 <subviews>
                                                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FDf-LY-18c">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="44" height="45.5"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="43" height="45.5"/>
                                                                         <state key="normal" title="X" image="clubDisabled"/>
                                                                         <connections>
                                                                             <action selector="eventVibeButtonTapped:" destination="WCS-DN-vAu" eventType="touchUpInside" id="Th0-Zu-S7W"/>
@@ -161,17 +161,17 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="iT1-6U-xdU">
-                                                                <rect key="frame" x="176.5" y="0.0" width="44" height="55"/>
+                                                                <rect key="frame" x="171.5" y="0.0" width="43" height="55"/>
                                                                 <subviews>
                                                                     <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AkO-ca-cAZ">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="44" height="45.5"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="43" height="45.5"/>
                                                                         <state key="normal" title="X" image="concertDisabled"/>
                                                                         <connections>
                                                                             <action selector="eventVibeButtonTapped:" destination="WCS-DN-vAu" eventType="touchUpInside" id="kTB-gG-nMK"/>
                                                                         </connections>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Concert" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p8L-78-U4t">
-                                                                        <rect key="frame" x="2.5" y="45.5" width="39" height="9.5"/>
+                                                                        <rect key="frame" x="2" y="45.5" width="39" height="9.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -179,17 +179,17 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8Dg-8o-VFP">
-                                                                <rect key="frame" x="220.5" y="0.0" width="44.5" height="55"/>
+                                                                <rect key="frame" x="214.5" y="0.0" width="43" height="55"/>
                                                                 <subviews>
                                                                     <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HnV-op-S60">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="44.5" height="45.5"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="43" height="45.5"/>
                                                                         <state key="normal" title="X" image="partyDisabled"/>
                                                                         <connections>
                                                                             <action selector="eventVibeButtonTapped:" destination="WCS-DN-vAu" eventType="touchUpInside" id="bgc-TH-woa"/>
                                                                         </connections>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Party" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x2M-8x-j73">
-                                                                        <rect key="frame" x="9.5" y="45.5" width="25.5" height="9.5"/>
+                                                                        <rect key="frame" x="8.5" y="45.5" width="25.5" height="9.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -197,17 +197,17 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="HsC-EJ-oM3">
-                                                                <rect key="frame" x="265" y="0.0" width="44" height="55"/>
+                                                                <rect key="frame" x="257.5" y="0.0" width="42.5" height="55"/>
                                                                 <subviews>
                                                                     <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pRO-lr-yjP">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="44" height="45.5"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="42.5" height="45.5"/>
                                                                         <state key="normal" title="X" image="chillDisabled"/>
                                                                         <connections>
                                                                             <action selector="eventVibeButtonTapped:" destination="WCS-DN-vAu" eventType="touchUpInside" id="fik-c5-5GZ"/>
                                                                         </connections>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chill" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zkz-8f-nmd">
-                                                                        <rect key="frame" x="11" y="45.5" width="21.5" height="9.5"/>
+                                                                        <rect key="frame" x="10.5" y="45.5" width="21.5" height="9.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -215,10 +215,10 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="yqc-yf-Glb">
-                                                                <rect key="frame" x="309" y="0.0" width="44" height="55"/>
+                                                                <rect key="frame" x="300" y="0.0" width="43" height="55"/>
                                                                 <subviews>
                                                                     <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Uu-Pu-6kr">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="44" height="45.5"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="43" height="45.5"/>
                                                                         <state key="normal" title="X" image="studyingDisabled"/>
                                                                         <connections>
                                                                             <action selector="eventVibeButtonTapped:" destination="WCS-DN-vAu" eventType="touchUpInside" id="m4o-d8-61r"/>
@@ -250,7 +250,7 @@
                                     <constraint firstAttribute="bottom" secondItem="P2W-0D-4Os" secondAttribute="bottom" constant="16" id="OlQ-HZ-Ilf"/>
                                     <constraint firstItem="7A6-qa-xvB" firstAttribute="leading" secondItem="qhA-EK-HpQ" secondAttribute="leading" constant="16" id="ZBP-0u-4jX"/>
                                     <constraint firstItem="eyz-0w-2Ix" firstAttribute="centerY" secondItem="qhA-EK-HpQ" secondAttribute="centerY" id="b3V-uR-6Ba"/>
-                                    <constraint firstAttribute="trailing" secondItem="eyz-0w-2Ix" secondAttribute="trailing" constant="6" id="cIy-9g-VjH"/>
+                                    <constraint firstAttribute="trailing" secondItem="eyz-0w-2Ix" secondAttribute="trailing" constant="16" id="cIy-9g-VjH"/>
                                     <constraint firstAttribute="trailing" secondItem="6Al-vM-nK3" secondAttribute="trailing" constant="8" id="grh-uK-jzx"/>
                                     <constraint firstItem="7A6-qa-xvB" firstAttribute="top" secondItem="qhA-EK-HpQ" secondAttribute="top" constant="16" id="htK-lM-DwS"/>
                                     <constraint firstItem="6Al-vM-nK3" firstAttribute="top" secondItem="qhA-EK-HpQ" secondAttribute="top" constant="8" id="liW-Ov-iWQ"/>
@@ -274,9 +274,17 @@
                     <navigationItem key="navigationItem" id="7bX-9b-kY1"/>
                     <connections>
                         <outlet property="addressLabel" destination="FxW-2K-lyR" id="yO8-OU-nU3"/>
+                        <outlet property="barVibe" destination="bov-sI-8dD" id="tua-Kk-TP4"/>
+                        <outlet property="chillVibe" destination="pRO-lr-yjP" id="h50-zI-jb7"/>
+                        <outlet property="clubVibe" destination="FDf-LY-18c" id="uWF-xC-VyV"/>
+                        <outlet property="concertVibe" destination="AkO-ca-cAZ" id="0ft-97-OU8"/>
                         <outlet property="exitButton" destination="6Al-vM-nK3" id="37n-PJ-uj3"/>
+                        <outlet property="foodVibe" destination="Snl-1b-YB3" id="LBD-ZW-dZy"/>
+                        <outlet property="movieVibe" destination="I6a-9U-kJT" id="yaJ-ng-ayY"/>
+                        <outlet property="partyVibe" destination="HnV-op-S60" id="xpM-dc-r8z"/>
                         <outlet property="pinNameTF" destination="oKv-m4-Rt2" id="v03-Sw-DDg"/>
                         <outlet property="shareWithFriendsButton" destination="P2W-0D-4Os" id="d4O-M5-Pdd"/>
+                        <outlet property="studyVibe" destination="0Uu-Pu-6kr" id="cil-25-Lcs"/>
                         <segue destination="E4P-D2-nVg" kind="show" identifier="selectFreinds" id="U3C-tw-3S0"/>
                     </connections>
                 </viewController>

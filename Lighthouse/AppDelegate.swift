@@ -12,22 +12,22 @@ import CoreLocation
 import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
-            if !granted {
-                print("Permission not granted")
-            }
-        }
+//        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
+//            if !granted {
+//                print("Permission not granted")
+//            }
+//        }
         
         
         
-        UNUserNotificationCenter.current().delegate = self
+//        UNUserNotificationCenter.current().delegate = self
         FirebaseApp.configure()
         
             // MARK: - Create a User
@@ -88,4 +88,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
 
 }
-
+//
+//extension AppDelegate: UNUserNotificationCenterDelegate {
+//}
