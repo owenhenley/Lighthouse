@@ -23,15 +23,16 @@ class NewPinPopUpVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var shareWithFriendsButton : UIButton!
     
     // Vibe Buttons
-    @IBOutlet weak var movieVibe   : UIButton!
-    @IBOutlet weak var foodVibe    : UIButton!
-    @IBOutlet weak var barVibe     : UIButton!
-    @IBOutlet weak var clubVibe    : UIButton!
-    @IBOutlet weak var concertVibe : UIButton!
-    @IBOutlet weak var partyVibe   : UIButton!
-    @IBOutlet weak var chillVibe   : UIButton!
-    @IBOutlet weak var studyVibe   : UIButton!
+//    @IBOutlet weak var movieVibe   : UIButton!
+//    @IBOutlet weak var foodVibe    : UIButton!
+//    @IBOutlet weak var barVibe     : UIButton!
+//    @IBOutlet weak var clubVibe    : UIButton!
+//    @IBOutlet weak var concertVibe : UIButton!
+//    @IBOutlet weak var partyVibe   : UIButton!
+//    @IBOutlet weak var chillVibe   : UIButton!
+//    @IBOutlet weak var studyVibe   : UIButton!
     
+    @IBOutlet var vibeButtonCollection: [UIButton]!
     
         // MARK: - Properties
     
@@ -48,15 +49,27 @@ class NewPinPopUpVC: UIViewController, UITextFieldDelegate {
     ]
     
     var currentVibeImage: UIImage?
-    fileprivate let vibeImageDictionary: [Int : UIImage] = [
+    fileprivate let vibeImageSelectedDict: [Int : UIImage] = [
         0 : UIImage(named: "moviesActive") ?? UIImage(),
-        1 : #imageLiteral(resourceName: "foodActive"),
-        2 : #imageLiteral(resourceName: "barActive"),
-        3 : #imageLiteral(resourceName: "clubActive"),
-        4 : #imageLiteral(resourceName: "concertActive"),
-        5 : #imageLiteral(resourceName: "partyActive"),
-        6 : #imageLiteral(resourceName: "chillActive"),
-        7 : #imageLiteral(resourceName: "studyingActive")
+        1 : UIImage(named: "foodActive") ?? UIImage(),
+        2 : UIImage(named: "barActive") ?? UIImage(),
+        3 : UIImage(named: "clubActive") ?? UIImage(),
+        4 : UIImage(named: "concertActive") ?? UIImage(),
+        5 : UIImage(named: "partyActive") ?? UIImage(),
+        6 : UIImage(named: "chillActive") ?? UIImage(),
+        7 : UIImage(named: "studyingActive") ?? UIImage()
+    ]
+    
+    
+    fileprivate let vibeImageDeselectedDict: [Int : UIImage] = [
+        0 : UIImage(named: "moviesDisabled") ?? UIImage(),
+        1 : UIImage(named: "foodDisabled") ?? UIImage(),
+        2 : UIImage(named: "barDisabled") ?? UIImage(),
+        3 : UIImage(named: "clubDisabled") ?? UIImage(),
+        4 : UIImage(named: "concertDisabled") ?? UIImage(),
+        5 : UIImage(named: "partyDisabled") ?? UIImage(),
+        6 : UIImage(named: "chillDisabled") ?? UIImage(),
+        7 : UIImage(named: "studyingDisabled") ?? UIImage()
     ]
     
     
@@ -71,6 +84,12 @@ class NewPinPopUpVC: UIViewController, UITextFieldDelegate {
     
     func updateViews(){
         addressLabel.text = event?.streetAddress
+    }
+    
+    fileprivate func deselectAllButton(except buttonTag: Int) {
+        for button in vibeButtonCollection where button.tag != buttonTag{
+            button.setImage(vibeImageDeselectedDict[button.tag], for: .normal)
+        }
     }
     
     
@@ -89,10 +108,6 @@ class NewPinPopUpVC: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         dismissKeyboard()
         return true
-    }
-    
-    func setVibeImage() {
-        movieVibe.setBackgroundImage(currentVibeImage, for: .normal)
     }
     
     
@@ -123,9 +138,8 @@ class NewPinPopUpVC: UIViewController, UITextFieldDelegate {
     // Event Types
     @IBAction func eventVibeButtonTapped(_ sender: UIButton) {
         selectedVibe = vibeDictionary[sender.tag] ?? "No Vibe Selected"
-        currentVibeImage = vibeImageDictionary[sender.tag]
-        sender.setImage(currentVibeImage, for: .normal)
-        sender.setBackgroundImage(currentVibeImage, for: .normal)
+        sender.setImage(vibeImageSelectedDict[sender.tag], for: .normal)
+        deselectAllButton(except: sender.tag)
         dismissKeyboard()
     }
     
