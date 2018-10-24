@@ -81,7 +81,7 @@ class AddFriendsVC: CustomSearchFieldVC {
     
 }
 
-extension AddFriendsVC: UITableViewDataSource, UITableViewDelegate {
+extension AddFriendsVC: UITableViewDataSource, UITableViewDelegate, PendingCellInteractableDelegate {
     
     
     //MARK: UITableViewDataSource
@@ -127,8 +127,8 @@ extension AddFriendsVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "pendingFriendCell", for: indexPath) as? PendingInviteCell
-//        cell?.delegate = self
-//        cell?.indexPath = indexPath
+        cell?.delegate = self
+        cell?.indexPath = indexPath
         if FriendController.shared.results.isEmpty {
             friend = FriendController.shared.pendingReuests[indexPath.row]
         } else {
@@ -168,6 +168,31 @@ extension AddFriendsVC: UITableViewDataSource, UITableViewDelegate {
             // Delete the row from the table view
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
+    }
+    
+    func buttonTapped(sender: PendingInviteCell, indexPath: IndexPath?) {
+        let friendID = friend!.friendID
+        switch friend?.request {
+        case false:
+            FriendController.shared.acceptRequest(friend: friend!)
+            FriendController.shared.pendingReuests.remove(at: indexPath!.row)
+            tableView.reloadData()
+            
+            
+        case true:
+            FriendController.shared.cancelRequest(friendID: friendID)
+            sender.acceptButton.setTitle("Add Friend", for: .normal)
+            friend?.request = nil
+            
+        default:
+            FriendController.shared.requestFriend(friendID: friendID)
+            sender.acceptButton.setTitle("Pending", for: .normal)
+            friend?.request = true
+            
+        }
+        
+        
+        
     }
     
     

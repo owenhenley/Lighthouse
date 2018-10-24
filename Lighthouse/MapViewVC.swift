@@ -47,6 +47,7 @@ class MapViewVC: CustomSearchFieldVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         searchBar.isHidden = true
         searchBar.delegate = self
         dropPinButton.isHidden = true
@@ -61,6 +62,7 @@ class MapViewVC: CustomSearchFieldVC {
         NotificationCenter.default.addObserver(self, selector: #selector(removePin), name: .removePin, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(placeMyPin), name: .myPinFetched, object: nil)
         placePins()
+
     }
     
     @objc func placeMyPin(notification: Notification){
@@ -91,6 +93,7 @@ class MapViewVC: CustomSearchFieldVC {
     }
     
     
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         checkUserState()
@@ -119,6 +122,7 @@ class MapViewVC: CustomSearchFieldVC {
     // Drop pin at current GPS location
     @IBAction func dropPinTapped(_ sender: Any) {
         dropPinOnCurrentLocation()
+        
     }
     
     // Edit the dropped pin
@@ -131,6 +135,12 @@ class MapViewVC: CustomSearchFieldVC {
     
     // MARK: - Map Methods
     // FIXME: - Change to take event as annotation
+    
+    func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
+        let userLocation = mainMapView.view(for: mainMapView.userLocation)
+        userLocation?.isUserInteractionEnabled = false
+    }
+    
     func dropPinOnCurrentLocation() {
         let locationManager = CLLocationManager()
         guard let user = UserController.shared.user,
@@ -220,11 +230,12 @@ class MapViewVC: CustomSearchFieldVC {
     
     func centerMapOnAuthedUser(completion: @escaping () -> ()) {
         if let location = self.locationManager.location?.coordinate {
-            UIView.animate(withDuration: 1, delay: 0, options: [.curveEaseIn], animations: {
+            UIView.animate(withDuration: 2, delay: 0, options: [.curveEaseIn], animations: {
                 let region = MKCoordinateRegion.init(center: location, latitudinalMeters: self.authedUserLocationRadius, longitudinalMeters: self.authedUserLocationRadius)
                 self.mainMapView.setRegion(region, animated: true)
             }) { (success) in
                 completion()
+
             }
         }
     }
@@ -336,8 +347,9 @@ extension MapViewVC: CLLocationManagerDelegate {
     // Delegates
     func setupLocationManager() {
         mainMapView.delegate     = self
-        locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        self.locationManager.delegate = self
+
     }
     
     

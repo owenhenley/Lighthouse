@@ -68,6 +68,7 @@
                                         <state key="normal" title="Stop Sharing"/>
                                         <connections>
                                             <action selector="stopSharringTapped:" destination="UJ5-X0-24O" eventType="touchUpInside" id="YVj-lx-Wel"/>
+                                            <segue destination="bBl-HV-4rJ" kind="unwind" unwindAction="unwindToMapViewSegue:" id="8CC-68-dqq"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u8E-Sk-RKe">
