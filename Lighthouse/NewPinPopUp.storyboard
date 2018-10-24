@@ -93,7 +93,7 @@
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I6a-9U-kJT">
                                                                         <rect key="frame" x="0.0" y="0.0" width="43" height="45.5"/>
-                                                                        <state key="normal" backgroundImage="moviesDisabled"/>
+                                                                        <state key="normal" image="moviesDisabled"/>
                                                                         <connections>
                                                                             <action selector="eventVibeButtonTapped:" destination="WCS-DN-vAu" eventType="touchUpInside" id="nHX-s9-sG6"/>
                                                                         </connections>
@@ -274,17 +274,17 @@
                     <navigationItem key="navigationItem" id="7bX-9b-kY1"/>
                     <connections>
                         <outlet property="addressLabel" destination="FxW-2K-lyR" id="yO8-OU-nU3"/>
-                        <outlet property="barVibe" destination="bov-sI-8dD" id="tua-Kk-TP4"/>
-                        <outlet property="chillVibe" destination="pRO-lr-yjP" id="h50-zI-jb7"/>
-                        <outlet property="clubVibe" destination="FDf-LY-18c" id="uWF-xC-VyV"/>
-                        <outlet property="concertVibe" destination="AkO-ca-cAZ" id="0ft-97-OU8"/>
                         <outlet property="exitButton" destination="6Al-vM-nK3" id="37n-PJ-uj3"/>
-                        <outlet property="foodVibe" destination="Snl-1b-YB3" id="LBD-ZW-dZy"/>
-                        <outlet property="movieVibe" destination="I6a-9U-kJT" id="yaJ-ng-ayY"/>
-                        <outlet property="partyVibe" destination="HnV-op-S60" id="xpM-dc-r8z"/>
                         <outlet property="pinNameTF" destination="oKv-m4-Rt2" id="v03-Sw-DDg"/>
                         <outlet property="shareWithFriendsButton" destination="P2W-0D-4Os" id="d4O-M5-Pdd"/>
-                        <outlet property="studyVibe" destination="0Uu-Pu-6kr" id="cil-25-Lcs"/>
+                        <outletCollection property="vibeButtonCollection" destination="I6a-9U-kJT" collectionClass="NSMutableArray" id="K6b-Ow-RwO"/>
+                        <outletCollection property="vibeButtonCollection" destination="Snl-1b-YB3" collectionClass="NSMutableArray" id="8Iu-6K-Jqh"/>
+                        <outletCollection property="vibeButtonCollection" destination="bov-sI-8dD" collectionClass="NSMutableArray" id="ozZ-be-RY0"/>
+                        <outletCollection property="vibeButtonCollection" destination="FDf-LY-18c" collectionClass="NSMutableArray" id="yLd-uD-4Wh"/>
+                        <outletCollection property="vibeButtonCollection" destination="AkO-ca-cAZ" collectionClass="NSMutableArray" id="eCl-3h-5zz"/>
+                        <outletCollection property="vibeButtonCollection" destination="HnV-op-S60" collectionClass="NSMutableArray" id="1lg-sf-LOj"/>
+                        <outletCollection property="vibeButtonCollection" destination="pRO-lr-yjP" collectionClass="NSMutableArray" id="O7Q-FS-bmd"/>
+                        <outletCollection property="vibeButtonCollection" destination="0Uu-Pu-6kr" collectionClass="NSMutableArray" id="Lgd-Yb-7iG"/>
                         <segue destination="E4P-D2-nVg" kind="show" identifier="selectFreinds" id="U3C-tw-3S0"/>
                     </connections>
                 </viewController>
