@@ -45,21 +45,12 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="63R-5O-daD">
-                                                <rect key="frame" x="0.0" y="33" width="91.5" height="20"/>
+                                                <rect key="frame" x="0.0" y="33" width="43" height="20"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="latitude" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FxW-2K-lyR">
-                                                        <rect key="frame" x="0.0" y="0.0" width="40" height="20"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FxW-2K-lyR">
+                                                        <rect key="frame" x="0.0" y="0.0" width="43" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="5SN-HT-adE"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="longitude" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="amd-45-74g">
-                                                        <rect key="frame" x="42" y="0.0" width="49.5" height="20"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="20" id="91r-7A-jOa"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                         <nil key="textColor"/>
@@ -282,9 +273,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="7bX-9b-kY1"/>
                     <connections>
+                        <outlet property="addressLabel" destination="FxW-2K-lyR" id="yO8-OU-nU3"/>
                         <outlet property="exitButton" destination="6Al-vM-nK3" id="37n-PJ-uj3"/>
-                        <outlet property="latitudeLabel" destination="FxW-2K-lyR" id="yO8-OU-nU3"/>
-                        <outlet property="longitudeLabel" destination="amd-45-74g" id="D7p-hm-sdq"/>
                         <outlet property="pinNameTF" destination="oKv-m4-Rt2" id="v03-Sw-DDg"/>
                         <outlet property="shareWithFriendsButton" destination="P2W-0D-4Os" id="d4O-M5-Pdd"/>
                         <segue destination="E4P-D2-nVg" kind="show" identifier="selectFreinds" id="U3C-tw-3S0"/>

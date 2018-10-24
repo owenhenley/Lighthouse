@@ -44,6 +44,7 @@ class LoadingScreenVC: UIViewController {
     // Check to see if the user is already signed in. Ignore Loading screen if nessasary.
     fileprivate func checkUserStateLoading() {
         handle = AUTH.addStateDidChangeListener({ (auth, user) in
+            
             if user != nil {
                 UserController.shared.fetchUser { (success) in
                     if success {
@@ -52,6 +53,7 @@ class LoadingScreenVC: UIViewController {
                         mainView.tabBarController?.tabBar.isHidden = false
                         self.present(mainView, animated: true, completion: nil)
                         EventController.shared.fetchActivePins()
+                        UserController.shared.fetchMyPin()
 
                         FriendController.shared.fetchFriends { (success) in
                             if success {
@@ -60,7 +62,7 @@ class LoadingScreenVC: UIViewController {
                         }
                     }
                 }
-                
+            
             } else {
                 let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
                 let onboarding = storyboard.instantiateViewController(withIdentifier: "onboarding")

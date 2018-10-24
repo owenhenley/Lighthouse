@@ -8,9 +8,10 @@
 
 import UIKit
 
-class AddFriendsVC: UIViewController {
+class AddFriendsVC: CustomSearchFieldVC {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     
     var friend: Friend?
@@ -20,7 +21,7 @@ class AddFriendsVC: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        
+        searchBar.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(updateViews), name: .resultsUpdated, object: nil)
     }
     
@@ -44,6 +45,13 @@ class AddFriendsVC: UIViewController {
     @objc func updateViews(){
         DispatchQueue.main.async {
             self.tableView.reloadData()
+        }
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard let text = searchBar.text else {return}
+        FriendController.shared.searchFriends(text: text) { (success) in
+            self.updateViews()
         }
     }
     
@@ -79,6 +87,28 @@ extension AddFriendsVC: UITableViewDataSource, UITableViewDelegate {
     //MARK: UITableViewDataSource
     
     
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//
+//        if FriendController.shared.results.isEmpty {
+//            return FriendController.shared.pendingReuests.count
+//        } else {
+//            return FriendController.shared.results.count
+//        }
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "friendPendingCell", for: indexPath) as? PendingInviteCell
+//        let friend = FriendController.shared.friends[indexPath.row]
+//        cell?.friendName.text = friend.name
+//        fetchImageWithUrlString(urlString: friend.imageUrl) { (image) in
+//            DispatchQueue.main.async {
+//                cell?.profileImage.image = image
+//            }
+//        }
+//        return cell ?? UITableViewCell()
+//    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if FriendController.shared.results.isEmpty {
@@ -88,10 +118,46 @@ extension AddFriendsVC: UITableViewDataSource, UITableViewDelegate {
         }
     }
     
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+    
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "pendingFriendCell", for: indexPath) as? PendingInviteCell
+//        cell?.delegate = self
+//        cell?.indexPath = indexPath
+        if FriendController.shared.results.isEmpty {
+            friend = FriendController.shared.pendingReuests[indexPath.row]
+        } else {
+            friend = FriendController.shared.results[indexPath.row]
+        }
+        guard let friend = self.friend else {return UITableViewCell()}
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "friendPendingCell", for: indexPath) as? PendingInviteCell
+        switch friend.request {
+        case true:
+            cell?.acceptButton.setTitle("Pending", for: .normal)
+        case false:
+            cell?.acceptButton.setTitle("Accept", for: .normal)
+        default:
+            cell?.acceptButton.setTitle("Add Friend", for: .normal)
+        }
         
+        cell?.friendName.text = friend.name
+        
+        if friend.imageUrl == "No Profile Image" {
+            cell?.profileImage.isHidden = true
+        } else {
+            cell?.profileImage.isHidden = false
+            fetchImageWithUrlString(urlString: friend.imageUrl) { (image) in
+                DispatchQueue.main.async {
+                    cell?.profileImage.image = image
+                }
+            }
+            
+        }
         
         return cell ?? UITableViewCell()
     }

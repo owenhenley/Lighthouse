@@ -79,11 +79,11 @@ or invite them to the app!</string>
                                 <rect key="frame" x="0.0" y="188" width="375" height="430"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendTabCell" rowHeight="80" id="dFd-y8-NH0">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendTabCell" rowHeight="77" id="dFd-y8-NH0">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="77"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dFd-y8-NH0" id="pIu-Te-fcU" customClass="FriendCell" customModule="Lighthouse" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="77"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -274,6 +274,7 @@ or invite them to the app!</string>
                         <viewLayoutGuide key="safeArea" id="M88-dd-oSd"/>
                     </view>
                     <connections>
+                        <outlet property="searchBar" destination="ajT-Pb-CEq" id="XcH-2s-NcV"/>
                         <outlet property="tableView" destination="UYb-Y8-YvQ" id="eyV-68-Obi"/>
                     </connections>
                 </viewController>

@@ -142,6 +142,7 @@
                         <outlet property="trayHeightConstraint" destination="ERc-sZ-HyH" id="cS0-Vc-GVw"/>
                         <segue destination="KLv-9f-si4" kind="presentation" identifier="toNewPinVC" modalPresentationStyle="overCurrentContext" id="lW0-J9-YNA"/>
                         <segue destination="UbY-96-Yqr" kind="presentation" identifier="toPinDetails" modalPresentationStyle="overCurrentContext" id="gLL-WZ-gsG"/>
+                        <segue destination="qpk-hm-WVi" kind="presentation" identifier="toEditPin" modalPresentationStyle="overCurrentContext" id="RzX-EL-55E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fqI-Ac-3Lb" userLabel="First Responder" sceneMemberID="firstResponder"/>
