@@ -19,5 +19,7 @@ extension Notification.Name {
     static let removePin = Notification.Name("removePin")
     static let myPinFetched = Notification.Name("myPinFetched")
     static let selectedFriend = Notification.Name("selectedFriend")
+    static let regionChanged = Notification.Name("regionChanged")
+    static let trayLifted = Notification.Name("trayLifted")
 
 }

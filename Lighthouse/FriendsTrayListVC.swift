@@ -10,8 +10,6 @@ import UIKit
 
 class FriendsTrayListVC: CustomSearchFieldVC, UITableViewDataSource, UITableViewDelegate {
     
-    static let shared = FriendsTrayListVC()
-    
     @IBOutlet weak var friendsTableView : UITableView!
     @IBOutlet weak var getStartedView   : UIView!
     @IBOutlet weak var searchBar        : UISearchBar!
@@ -33,16 +31,19 @@ class FriendsTrayListVC: CustomSearchFieldVC, UITableViewDataSource, UITableView
         //        friendsTableView.isHidden = true
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTableView), name: .friendsUpdated, object: nil)
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(mapSectionChanged), name: .regionChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(trayLifted), name: .trayLifted, object: nil)
         
     }
+    
+    
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // If has friends, show get started + hide tableView, else show populated tableView.
 //        friendsTableView.reloadData()
-        
+        searchBar.isUserInteractionEnabled = true
         
     }
     
@@ -57,6 +58,9 @@ class FriendsTrayListVC: CustomSearchFieldVC, UITableViewDataSource, UITableView
         friendsTableView.reloadData()
     }
     
+    @objc func trayLifted(){
+        searchBar.isUserInteractionEnabled = true
+    }
     
     // Reload tableview when friends list gets fetched or updated
     @objc func reloadTableView() {
@@ -70,6 +74,11 @@ class FriendsTrayListVC: CustomSearchFieldVC, UITableViewDataSource, UITableView
             searchBar.isHidden = false
         }
         friendsTableView.reloadData()
+    }
+    
+    @objc func mapSectionChanged(){
+        searchBar.resignFirstResponder()
+        searchBar.isUserInteractionEnabled = false
     }
     
     //MARK: UITableViewDataSource
