@@ -11,7 +11,7 @@ import CoreLocation
 import MapKit
 
 
-class OnboardingVC: UIPageViewController{
+class OnboardingVC: UIViewController {
     
     
     @IBOutlet weak var mapView: MKMapView!
@@ -50,14 +50,6 @@ class OnboardingVC: UIPageViewController{
     }
     
     
-    @IBAction func allowLocationTapped(_ sender: Any) {
-    }
-    
-    
-    @IBAction func showMeAroundTapped(_ sender: Any) {
-    }
-    
-    
     func newVC(viewController: String) -> UIViewController {
         return UIStoryboard(name: "OnboardingVC", bundle: nil).instantiateViewController(withIdentifier: viewController)
     }
@@ -72,6 +64,7 @@ class OnboardingVC: UIPageViewController{
             }
         }
     }
+    
     
     // Check to see what the users locations state is
     func checkLocationAuth(completion: @escaping (Bool) -> Void) {
@@ -115,6 +108,5 @@ extension OnboardingVC: CLLocationManagerDelegate {
     // set up CoreLocation Delegates
     func setUpLocationManager() {
         locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
     }
 }
