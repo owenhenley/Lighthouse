@@ -11,24 +11,33 @@ import CoreLocation
 import MapKit
 
 
-class OnboardingVC: UIViewController {
+class OnboardingVC: UIPageViewController{
+    
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var mainView: UIView!
     
     
-        // MARK: - Variables
+    // MARK: - Properties
     
     let locationManager = CLLocationManager()
+    lazy var onboardingViewControllers: [UIViewController] = {
+        return [
+            self.newVC(viewController: "onboarding1"),
+            self.newVC(viewController: "onboarding2"),
+            self.newVC(viewController: "onboarding3"),
+            self.newVC(viewController: "getLocation")
+        ]}()
     
-        // MARK: - Lifecycle
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpLocationManager()
         blurBackground()
-     
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,13 +58,17 @@ class OnboardingVC: UIViewController {
     }
     
     
+    func newVC(viewController: String) -> UIViewController {
+        return UIStoryboard(name: "OnboardingVC", bundle: nil).instantiateViewController(withIdentifier: viewController)
+    }
+    
     // MARK: - Location Methods
     
     // Activate location popup
     func requestLocationAuth() {
         checkLocationAuth { (success) in
             if success {
-            self.locationManager.requestWhenInUseAuthorization()
+                self.locationManager.requestWhenInUseAuthorization()
             }
         }
     }
@@ -87,7 +100,7 @@ class OnboardingVC: UIViewController {
         }
     }
     
-        // MARK: - Visual Effects
+    // MARK: - Visual Effects
     
     func blurBackground() {
         let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
