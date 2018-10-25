@@ -22,6 +22,7 @@ class Event: MKPointAnnotation {
     var invited         : [String : Friend]
     var vibe            : String
     var eventTitle      : String
+    var annotationIcon = #imageLiteral(resourceName: "mapfriendsiconActive")
 
     
     
@@ -40,5 +41,11 @@ class Event: MKPointAnnotation {
         super.init()
         super.title = name
         super.coordinate = coordinates
+        
     }
+    
+    func set(){
+        
+    }
+    
 }
