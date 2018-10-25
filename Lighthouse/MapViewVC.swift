@@ -82,6 +82,7 @@ class MapViewVC: CustomSearchFieldVC {
             let uid = UID,
         let myPin = dictionary[uid] else {return}
         self.myPin = myPin
+        
         mainMapView.addAnnotation(myPin)
     }
     
@@ -192,6 +193,25 @@ class MapViewVC: CustomSearchFieldVC {
         }
     }
     
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+    
+        let annoationView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
+        annoationView.image = #imageLiteral(resourceName: "mapfriendsiconActive")
+        
+
+        if annotation.title == myPin?.title {
+            let annoationView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
+            annoationView.image = #imageLiteral(resourceName: "locationPin")
+            return annoationView
+        }
+
+        if annotation.title == "My Location" {
+            return nil
+        }
+        
+        return annoationView
+    }
+    
     @objc func placePins(){
         let events = EventController.shared.events
         for event in events {
@@ -199,8 +219,10 @@ class MapViewVC: CustomSearchFieldVC {
             let event = event.value
             let usedKey = placedAnnotations.filter{$0 == event.friendID}
             if usedKey.isEmpty {
+                
                 placedAnnotations.insert(event.friendID)
                 mainMapView.addAnnotation(event)
+                
             }
 //            let friendEventCoordinate = event.coordinate
 //            let friendEventPinAnnotation: MKPointAnnotation = MKPointAnnotation()
