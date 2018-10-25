@@ -25,6 +25,7 @@ class FriendController {
     
     var friends: [Friend] = []{
         didSet{
+            friends = removeDuplicates(friends: friends)
             NotificationCenter.default.post(name: .friendsUpdated, object: nil)
         }
     }
@@ -175,6 +176,11 @@ class FriendController {
             completion(friend)
             
         })
+    }
+    
+    fileprivate func removeDuplicates(friends: [Friend]) -> [Friend] {
+        let friendsSet = Set(friends)
+        return Array(friendsSet)
     }
     
 }
