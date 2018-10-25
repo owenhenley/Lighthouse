@@ -102,8 +102,7 @@ class NewPinPopUpVC: UIViewController, UITextFieldDelegate {
     
     @IBAction func exitTapped(_ sender: Any) {
         dismissKeyboard()
-        self.dismiss(animated: true, completion: nil)
-        NotificationCenter.default.post(name: .removePin, object: nil)
+    NotificationCenter.default.post(name: .removePin, object: nil)
     }
     
     
