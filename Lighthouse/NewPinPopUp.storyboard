@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WCS-DN-vAu">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -21,29 +21,37 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qhA-EK-HpQ">
                                 <rect key="frame" x="0.0" y="208.5" width="375" height="250"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Al-vM-nK3">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Al-vM-nK3">
                                         <rect key="frame" x="337" y="8" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="CRG-XN-niQ"/>
                                             <constraint firstAttribute="height" constant="30" id="CfO-ga-Vma"/>
                                         </constraints>
-                                        <state key="normal" title="X"/>
+                                        <state key="normal" title="X" image="closeGrey"/>
                                         <connections>
                                             <action selector="exitTapped:" destination="WCS-DN-vAu" eventType="touchUpInside" id="Qdz-2w-slL"/>
                                             <segue destination="WaD-Bg-fwl" kind="unwind" unwindAction="unwindToMapViewSegue:" id="oXL-pn-jlf"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7A6-qa-xvB">
-                                        <rect key="frame" x="16" y="16" width="110.5" height="53"/>
+                                        <rect key="frame" x="16" y="16" width="262.5" height="53"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name Your Pin" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oKv-m4-Rt2">
-                                                <rect key="frame" x="0.0" y="0.0" width="110.5" height="25"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Name Your Pin" borderStyle="line" placeholder="Name Your Pin" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oKv-m4-Rt2" customClass="BorderTextField" customModule="Lighthouse" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="262.5" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="aQp-jV-Ihi"/>
                                                 </constraints>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <color key="textColor" red="0.85529702900000004" green="0.48171567920000002" blue="0.1881179214" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" red="0.85529702900000004" green="0.48171567920000002" blue="0.1881179214" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </textField>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="63R-5O-daD">
                                                 <rect key="frame" x="0.0" y="33" width="43" height="20"/>
@@ -61,12 +69,22 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2W-0D-4Os">
-                                        <rect key="frame" x="229" y="209" width="130" height="25"/>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2W-0D-4Os">
+                                        <rect key="frame" x="183" y="190" width="176" height="40"/>
+                                        <color key="backgroundColor" red="0.85529702900000004" green="0.48171567920000002" blue="0.1881179214" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="25" id="ayq-rh-bm3"/>
+                                            <constraint firstAttribute="height" constant="40" id="ayq-rh-bm3"/>
+                                            <constraint firstAttribute="width" constant="176" id="xgk-Vb-Mm9"/>
                                         </constraints>
-                                        <state key="normal" title="Share With Friends"/>
+                                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
+                                        <state key="normal" title="Share With Friends">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="shareWithFriendsTapped:" destination="WCS-DN-vAu" eventType="touchUpInside" id="1og-Ee-FbX"/>
                                         </connections>
@@ -74,8 +92,8 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="eyz-0w-2Ix">
                                         <rect key="frame" x="16" y="78" width="343" height="94"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a Event Vibe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zA6-Kl-ltV">
-                                                <rect key="frame" x="0.0" y="0.0" width="158" height="30"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Choose a Event Vibe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zA6-Kl-ltV">
+                                                <rect key="frame" x="0.0" y="0.0" width="167" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="HH2-nh-95Y"/>
                                                 </constraints>
@@ -247,8 +265,9 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="3uy-lD-BmU"/>
+                                    <constraint firstItem="oKv-m4-Rt2" firstAttribute="width" secondItem="qhA-EK-HpQ" secondAttribute="width" multiplier="0.7" id="Ej3-SR-j1Q"/>
                                     <constraint firstItem="eyz-0w-2Ix" firstAttribute="leading" secondItem="qhA-EK-HpQ" secondAttribute="leading" constant="16" id="Oei-Mt-Esr"/>
-                                    <constraint firstAttribute="bottom" secondItem="P2W-0D-4Os" secondAttribute="bottom" constant="16" id="OlQ-HZ-Ilf"/>
+                                    <constraint firstAttribute="bottom" secondItem="P2W-0D-4Os" secondAttribute="bottom" constant="20" id="OlQ-HZ-Ilf"/>
                                     <constraint firstItem="7A6-qa-xvB" firstAttribute="leading" secondItem="qhA-EK-HpQ" secondAttribute="leading" constant="16" id="ZBP-0u-4jX"/>
                                     <constraint firstItem="eyz-0w-2Ix" firstAttribute="centerY" secondItem="qhA-EK-HpQ" secondAttribute="centerY" id="b3V-uR-6Ba"/>
                                     <constraint firstAttribute="trailing" secondItem="eyz-0w-2Ix" secondAttribute="trailing" constant="16" id="cIy-9g-VjH"/>
@@ -306,6 +325,7 @@
     <resources>
         <image name="barDisabled" width="56" height="56"/>
         <image name="chillDisabled" width="56" height="56"/>
+        <image name="closeGrey" width="56" height="56"/>
         <image name="clubDisabled" width="56" height="56"/>
         <image name="concertDisabled" width="56" height="56"/>
         <image name="foodDisabled" width="56" height="56"/>
