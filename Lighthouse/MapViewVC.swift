@@ -73,8 +73,7 @@ class MapViewVC: CustomSearchFieldVC {
     
     @objc func displaySelectedPin(notification: NSNotification) {
         guard let event = notification.userInfo?[1] as? Event else {return}
-        let span = MKCoordinateSpan(latitudeDelta: 0.07, longitudeDelta: 0.07)
-        let region = MKCoordinateRegion(center: event.coordinate, span: span)
+        let region = MKCoordinateRegion(center: event.coordinate, latitudinalMeters: 500, longitudinalMeters: 500)
         self.mainMapView.setRegion(region, animated: true)
     }
     
@@ -418,6 +417,10 @@ extension MapViewVC: TrayTabVCDelegate {
             let event = EventController.shared.events[friendID]
             destinationVC?.event = event
 //            SVProgressHUD.dismiss()
+        } else if segue.identifier == "toEditPin" {
+            let desinationVC = segue.destination as? EditPinVC
+            desinationVC?.event = myPin
+            
         }
     }
 }
