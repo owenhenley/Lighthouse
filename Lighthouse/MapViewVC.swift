@@ -125,11 +125,6 @@ class MapViewVC: CustomSearchFieldVC {
         
     }
     
-    // Edit the dropped pin
-    @IBAction func droppedPinTapped(_ sender: Any) {
-        
-    }
-    
     @IBAction func unwindToMapViewSegue(_ sender: UIStoryboardSegue) {}
     
     func setupNotificationCenter() {
@@ -197,7 +192,6 @@ class MapViewVC: CustomSearchFieldVC {
         let annoationView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
         annoationView.image = #imageLiteral(resourceName: "mapfriendsiconActive")
         
-
         if annotation.title == myPin?.title {
             let annoationView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
             annoationView.image = #imageLiteral(resourceName: "locationPin")
@@ -214,7 +208,7 @@ class MapViewVC: CustomSearchFieldVC {
     @objc func placePins(){
         let events = EventController.shared.events
         for event in events {
-
+            
             let event = event.value
             let usedKey = placedAnnotations.filter{$0 == event.friendID}
             if usedKey.isEmpty {

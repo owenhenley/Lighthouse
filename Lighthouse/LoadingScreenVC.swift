@@ -50,7 +50,7 @@ class LoadingScreenVC: UIViewController {
                     if success {
                         let storyboard = UIStoryboard(name: "TabBarController", bundle: nil)
                         let mainView = storyboard.instantiateViewController(withIdentifier: "tabBarController")
-                        mainView.tabBarController?.tabBar.isHidden = false
+                        mainView.tabBarController?.tabBar.isUserInteractionEnabled = true
                         self.present(mainView, animated: true, completion: nil)
                         EventController.shared.fetchActivePins()
                         UserController.shared.fetchMyPin()
@@ -63,6 +63,7 @@ class LoadingScreenVC: UIViewController {
             
             } else {
                 let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
+                
                 let onboarding = storyboard.instantiateViewController(withIdentifier: "onboarding")
                 self.present(onboarding, animated: true, completion: nil)
             }

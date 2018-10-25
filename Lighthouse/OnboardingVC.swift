@@ -21,14 +21,7 @@ class OnboardingVC: UIViewController {
     // MARK: - Properties
     
     let locationManager = CLLocationManager()
-    lazy var onboardingViewControllers: [UIViewController] = {
-        return [
-            self.newVC(viewController: "onboarding1"),
-            self.newVC(viewController: "onboarding2"),
-            self.newVC(viewController: "onboarding3"),
-            self.newVC(viewController: "getLocation")
-        ]}()
-    
+
     
     // MARK: - Lifecycle
     
@@ -50,9 +43,7 @@ class OnboardingVC: UIViewController {
     }
     
     
-    func newVC(viewController: String) -> UIViewController {
-        return UIStoryboard(name: "OnboardingVC", bundle: nil).instantiateViewController(withIdentifier: viewController)
-    }
+    
     
     // MARK: - Location Methods
     

@@ -27,10 +27,11 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v2z-Ia-vjM">
-                                        <rect key="frame" x="279" y="98" width="80" height="27"/>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v2z-Ia-vjM">
+                                        <rect key="frame" x="292" y="101" width="67" height="24"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="v2z-Ia-vjM" secondAttribute="height" multiplier="29:10" constant="1.7000000000000028" id="Xcw-2q-p23"/>
+                                            <constraint firstAttribute="height" constant="24" id="ThA-GK-l5d"/>
+                                            <constraint firstAttribute="width" constant="67" id="oM6-rY-sSz"/>
                                         </constraints>
                                         <state key="normal" title="Add" image="buttonfilledAdd"/>
                                         <connections>
@@ -115,6 +116,7 @@ or invite them to the app!</string>
                     <navigationItem key="navigationItem" id="nXd-RV-QOq"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="addButton" destination="v2z-Ia-vjM" id="VRT-6e-6du"/>
                         <outlet property="searchBar" destination="MAu-og-fii" id="2ZP-5F-UD4"/>
                         <outlet property="tableView" destination="cec-bz-00M" id="Cxe-t2-dOP"/>
                     </connections>
