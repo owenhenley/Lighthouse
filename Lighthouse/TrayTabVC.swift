@@ -15,11 +15,11 @@ protocol TrayTabVCDelegate: class {
 
 class TrayTabVC: UIViewController {
     
+        // MARK: - Outlets
+    
     @IBOutlet weak var trayTabImage: UIImageView!
     
-    // MARK: - Variables
-    
-    
+    // MARK: - Properties
     
     //2) The child class defining a place in its heart where it recognizes it needs a boss
     weak var delegate: TrayTabVCDelegate?
@@ -27,42 +27,18 @@ class TrayTabVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        swipeTray()
-        
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(onSwipe(panGesture:)))
+        trayTabImage.addGestureRecognizer(panGesture)
     }
-    
-    
-    @IBAction func trayOpenTapped(_ sender: Any) {
-        
-        delegate?.changeTrayHeight()
-        NotificationCenter.default.post(name: .trayLifted, object: nil)
-//        trayIsActive = !trayIsActive
-    }
-    
 }
 
 
 extension TrayTabVC: UIGestureRecognizerDelegate {
-
-    
-    func swipeTray() {
-        
-        delegate?.changeTrayHeight()
-//        trayIsActive = !trayIsActive
-        
-        let swipeTray = UISwipeGestureRecognizer(target: self, action: #selector(moveTray))
-        swipeTray.delegate = self
-        trayTabImage.addGestureRecognizer(swipeTray)
-        
-        if swipeTray.direction == .up {
-
-        } else if swipeTray.direction == .down {
-
+  
+    @objc func onSwipe(panGesture: UIPanGestureRecognizer) {
+        if panGesture.state == .began {
+            delegate?.changeTrayHeight()
+            NotificationCenter.default.post(name: .trayLifted, object: nil)
         }
     }
-
-    @objc func moveTray(sender: UISwipeGestureRecognizer) {
-        
-    }
-    
 }

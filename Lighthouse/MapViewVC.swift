@@ -14,28 +14,21 @@ import SVProgressHUD
 
 class MapViewVC: CustomSearchFieldVC {
     
-    
-    
+
     // MARK: - Properties
     
     var locationManager = CLLocationManager()
     var searchIsActive  = false
     var longPressActive = true
     var userMapCentered = false
+    var trayActive      = false
     var handle : AuthStateDidChangeListenerHandle?
     let nonAuthUserLocationRadius : Double = 25000
     let authedUserLocationRadius  : Double = 400
     var friendID: String?
     var placedAnnotations: Set<String> = []
     var myPin: Event?
-    var trayActive = false {
-        didSet{
-            print(trayActive)
-        }
-    }
 
-
-    
     
     // MARK: - Outlets
     
@@ -47,6 +40,7 @@ class MapViewVC: CustomSearchFieldVC {
     @IBOutlet weak var trayContainer        : UIView!
     @IBOutlet weak var trayHeightConstraint : NSLayoutConstraint!
     @IBOutlet weak var dropPinButton        : UIButton!
+    @IBOutlet weak var gpsButton            : UIButton!
     
     
     // MARK: - LifeCycle
@@ -60,17 +54,22 @@ class MapViewVC: CustomSearchFieldVC {
         trayContainer.translatesAutoresizingMaskIntoConstraints = false
         setupLocationManager()
 //        addPinLongPress()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(showNextButton), name: .backButtonTapped, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(showTray), name: .showTray, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(placePins), name: .eventsUpdated, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(removePins), name: .removedFriends, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(removePin), name: .removePin, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(placeMyPin), name: .myPinFetched, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(displaySelectedPin), name: .selectedFriend, object: nil)
+        setupNotificationCenter()
         placePins()
-
+        checkUserState()
     }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        searchView.isHidden = false
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+    }
+    
     
     @objc func displaySelectedPin(notification: NSNotification) {
         guard let event = notification.userInfo?[1] as? Event else {return}
@@ -87,9 +86,6 @@ class MapViewVC: CustomSearchFieldVC {
     }
     
     
-    
-    
-    //FIXME: Get conainer view to show when user logs in
     @objc func showTray(){
         trayContainer.isHidden = false
     }
@@ -100,17 +96,6 @@ class MapViewVC: CustomSearchFieldVC {
     }
     
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        searchView.isHidden = false
-    }
-    
-    
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-        checkUserState()
-    }
     
     
     // MARK: - Actions
@@ -130,6 +115,8 @@ class MapViewVC: CustomSearchFieldVC {
     // Tapping the Blue GPS Arrow
     @IBAction func findUserLocationTapped(_ sender: Any) {
         centerAuthedUserGPSArrowTapped()
+        userMapCentered = true
+        gpsButton.setImage(UIImage(named: "gpsActive"), for: .normal)
     }
     
     // Drop pin at current GPS location
@@ -144,6 +131,16 @@ class MapViewVC: CustomSearchFieldVC {
     }
     
     @IBAction func unwindToMapViewSegue(_ sender: UIStoryboardSegue) {}
+    
+    func setupNotificationCenter() {
+        NotificationCenter.default.addObserver(self, selector: #selector(showNextButton), name: .backButtonTapped, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(showTray), name: .showTray, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(placePins), name: .eventsUpdated, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(removePins), name: .removedFriends, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(removePin), name: .removePin, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(placeMyPin), name: .myPinFetched, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(displaySelectedPin), name: .selectedFriend, object: nil)
+    }
     
     
     // MARK: - Map Methods
@@ -276,11 +273,8 @@ class MapViewVC: CustomSearchFieldVC {
         handle = AUTH.addStateDidChangeListener({ (auth, user) in
             if user != nil {
                 self.dropPinButton.isHidden = false
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                     self.centerMapOnAuthedUser {
-                    }
                 }
-                
             } else {
                 self.nextButton.isHidden = false
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -314,9 +308,6 @@ extension MapViewVC: MKMapViewDelegate {
     
     // Set up map for user tracking
     func startTrackingUserLocation() {
-        mainMapView.showsUserLocation     = true
-        mainMapView.showsPointsOfInterest = true
-        mainMapView.showsBuildings        = true
         mainMapView.userTrackingMode      = .follow
         locationManager.startUpdatingLocation()
     }
@@ -331,6 +322,10 @@ extension MapViewVC: MKMapViewDelegate {
         if trayActive {
             changeTrayHeight()
         }
+        
+        userMapCentered = false
+        gpsButton.setImage(UIImage(named: "gpsDisabled"), for: .normal)
+        
     }
 }
 
@@ -353,9 +348,8 @@ extension MapViewVC: CLLocationManagerDelegate {
     // Delegates
     func setupLocationManager() {
         mainMapView.delegate     = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.delegate = self
-
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
     }
     
     
