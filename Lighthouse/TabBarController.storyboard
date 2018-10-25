@@ -13,7 +13,7 @@
         <scene sceneID="Qqt-U5-Nne">
             <objects>
                 <tabBarController storyboardIdentifier="tabBarController" id="Thi-B6-bs0" customClass="TabBarControllerVC" customModule="Lighthouse" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LLF-Gn-Ote">
+                    <tabBar key="tabBar" userInteractionEnabled="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LLF-Gn-Ote">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
@@ -62,11 +62,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="friendsDisabled" width="43" height="42"/>
-        <image name="friendsEnabled" width="24" height="24"/>
-        <image name="mapDisabled" width="28" height="37"/>
-        <image name="mapEnabled" width="18" height="24"/>
-        <image name="profileDisabled" width="42" height="42"/>
-        <image name="profileEnabled" width="24" height="24"/>
+        <image name="friendsDisabled" width="48" height="32"/>
+        <image name="friendsEnabled" width="48" height="32"/>
+        <image name="mapDisabled" width="48" height="32"/>
+        <image name="mapEnabled" width="48" height="32"/>
+        <image name="profileDisabled" width="48" height="32"/>
+        <image name="profileEnabled" width="48" height="32"/>
     </resources>
 </document>

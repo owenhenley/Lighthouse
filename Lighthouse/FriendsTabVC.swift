@@ -15,6 +15,7 @@ class FriendsTabVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var addButton: UIButton!
     
     
     // MARK: - Properties
@@ -32,6 +33,7 @@ class FriendsTabVC: UIViewController {
         searchBar.delegate   = self
         
         searchField = searchBar
+        addButton.imageView?.contentMode = .scaleAspectFit
         
         dissmisskeyBoard()
         setupTableView()

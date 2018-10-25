@@ -96,9 +96,7 @@ class MapViewVC: CustomSearchFieldVC {
         nextButton.isHidden = false
     }
     
-    
-    
-    
+
     // MARK: - Actions
     
     @IBAction func searchTapped(_ sender: Any) {
@@ -120,14 +118,10 @@ class MapViewVC: CustomSearchFieldVC {
         gpsButton.setImage(UIImage(named: "gpsActive"), for: .normal)
     }
     
+    
     // Drop pin at current GPS location
     @IBAction func dropPinTapped(_ sender: Any) {
         dropPinOnCurrentLocation()
-        
-    }
-    
-    // Edit the dropped pin
-    @IBAction func droppedPinTapped(_ sender: Any) {
         
     }
     
@@ -198,7 +192,6 @@ class MapViewVC: CustomSearchFieldVC {
         let annoationView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
         annoationView.image = #imageLiteral(resourceName: "mapfriendsiconActive")
         
-
         if annotation.title == myPin?.title {
             let annoationView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
             annoationView.image = #imageLiteral(resourceName: "locationPin")
@@ -216,7 +209,7 @@ class MapViewVC: CustomSearchFieldVC {
     @objc func placePins(){
         let events = EventController.shared.events
         for event in events {
-
+            
             let event = event.value
             let usedKey = placedAnnotations.filter{$0 == event.friendID}
             if usedKey.isEmpty {
