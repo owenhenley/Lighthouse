@@ -8,8 +8,10 @@
 
 import UIKit
 
-struct Friend: Hashable {
-    
+class Friend: Equatable, Hashable {
+    static func == (lhs: Friend, rhs: Friend) -> Bool {
+        return lhs.friendID == rhs.friendID
+    }
     
     
     
@@ -20,5 +22,20 @@ struct Friend: Hashable {
     var request  : Bool?
     var name     : String
     var event    : Event?
+    var hashValue: Int {
+        return friendID.hashValue
+    }
+    
+    
+    
+    init(image: UIImage?, imageUrl: String, friendID: String, request: Bool?, name: String, event: Event?) {
+        self.imageUrl = imageUrl
+        self.friendID = friendID
+        self.name = name
+        self.image = image
+        self.request = request
+        self.event = event
+        
+    }
     
 }
