@@ -35,6 +35,7 @@ class TabBarControllerVC: UITabBarController {
         if AUTH.currentUser == nil {
             self.selectedIndex = 1
         } else {
+            tabBar.isUserInteractionEnabled = true
         }
     }
     
