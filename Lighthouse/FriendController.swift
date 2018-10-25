@@ -27,6 +27,8 @@ class FriendController {
         didSet{
             friends = removeDuplicates(friends: friends)
             NotificationCenter.default.post(name: .friendsUpdated, object: nil)
+            friends.sort{$0.name < $1.name}
+     
         }
     }
     
@@ -94,7 +96,7 @@ class FriendController {
                     if requestTupal.1 == 1 {
                         let friendID = requestTupal.0
                         self.fetchFriend(friendID: friendID, completion: { (Friend) in
-                            var friend = Friend
+                            let friend = Friend
                             friend.request = false
                             self.pendingReuests.append(friend)
                         }) 
@@ -180,7 +182,8 @@ class FriendController {
     
     fileprivate func removeDuplicates(friends: [Friend]) -> [Friend] {
         let friendsSet = Set(friends)
-        return Array(friendsSet)
+        NotificationCenter.default.post(name: .friendsUpdated, object: nil)
+        return Array(friendsSet).sorted{$0.name < $1.name}
     }
     
 }
