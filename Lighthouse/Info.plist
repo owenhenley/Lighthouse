@@ -28,7 +28,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0.2</string>
 	<key>CFBundleVersion</key>
-	<string>1219</string>
+	<string>1225</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MKDirectionsApplicationSupportedModes</key>
@@ -36,6 +36,8 @@
 		<string>MKDirectionsModeCar</string>
 		<string>MKDirectionsModePedestrian</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>Use Camera to update user profile image</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Lighthouse uses your location to bring the crew together</string>
 	<key>NSPhotoLibraryUsageDescription</key>

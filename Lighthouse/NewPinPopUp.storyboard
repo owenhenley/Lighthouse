@@ -30,6 +30,7 @@
                                         <state key="normal" title="X"/>
                                         <connections>
                                             <action selector="exitTapped:" destination="WCS-DN-vAu" eventType="touchUpInside" id="Qdz-2w-slL"/>
+                                            <segue destination="WaD-Bg-fwl" kind="unwind" unwindAction="unwindToMapViewSegue:" id="oXL-pn-jlf"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7A6-qa-xvB">
@@ -289,6 +290,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ouT-QO-klQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="WaD-Bg-fwl" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2816.8000000000002" y="-357.57121439280365"/>
         </scene>
