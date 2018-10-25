@@ -95,9 +95,7 @@ class MapViewVC: CustomSearchFieldVC {
         nextButton.isHidden = false
     }
     
-    
-    
-    
+
     // MARK: - Actions
     
     @IBAction func searchTapped(_ sender: Any) {
@@ -118,6 +116,7 @@ class MapViewVC: CustomSearchFieldVC {
         userMapCentered = true
         gpsButton.setImage(UIImage(named: "gpsActive"), for: .normal)
     }
+    
     
     // Drop pin at current GPS location
     @IBAction func dropPinTapped(_ sender: Any) {
