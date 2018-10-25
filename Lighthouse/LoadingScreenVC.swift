@@ -67,6 +67,7 @@ class LoadingScreenVC: UIViewController {
                 let onboarding = storyboard.instantiateViewController(withIdentifier: "onboarding")
                 self.present(onboarding, animated: true, completion: nil)
             }
+            
         })
     }
 }
