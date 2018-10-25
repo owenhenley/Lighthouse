@@ -57,7 +57,6 @@ class MapViewVC: CustomSearchFieldVC {
         setupNotificationCenter()
         placePins()
         checkUserState()
-
     }
     
     
