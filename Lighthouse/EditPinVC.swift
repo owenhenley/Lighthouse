@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class EditPinVC: UIViewController {
 
@@ -14,23 +15,46 @@ class EditPinVC: UIViewController {
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var locationOutlet: UILabel!
     @IBOutlet weak var editButtonOutlet: UIButton!
+    @IBOutlet weak var sharedWithOutlet: UIImageView!
+    @IBOutlet weak var vibeImage: UIButton!
+    
+    var event: Event?
     
     var selectedVibe = ""
-    fileprivate let vibeDictionary: [Int: String] = [
-        0: "Movie",
-        1: "Food",
-        2: "Bar",
-        3: "Club",
-        4: "Concert",
-        5: "Party",
-        6: "Chill",
-        7: "Study"
+    fileprivate let vibeDictionary: [String: UIImage] = [
+        "Movie": #imageLiteral(resourceName: "moviesActive"),
+        "Food": #imageLiteral(resourceName: "foodActive"),
+        "Bar": #imageLiteral(resourceName: "barActive"),
+        "Club": #imageLiteral(resourceName: "clubActive"),
+        "Concert": #imageLiteral(resourceName: "concertActive"),
+        "Party": #imageLiteral(resourceName: "partyActive"),
+        "Chill": #imageLiteral(resourceName: "chillActive"),
+        "Study": #imageLiteral(resourceName: "studyingActive")
     ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateViews()
 
         
+    }
+    
+    func updateViews(){
+        guard let event = event else {return}
+        titleTextField.text = event.eventTitle
+        vibeImage.imageView?.image = vibeDictionary[event.vibe]
+       
+        let eventLocation = CLLocation(latitude: event.coordinate.latitude, longitude: event.coordinate.longitude)
+        let geoCoder = CLGeocoder()
+
+        geoCoder.reverseGeocodeLocation(eventLocation) { (placemarks, error) in
+            guard let placemark = placemarks?.first,
+                let street = placemark.thoroughfare,
+                let number = placemark.subThoroughfare  else {return}
+            let address = street + " " + number
+            event.streetAddress = address
+            self.locationOutlet.text = address
+        }
     }
     
 
@@ -44,7 +68,7 @@ class EditPinVC: UIViewController {
     }
     */
     @IBAction func eventVibeSelected(_ sender: UIButton) {
-        selectedVibe = vibeDictionary[sender.tag] ?? "No Vibe Selected"
+//        selectedVibe = vibeDictionary[sender.tag] ?? "No Vibe Selected"
     }
     
     @IBAction func stopSharringTapped(_ sender: Any) {
