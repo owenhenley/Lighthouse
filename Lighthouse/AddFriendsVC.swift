@@ -187,13 +187,12 @@ extension AddFriendsVC: UITableViewDataSource, UITableViewDelegate, PendingCellI
     }
     
     func buttonTapped(sender: PendingInviteCell, indexPath: IndexPath?) {
-        let friendID = friend!.friendID
+        guard let friendID = friend?.friendID else { return }
         switch friend?.request {
         case false:
             FriendController.shared.acceptRequest(friend: friend!)
             FriendController.shared.pendingReuests.remove(at: indexPath!.row)
             tableView.reloadData()
-            
             
         case true:
             FriendController.shared.cancelRequest(friendID: friendID)
@@ -206,10 +205,5 @@ extension AddFriendsVC: UITableViewDataSource, UITableViewDelegate, PendingCellI
             friend?.request = true
             
         }
-        
-        
-        
     }
-    
-    
 }
