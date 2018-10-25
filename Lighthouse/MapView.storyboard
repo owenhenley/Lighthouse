@@ -172,10 +172,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DNX-wE-aiw" userLabel="Tray View Container">
-                                        <rect key="frame" x="0.0" y="25" width="375" height="75"/>
+                                        <rect key="frame" x="0.0" y="24" width="375" height="76"/>
                                         <subviews>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z1d-6N-eeZ" userLabel="Friends Tray">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="76"/>
                                                 <connections>
                                                     <segue destination="SNw-hE-q1g" kind="embed" id="Qc6-7y-5Pn"/>
                                                 </connections>
@@ -190,43 +190,25 @@
                                             <constraint firstItem="Z1d-6N-eeZ" firstAttribute="leading" secondItem="DNX-wE-aiw" secondAttribute="leading" id="Xua-FA-YLr"/>
                                         </constraints>
                                     </view>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="traytab" translatesAutoresizingMaskIntoConstraints="NO" id="l5x-Py-OCG">
-                                        <rect key="frame" x="0.0" y="1" width="375" height="24"/>
-                                        <gestureRecognizers/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="1YE-TV-JIO" appends="YES" id="nw0-GV-apS"/>
-                                        </connections>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hYU-sI-09r">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="traytab" translatesAutoresizingMaskIntoConstraints="NO" id="l5x-Py-OCG">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="24"/>
                                         <gestureRecognizers/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="14c-RD-iuj"/>
+                                            <constraint firstAttribute="height" constant="24" id="sTA-CI-48o"/>
                                         </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="3"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="trayOpenTapped:" destination="uzX-QU-v97" eventType="touchUpInside" id="pjB-va-3wP"/>
-                                            <action selector="trayShowFriendTapped:" destination="ckd-tS-2q1" eventType="touchUpInside" id="tJl-i0-X2Z"/>
-                                            <action selector="trayTapped:" destination="ckd-tS-2q1" eventType="touchUpInside" id="DHW-qO-mAL"/>
+                                            <outletCollection property="gestureRecognizers" destination="zFb-Db-jKW" appends="YES" id="JFS-De-QS8"/>
                                         </connections>
-                                    </button>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="DNX-wE-aiw" firstAttribute="top" secondItem="l5x-Py-OCG" secondAttribute="bottom" id="Cor-2F-dzC"/>
                                     <constraint firstAttribute="trailing" secondItem="l5x-Py-OCG" secondAttribute="trailing" id="HFK-iW-NVQ"/>
-                                    <constraint firstItem="DNX-wE-aiw" firstAttribute="top" secondItem="hYU-sI-09r" secondAttribute="bottom" constant="-5" id="NIz-aQ-Psu"/>
                                     <constraint firstAttribute="bottom" secondItem="DNX-wE-aiw" secondAttribute="bottom" id="PzB-DE-zUC"/>
-                                    <constraint firstItem="l5x-Py-OCG" firstAttribute="top" secondItem="zyK-mc-klD" secondAttribute="top" constant="1" id="SIT-IV-wU9"/>
-                                    <constraint firstItem="hYU-sI-09r" firstAttribute="leading" secondItem="zyK-mc-klD" secondAttribute="leading" id="XbU-4B-Esu"/>
+                                    <constraint firstItem="l5x-Py-OCG" firstAttribute="top" secondItem="zyK-mc-klD" secondAttribute="top" id="SIT-IV-wU9"/>
                                     <constraint firstItem="DNX-wE-aiw" firstAttribute="leading" secondItem="zyK-mc-klD" secondAttribute="leading" id="hOf-TF-BQm"/>
                                     <constraint firstItem="l5x-Py-OCG" firstAttribute="leading" secondItem="zyK-mc-klD" secondAttribute="leading" id="i7q-my-0cA"/>
-                                    <constraint firstItem="hYU-sI-09r" firstAttribute="top" secondItem="zyK-mc-klD" secondAttribute="top" id="lna-KB-LsN"/>
-                                    <constraint firstAttribute="trailing" secondItem="hYU-sI-09r" secondAttribute="trailing" id="rHO-cV-qa7"/>
                                     <constraint firstAttribute="trailing" secondItem="DNX-wE-aiw" secondAttribute="trailing" id="xx9-oh-gQw"/>
                                 </constraints>
                             </view>
@@ -246,8 +228,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e91-Tz-iu7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="ckd-tS-2q1" userLabel="Exit" sceneMemberID="exit"/>
-                <swipeGestureRecognizer direction="right" id="1YE-TV-JIO"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="zFb-Db-jKW">
+                    <connections>
+                        <action selector="trayLipSwiped:" destination="uzX-QU-v97" id="GvN-Fo-iW4"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1040.8" y="571.21439280359823"/>
         </scene>

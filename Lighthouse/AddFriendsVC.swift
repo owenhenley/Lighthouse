@@ -37,10 +37,6 @@ class AddFriendsVC: CustomSearchFieldVC {
     }
 
 
-    
-
-
-    
     @IBAction func backTapped(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
@@ -71,10 +67,10 @@ class AddFriendsVC: CustomSearchFieldVC {
         }
     }
     
-    func friendRequestTapped() {
-        
-        guard let friendID = friend?.friendID else { return }
-        
+//    func friendRequestTapped() {
+//
+//        guard let friendID = friend?.friendID else { return }
+    
 //        switch friend?.request {
 //        case false:
 //            FriendController.shared.acceptRequest(friend: friend)
@@ -92,7 +88,7 @@ class AddFriendsVC: CustomSearchFieldVC {
 //            sender.buttonOutlet.setTitle("Pending", for: .normal)
 //            friend?.request = true
 //
-        }
+//        }
 //    }
     
 }
