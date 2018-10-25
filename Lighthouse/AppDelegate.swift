@@ -19,17 +19,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
-            if !granted {
-                print("Permission not granted")
-            }
-        }
+        // Request Notfictaions
+//        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
+//            if !granted {
+//                print("Permission not granted")
+//            }
+//        }
         
-        UNUserNotificationCenter.current().delegate = self
+//        UNUserNotificationCenter.current().delegate = self
         
         FirebaseApp.configure()
         
-        // FIRESTORE FIX : The behavior for system Date objects stored in Firestore is going to change
+        // FIRESTORE FIX : The behavior for system Date objects stored in Firestore is going to change. Added this to conform to console recommendations.
         let db = Firestore.firestore()
         let settings = db.settings
         settings.areTimestampsInSnapshotsEnabled = true
@@ -45,9 +46,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            }
 //        }
         
-        
-
-        
             // MARK: - Sign In
         
 //        AUTH.signIn(withEmail: "developer@apple.com", password: "123456") { (auth, error) in
@@ -57,7 +55,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //                print("Signedin!")
 //            }
 //        }
-        
         
             // MARK: - Sign Out
         
@@ -91,8 +88,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
-//
-extension AppDelegate: UNUserNotificationCenterDelegate {
-    
-    
-}
+
+//extension AppDelegate: UNUserNotificationCenterDelegate {
+//}
