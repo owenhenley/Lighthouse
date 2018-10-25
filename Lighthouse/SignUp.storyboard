@@ -187,7 +187,7 @@
                                     <constraint firstAttribute="width" constant="25" id="8FQ-Oy-yO5"/>
                                     <constraint firstAttribute="height" constant="25" id="xuF-Oc-pP6"/>
                                 </constraints>
-                                <state key="normal" image="back"/>
+                                <state key="normal" image="backarrowDark"/>
                                 <connections>
                                     <action selector="backTapped:" destination="X85-tI-C3A" eventType="touchUpInside" id="GWV-VW-lQz"/>
                                 </connections>
@@ -236,6 +236,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="back" width="409.60000610351562" height="409.60000610351562"/>
+        <image name="backarrowDark" width="56" height="56"/>
     </resources>
 </document>

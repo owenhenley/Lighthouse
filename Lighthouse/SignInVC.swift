@@ -18,12 +18,14 @@ class SignInVC: CustomTextFieldVC {
     
     @IBOutlet weak var emailOutlet    : UITextField!
     @IBOutlet weak var passwordOutlet : UITextField!
+    @IBOutlet weak var blurView       : UIView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         passwordOutlet.delegate = self
         textFields = [emailOutlet, passwordOutlet]
+        blurBackground()
     }
 
     
@@ -66,5 +68,12 @@ class SignInVC: CustomTextFieldVC {
                 SVProgressHUD.dismiss()
             }
         }
+    }
+    
+    func blurBackground() {
+        let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
+        visualEffectView.frame = self.blurView.bounds
+        visualEffectView.translatesAutoresizingMaskIntoConstraints = true
+        self.blurView.addSubview(visualEffectView)
     }
 }

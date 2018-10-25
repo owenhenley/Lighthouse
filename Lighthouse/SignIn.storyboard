@@ -18,6 +18,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q8q-yc-7P9">
+                                <rect key="frame" x="0.0" y="0.0" width="1027" height="1764"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M4N-bu-9LN">
                                 <rect key="frame" x="22" y="497" width="331" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.4793452024" blue="0.99908632040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -115,13 +119,13 @@
                                     <constraint firstItem="Det-GV-Q2S" firstAttribute="leading" secondItem="fbO-Kb-dTx" secondAttribute="leading" id="nL9-69-GTp"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fbh-Je-2EQ">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fbh-Je-2EQ">
                                 <rect key="frame" x="16" y="40" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="Sv0-IB-mx8"/>
                                     <constraint firstAttribute="width" constant="25" id="h4V-5E-r3r"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="back"/>
+                                <state key="normal" image="backarrowDark"/>
                                 <connections>
                                     <action selector="backTapped:" destination="PFC-4d-7ck" eventType="touchUpInside" id="aIu-S1-xgg"/>
                                 </connections>
@@ -136,20 +140,25 @@
                             <constraint firstItem="fbO-Kb-dTx" firstAttribute="centerY" secondItem="5jl-Ue-lxb" secondAttribute="centerY" id="QpA-Ul-5NN"/>
                             <constraint firstItem="g6a-Ow-bBB" firstAttribute="bottom" secondItem="M4N-bu-9LN" secondAttribute="bottom" constant="120" id="Rzs-FO-87u"/>
                             <constraint firstItem="g6a-Ow-bBB" firstAttribute="trailing" secondItem="M4N-bu-9LN" secondAttribute="trailing" constant="22" id="YAM-HT-hru"/>
+                            <constraint firstAttribute="bottom" secondItem="Q8q-yc-7P9" secondAttribute="bottom" constant="-1097" id="Z5n-vF-Htj"/>
+                            <constraint firstItem="Q8q-yc-7P9" firstAttribute="leading" secondItem="g6a-Ow-bBB" secondAttribute="leading" id="fZP-xK-1hZ"/>
                             <constraint firstItem="g6a-Ow-bBB" firstAttribute="trailing" secondItem="tdG-rU-TJY" secondAttribute="trailing" constant="22" id="g46-IT-l3U"/>
                             <constraint firstItem="fbO-Kb-dTx" firstAttribute="leading" secondItem="g6a-Ow-bBB" secondAttribute="leading" constant="20" id="lKe-iu-Jrs"/>
+                            <constraint firstAttribute="trailing" secondItem="Q8q-yc-7P9" secondAttribute="trailing" constant="-652" id="tIb-bU-yaS"/>
+                            <constraint firstItem="Q8q-yc-7P9" firstAttribute="top" secondItem="5jl-Ue-lxb" secondAttribute="top" id="xj6-nr-vYT"/>
                             <constraint firstItem="Fbh-Je-2EQ" firstAttribute="leading" secondItem="g6a-Ow-bBB" secondAttribute="leading" constant="16" id="zhU-LA-XWF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="g6a-Ow-bBB"/>
                     </view>
                     <connections>
+                        <outlet property="blurView" destination="Q8q-yc-7P9" id="47n-wf-g1n"/>
                         <outlet property="emailOutlet" destination="ZjU-FI-avN" id="y2n-UY-7o6"/>
                         <outlet property="passwordOutlet" destination="KJG-Xb-G1R" id="bUK-mp-Bkj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dua-Ex-Bed" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="714.375" y="36.971830985915496"/>
+            <point key="canvasLocation" x="712.79999999999995" y="36.431784107946029"/>
         </scene>
         <!--ForgotPassword-->
         <scene sceneID="zil-zR-WKq">
@@ -161,6 +170,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="back" width="409.60000610351562" height="409.60000610351562"/>
+        <image name="backarrowDark" width="56" height="56"/>
     </resources>
 </document>
