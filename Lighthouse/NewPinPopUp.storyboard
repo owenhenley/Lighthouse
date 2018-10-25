@@ -30,7 +30,7 @@
                                         <state key="normal" title="X" image="closeGrey"/>
                                         <connections>
                                             <action selector="exitTapped:" destination="WCS-DN-vAu" eventType="touchUpInside" id="Qdz-2w-slL"/>
-                                            <segue destination="WaD-Bg-fwl" kind="unwind" unwindAction="unwindToMapViewSegue:" id="oXL-pn-jlf"/>
+                                            <segue destination="WaD-Bg-fwl" kind="unwind" unwindAction="unwindToMapViewSegue:" id="feb-XH-8oi"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7A6-qa-xvB">
