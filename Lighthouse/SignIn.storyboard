@@ -145,9 +145,11 @@
                     <connections>
                         <outlet property="emailOutlet" destination="ZjU-FI-avN" id="y2n-UY-7o6"/>
                         <outlet property="passwordOutlet" destination="KJG-Xb-G1R" id="bUK-mp-Bkj"/>
+                        <segue destination="VEb-Eq-Rpd" kind="unwind" identifier="toMapViewBaby" unwindAction="unwindToMapViewSegue:" id="T6J-Hg-WEn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dua-Ex-Bed" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="VEb-Eq-Rpd" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="714.375" y="36.971830985915496"/>
         </scene>

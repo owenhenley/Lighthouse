@@ -39,14 +39,14 @@ class NewPinPopUpVC: UIViewController, UITextFieldDelegate {
     
     var currentVibeImage: UIImage?
     fileprivate let vibeImageSelectedDict: [Int : UIImage] = [
-        0 : UIImage(named: "moviesActive") ?? UIImage(),
+        0 : UIImage(named: "movieActive") ?? UIImage(),
         1 : UIImage(named: "foodActive") ?? UIImage(),
         2 : UIImage(named: "barActive") ?? UIImage(),
         3 : UIImage(named: "clubActive") ?? UIImage(),
         4 : UIImage(named: "concertActive") ?? UIImage(),
         5 : UIImage(named: "partyActive") ?? UIImage(),
         6 : UIImage(named: "chillActive") ?? UIImage(),
-        7 : UIImage(named: "studyingActive") ?? UIImage()
+        7 : UIImage(named: "studyActive") ?? UIImage()
     ]
     
     fileprivate let vibeImageDeselectedDict: [Int : UIImage] = [

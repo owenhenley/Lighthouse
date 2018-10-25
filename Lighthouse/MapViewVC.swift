@@ -434,7 +434,7 @@ extension MapViewVC: TrayTabVCDelegate {
             destinationVC?.event = event
 //            SVProgressHUD.dismiss()
         } else if segue.identifier == "toEditPin" {
-            let desinationVC = segue.destination as? EditPinVC
+            let desinationVC = segue.destination as? MyPinVC
             desinationVC?.event = myPin
             
         }

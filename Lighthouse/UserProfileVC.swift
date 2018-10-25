@@ -48,6 +48,10 @@ class UserProfileVC: UIViewController {
         updateViews()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+    }
+    
         // MARK: - Actions
     
     // Unwind Segue

@@ -57,7 +57,7 @@ class SignInVC: CustomTextFieldVC {
                 DispatchQueue.main.async {
                     self.passwordOutlet.resignFirstResponder()
                     NotificationCenter.default.post(name: .signInTapped, object: nil)
-                    self.dismiss(animated: true, completion: nil)
+                    self.performSegue(withIdentifier: "toMapViewBaby", sender: self)
                     SVProgressHUD.dismiss()
                 }
             } else {
