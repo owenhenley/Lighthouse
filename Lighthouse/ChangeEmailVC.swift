@@ -13,11 +13,13 @@ import SVProgressHUD
 class ChangeEmailVC: UIViewController {
     
     
-    @IBOutlet weak var signInEmailTF: UITextField!
-    @IBOutlet weak var signInPasswordTF: UITextField!
+    @IBOutlet weak var signInEmailTF    : UITextField!
+    @IBOutlet weak var signInPasswordTF : UITextField!
+    @IBOutlet weak var signInStack      : UIStackView!
     
-    @IBOutlet weak var changeEmailTF1: UITextField!
-    @IBOutlet weak var changeEmailTF2: UITextField!
+    @IBOutlet weak var changeEmailTF1   : UITextField!
+    @IBOutlet weak var changeEmailTF2   : UITextField!
+    @IBOutlet weak var updateStack      : UIStackView!
     
     
     // MARK: - Proerties
@@ -47,17 +49,25 @@ class ChangeEmailVC: UIViewController {
     
     
     func reAuthenticate() {
+        SVProgressHUD.show()
+        
+        guard let email = signInEmailTF.text, !email.isEmpty, let password = signInPasswordTF.text, !password.isEmpty else { return }
+        
+        credential = EmailAuthProvider.credential(withEmail: email, password: password)
         
         guard let credential = credential else { return }
         
         user?.reauthenticateAndRetrieveData(with: credential, completion: { (results, error) in
             if let error = error {
                 debugPrint("❌ Error in file \(#file), function \(#function), \(error),\(error.localizedDescription)❌")
+                SVProgressHUD.dismiss()
             } else {
-                // User re-authenticated.
+                print("User ReAuthenticated")
+                SVProgressHUD.dismiss()
             }
+            self.signInStack.isHidden = true
+            self.updateStack.isHidden = false
         })
-        
     }
     
     
@@ -76,7 +86,15 @@ class ChangeEmailVC: UIViewController {
         Auth.auth().currentUser?.updateEmail(to: newEmail, completion: { (error) in
             if let error = error {
                 debugPrint("❌ Error in file \(#file), function \(#function), \(error),\(error.localizedDescription)❌")
+                SVProgressHUD.dismiss()
             }
+            
+            guard let user = UserController.shared.user else { return }
+            
+            user.email = newEmail
+            
+            UserController.shared.updateUser(user: user, completion: { (_) in
+            })
             self.performSegue(withIdentifier: "returnToUserProfile", sender: self)
             SVProgressHUD.dismiss()
         })

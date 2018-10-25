@@ -135,6 +135,8 @@
                         <outlet property="changeEmailTF2" destination="Juc-Cy-Sg9" id="fd9-lJ-42T"/>
                         <outlet property="signInEmailTF" destination="CBG-fj-48Y" id="QTD-Kb-QPm"/>
                         <outlet property="signInPasswordTF" destination="Dfg-Ff-eue" id="4Ag-cq-jbf"/>
+                        <outlet property="signInStack" destination="1S5-Pq-vsp" id="V9o-bm-q7w"/>
+                        <outlet property="updateStack" destination="dB1-k0-US4" id="RUD-ck-MyX"/>
                         <segue destination="8w5-h8-rfo" kind="unwind" identifier="returnToUserProfile" unwindAction="returnToUserProfile:" id="KK4-Fv-Zzi"/>
                     </connections>
                 </viewController>
