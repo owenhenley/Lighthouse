@@ -16,33 +16,32 @@ class OnboardingVC: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var mainView: UIView!
+    @IBOutlet weak var locationAccessButton: UIButton!
+    @IBOutlet weak var letsDoThisButton: UIButton!
     
     
     // MARK: - Properties
     
     let locationManager = CLLocationManager()
+    var locationRequested = true
 
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setUpLocationManager()
         blurBackground()
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-    }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super .viewDidAppear(true)
+    @IBAction func requestLocation(_ sender: Any) {
         requestLocationAuth()
+        locationRequested = true
+        locationAccessButton.isHidden = true
+        letsDoThisButton.isHidden = false
     }
-    
-    
     
     
     // MARK: - Location Methods
