@@ -8,10 +8,8 @@
 
 import UIKit
 
-struct Friend: Equatable {
-    static func == (lhs: Friend, rhs: Friend) -> Bool {
-        return lhs.name == rhs.name
-    }
+struct Friend: Hashable {
+    
     
     
     

@@ -205,6 +205,7 @@ class MapViewVC: CustomSearchFieldVC {
         return annoationView
     }
     
+    
     @objc func placePins(){
         let events = EventController.shared.events
         for event in events {
