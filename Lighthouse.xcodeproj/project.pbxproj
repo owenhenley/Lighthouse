@@ -46,6 +46,7 @@
 		3E5A1DF12170FBB000170A9B /* SignOut.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E5A1DF02170FBB000170A9B /* SignOut.storyboard */; };
 		3E5A1DF32170FBE500170A9B /* DeleteAccount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E5A1DF22170FBE500170A9B /* DeleteAccount.storyboard */; };
 		3E739CB7218107F700D14211 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E739CB6218107F700D14211 /* Default-568h@2x.png */; };
+		3E739CB92181553B00D14211 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3E739CB82181553B00D14211 /* GoogleService-Info.plist */; };
 		3E7B2B6D216D929500E4F0F1 /* ForgotPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E7B2B6C216D929500E4F0F1 /* ForgotPassword.storyboard */; };
 		3E7B2B70216D98F600E4F0F1 /* FoursquareAPIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7B2B6F216D98F600E4F0F1 /* FoursquareAPIController.swift */; };
 		3E8BF77F2177A18900DB0014 /* NewPinPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8BF77E2177A18900DB0014 /* NewPinPopUpVC.swift */; };
@@ -60,7 +61,7 @@
 		3EA99153216BDF1B0001F09D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA99151216BDF1B0001F09D /* User.swift */; };
 		3EA99157216BDF8D0001F09D /* LoadingScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EA99154216BDF8D0001F09D /* LoadingScreen.storyboard */; };
 		3EA99162216BE0200001F09D /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA99161216BE0200001F09D /* DateFormatter.swift */; };
-		3EA99164216BE0310001F09D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3EA99163216BE0310001F09D /* GoogleService-Info.plist */; };
+		3EA99164216BE0310001F09D /* GoogleService-InfoLEVI.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3EA99163216BE0310001F09D /* GoogleService-InfoLEVI.plist */; };
 		3EEA6ED7217E5ED0009DD278 /* FriendsTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EEA6ED6217E5ED0009DD278 /* FriendsTab.storyboard */; };
 		3EEA6ED9217E61AF009DD278 /* FriendsTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEA6ED8217E61AF009DD278 /* FriendsTabVC.swift */; };
 		3EEA6EDB217E61BD009DD278 /* AddFriendsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEA6EDA217E61BD009DD278 /* AddFriendsVC.swift */; };
@@ -135,6 +136,8 @@
 		3E5A1DF02170FBB000170A9B /* SignOut.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignOut.storyboard; sourceTree = "<group>"; };
 		3E5A1DF22170FBE500170A9B /* DeleteAccount.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DeleteAccount.storyboard; sourceTree = "<group>"; };
 		3E739CB6218107F700D14211 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
+		3E739CB82181553B00D14211 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3E739CBA2181554E00D14211 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3E7B2B6C216D929500E4F0F1 /* ForgotPassword.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ForgotPassword.storyboard; sourceTree = "<group>"; };
 		3E7B2B6F216D98F600E4F0F1 /* FoursquareAPIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoursquareAPIController.swift; sourceTree = "<group>"; };
 		3E8BF77E2177A18900DB0014 /* NewPinPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPinPopUpVC.swift; sourceTree = "<group>"; };
@@ -151,7 +154,7 @@
 		3EA99151216BDF1B0001F09D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3EA99154216BDF8D0001F09D /* LoadingScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoadingScreen.storyboard; sourceTree = "<group>"; };
 		3EA99161216BE0200001F09D /* DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
-		3EA99163216BE0310001F09D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3EA99163216BE0310001F09D /* GoogleService-InfoLEVI.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-InfoLEVI.plist"; sourceTree = "<group>"; };
 		3EA9916A216BE0EC0001F09D /* Lighthouse.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Lighthouse.entitlements; sourceTree = "<group>"; };
 		3EEA6ED6217E5ED0009DD278 /* FriendsTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FriendsTab.storyboard; sourceTree = "<group>"; };
 		3EEA6ED8217E61AF009DD278 /* FriendsTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTabVC.swift; sourceTree = "<group>"; };
@@ -297,6 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				3EA9916A216BE0EC0001F09D /* Lighthouse.entitlements */,
+				3E739CB82181553B00D14211 /* GoogleService-Info.plist */,
 				3EA99134216BDC9E0001F09D /* Models */,
 				3EA99137216BDC9E0001F09D /* Controllers */,
 				3EA9913E216BDC9E0001F09D /* Views */,
@@ -421,7 +425,8 @@
 				3E739CB6218107F700D14211 /* Default-568h@2x.png */,
 				3E0AC5AD2171533500002FD3 /* Megrim.ttf */,
 				3EA9914A216BDC9F0001F09D /* Info.plist */,
-				3EA99163216BE0310001F09D /* GoogleService-Info.plist */,
+				3EA99163216BE0310001F09D /* GoogleService-InfoLEVI.plist */,
+				3E739CBA2181554E00D14211 /* GoogleService-Info.plist */,
 				3EA99143216BDC9E0001F09D /* AppDelegate.swift */,
 			);
 			name = "Supporting Files";
@@ -610,10 +615,11 @@
 				3EF0A834217A180E00C6541D /* EditPinPopup.storyboard in Resources */,
 				3E28E8AE216D20BE00E21331 /* SignUp.storyboard in Resources */,
 				7E2390C921764D2B00D27CCB /* FriendCell.xib in Resources */,
+				3E739CB92181553B00D14211 /* GoogleService-Info.plist in Resources */,
 				3E28E8AA216D1E7000E21331 /* FriendsList.storyboard in Resources */,
 				3E28E870216C1F8400E21331 /* SignIn.storyboard in Resources */,
 				3E5A1DE12170F7C900170A9B /* TermsOfService.storyboard in Resources */,
-				3EA99164216BE0310001F09D /* GoogleService-Info.plist in Resources */,
+				3EA99164216BE0310001F09D /* GoogleService-InfoLEVI.plist in Resources */,
 				3E06A5332174E121004D1B24 /* Pods-Lighthouse.debug.xcconfig in Resources */,
 				3EEA6ED7217E5ED0009DD278 /* FriendsTab.storyboard in Resources */,
 				3EEC750C216EC0FF009572FB /* UserProfile.storyboard in Resources */,
