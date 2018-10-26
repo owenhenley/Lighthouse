@@ -132,7 +132,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WXT-JK-sUq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1889" y="556"/>
+            <point key="canvasLocation" x="-1682" y="555"/>
         </scene>
         <!--TabBarController-->
         <scene sceneID="G85-be-nF1">
@@ -140,7 +140,7 @@
                 <viewControllerPlaceholder storyboardName="TabBarController" id="HMx-B0-Byy" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vt8-Ok-kqO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1266" y="555"/>
+            <point key="canvasLocation" x="-1141" y="602"/>
         </scene>
         <!--View Controller Class-->
         <scene sceneID="Gap-6a-ayQ">
@@ -372,13 +372,26 @@
                                             </label>
                                         </subviews>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oO0-1f-6Uj">
+                                        <rect key="frame" x="275" y="140" width="50" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="KcR-yB-lGN"/>
+                                        </constraints>
+                                        <state key="normal" title="Next"/>
+                                        <connections>
+                                            <action selector="nextTapped:" destination="Lqa-6V-VBw" eventType="touchUpInside" id="Akf-zg-gra"/>
+                                            <segue destination="1ef-g2-ao3" kind="show" id="XY5-BU-MB2"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Zm4-cj-NIB" secondAttribute="trailing" constant="24" id="5Qg-nL-ckf"/>
+                                    <constraint firstAttribute="bottom" secondItem="oO0-1f-6Uj" secondAttribute="bottom" constant="50" id="HQM-5H-zO1"/>
                                     <constraint firstItem="Zm4-cj-NIB" firstAttribute="leading" secondItem="Y3Q-7t-oAn" secondAttribute="leading" constant="24" id="M1k-tQ-Pd5"/>
                                     <constraint firstAttribute="height" constant="220" id="cy1-j3-yAb"/>
                                     <constraint firstItem="Zm4-cj-NIB" firstAttribute="top" secondItem="Y3Q-7t-oAn" secondAttribute="top" constant="48" id="gfY-e6-Gf5"/>
+                                    <constraint firstAttribute="trailing" secondItem="oO0-1f-6Uj" secondAttribute="trailing" constant="50" id="ld0-Me-lxk"/>
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SharedwFriends" translatesAutoresizingMaskIntoConstraints="NO" id="dml-Ux-rWj">

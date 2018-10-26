@@ -2,7 +2,7 @@
 //  MapViewVC.swift
 //  Lighthouse
 //
-//  Created by Owen Henley on 10/8/18.
+//  Created by Owen Henley & Levi Linchenko on 10/8/18.
 //  Copyright © 2018 Lighthouse. All rights reserved.
 //
 
@@ -18,16 +18,16 @@ class MapViewVC: CustomSearchFieldVC {
     // MARK: - Properties
     
     var locationManager = CLLocationManager()
-    var searchIsActive  = false
+    var searchIsActive = false
     var longPressActive = true
     var userMapCentered = false
-    var trayActive      = false
+    var trayActive = false
     var handle : AuthStateDidChangeListenerHandle?
+    var friendID : String?
+    var myPin : Event?
     let nonAuthUserLocationRadius : Double = 25000
-    let authedUserLocationRadius  : Double = 400
-    var friendID: String?
+    let authedUserLocationRadius : Double = 400
     var placedAnnotations: Set<String> = []
-    var myPin: Event?
 
     
     // MARK: - Outlets
@@ -40,6 +40,7 @@ class MapViewVC: CustomSearchFieldVC {
     @IBOutlet weak var trayHeightConstraint : NSLayoutConstraint!
     @IBOutlet weak var dropPinButton        : UIButton!
     @IBOutlet weak var gpsButton            : UIButton!
+    @IBOutlet weak var coachmark            : UIView!
     
     
     // MARK: - LifeCycle
@@ -59,15 +60,10 @@ class MapViewVC: CustomSearchFieldVC {
     }
     
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        searchView.isHidden = false
-    }
-    
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(true)
+////        searchView.isHidden = false
+//    }
     
     
     @objc func displaySelectedPin(notification: NSNotification) {
@@ -92,6 +88,7 @@ class MapViewVC: CustomSearchFieldVC {
     
     //FIXME: Probably remove
     @objc func showNextButton(){
+        
     }
     
 
@@ -107,7 +104,6 @@ class MapViewVC: CustomSearchFieldVC {
         searchView.isHidden = true
         performSegue(withIdentifier: "toSignUpVC", sender: self)
         changeTrayHeight()
-        
     }
     
     
@@ -125,7 +121,9 @@ class MapViewVC: CustomSearchFieldVC {
         
     }
     
+    
     @IBAction func unwindToMapViewSegue(_ sender: UIStoryboardSegue) {}
+    
     
     func setupNotificationCenter() {
         NotificationCenter.default.addObserver(self, selector: #selector(showNextButton), name: .backButtonTapped, object: nil)
@@ -140,6 +138,7 @@ class MapViewVC: CustomSearchFieldVC {
     
     
     // MARK: - Map Methods
+    
     // FIXME: - Change to take event as annotation
     
     func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
@@ -195,7 +194,7 @@ class MapViewVC: CustomSearchFieldVC {
         
         if annotation.title == myPin?.title {
             let annoationView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
-            annoationView.image = #imageLiteral(resourceName: "locationPin")
+            annoationView.image = #imageLiteral(resourceName: "Pin")
             return annoationView
         }
 
@@ -219,15 +218,6 @@ class MapViewVC: CustomSearchFieldVC {
                 mainMapView.addAnnotation(event)
                 
             }
-//            let friendEventCoordinate = event.coordinate
-//            let friendEventPinAnnotation: MKPointAnnotation = MKPointAnnotation()
-//            friendEventPinAnnotation.coordinate = friendEventCoordinate
-//            friendEventPinAnnotation.title = event.name
-//
-//            friendEventPinAnnotation.subtitle = event.friendID
-            
-            
-//           let friendAnnotation = DroppablePin(coordinate: event.coordinates, identifier: event.friendID)
         }
     }
     
@@ -290,6 +280,7 @@ class MapViewVC: CustomSearchFieldVC {
         handle = AUTH.addStateDidChangeListener({ (auth, user) in
             if user != nil {
                 self.dropPinButton.isHidden = false
+                self.coachmark.isHidden = true
                     self.centerMapOnAuthedUser {
                 }
             } else {
@@ -304,7 +295,6 @@ class MapViewVC: CustomSearchFieldVC {
   
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-       
         
         guard let annotation = view.annotation as? Event,
             let uid = UID else {return}
@@ -341,7 +331,6 @@ extension MapViewVC: MKMapViewDelegate {
         
         userMapCentered = false
         gpsButton.setImage(UIImage(named: "gpsDisabled"), for: .normal)
-        
     }
 }
 
@@ -401,7 +390,8 @@ extension MapViewVC: TrayTabVCDelegate {
         trayActive = !trayActive
         var height: CGFloat = 0
         if trayActive{
-            height = self.view.frame.height * 0.60
+            coachmark.isHidden = true
+            height = self.view.frame.height * 0.55
         } else {
             NotificationCenter.default.post(name: .regionChanged, object: nil)
             height = 24

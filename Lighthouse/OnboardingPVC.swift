@@ -23,7 +23,6 @@ class OnboardingPVC: UIPageViewController, UIPageViewControllerDelegate, UIPageV
             self.newVC(viewController: "onboarding1"),
             self.newVC(viewController: "onboarding2"),
             self.newVC(viewController: "onboarding3"),
-            self.newVC(viewController: "locationCheck")
         ]}()
     
     

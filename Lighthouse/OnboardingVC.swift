@@ -9,10 +9,9 @@
 import UIKit
 import CoreLocation
 import MapKit
-
+import SVProgressHUD
 
 class OnboardingVC: UIViewController {
-    
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var mainView: UIView!
@@ -32,15 +31,21 @@ class OnboardingVC: UIViewController {
         super.viewDidLoad()
         setUpLocationManager()
         blurBackground()
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        SVProgressHUD.dismiss()
     }
     
     
     @IBAction func requestLocation(_ sender: Any) {
         requestLocationAuth()
         locationRequested = true
-        locationAccessButton.isHidden = true
-        letsDoThisButton.isHidden = false
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
+            self.locationAccessButton.isHidden = true
+            self.letsDoThisButton.isHidden = false
+        }
     }
     
     
@@ -77,7 +82,7 @@ class OnboardingVC: UIViewController {
             // Do it again untill you hit whet you need to
             checkLocationAuth { (success) in
                 if success {
-                    print("Got their loction! oi oiii")
+                    print("Got their location")
                 }
             }
         }
