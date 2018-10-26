@@ -7,9 +7,16 @@
 //
 
 import UIKit
+import FirebaseAuth
+import SVProgressHUD
 
 class ResetPasswordFromSettingsVC: UIViewController {
-
+    
+        // MARK: - Outlets
+    
+    @IBOutlet weak var emailTF: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,14 +27,27 @@ class ResetPasswordFromSettingsVC: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func resetTapped(_ sender: Any) {
+        resetPassword()
     }
-    */
-
+    
+    func resetPassword() {
+        SVProgressHUD.show()
+        
+        guard let email = emailTF.text, !email.isEmpty else { return }
+        
+        AUTH.sendPasswordReset(withEmail: email) { (error) in
+            if let error = error {
+                #warning("Show email doesnt not exist warning")
+                debugPrint("❌ Error in file \(#file), function \(#function), \(error),\(error.localizedDescription)❌")
+                SVProgressHUD.dismiss()
+                self.shake()
+                self.emailTF.resignFirstResponder()
+                return
+            }
+            
+          self.performSegue(withIdentifier: "returnToUserProfile", sender: self)
+            SVProgressHUD.dismiss()
+        }
+    }
 }
