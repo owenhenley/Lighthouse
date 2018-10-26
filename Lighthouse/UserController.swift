@@ -13,6 +13,7 @@ import CoreLocation
 
 class UserController {
     
+    
     private init() {}
     
     static let shared = UserController()
@@ -51,7 +52,19 @@ class UserController {
                 completion(false)
                 return
             }
+            var name = name
+            func removeSpace(){
+                if name.last == " " {
+                    name.removeLast()
+                    removeSpace()
+                }
+            }
+            
+            removeSpace()
+            
             let splitName = name.components(separatedBy: " ")
+            
+            
             let firstName = splitName.dropLast().joined(separator: " ")
             let lastName = splitName.last
             
@@ -75,6 +88,8 @@ class UserController {
                     } else {
                         completion(true)
                         let user = User(userID: result.user.uid, name: name, email: email)
+                        user.firstName = firstName
+                        user.lastName = lastName
                         self.user = user
                     }
                 }
@@ -155,6 +170,8 @@ class UserController {
             }
         }
     }
+    
+    
     
     
     
@@ -246,13 +263,23 @@ class UserController {
         }
     }
     
-    func deleteUser(){
+    func deleteUser(completion: @escaping (_ success: Bool)->Void){
         guard let uid = uid else {return}
-        db.collection(USER).document(uid).delete { (error) in
-            if let error = error {
-                print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
+        Auth.auth().currentUser?.delete(completion: { (error) in
+            self.db.collection(USER).document(uid).delete { (error) in
+                if let error = error {
+                    print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
+                    completion(false)
+                }
             }
-        }
+            let friendIDs = FriendController.shared.friends.compactMap{$0.friendID}
+            for friendID  in friendIDs {
+                self.db.collection(USER).document(friendID).collection(FRIENDLIST).document(uid).delete()
+            }
+            UserController.shared.user = nil
+            FriendController.shared.friends = []
+            completion(true)
+        })
     }
     
     

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import AudioToolbox
 import SVProgressHUD
 
 //protocol PopScreen: class {
@@ -52,19 +51,23 @@ class SignInVC: CustomTextFieldVC {
         
         
         guard let password = passwordOutlet.text,
-            let email = emailOutlet.text else {return}
-        SVProgressHUD.show()
+            let email = emailOutlet.text,
+            email != "",
+            password != "" else {shake(); return}
+        
+        
+        
         UserController.shared.logInUser(email: email, password: password) { (success) in
+            
             if success {
                 DispatchQueue.main.async {
                     self.passwordOutlet.resignFirstResponder()
                     NotificationCenter.default.post(name: .signInTapped, object: nil)
                     self.performSegue(withIdentifier: "toMapViewBaby", sender: self)
-                    SVProgressHUD.dismiss()
                 }
             } else {
+
                self.shake()
-                AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
                 SVProgressHUD.dismiss()
             }
         }
