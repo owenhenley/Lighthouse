@@ -21,5 +21,6 @@ extension Notification.Name {
     static let selectedFriend = Notification.Name("selectedFriend")
     static let regionChanged = Notification.Name("regionChanged")
     static let trayLifted = Notification.Name("trayLifted")
+    static let signUpTapped = Notification.Name("signUpTapped")
 
 }
