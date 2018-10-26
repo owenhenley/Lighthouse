@@ -7,19 +7,23 @@
 //
 
 import UIKit
-import AudioToolbox
 import SVProgressHUD
 
 class SignUpVC: CustomTextFieldVC {
     
         // MARK: - Outlets
     
-    @IBOutlet weak var emailOutlet: UITextField!
-    @IBOutlet weak var passwordOutlet: UITextField!
-    @IBOutlet weak var usernameOutlet: UITextField!
-    @IBOutlet weak var signUpConstraint: NSLayoutConstraint!
-    @IBOutlet weak var blurView: UIView!
+    @IBOutlet weak var emailOutlet      : UITextField!
+    @IBOutlet weak var passwordOutlet   : UITextField!
+    @IBOutlet weak var usernameOutlet   : UITextField!
+    @IBOutlet weak var signUpConstraint : NSLayoutConstraint!
+    @IBOutlet weak var blurView         : UIView!
+    @IBOutlet weak var termsButton      : UIButton!
     
+    
+        // MARK: - Propeties
+    
+    var termsToggled = false
     
         // MARK: - LifeCycle
     
@@ -43,21 +47,31 @@ class SignUpVC: CustomTextFieldVC {
     }
     
     
+    
+    
+    
+    
         // MARK: - Actions
-
+    
+    
+    @IBAction func termsToggled(_ sender: UIButton) {
+        
+        if termsToggled == false {
+            termsToggled = true
+            termsButton.setImage(UIImage(named: "checkmarkDark"), for: .normal)
+        } else {
+            termsToggled = false
+            termsButton.setImage(nil, for: .normal)
+        }
+        
+    }
+    
     @IBAction func backTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
         NotificationCenter.default.post(name: .backButtonTapped, object: nil)
     }
     
-//    func textFieldDidBeginEditing(_ textField: UITextField) {
-//
-//        UIView.animate(withDuration: 0.5) {
-//            self.signUpConstraint.constant = 308 // keyboard is 258px (258+50)
-//            self.view.layoutIfNeeded() // view version of '.reloaddata()'
-//        }
-//    }
-//
+
     func blurBackground() {
         let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
         visualEffectView.frame = self.blurView.bounds
@@ -78,11 +92,11 @@ class SignUpVC: CustomTextFieldVC {
                 SVProgressHUD.dismiss()
             } else {
                 self.shake()
-                AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
                 SVProgressHUD.dismiss()
             }
         }
     }
+    
     
     @IBAction func signInTapped(_ sender: Any) {
         UIView.animate(withDuration: 0.5) {
