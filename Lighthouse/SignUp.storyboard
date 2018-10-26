@@ -79,14 +79,14 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="pPh-w7-8mk">
                                         <rect key="frame" x="0.0" y="142" width="331" height="56"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="417-1n-PJ7">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="417-1n-PJ7">
                                                 <rect key="frame" x="0.0" y="0.0" width="331" height="56"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="56" id="xIJ-Ii-Eji"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                             </textField>
                                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="crp-t4-FYf">
                                                 <rect key="frame" x="16" y="0.0" width="299" height="0.0"/>
@@ -111,36 +111,91 @@
                                     <constraint firstItem="pPh-w7-8mk" firstAttribute="leading" secondItem="dOv-3c-Vk3" secondAttribute="leading" id="lrv-jj-6JD"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="meY-O5-bxv">
-                                <rect key="frame" x="22" y="406.5" width="331" height="32"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="meY-O5-bxv">
+                                <rect key="frame" x="22" y="406.5" width="331" height="40"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="exy-I1-gI7">
-                                        <rect key="frame" x="0.0" y="0.0" width="43" height="32"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="51" height="40"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="32" id="So4-ci-u7S"/>
-                                        </constraints>
                                     </view>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zJ2-Fa-MJM">
-                                        <rect key="frame" x="59" y="0.0" width="32" height="32"/>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UEZ-Ve-fxS">
+                                        <rect key="frame" x="67" y="8" width="24" height="24"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="32" id="9Na-PG-f7u"/>
+                                            <constraint firstAttribute="width" constant="24" id="fn0-p8-DOl"/>
+                                            <constraint firstAttribute="height" constant="24" id="jqG-nL-ecZ"/>
                                         </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I have read and agree to the Privacy Policy and Terms &amp; Conditions." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="spA-EF-oID">
-                                        <rect key="frame" x="107" y="0.0" width="224" height="32"/>
+                                        <connections>
+                                            <action selector="termsToggled:" destination="X85-tI-C3A" eventType="touchUpInside" id="eWe-Ab-IW9"/>
+                                        </connections>
+                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Acv-03-WPU">
+                                        <rect key="frame" x="107" y="0.0" width="224" height="40"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="yyY-Ar-z27">
+                                                <rect key="frame" x="0.0" y="0.0" width="202.5" height="14.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I have read and agree to the" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="19t-A2-AAa">
+                                                        <rect key="frame" x="0.0" y="0.0" width="158.5" height="14.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sbi-3o-vEc">
+                                                        <rect key="frame" x="160.5" y="0.0" width="42" height="14.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <state key="normal" title="Privacy">
+                                                            <color key="titleColor" red="0.90980392160000001" green="0.45882352939999999" blue="0.047058823530000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="privacyPolicyTapped:" destination="X85-tI-C3A" eventType="touchUpInside" id="M8E-fk-4lB"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="ubx-f4-iS1">
+                                                <rect key="frame" x="0.0" y="14.5" width="177.5" height="25.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EQk-Qy-A9o">
+                                                        <rect key="frame" x="0.0" y="0.0" width="34" height="25.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <state key="normal" title="Policy">
+                                                            <color key="titleColor" red="0.90980392160000001" green="0.45882352939999999" blue="0.047058823530000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="privacyPolicyTapped:" destination="X85-tI-C3A" eventType="touchUpInside" id="0Av-2D-5oj"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" and" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KF8-5v-za7">
+                                                        <rect key="frame" x="36" y="0.0" width="24.5" height="25.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ysB-k1-wEV">
+                                                        <rect key="frame" x="62.5" y="0.0" width="115" height="25.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <state key="normal" title="Terms &amp; Conditions.">
+                                                            <color key="titleColor" red="0.90980392160000001" green="0.45882352939999999" blue="0.047058823530000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="tAndCsTapped:" destination="X85-tI-C3A" eventType="touchUpInside" id="yCX-8o-DK9"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="224" id="aXX-Qo-D5p"/>
+                                            <constraint firstAttribute="width" constant="224" id="yjz-cI-crn"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="q04-K3-gZQ"/>
+                                </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8p-sP-uBl">
-                                <rect key="frame" x="22" y="462.5" width="331" height="50"/>
+                                <rect key="frame" x="22" y="470.5" width="331" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.4793452024" blue="0.99908632040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="fu1-SE-alY"/>
@@ -159,7 +214,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="FjR-YA-Rs7">
-                                <rect key="frame" x="91.5" y="516.5" width="192" height="14"/>
+                                <rect key="frame" x="91.5" y="524.5" width="192" height="14"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qzb-af-ubK">
                                         <rect key="frame" x="0.0" y="0.0" width="145" height="14"/>
@@ -219,6 +274,7 @@
                         <outlet property="blurView" destination="GhV-tX-70f" id="Tan-Ls-e1Z"/>
                         <outlet property="emailOutlet" destination="Hr9-Ff-2Rj" id="3c9-ZM-b4C"/>
                         <outlet property="passwordOutlet" destination="bIr-GL-InB" id="xp2-ln-5Fg"/>
+                        <outlet property="termsButton" destination="UEZ-Ve-fxS" id="Jlm-3t-jKz"/>
                         <outlet property="usernameOutlet" destination="417-1n-PJ7" id="cmq-B3-WXj"/>
                     </connections>
                 </viewController>
