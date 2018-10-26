@@ -52,7 +52,19 @@ class UserController {
                 completion(false)
                 return
             }
+            var name = name
+            func removeSpace(){
+                if name.last == " " {
+                    name.removeLast()
+                    removeSpace()
+                }
+            }
+            
+            removeSpace()
+            
             let splitName = name.components(separatedBy: " ")
+            
+            
             let firstName = splitName.dropLast().joined(separator: " ")
             let lastName = splitName.last
             
@@ -76,6 +88,8 @@ class UserController {
                     } else {
                         completion(true)
                         let user = User(userID: result.user.uid, name: name, email: email)
+                        user.firstName = firstName
+                        user.lastName = lastName
                         self.user = user
                     }
                 }
