@@ -7,10 +7,16 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class ViewControllerClass: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    
+    @IBAction func nextTapped(_ sender: Any) {
+        SVProgressHUD.show()
     }
 }

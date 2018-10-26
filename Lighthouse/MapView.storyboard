@@ -21,6 +21,52 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" showsCompass="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1e0-ld-Izd">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </mapView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0pN-TM-t2n">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="643"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aDV-Sy-LyY">
+                                        <rect key="frame" x="53.5" y="502" width="268" height="130"/>
+                                        <subviews>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe to get started" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vhS-ng-BBT">
+                                                <rect key="frame" x="26" y="20" width="216" height="56"/>
+                                                <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="216" id="4zF-TB-cYX"/>
+                                                    <constraint firstAttribute="height" constant="56" id="gdh-sc-fvJ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="16"/>
+                                                <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="6"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowCurlWhite" translatesAutoresizingMaskIntoConstraints="NO" id="1Mo-0Y-jJa">
+                                                <rect key="frame" x="142" y="76" width="94" height="56"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="94" id="OJn-h8-wa0"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="130" id="1oN-Ss-0kw"/>
+                                            <constraint firstItem="vhS-ng-BBT" firstAttribute="top" secondItem="aDV-Sy-LyY" secondAttribute="top" constant="20" id="70I-rf-VlR"/>
+                                            <constraint firstItem="1Mo-0Y-jJa" firstAttribute="top" secondItem="vhS-ng-BBT" secondAttribute="bottom" id="BTT-M4-q3Q"/>
+                                            <constraint firstItem="vhS-ng-BBT" firstAttribute="centerX" secondItem="aDV-Sy-LyY" secondAttribute="centerX" id="Iog-DH-uhz"/>
+                                            <constraint firstAttribute="width" constant="268" id="oWi-nY-Cmo"/>
+                                            <constraint firstAttribute="trailing" secondItem="1Mo-0Y-jJa" secondAttribute="trailing" constant="32" id="wpK-6a-lr5"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.20221532534246575" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="aDV-Sy-LyY" secondAttribute="bottom" constant="11" id="IRk-eZ-Ysu"/>
+                                    <constraint firstItem="aDV-Sy-LyY" firstAttribute="centerX" secondItem="0pN-TM-t2n" secondAttribute="centerX" id="klv-fS-UbS"/>
+                                </constraints>
+                            </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BZU-mu-CsJ" userLabel="TrayContainer">
                                 <rect key="frame" x="0.0" y="643" width="375" height="24"/>
                                 <constraints>
@@ -96,10 +142,14 @@
                             <constraint firstItem="BZU-mu-CsJ" firstAttribute="leading" secondItem="LRg-IA-lru" secondAttribute="leading" id="8P1-wT-AwI"/>
                             <constraint firstItem="XId-hC-rD0" firstAttribute="top" secondItem="LRg-IA-lru" secondAttribute="top" constant="35" id="BqR-93-j7f"/>
                             <constraint firstAttribute="bottom" secondItem="1e0-ld-Izd" secondAttribute="bottom" id="C6o-zR-Vq5"/>
+                            <constraint firstItem="BZU-mu-CsJ" firstAttribute="top" secondItem="0pN-TM-t2n" secondAttribute="bottom" id="EpV-8T-otO"/>
+                            <constraint firstItem="0pN-TM-t2n" firstAttribute="leading" secondItem="J9c-gc-Dyh" secondAttribute="leading" id="H2b-Ha-cbd"/>
                             <constraint firstItem="1e0-ld-Izd" firstAttribute="leading" secondItem="LRg-IA-lru" secondAttribute="leading" id="JJH-93-hLT"/>
+                            <constraint firstItem="0pN-TM-t2n" firstAttribute="top" secondItem="LRg-IA-lru" secondAttribute="top" id="Otc-Xq-wKK"/>
                             <constraint firstItem="J9c-gc-Dyh" firstAttribute="trailing" secondItem="XId-hC-rD0" secondAttribute="trailing" constant="16" id="ROb-t6-mOY"/>
                             <constraint firstItem="1e0-ld-Izd" firstAttribute="top" secondItem="LRg-IA-lru" secondAttribute="top" id="WGo-V4-KzF"/>
                             <constraint firstItem="BZU-mu-CsJ" firstAttribute="bottom" secondItem="J9c-gc-Dyh" secondAttribute="bottom" id="XKV-ys-nI8"/>
+                            <constraint firstItem="0pN-TM-t2n" firstAttribute="trailing" secondItem="J9c-gc-Dyh" secondAttribute="trailing" id="Xf3-KG-eZX"/>
                             <constraint firstItem="BZU-mu-CsJ" firstAttribute="top" secondItem="KP1-qD-tHA" secondAttribute="bottom" constant="8" symbolic="YES" id="bqT-1d-h1R"/>
                             <constraint firstItem="WYs-f5-foK" firstAttribute="top" secondItem="LRg-IA-lru" secondAttribute="top" constant="35" id="fYM-cG-D2x"/>
                             <constraint firstItem="WYs-f5-foK" firstAttribute="leading" secondItem="LRg-IA-lru" secondAttribute="leading" constant="16" id="orH-3g-nPL"/>
@@ -110,6 +160,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="mapDisabled" selectedImage="mapEnabled" id="IvT-Xn-h3V"/>
                     <connections>
+                        <outlet property="coachmark" destination="0pN-TM-t2n" id="uNV-Fk-4cM"/>
                         <outlet property="dropPinButton" destination="KP1-qD-tHA" id="k70-gy-uby"/>
                         <outlet property="fillerView" destination="TXo-Nz-TUn" id="5hL-xY-c05"/>
                         <outlet property="gpsButton" destination="XId-hC-rD0" id="FUw-se-HFg"/>
@@ -426,6 +477,7 @@
     </scenes>
     <resources>
         <image name="Jim" width="186" height="186"/>
+        <image name="arrowCurlWhite" width="56" height="56"/>
         <image name="dropPin" width="184" height="64"/>
         <image name="gpsActive" width="32" height="32"/>
         <image name="mapDisabled" width="48" height="32"/>
