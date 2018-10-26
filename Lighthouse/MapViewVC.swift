@@ -165,11 +165,14 @@ class MapViewVC: CustomSearchFieldVC {
             let eventLocation = CLLocation(latitude: location.latitude, longitude: location.longitude)
             let geoCoder = CLGeocoder()
             geoCoder.reverseGeocodeLocation(eventLocation) { (placemarks, error) in
-                guard let placemark = placemarks?.first,
+                var address: String?
+                if let placemark = placemarks?.first,
                     let street = placemark.thoroughfare,
-                    let number = placemark.subThoroughfare  else {return}
-                let address = street + " " + number
-                event.streetAddress = address
+                    let number = placemark.subThoroughfare  {
+                    address = street + " " + number
+                    
+                }
+                event.streetAddress = address ?? "Somewhere awesome"
                 self.mainMapView.addAnnotation(event)
                 self.myPin = event
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.65) {
