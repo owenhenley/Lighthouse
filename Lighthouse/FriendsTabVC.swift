@@ -60,7 +60,7 @@ class FriendsTabVC: UIViewController {
         }
     }
     
-    
+    //FIXME: Why is this here?
     func buttonTapped(sender: FriendCell, indexPath: IndexPath?) {
         guard let indexPath = indexPath else { return }
         let friend = FriendController.shared.friends[indexPath.row]
@@ -161,6 +161,31 @@ extension FriendsTabVC: UITableViewDelegate, UITableViewDataSource {
         
         return cell ?? UITableViewCell()
     }
+    
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+            if editingStyle == .delete {
+                var friend: Friend!
+                if searchFriends.isEmpty {
+                    friend = FriendController.shared.friends[indexPath.row]
+                    FriendController.shared.friends.remove(at: indexPath.row)
+                } else {
+                    friend = searchFriends[indexPath.row]
+                    guard let index = FriendController.shared.friends.index(of: friend) else {return}
+                    FriendController.shared.friends.remove(at: index)
+                }
+                if let event = EventController.shared.events.removeValue(forKey: friend.friendID) {
+                    EventController.shared.removedEvents = [event]
+                }
+                FriendController.shared.deleteFriend(friendID: friend.friendID)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+
+            } else if editingStyle == .insert {
+                // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+            }
+        }
+    
+    
     
     
     func setupTableView() {

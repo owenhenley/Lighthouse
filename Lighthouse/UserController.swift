@@ -270,7 +270,11 @@ class UserController {
                 if let error = error {
                     print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
                     completion(false)
+                } else {
+                    
+                    completion(true)
                 }
+
             }
             let friendIDs = FriendController.shared.friends.compactMap{$0.friendID}
             for friendID  in friendIDs {
@@ -278,7 +282,6 @@ class UserController {
             }
             UserController.shared.user = nil
             FriendController.shared.friends = []
-            completion(true)
         })
     }
     

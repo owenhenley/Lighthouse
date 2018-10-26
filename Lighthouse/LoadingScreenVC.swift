@@ -45,7 +45,7 @@ class LoadingScreenVC: UIViewController {
     fileprivate func checkUserStateLoading() {
         handle = AUTH.addStateDidChangeListener({ (auth, user) in
             
-            if user != nil {
+            if AUTH.currentUser != nil {
                 UserController.shared.fetchUser { (success) in
                     if success {
                         let storyboard = UIStoryboard(name: "TabBarController", bundle: nil)

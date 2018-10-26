@@ -18,7 +18,7 @@ class EventController {
     
     var events: [String:Event] = [:]{
         didSet{
-            NotificationCenter.default.post(name: .eventsUpdated, object: nil)
+         NotificationCenter.default.post(name: .eventsUpdated, object: nil)
         }
     }
     var activeFriends: [String] = []{
@@ -90,7 +90,7 @@ class EventController {
     
     func inviteFriend(friendID: String){
         guard let uid = UID else {return}
-        FIRESTORE.collection(USER).document(uid).collection(EVENT).document(uid).collection(INVITES).addDocument(data: [FRIEND_ID : friendID]) { (error) in
+        FIRESTORE.collection(USER).document(uid).collection(EVENT).document(uid).collection(INVITES).document(friendID).setData([FRIEND_ID : friendID]) { (error) in
             if let error = error {
                 print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩 \(friendID)")
             }

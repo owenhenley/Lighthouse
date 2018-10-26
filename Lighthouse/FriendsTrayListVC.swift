@@ -62,6 +62,8 @@ class FriendsTrayListVC: CustomSearchFieldVC, UITableViewDataSource, UITableView
         if AUTH.currentUser != nil {
             searchBar.isUserInteractionEnabled = true
             getStartedView.isHidden = true
+            searchBar.isHidden = false
+            friendsTableView.isHidden = false
         } else {
             searchBar.isHidden = true
             getStartedView.isHidden = false
