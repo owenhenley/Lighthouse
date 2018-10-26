@@ -26,7 +26,7 @@ class FriendsTrayListVC: CustomSearchFieldVC, UITableViewDataSource, UITableView
         view.translatesAutoresizingMaskIntoConstraints = false
         friendsTableView.delegate = self
         friendsTableView.dataSource = self
-        getStartedView.isHidden = true
+//        getStartedView.isHidden = true
         searchBar.delegate = self
         //        friendsTableView.isHidden = true
         
@@ -59,7 +59,11 @@ class FriendsTrayListVC: CustomSearchFieldVC, UITableViewDataSource, UITableView
     }
     
     @objc func trayLifted(){
-        searchBar.isUserInteractionEnabled = true
+        if UserController.shared.user != nil {
+            searchBar.isUserInteractionEnabled = true
+        } else {
+            searchBar.isHidden = true
+        }
     }
     
     // Reload tableview when friends list gets fetched or updated
@@ -160,4 +164,13 @@ class FriendsTrayListVC: CustomSearchFieldVC, UITableViewDataSource, UITableView
         
         return cell ?? UITableViewCell()
     }
+    
+    
+    @IBAction func signUpTapped(_ sender: Any) {
+        
+        NotificationCenter.default.post(name: .signUpTapped, object: nil)
+        
+    }
+    
+    
 }

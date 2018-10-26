@@ -33,7 +33,6 @@ class MapViewVC: CustomSearchFieldVC {
     // MARK: - Outlets
     
     @IBOutlet weak var mainMapView          : MKMapView!
-    @IBOutlet weak var nextButton           : UIButton!
     @IBOutlet weak var searchBar            : UISearchBar!
     @IBOutlet weak var fillerView           : UIView!
     @IBOutlet weak var searchView           : UIView!
@@ -91,9 +90,8 @@ class MapViewVC: CustomSearchFieldVC {
         trayContainer.isHidden = false
     }
     
-    
+    //FIXME: Probably remove
     @objc func showNextButton(){
-        nextButton.isHidden = false
     }
     
 
@@ -105,9 +103,11 @@ class MapViewVC: CustomSearchFieldVC {
     }
     
     
-    @IBAction func nextTapped(_ sender: UIButton) {
+    @objc func nextTapped() {
         searchView.isHidden = true
-        nextButton.isHidden = true
+        performSegue(withIdentifier: "toSignUpVC", sender: self)
+        changeTrayHeight()
+        
     }
     
     
@@ -135,6 +135,7 @@ class MapViewVC: CustomSearchFieldVC {
         NotificationCenter.default.addObserver(self, selector: #selector(removePin), name: .removePin, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(placeMyPin), name: .myPinFetched, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(displaySelectedPin), name: .selectedFriend, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(nextTapped), name: .signUpTapped, object: nil)
     }
     
     
@@ -292,7 +293,6 @@ class MapViewVC: CustomSearchFieldVC {
                     self.centerMapOnAuthedUser {
                 }
             } else {
-                self.nextButton.isHidden = false
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                     self.centerMapNonAuthUser()
                 }

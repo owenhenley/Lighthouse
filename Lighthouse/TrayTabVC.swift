@@ -29,8 +29,14 @@ class TrayTabVC: UIViewController {
         super.viewDidLoad()
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(onSwipe(panGesture:)))
         trayTabImage.addGestureRecognizer(panGesture)
+        
     }
+    
+   
+    
 }
+
+
 
 
 extension TrayTabVC: UIGestureRecognizerDelegate {
