@@ -73,6 +73,9 @@ class FriendController {
         guard let uid = AUTH.currentUser?.uid else {return}
         FIRESTORE.collection(USER).document(uid).collection(FRIENDLIST).document(friendID).delete()
         FIRESTORE.collection(USER).document(friendID).collection(FRIENDLIST).document(uid).delete()
+        FIRESTORE.collection(USER).document(uid).collection(EVENT).document(uid).collection(INVITES).document(friendID).delete()
+        FIRESTORE.collection(USER).document(friendID).collection(ACTIVE_FRIENDS).document(uid).delete()
+        
 
     }
 

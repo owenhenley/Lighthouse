@@ -8,26 +8,63 @@
 
 import UIKit
 
-class DeleteAccountVC: UIViewController {
+class DeleteAccountVC: UIViewController, UITextViewDelegate {
+    
+    @IBOutlet weak var textField: UITextView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        textField.delegate = self
 
-        // Do any additional setup after loading the view.
+        let dismissGuesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(dismissGuesture)
+    }
+    
+    @objc func dismissKeyboard(){
+        textField.resignFirstResponder()
+    }
+    
+    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
+        dismissKeyboard()
+        return true
     }
     
     @IBAction func backTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func deleteAcountTapped(_ sender: Any) {
+        let deleteAlert = UIAlertController(title: "Are you sure you want to delete your acount?", message: "This action cannot be undone", preferredStyle: .alert)
+        let okay = UIAlertAction(title: "Yes", style: .default) { (_) in
+            UserController.shared.deleteUser(completion: { (success) in
+                if success {
+                    UserController.shared.user = nil
+                    FriendController.shared.friends = []
+                    let storyboard = UIStoryboard(name: "TabBarController", bundle: nil)
+                    let mainView = storyboard.instantiateViewController(withIdentifier: "tabBarController")
+                    mainView.tabBarController?.tabBar.isHidden = false
+                    self.dismiss(animated: true, completion: nil)
+                    self.present(mainView, animated: true, completion: nil)
+                    
+                } else {
+                    let errorAlert = UIAlertController(title: "Our Bad", message: "We're experiencing some functionality issues with deleting your acount, in order to delete this acount please email us at support@lighthouse.com", preferredStyle: .alert)
+                    let action = UIAlertAction(title: "Return to settings", style: .default, handler: { (_) in
+                        self.dismiss(animated: true, completion: nil)
+                    })
+                    errorAlert.addAction(action)
+                    self.present(errorAlert, animated: true)
+                    
+                }
+            })
+        }
+        let no = UIAlertAction(title: "No", style: .cancel, handler: nil)
+        deleteAlert.addAction(okay)
+        deleteAlert.addAction(no)
+        self.present(deleteAlert, animated: true)
     }
-    */
+    
 
 }

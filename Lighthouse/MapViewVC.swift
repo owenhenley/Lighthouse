@@ -134,12 +134,18 @@ class MapViewVC: CustomSearchFieldVC {
         NotificationCenter.default.addObserver(self, selector: #selector(placeMyPin), name: .myPinFetched, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(displaySelectedPin), name: .selectedFriend, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(nextTapped), name: .signUpTapped, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(signInTapped), name: .signInTapped, object: nil)
     }
     
     
     // MARK: - Map Methods
     
     // FIXME: - Change to take event as annotation
+    
+    @objc func signInTapped(){
+        dropPinButton.isHidden = false
+    }
+    
     
     func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
         let userLocation = mainMapView.view(for: mainMapView.userLocation)
