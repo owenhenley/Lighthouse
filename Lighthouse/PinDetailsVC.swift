@@ -50,13 +50,15 @@ class PinDetailsVC: UIViewController {
           let coordinate = locationManager.location?.coordinate else {return}
         titleInfoOutlet.text = "\(event.name) has shared:"
         eventNameOutlet.text = event.eventTitle
-        vibeImageOutlet.image = UIImage(named: event.vibe)
+        vibeImageOutlet.image = UIImage(named: "\(event.vibe)Active")
         let eventLocation = CLLocation(latitude: event.coordinate.latitude, longitude: event.coordinate.longitude)
         let currentLocation = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
         let distance = eventLocation.distance(from: currentLocation)
         let distanceFormatter = MKDistanceFormatter()
         let stringDistance = distanceFormatter.string(fromDistance: distance)
         let geoCoder = CLGeocoder()
+        distanceOutlet.text = "Somewhere Awesome"
+
         geoCoder.reverseGeocodeLocation(eventLocation) { (placemarks, error) in
             guard let placemark = placemarks?.first,
                 let street = placemark.thoroughfare,

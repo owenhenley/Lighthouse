@@ -43,6 +43,7 @@ class MyPinVC: UIViewController {
         guard let event = event else {return}
         titleTextField.text = event.eventTitle
         vibeImage.imageView?.image = vibeDictionary[event.vibe]
+        locationOutlet.text = "Somewhere Awesome"
         let friend = event.invited.randomElement()?.value
         fetchImageWithUrlString(urlString: friend?.imageUrl ?? "") { (image) in
             DispatchQueue.main.async {
