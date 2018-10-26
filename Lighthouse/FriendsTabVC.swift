@@ -163,15 +163,6 @@ extension FriendsTabVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            
-            // Delete the row from the table view
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        }
-    }
-    
-    
     func setupTableView() {
         let nib = UINib(nibName: "FriendCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "FriendCell")
