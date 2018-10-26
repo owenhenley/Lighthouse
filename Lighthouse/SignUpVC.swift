@@ -11,7 +11,7 @@ import SVProgressHUD
 
 class SignUpVC: CustomTextFieldVC {
     
-        // MARK: - Outlets
+    // MARK: - Outlets
     
     @IBOutlet weak var emailOutlet      : UITextField!
     @IBOutlet weak var passwordOutlet   : UITextField!
@@ -21,11 +21,11 @@ class SignUpVC: CustomTextFieldVC {
     @IBOutlet weak var termsButton      : UIButton!
     
     
-        // MARK: - Propeties
+    // MARK: - Propeties
     
     var termsToggled = false
     
-        // MARK: - LifeCycle
+    // MARK: - LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +33,7 @@ class SignUpVC: CustomTextFieldVC {
         usernameOutlet.delegate = self
         textFields = [emailOutlet, passwordOutlet, usernameOutlet]
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if AUTH.currentUser != nil {
@@ -51,7 +51,7 @@ class SignUpVC: CustomTextFieldVC {
     
     
     
-        // MARK: - Actions
+    // MARK: - Actions
     
     
     @IBAction func termsToggled(_ sender: UIButton) {
@@ -66,41 +66,66 @@ class SignUpVC: CustomTextFieldVC {
         
     }
     
+    
+    @IBAction func privacyPolicyTapped(_ sender: UIButton) {
+        
+        guard let privacyURL = URL(string: "https://www.apple.com") else { return }
+        
+        UIApplication.shared.open(privacyURL) { (_) in
+        }
+    }
+    
+    
+    @IBAction func tAndCsTapped(_ sender: UIButton) {
+        guard let privacyURL = URL(string: "https://www.apple.com") else { return }
+        
+        UIApplication.shared.open(privacyURL) { (_) in
+        }
+    }
+    
+    
     @IBAction func backTapped(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
         NotificationCenter.default.post(name: .backButtonTapped, object: nil)
     }
     
-
-    func blurBackground() {
-        let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
-        visualEffectView.frame = self.blurView.bounds
-        visualEffectView.translatesAutoresizingMaskIntoConstraints = true
-        self.blurView.addSubview(visualEffectView)
-    }
-    
     
     @IBAction func createProfileTapped(_ sender: Any) {
-        SVProgressHUD.show()
-        guard let email = emailOutlet.text,
-            let password = passwordOutlet.text,
-            let name = usernameOutlet.text else {return}
-        UserController.shared.createUser(name: name, email: email, password: password) { (success) in
-            if success {
-                NotificationCenter.default.post(name: .signInTapped, object: nil)
-                self.dismiss(animated: true, completion: nil)
-                SVProgressHUD.dismiss()
-            } else {
-                self.shake()
-                SVProgressHUD.dismiss()
+        
+        if termsToggled == true {
+            
+            SVProgressHUD.show()
+            guard let email = emailOutlet.text,
+                let password = passwordOutlet.text,
+                let name = usernameOutlet.text else {return}
+            UserController.shared.createUser(name: name, email: email, password: password) { (success) in
+                if success {
+                    NotificationCenter.default.post(name: .signInTapped, object: nil)
+                    self.dismiss(animated: true, completion: nil)
+                    SVProgressHUD.dismiss()
+                } else {
+                    self.shake()
+                    SVProgressHUD.dismiss()
+                }
             }
+        } else {
+            print("Didntt aggree")
         }
     }
+    
     
     
     @IBAction func signInTapped(_ sender: Any) {
         UIView.animate(withDuration: 0.5) {
             self.view.center = CGPoint(x: 0.5 * self.view.frame.width, y: -self.view.frame.height)
         }
+    }
+    
+    
+    func blurBackground() {
+        let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
+        visualEffectView.frame = self.blurView.bounds
+        visualEffectView.translatesAutoresizingMaskIntoConstraints = true
+        self.blurView.addSubview(visualEffectView)
     }
 }
