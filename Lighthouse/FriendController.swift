@@ -170,7 +170,7 @@ class FriendController {
     
     func fetchFriend(friendID: String, completion: @escaping (_ success: Friend)->Void){
         FIRESTORE.collection(USER).document(friendID).getDocument(completion: { (user, error) in
-            guard let user = user else {return}
+            guard let user = user else { return }
 //            let username   = user[USERNAME] as! String
             let urlString  = user[PROFILE_IMAGE_URL] as! String
             let friendID   = user[USER_ID] as! String

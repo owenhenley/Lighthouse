@@ -15,7 +15,6 @@ class SelectFriendsVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     
-    
     var event: Event?
     var friendIDs: [Int:String] = [:]
     
@@ -34,14 +33,23 @@ class SelectFriendsVC: UIViewController {
     
     @IBAction func shareTapped(_ sender: Any) {
         SVProgressHUD.show()
-        guard let event = event else {return}
+        guard let event = event else { return }
         let friendIDS: [String] = friendIDs.compactMap{$0.value}
         EventController.shared.uploadEvent(event: event, friendIDs: friendIDS) { (true) in
             if true {
-                self.performSegue(withIdentifier: "toMapView", sender: self)
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "unwindToMapFromPin", sender: self)
+                }
             }
         }
         print("Shared")
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "unwindToMapFromPin"{
+            let mapView = segue.destination as? MapViewVC
+            mapView?.fromShareScreen = true
+        }
     }
 }
 

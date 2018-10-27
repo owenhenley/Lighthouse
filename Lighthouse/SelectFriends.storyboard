@@ -122,6 +122,7 @@
                                         </state>
                                         <connections>
                                             <action selector="shareTapped:" destination="mCy-iH-Uqr" eventType="touchUpInside" id="b3T-Ug-4Er"/>
+                                            <segue destination="CMS-Tv-c2T" kind="unwind" identifier="unwindToMapFromPin" unwindAction="unwindToMapFromNewPinWithSender:" id="DIc-8I-T3r"/>
                                         </connections>
                                     </button>
                                     <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="search my friends" translatesAutoresizingMaskIntoConstraints="NO" id="tUk-KU-oEi">
@@ -170,7 +171,6 @@
                     <navigationItem key="navigationItem" id="TGo-WJ-9gN"/>
                     <connections>
                         <outlet property="tableView" destination="xth-hg-CyV" id="Cqi-FY-B29"/>
-                        <segue destination="CMS-Tv-c2T" kind="unwind" identifier="toMapView" unwindAction="unwindToMapViewSegue:" id="Suh-J5-hqv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UOe-tU-6F2" userLabel="First Responder" sceneMemberID="firstResponder"/>

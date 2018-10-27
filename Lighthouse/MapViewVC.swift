@@ -21,6 +21,7 @@ class MapViewVC: CustomSearchFieldVC {
     var searchIsActive = false
     var longPressActive = true
     var userMapCentered = false
+    
     var trayActive = false
     var handle : AuthStateDidChangeListenerHandle?
     var friendID : String?
@@ -29,7 +30,6 @@ class MapViewVC: CustomSearchFieldVC {
     let authedUserLocationRadius : Double = 400
     var placedAnnotations: Set<String> = []
 
-    
     // MARK: - Outlets
     
     @IBOutlet weak var mainMapView          : MKMapView!
@@ -42,6 +42,18 @@ class MapViewVC: CustomSearchFieldVC {
     @IBOutlet weak var gpsButton            : UIButton!
     @IBOutlet weak var coachmark            : UIView!
     
+    var fromShareScreen = false{
+        didSet{
+            if fromShareScreen{
+                fromShareScreen = false
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    let congrats = UIStoryboard(name: "CustomConfirmationPopup", bundle: .main).instantiateViewController(withIdentifier: "Congrats")
+                    congrats.modalPresentationStyle = .overCurrentContext
+                    self.present(congrats, animated: true, completion: nil)
+                }
+            }
+        }
+    }
     
     // MARK: - LifeCycle
     
@@ -57,6 +69,11 @@ class MapViewVC: CustomSearchFieldVC {
         setupNotificationCenter()
         placePins()
         checkUserState()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
     }
     
     
@@ -122,7 +139,20 @@ class MapViewVC: CustomSearchFieldVC {
     }
     
     
+        // MARK: - Unwind Segues
+    
     @IBAction func unwindToMapViewSegue(_ sender: UIStoryboardSegue) {}
+    
+    @IBAction func unwindToMapFromNewPin(sender: UIStoryboardSegue) {
+        if let segue = sender as? CustomExitSegueWithCompletion {
+            segue.completion = {
+                if self.fromShareScreen == true {
+                    self.performSegue(withIdentifier: "pinConfirmation", sender: self)
+                }
+                self.fromShareScreen = false
+            }
+        }
+    }
     
     
     func setupNotificationCenter() {
@@ -175,7 +205,7 @@ class MapViewVC: CustomSearchFieldVC {
                 event.streetAddress = address ?? "Somewhere awesome"
                 self.mainMapView.addAnnotation(event)
                 self.myPin = event
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.65) {
+                DispatchQueue.main.asyncAfter(deadline: .now()) {
                     self.performSegue(withIdentifier: "toNewPinVC", sender: self)
                 }
             }
@@ -246,7 +276,7 @@ class MapViewVC: CustomSearchFieldVC {
     
     func centerMapOnAuthedUser(completion: @escaping () -> ()) {
         if let location = self.locationManager.location?.coordinate {
-            UIView.animate(withDuration: 2, delay: 0, options: [.curveEaseIn], animations: {
+            UIView.animate(withDuration: 1.5, delay: 0, options: [.curveEaseIn], animations: {
                 let region = MKCoordinateRegion.init(center: location, latitudinalMeters: self.authedUserLocationRadius, longitudinalMeters: self.authedUserLocationRadius)
                 self.mainMapView.setRegion(region, animated: true)
             }) { (success) in
