@@ -18,6 +18,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="13y-27-2O2">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <connections>
+                                    <segue destination="5ZE-cE-rYM" kind="unwind" unwindAction="unwindToMapViewSegue:" id="5Au-0X-rpx"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jDR-Tt-2zr">
                                 <rect key="frame" x="0.0" y="78" width="375" height="180"/>
                                 <subviews>
@@ -104,16 +110,40 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="oc8-Gp-Vv8">
-                                                <rect key="frame" x="0.0" y="30.5" width="40" height="40"/>
+                                                <rect key="frame" x="0.0" y="30.5" width="136" height="40"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iWk-JD-scB">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iWk-JD-scB">
                                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="73P-d8-ngg"/>
                                                             <constraint firstAttribute="width" constant="40" id="w3Y-qH-TnR"/>
                                                         </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="20"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </imageView>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yOM-il-JeI">
+                                                        <rect key="frame" x="48" y="0.0" width="40" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="6J6-fg-ef6"/>
+                                                            <constraint firstAttribute="width" constant="40" id="hpl-8B-a7X"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d5Y-lO-clW">
+                                                        <rect key="frame" x="96" y="0.0" width="40" height="40"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="40" id="UXb-qE-ZT8"/>
+                                                            <constraint firstAttribute="height" constant="40" id="yyB-QI-PtD"/>
+                                                        </constraints>
                                                     </imageView>
                                                 </subviews>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="0"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </stackView>
                                         </subviews>
                                         <constraints>
@@ -143,12 +173,25 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="jDR-Tt-2zr" firstAttribute="leading" secondItem="vaL-4J-0XI" secondAttribute="leading" id="0rq-Bv-Btn"/>
+                            <constraint firstItem="13y-27-2O2" firstAttribute="top" secondItem="vaL-4J-0XI" secondAttribute="top" id="LgN-A3-0iI"/>
+                            <constraint firstItem="13y-27-2O2" firstAttribute="leading" secondItem="vaL-4J-0XI" secondAttribute="leading" id="OwX-1c-OId"/>
                             <constraint firstAttribute="trailing" secondItem="jDR-Tt-2zr" secondAttribute="trailing" id="XQv-4s-8Yf"/>
+                            <constraint firstItem="0Xf-Sj-11t" firstAttribute="trailing" secondItem="13y-27-2O2" secondAttribute="trailing" id="aMg-PP-4fF"/>
+                            <constraint firstItem="13y-27-2O2" firstAttribute="bottom" secondItem="0Xf-Sj-11t" secondAttribute="bottom" id="dfJ-65-gQt"/>
                             <constraint firstItem="jDR-Tt-2zr" firstAttribute="top" secondItem="vaL-4J-0XI" secondAttribute="top" constant="78" id="hoe-5S-XUO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0Xf-Sj-11t"/>
                     </view>
                     <connections>
+                        <outlet property="distanceOutlet" destination="k1D-y2-bGW" id="hvD-7d-Dch"/>
+                        <outlet property="eventNameOutlet" destination="S15-xE-m4b" id="g6k-JF-54a"/>
+                        <outlet property="profileImage" destination="0jn-dV-dfM" id="l0X-v9-5ol"/>
+                        <outlet property="sharedWithOne" destination="iWk-JD-scB" id="t9k-7e-wO1"/>
+                        <outlet property="sharedWithThree" destination="d5Y-lO-clW" id="aKx-f6-NZQ"/>
+                        <outlet property="sharedWithTwo" destination="yOM-il-JeI" id="Bg9-zR-dxY"/>
+                        <outlet property="streetAddressOutlet" destination="Ktm-dD-urb" id="HIU-op-IL5"/>
+                        <outlet property="titleInfoOutlet" destination="E3X-sS-w1u" id="uoM-0C-0qW"/>
+                        <outlet property="vibeImageOutlet" destination="ouv-ST-LTm" id="FTB-nJ-r26"/>
                         <outlet property="visibleView" destination="jDR-Tt-2zr" id="6uN-Yl-rbd"/>
                     </connections>
                 </viewController>

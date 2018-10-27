@@ -2,7 +2,7 @@
 //  SelectFriendsVC.swift
 //  Lighthouse
 //
-//  Created by Owen Henley on 10/18/18.
+//  Created by Levi Linchenko on 10/18/18.
 //  Copyright © 2018 Lighthouse. All rights reserved.
 //
 
@@ -13,7 +13,6 @@ class SelectFriendsVC: UIViewController {
     
     
     @IBOutlet weak var tableView: UITableView!
-    
     
     
     var event: Event?
@@ -34,28 +33,30 @@ class SelectFriendsVC: UIViewController {
     
     @IBAction func shareTapped(_ sender: Any) {
         SVProgressHUD.show()
-        guard let event = event else {return}
+        guard let event = event else { return }
         let friendIDS: [String] = friendIDs.compactMap{$0.value}
         EventController.shared.uploadEvent(event: event, friendIDs: friendIDS) { (true) in
             if true {
-                self.performSegue(withIdentifier: "toMapView", sender: self)
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "unwindToMapFromPin", sender: self)
+                }
             }
         }
         print("Shared")
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "unwindToMapFromPin"{
+            let mapView = segue.destination as? MapViewVC
+            mapView?.fromShareScreen = true
+        }
     }
 }
 
 
 extension SelectFriendsVC: UITableViewDataSource, UITableViewDelegate {
     
-  
-    
-
     //MARK: UITableViewDataSource
-    
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        return 1
-//    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return FriendController.shared.friends.count
@@ -64,7 +65,7 @@ extension SelectFriendsVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "selectFriendCell", for: indexPath) as? SelectFriendCell
-//        cell?.delegate = self
+        
         let friend = FriendController.shared.friends[indexPath.row]
         cell?.friendID = friend.friendID
 
@@ -79,25 +80,21 @@ extension SelectFriendsVC: UITableViewDataSource, UITableViewDelegate {
                     }
                 }
             }
+            
         } else {
             cell?.imageOutlet.image = friend.image
         }
+        
         cell?.nameOutlet.text = friend.name
-        cell?.activityStatusOutlet.text = friend.event?.streetAdrees ?? "Inactive"
+        cell?.activityStatusOutlet.text = friend.event?.streetAddress ?? "Inactive"
         return cell ?? UITableViewCell()
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            
-            // Delete the row from the table view
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        }
-    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectFriend(indexPath: indexPath)
     }
+    
     
     func selectFriend(indexPath: IndexPath) {
         guard let indexPath = tableView.indexPathForSelectedRow else {return}

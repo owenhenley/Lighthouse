@@ -19,33 +19,86 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="v5f-si-Bem">
-                                <rect key="frame" x="24" y="128" width="327" height="149"/>
+                                <rect key="frame" x="24" y="128" width="327" height="188.5"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="GJD-f9-j2g">
-                                        <rect key="frame" x="0.0" y="0.0" width="327" height="81"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="1S5-Pq-vsp" userLabel="Sign In">
+                                        <rect key="frame" x="2" y="0.0" width="323" height="188.5"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="new email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yjy-xI-ha6">
-                                                <rect key="frame" x="0.0" y="0.0" width="327" height="30"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="confirm email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Juc-Cy-Sg9">
-                                                <rect key="frame" x="0.0" y="51" width="327" height="30"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="PBq-bR-22o">
+                                                <rect key="frame" x="0.0" y="0.0" width="323" height="120.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please  sign in again to change your email." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pRw-pX-dx3">
+                                                        <rect key="frame" x="0.0" y="0.0" width="323" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CBG-fj-48Y">
+                                                        <rect key="frame" x="0.0" y="40.5" width="323" height="30"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dfg-Ff-eue">
+                                                        <rect key="frame" x="0.0" y="90.5" width="323" height="30"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Omm-ZG-FAM">
+                                                <rect key="frame" x="138" y="158.5" width="47" height="30"/>
+                                                <state key="normal" title="Sign In"/>
+                                                <connections>
+                                                    <action selector="signInTapped:" destination="bVl-RT-aGk" eventType="touchUpInside" id="gOI-1V-KTi"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QTp-Q1-ITT">
-                                        <rect key="frame" x="139" y="119" width="49" height="30"/>
-                                        <state key="normal" title="Submit"/>
-                                    </button>
+                                    <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="38" translatesAutoresizingMaskIntoConstraints="NO" id="dB1-k0-US4" userLabel="Update">
+                                        <rect key="frame" x="0.0" y="0.0" width="327" height="78"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="GJD-f9-j2g">
+                                                <rect key="frame" x="0.0" y="0.0" width="327" height="40"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5M2-NZ-edn">
+                                                        <rect key="frame" x="0.0" y="0.0" width="327" height="0.0"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="new email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yjy-xI-ha6">
+                                                        <rect key="frame" x="0.0" y="20" width="327" height="0.0"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="confirm email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Juc-Cy-Sg9">
+                                                        <rect key="frame" x="0.0" y="40" width="327" height="0.0"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QTp-Q1-ITT">
+                                                <rect key="frame" x="139" y="78" width="49" height="0.0"/>
+                                                <state key="normal" title="Submit"/>
+                                                <connections>
+                                                    <action selector="submitTapped:" destination="bVl-RT-aGk" eventType="touchUpInside" id="uEz-uW-yC9"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="GJD-f9-j2g" secondAttribute="trailing" id="TbS-f7-Fsc"/>
+                                            <constraint firstItem="GJD-f9-j2g" firstAttribute="leading" secondItem="dB1-k0-US4" secondAttribute="leading" id="wQP-Oq-KG8"/>
+                                        </constraints>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="GJD-f9-j2g" secondAttribute="trailing" id="bU5-3q-1zf"/>
-                                    <constraint firstItem="GJD-f9-j2g" firstAttribute="leading" secondItem="v5f-si-Bem" secondAttribute="leading" id="cPd-D2-NiB"/>
+                                    <constraint firstItem="dB1-k0-US4" firstAttribute="leading" secondItem="v5f-si-Bem" secondAttribute="leading" id="BKI-od-6XI"/>
+                                    <constraint firstAttribute="trailing" secondItem="dB1-k0-US4" secondAttribute="trailing" id="urk-y1-ZEo"/>
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xcV-rW-thh">
@@ -54,9 +107,9 @@
                                     <constraint firstAttribute="width" constant="25" id="EFc-px-FFc"/>
                                     <constraint firstAttribute="height" constant="25" id="UbO-3q-gDi"/>
                                 </constraints>
-                                <state key="normal" image="back"/>
+                                <state key="normal" image="backchevronDark"/>
                                 <connections>
-                                    <segue destination="8w5-h8-rfo" kind="unwind" unwindAction="returnToAccountSettings:" id="kv7-9B-bIh"/>
+                                    <segue destination="8w5-h8-rfo" kind="unwind" unwindAction="returnToAccountSettings:" id="f9I-r6-shh"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Change Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GjC-J6-vee">
@@ -77,6 +130,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wWK-A9-54f"/>
                     </view>
+                    <connections>
+                        <outlet property="changeEmailTF1" destination="Yjy-xI-ha6" id="9ey-jp-uwj"/>
+                        <outlet property="changeEmailTF2" destination="Juc-Cy-Sg9" id="fd9-lJ-42T"/>
+                        <outlet property="signInEmailTF" destination="CBG-fj-48Y" id="QTD-Kb-QPm"/>
+                        <outlet property="signInPasswordTF" destination="Dfg-Ff-eue" id="4Ag-cq-jbf"/>
+                        <outlet property="signInStack" destination="1S5-Pq-vsp" id="V9o-bm-q7w"/>
+                        <outlet property="updateStack" destination="dB1-k0-US4" id="RUD-ck-MyX"/>
+                        <segue destination="8w5-h8-rfo" kind="unwind" identifier="returnToUserProfile" unwindAction="returnToUserProfile:" id="KK4-Fv-Zzi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Xj-2p-h6r" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="8w5-h8-rfo" userLabel="Exit" sceneMemberID="exit"/>
@@ -85,6 +147,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="back" width="409.60000610351562" height="409.60000610351562"/>
+        <image name="backchevronDark" width="56" height="56"/>
     </resources>
 </document>

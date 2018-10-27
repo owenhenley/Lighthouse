@@ -2,7 +2,7 @@
 //  MapViewVC.swift
 //  Lighthouse
 //
-//  Created by Owen Henley on 10/8/18.
+//  Created by Owen Henley & Levi Linchenko on 10/8/18.
 //  Copyright © 2018 Lighthouse. All rights reserved.
 //
 
@@ -14,72 +14,101 @@ import SVProgressHUD
 
 class MapViewVC: CustomSearchFieldVC {
     
+
     // MARK: - Properties
     
     var locationManager = CLLocationManager()
-    var searchIsActive  = false
+    var searchIsActive = false
     var longPressActive = true
     var userMapCentered = false
+    
+    var trayActive = false
     var handle : AuthStateDidChangeListenerHandle?
+    var friendID : String?
+    var myPin : Event?
     let nonAuthUserLocationRadius : Double = 25000
-    let authedUserLocationRadius  : Double = 400
-    var pinCoordinates: CLLocationCoordinate2D?
-    var friendID: String?
-    
-    
+    let authedUserLocationRadius : Double = 400
+    var placedAnnotations: Set<String> = []
+
     // MARK: - Outlets
     
     @IBOutlet weak var mainMapView          : MKMapView!
-    @IBOutlet weak var nextButton           : UIButton!
     @IBOutlet weak var searchBar            : UISearchBar!
     @IBOutlet weak var fillerView           : UIView!
     @IBOutlet weak var searchView           : UIView!
     @IBOutlet weak var trayContainer        : UIView!
     @IBOutlet weak var trayHeightConstraint : NSLayoutConstraint!
-    @IBOutlet weak var dropPinButtonView    : UIView!
-    @IBOutlet weak var droppedPinButtonView : UIView!
+    @IBOutlet weak var dropPinButton        : UIButton!
+    @IBOutlet weak var gpsButton            : UIButton!
+    @IBOutlet weak var coachmark            : UIView!
     
-    
+    var fromShareScreen = false{
+        didSet{
+            if fromShareScreen{
+                fromShareScreen = false
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    let congrats = UIStoryboard(name: "CustomConfirmationPopup", bundle: .main).instantiateViewController(withIdentifier: "Congrats")
+                    congrats.modalPresentationStyle = .overCurrentContext
+                    self.present(congrats, animated: true, completion: nil)
+                }
+            }
+        }
+    }
     
     // MARK: - LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         searchBar.isHidden = true
         searchBar.delegate = self
+        dropPinButton.isHidden = true
         trayContainer.translatesAutoresizingMaskIntoConstraints = false
         setupLocationManager()
-        addPinLongPress()
-        NotificationCenter.default.addObserver(self, selector: #selector(showNextButton), name: .backButtonTapped, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(showTray), name: .showTray, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(placePins), name: .eventsUpdated, object: nil)
+//        addPinLongPress()
+        setupNotificationCenter()
         placePins()
-    }
-    
-    
-    //FIXME: Get conainer view to show when user logs in
-    @objc func showTray(){
-        trayContainer.isHidden = false
-    }
-    @objc func showNextButton(){
-        nextButton.isHidden = false
-        
-    }
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        searchView.isHidden = false
-        
-    }
-    
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
         checkUserState()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+    }
     
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(true)
+////        searchView.isHidden = false
+//    }
+    
+    
+    @objc func displaySelectedPin(notification: NSNotification) {
+        guard let event = notification.userInfo?[1] as? Event else {return}
+        let region = MKCoordinateRegion(center: event.coordinate, latitudinalMeters: 500, longitudinalMeters: 500)
+        self.mainMapView.setRegion(region, animated: true)
+    }
+    
+    @objc func placeMyPin(notification: Notification){
+        guard let dictionary = notification.userInfo as? [String:Event],
+            let uid = UID,
+        let myPin = dictionary[uid] else {return}
+        self.myPin = myPin
+        
+        mainMapView.addAnnotation(myPin)
+    }
+    
+    
+    @objc func showTray(){
+        trayContainer.isHidden = false
+    }
+    
+    //FIXME: Probably remove
+    @objc func showNextButton(){
+        
+    }
+    
+
     // MARK: - Actions
     
     @IBAction func searchTapped(_ sender: Any) {
@@ -88,74 +117,146 @@ class MapViewVC: CustomSearchFieldVC {
     }
     
     
-    @IBAction func nextTapped(_ sender: UIButton) {
+    @objc func nextTapped() {
         searchView.isHidden = true
-        nextButton.isHidden = true
+        performSegue(withIdentifier: "toSignUpVC", sender: self)
+        changeTrayHeight()
     }
     
     
     // Tapping the Blue GPS Arrow
     @IBAction func findUserLocationTapped(_ sender: Any) {
-        centerAuthedUserMapArrowTapped()
+        centerAuthedUserGPSArrowTapped()
+        userMapCentered = true
+        gpsButton.setImage(UIImage(named: "gpsActive"), for: .normal)
     }
+    
     
     // Drop pin at current GPS location
     @IBAction func dropPinTapped(_ sender: Any) {
         dropPinOnCurrentLocation()
-    }
-    
-    // Edit the dropped pin
-    @IBAction func droppedPinTapped(_ sender: Any) {
         
     }
     
+    
+        // MARK: - Unwind Segues
+    
     @IBAction func unwindToMapViewSegue(_ sender: UIStoryboardSegue) {}
+    
+    @IBAction func unwindToMapFromNewPin(sender: UIStoryboardSegue) {
+        if let segue = sender as? CustomExitSegueWithCompletion {
+            segue.completion = {
+                if self.fromShareScreen == true {
+                    self.performSegue(withIdentifier: "pinConfirmation", sender: self)
+                }
+                self.fromShareScreen = false
+            }
+        }
+    }
+    
+    
+    func setupNotificationCenter() {
+        NotificationCenter.default.addObserver(self, selector: #selector(showNextButton), name: .backButtonTapped, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(showTray), name: .showTray, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(placePins), name: .eventsUpdated, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(removePins), name: .removedFriends, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(removePin), name: .removePin, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(placeMyPin), name: .myPinFetched, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(displaySelectedPin), name: .selectedFriend, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(nextTapped), name: .signUpTapped, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(signInTapped), name: .signInTapped, object: nil)
+    }
     
     
     // MARK: - Map Methods
     
+    // FIXME: - Change to take event as annotation
+    
+    @objc func signInTapped(){
+        dropPinButton.isHidden = false
+    }
+    
+    
+    func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
+        let userLocation = mainMapView.view(for: mainMapView.userLocation)
+        userLocation?.isUserInteractionEnabled = false
+    }
+    
     func dropPinOnCurrentLocation() {
+        let locationManager = CLLocationManager()
+        guard let user = UserController.shared.user,
+            let location = locationManager.location?.coordinate,
+            let uid = UID else { return }
+        
         centerMapOnAuthedUser {
-            self.pinCoordinates = self.mainMapView.centerCoordinate
-            let currentLocationPinAnnotation: MKPointAnnotation = MKPointAnnotation()
-            currentLocationPinAnnotation.coordinate = self.mainMapView.centerCoordinate
             
-            self.mainMapView.addAnnotation(currentLocationPinAnnotation)
-            
-//            let popover = self.storyboard?.instantiateViewController(withIdentifier: "NewPinPopOver")
-//            popover?.modalTransitionStyle = .coverVertical
-//            popover?.modalPresentationStyle = .overCurrentContext
-//            guard let popoverVC = popover else { return }
-            
-//             Delays the segue
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.65) {
-                self.performSegue(withIdentifier: "toNewPinVC", sender: self)
+            let event = Event(friendID: uid, name: user.fullName, profileImage: user.profileImage, profileImageUrl: user.profileImageURL, title: "", coordinates: location, streetAddress: nil, invited: [:], vibe: "", eventTitle: "")
+           
+            let eventLocation = CLLocation(latitude: location.latitude, longitude: location.longitude)
+            let geoCoder = CLGeocoder()
+            geoCoder.reverseGeocodeLocation(eventLocation) { (placemarks, error) in
+                var address: String?
+                if let placemark = placemarks?.first,
+                    let street = placemark.thoroughfare,
+                    let number = placemark.subThoroughfare  {
+                    address = street + " " + number
+                    
+                }
+                event.streetAddress = address ?? "Somewhere awesome"
+                self.mainMapView.addAnnotation(event)
+                self.myPin = event
+                DispatchQueue.main.asyncAfter(deadline: .now()) {
+                    self.performSegue(withIdentifier: "toNewPinVC", sender: self)
+                }
             }
-            
         }
     }
     
     
-    func removePin() {
-        for annotation in mainMapView.annotations {
-            mainMapView.removeAnnotation(annotation)
+    @objc func removePin() {
+        guard let myPin = myPin else {return}
+        mainMapView.removeAnnotation(myPin)
+    }
+ 
+
+    @objc func removePins(){
+        for event in EventController.shared.removedEvents {
+            EventController.shared.events.removeValue(forKey: event.friendID)
+            mainMapView.removeAnnotation(event)
         }
     }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+    
+        let annoationView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
+        annoationView.image = #imageLiteral(resourceName: "mapfriendsiconActive")
+        
+        if annotation.title == myPin?.title {
+            let annoationView = MKAnnotationView(annotation: annotation, reuseIdentifier: nil)
+            annoationView.image = #imageLiteral(resourceName: "Pin")
+            return annoationView
+        }
+
+        if annotation.title == "My Location" {
+            return nil
+        }
+        
+        return annoationView
+    }
+    
     
     @objc func placePins(){
         let events = EventController.shared.events
         for event in events {
             
-            let friendEventCoordinate = event.coordinates
-            let friendEventPinAnnotation: MKPointAnnotation = MKPointAnnotation()
-            friendEventPinAnnotation.coordinate = friendEventCoordinate
-            friendEventPinAnnotation.title = event.name
-            
-            friendEventPinAnnotation.subtitle = event.friendID
-            
-            
-//           let friendAnnotation = DroppablePin(coordinate: event.coordinates, identifier: event.friendID)
-            mainMapView.addAnnotation(friendEventPinAnnotation)
+            let event = event.value
+            let usedKey = placedAnnotations.filter{$0 == event.friendID}
+            if usedKey.isEmpty {
+                
+                placedAnnotations.insert(event.friendID)
+                mainMapView.addAnnotation(event)
+                
+            }
         }
     }
     
@@ -175,7 +276,7 @@ class MapViewVC: CustomSearchFieldVC {
     
     func centerMapOnAuthedUser(completion: @escaping () -> ()) {
         if let location = self.locationManager.location?.coordinate {
-            UIView.animate(withDuration: 1, delay: 0, options: [.curveEaseIn], animations: {
+            UIView.animate(withDuration: 1.5, delay: 0, options: [.curveEaseIn], animations: {
                 let region = MKCoordinateRegion.init(center: location, latitudinalMeters: self.authedUserLocationRadius, longitudinalMeters: self.authedUserLocationRadius)
                 self.mainMapView.setRegion(region, animated: true)
             }) { (success) in
@@ -186,7 +287,7 @@ class MapViewVC: CustomSearchFieldVC {
     
     
     // Method to accomodate the GPS Arrow
-    func centerAuthedUserMapArrowTapped() {
+    func centerAuthedUserGPSArrowTapped() {
         if let location = self.locationManager.location?.coordinate {
             UIView.animate(withDuration: 0.8, delay: 0, options: [], animations: {
                 let region = MKCoordinateRegion.init(center: location, latitudinalMeters: self.authedUserLocationRadius, longitudinalMeters: self.authedUserLocationRadius)
@@ -217,14 +318,11 @@ class MapViewVC: CustomSearchFieldVC {
     fileprivate func checkUserState() {
         handle = AUTH.addStateDidChangeListener({ (auth, user) in
             if user != nil {
-                
-                self.dropPinButtonView.isHidden = false
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.dropPinButton.isHidden = false
+                self.coachmark.isHidden = true
                     self.centerMapOnAuthedUser {
-                    }
                 }
             } else {
-                self.nextButton.isHidden = false
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                     self.centerMapNonAuthUser()
                 }
@@ -233,9 +331,17 @@ class MapViewVC: CustomSearchFieldVC {
         })
     }
     
+  
+    
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        guard view.annotation?.title != "My Location" else {return}
-        self.friendID = view.annotation?.subtitle ?? ""
+        
+        guard let annotation = view.annotation as? Event,
+            let uid = UID else {return}
+        if annotation.friendID == uid {
+            self.performSegue(withIdentifier: "toEditPin", sender: self)
+            return
+        }
+        self.friendID = annotation.friendID
         self.performSegue(withIdentifier: "toPinDetails", sender: self)
     }
 }
@@ -247,9 +353,6 @@ extension MapViewVC: MKMapViewDelegate {
     
     // Set up map for user tracking
     func startTrackingUserLocation() {
-        mainMapView.showsUserLocation     = true
-        mainMapView.showsPointsOfInterest = true
-        mainMapView.showsBuildings        = true
         mainMapView.userTrackingMode      = .follow
         locationManager.startUpdatingLocation()
     }
@@ -260,6 +363,13 @@ extension MapViewVC: MKMapViewDelegate {
         searchBar.resignFirstResponder()
         fillerView.isHidden = false
         searchBar.isHidden  = true
+        NotificationCenter.default.post(name: .regionChanged, object: nil)
+        if trayActive {
+            changeTrayHeight()
+        }
+        
+        userMapCentered = false
+        gpsButton.setImage(UIImage(named: "gpsDisabled"), for: .normal)
     }
 }
 
@@ -305,6 +415,7 @@ extension MapViewVC: CLLocationManagerDelegate {
             break
         }
     }
+
 }
 
 
@@ -313,14 +424,15 @@ extension MapViewVC: CLLocationManagerDelegate {
 //1) Adopt the protocol (write that your qualified to be the boss on your resume)
 extension MapViewVC: TrayTabVCDelegate {
     
-    
     //2 - Implement protocol requirements (Actually fullfill the skills you said you had on your resume)
-    func changeTrayHeight(isTrayActive: Bool) {
-        
+    func changeTrayHeight() {
+        trayActive = !trayActive
         var height: CGFloat = 0
-        if isTrayActive{
+        if trayActive{
+            coachmark.isHidden = true
             height = self.view.frame.height * 0.55
-        }else {
+        } else {
+            NotificationCenter.default.post(name: .regionChanged, object: nil)
             height = 24
         }
         
@@ -334,6 +446,7 @@ extension MapViewVC: TrayTabVCDelegate {
         // MARK: - Prepare For Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+       
         if segue.identifier == "toTrayContainer" {
             
             // 3 -  Tell incoming view that you da boss
@@ -341,13 +454,18 @@ extension MapViewVC: TrayTabVCDelegate {
             destinationVC?.delegate = self
         } else if segue.identifier == "toNewPinVC" {
             let destinationVC = segue.destination as? NewPinPopUpVC
-            destinationVC?.coordinates = self.pinCoordinates
+            destinationVC?.event = self.myPin
         } else if segue.identifier == "toPinDetails" {
+            guard let friendID = friendID else {return}
             SVProgressHUD.show()
             let destinationVC = segue.destination as? PinDetailsVC
-            let events = EventController.shared.events.filter{ $0.friendID == self.friendID}
-            destinationVC?.event = events.first
+            let event = EventController.shared.events[friendID]
+            destinationVC?.event = event
 //            SVProgressHUD.dismiss()
+        } else if segue.identifier == "toEditPin" {
+            let desinationVC = segue.destination as? MyPinVC
+            desinationVC?.event = myPin
+            
         }
     }
 }
@@ -356,33 +474,33 @@ extension MapViewVC: TrayTabVCDelegate {
 
 extension MapViewVC: UIGestureRecognizerDelegate {
     
-    func addPinLongPress() {
-        if longPressActive == true {
-            let longPress = UILongPressGestureRecognizer(target: self, action: #selector(dropPin))
-            longPress.minimumPressDuration = 1
-            longPress.delegate = self
-            mainMapView.addGestureRecognizer(longPress)
-            longPressActive = false
-        } else if longPressActive == false {
-            longPressActive = true
-        }
-    }
+//    func addPinLongPress() {
+//        if longPressActive == true {
+//            let longPress = UILongPressGestureRecognizer(target: self, action: #selector(dropPin))
+//            longPress.minimumPressDuration = 1
+//            longPress.delegate = self
+//            mainMapView.addGestureRecognizer(longPress)
+//            longPressActive = false
+//        } else if longPressActive == false {
+//            longPressActive = true
+//        }
+//    }
     
     
-    @objc func dropPin(sender: UILongPressGestureRecognizer) {
-        
-        removePin()
-        
-        let touchPoint = sender.location(in: mainMapView)
-        let touchCoOrdinate = mainMapView.convert(touchPoint, toCoordinateFrom: mainMapView)
-        
-        let annotation = DroppablePin(coordinate: touchCoOrdinate, identifier: "droppablePin")
-        mainMapView.addAnnotation(annotation)
-        
-        //        let coOdinateRegion = MKCoordinateRegion(center: touchCoOrdinate, latitudinalMeters: 200, longitudinalMeters: 200)
-        //        mainMapView.setRegion(coOdinateRegion, animated: true)
-        
-        
-        
-    }
+//    @objc func dropPin(sender: UILongPressGestureRecognizer) {
+//
+//        removePin()
+//
+//        let touchPoint = sender.location(in: mainMapView)
+//        let touchCoOrdinate = mainMapView.convert(touchPoint, toCoordinateFrom: mainMapView)
+//
+//        let annotation = DroppablePin(coordinate: touchCoOrdinate, identifier: "droppablePin")
+//        mainMapView.addAnnotation(annotation)
+//
+//        //        let coOdinateRegion = MKCoordinateRegion(center: touchCoOrdinate, latitudinalMeters: 200, longitudinalMeters: 200)
+//        //        mainMapView.setRegion(coOdinateRegion, animated: true)
+//
+//    }
 }
+
+

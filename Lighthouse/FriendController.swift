@@ -25,7 +25,10 @@ class FriendController {
     
     var friends: [Friend] = []{
         didSet{
+            friends = removeDuplicates(friends: friends)
             NotificationCenter.default.post(name: .friendsUpdated, object: nil)
+            friends.sort{$0.name < $1.name}
+     
         }
     }
     
@@ -70,6 +73,9 @@ class FriendController {
         guard let uid = AUTH.currentUser?.uid else {return}
         FIRESTORE.collection(USER).document(uid).collection(FRIENDLIST).document(friendID).delete()
         FIRESTORE.collection(USER).document(friendID).collection(FRIENDLIST).document(uid).delete()
+        FIRESTORE.collection(USER).document(uid).collection(EVENT).document(uid).collection(INVITES).document(friendID).delete()
+        FIRESTORE.collection(USER).document(friendID).collection(ACTIVE_FRIENDS).document(uid).delete()
+        
 
     }
 
@@ -93,7 +99,7 @@ class FriendController {
                     if requestTupal.1 == 1 {
                         let friendID = requestTupal.0
                         self.fetchFriend(friendID: friendID, completion: { (Friend) in
-                            var friend = Friend
+                            let friend = Friend
                             friend.request = false
                             self.pendingReuests.append(friend)
                         }) 
@@ -104,7 +110,7 @@ class FriendController {
     
     func searchFriends(text: String, completion: @escaping (_ success: Bool) -> Void){
         self.results = []
-        FIRESTORE.collection(USER).whereField(USERNAME, isEqualTo: text).limit(to: 15).getDocuments { (snapShotBlock, error) in
+        FIRESTORE.collection(USER).whereField(NAME, isEqualTo: text).limit(to: 15).getDocuments { (snapShotBlock, error) in
             if let error = error {
                 print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
                 completion (false)
@@ -114,7 +120,6 @@ class FriendController {
             guard let users = snapShotBlock?.documents else {return}
             for user in users {
                 
-                let username  = user[USERNAME] as! String
                 let urlString = user[PROFILE_IMAGE_URL] as! String
                 let friendID  = user[USER_ID] as! String
                 let firstName = user[FIRST_NAME] as! String
@@ -122,7 +127,7 @@ class FriendController {
                 let name      = firstName + " " + lastName
                 
                 self.fetchRequest(friendID: friendID, completion: { (request) -> Void in
-                    let friend = Friend(username: username, image: nil, imageUrl: urlString, friendID: friendID, request: request, name: name, event: nil)
+                    let friend = Friend(image: nil, imageUrl: urlString, friendID: friendID, request: request, name: name, event: nil)
                     self.results.append(friend)
                 })
                 
@@ -165,17 +170,23 @@ class FriendController {
     
     func fetchFriend(friendID: String, completion: @escaping (_ success: Friend)->Void){
         FIRESTORE.collection(USER).document(friendID).getDocument(completion: { (user, error) in
-            guard let user = user else {return}
-            let username   = user[USERNAME] as! String
+            guard let user = user else { return }
+//            let username   = user[USERNAME] as! String
             let urlString  = user[PROFILE_IMAGE_URL] as! String
             let friendID   = user[USER_ID] as! String
             let firstName  = user[FIRST_NAME] as! String
             let lastName   = user[LAST_NAME] as! String
             let name       = firstName + " " + lastName
-            let friend     = Friend(username : username, image : nil, imageUrl : urlString, friendID : friendID, request : true, name : name, event : nil)
+            let friend     = Friend(image : nil, imageUrl : urlString, friendID : friendID, request : true, name : name, event : nil)
             completion(friend)
             
         })
+    }
+    
+    fileprivate func removeDuplicates(friends: [Friend]) -> [Friend] {
+        let friendsSet = Set(friends)
+        NotificationCenter.default.post(name: .friendsUpdated, object: nil)
+        return Array(friendsSet).sorted{$0.name < $1.name}
     }
     
 }

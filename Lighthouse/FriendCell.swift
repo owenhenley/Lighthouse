@@ -8,19 +8,18 @@
 
 import UIKit
 
-protocol RequestTableViewCellDelegate: class {
-    func buttonTapped(sender: FriendCell, indexPath: IndexPath?)
-}
+
 
 class FriendCell: UITableViewCell {
     
     @IBOutlet weak var imageOutlet: UIImageView!
     @IBOutlet weak var titleOutlet: UILabel!
     @IBOutlet weak var subTitleOutlet: UILabel!
-    @IBOutlet weak var buttonOutlet: UIButton!
+    @IBOutlet weak var activeIcon: UIImageView!
+    
     
 
-    weak var delegate: RequestTableViewCellDelegate?
+
     var indexPath: IndexPath?
     
     override func awakeFromNib() {
@@ -37,9 +36,6 @@ class FriendCell: UITableViewCell {
     }
     
     
-    @IBAction func buttonTapped(_ sender: Any) {
-        delegate?.buttonTapped(sender: self, indexPath: indexPath)
-        
-    }
+
     
 }

@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import CoreLocation
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,7 +19,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        // Request Notfictaions
+//        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
+//            if !granted {
+//                print("Permission not granted")
+//            }
+//        }
+        
+//        UNUserNotificationCenter.current().delegate = self
+        
         FirebaseApp.configure()
+        
+        // FIRESTORE FIX : The behavior for system Date objects stored in Firestore is going to change. Added this to conform to console recommendations.
+        let db = Firestore.firestore()
+        let settings = db.settings
+        settings.areTimestampsInSnapshotsEnabled = true
+        db.settings = settings
         
             // MARK: - Create a User
         
@@ -29,11 +45,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //                print("user created")
 //            }
 //        }
-
         
             // MARK: - Sign In
         
-//        AUTH.signIn(withEmail: "oh@oh.co", password: "123456") { (auth, error) in
+//        AUTH.signIn(withEmail: "developer@apple.com", password: "123456") { (auth, error) in
 //            if let error = error {
 //                debugPrint(error)
 //            } else {
@@ -41,12 +56,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            }
 //        }
         
-        
             // MARK: - Sign Out
         
 //        try? AUTH.signOut()
-       
-        
         
         
         return true
@@ -77,3 +89,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+//extension AppDelegate: UNUserNotificationCenterDelegate {
+//}

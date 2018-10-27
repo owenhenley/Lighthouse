@@ -25,18 +25,17 @@ class TabBarControllerVC: UITabBarController {
     }
     
     @objc func showTabBar(){
-        tabBar.isHidden = false
-        NotificationCenter.default.post(name: .showTray, object: nil)
+        tabBar.isUserInteractionEnabled = true
+//        NotificationCenter.default.post(name: .showTray, object: nil)
     }
 
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         if AUTH.currentUser == nil {
-            self.tabBar.isHidden = true
             self.selectedIndex = 1
         } else {
-            self.tabBar.isHidden = false
+            tabBar.isUserInteractionEnabled = true
         }
     }
     

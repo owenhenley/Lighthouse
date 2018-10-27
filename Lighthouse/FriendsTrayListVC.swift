@@ -8,46 +8,87 @@
 
 import UIKit
 
-class FriendsTrayListVC: UIViewController {
+class FriendsTrayListVC: CustomSearchFieldVC, UITableViewDataSource, UITableViewDelegate {
     
-    static let shared = FriendsTrayListVC()
+    @IBOutlet weak var friendsTableView : UITableView!
+    @IBOutlet weak var getStartedView   : UIView!
+    @IBOutlet weak var searchBar        : UISearchBar!
     
-    @IBOutlet weak var friendsTableView: UITableView!
-    @IBOutlet weak var getStartedView: UIView!
+    //MARK: - Variables
     
-    
-        // MARK: - Variables
-    
-    // MOCK DATA
-//    var friendName = ["Jim Halpert", "Hugo Bean", "Lola Henley", "Pam Beasley", "Creed Bratton"]
-//    var friendLocation = ["J-Dawgs","Jimmy Johns", "Robins Nest", "Apollo", "Apple"]
-//    var friendImage = [UIImage(named: "Jim"), #imageLiteral(resourceName: "hugo"), #imageLiteral(resourceName: "lola"), #imageLiteral(resourceName: "pam"), #imageLiteral(resourceName: "creed")]
+    var searchFriends: [Friend] = []
     
     
-        // MARK: - LifeCycle
-
+    // MARK: - LifeCycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.translatesAutoresizingMaskIntoConstraints = false
         friendsTableView.delegate = self
         friendsTableView.dataSource = self
-        getStartedView.isHidden = true
+//        getStartedView.isHidden = true
+        searchBar.delegate = self
+        //        friendsTableView.isHidden = true
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTableView), name: .friendsUpdated, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(mapSectionChanged), name: .regionChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(trayLifted), name: .trayLifted, object: nil)
+        
     }
+    
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
+        super.viewWillAppear(animated)
         // If has friends, show get started + hide tableView, else show populated tableView.
+//        friendsTableView.reloadData()
+        searchBar.isUserInteractionEnabled = true
+        
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        searchBar.resignFirstResponder()
     }
     
     
-        // MARK: - Actions
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard let searchText = searchBar.text else { return }
+        self.searchFriends = FriendController.shared.friends.filter{$0.name.lowercased().contains(searchText.lowercased())}
+        friendsTableView.reloadData()
+    }
     
-}
-
-
-extension FriendsTrayListVC: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return FriendController.shared.friends.count
+    @objc func trayLifted(){
+        if AUTH.currentUser != nil {
+            searchBar.isUserInteractionEnabled = true
+            getStartedView.isHidden = true
+            searchBar.isHidden = false
+            friendsTableView.isHidden = false
+        } else {
+            searchBar.isHidden = true
+            getStartedView.isHidden = false
+            
+        }
+    }
+    
+    // Reload tableview when friends list gets fetched or updated
+    @objc func reloadTableView() {
+        
+        if AUTH.currentUser != nil {
+            getStartedView.isHidden = false
+            friendsTableView.isHidden = true
+            searchBar.isHidden = true
+        } else {
+            getStartedView.isHidden = true
+            friendsTableView.isHidden = false
+            searchBar.isHidden = false
+        }
+        friendsTableView.reloadData()
+    }
+    
+    @objc func mapSectionChanged(){
+        searchBar.resignFirstResponder()
+        searchBar.isUserInteractionEnabled = false
     }
     
     //MARK: UITableViewDataSource
@@ -57,42 +98,85 @@ extension FriendsTrayListVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if searchBar.text != "" {
+            return searchFriends.count
+        }
+        return FriendController.shared.friends.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        var friendID: String!
+        if searchBar.text == "" {
+            friendID = FriendController.shared.friends[indexPath.row].friendID
+        } else {
+            friendID = searchFriends[indexPath.row].friendID
+        }
+        guard let event = EventController.shared.events[friendID] else {return}
+        NotificationCenter.default.post(name: .selectedFriend, object: nil, userInfo: [1:event])
+    }
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as? FriendsListTrayCell
         
+        let cell = tableView.dequeueReusableCell(withIdentifier: "friendTrayCell", for: indexPath) as? FriendsListTrayCell
         
-        // If user had no friends, Hide TableView, show "Find Friends View"
+        var friend: Friend!
         
-        let friend = FriendController.shared.friends[indexPath.row]
+        if !searchFriends.isEmpty {
+            friend = searchFriends[indexPath.row]
+        } else {
+            friend = FriendController.shared.friends[indexPath.row]
+        }
         
+        if (EventController.shared.events[friend.friendID] == nil) {
+            cell?.distanceLabel.isHidden = true
+            cell?.friendLocationLabel.isHidden = true
+            cell?.activeIcon.isHidden = true
+        } else {
+            let event = EventController.shared.events[friend.friendID]
+            if let coordinate = event?.coordinate {
+                getDistanceWithCoordinate(otherCoordinate: coordinate) { (distance) in
+                    cell?.distanceLabel.text = distance
+                }
+            }
+            
+            cell?.friendLocationLabel.text = event?.eventTitle
+        }
+
         cell?.friendNameLabel.text = friend.name
-//        cell?.friendLocationLabel.text = friend.
+        
+        
+        
+        cell?.friendID = friend.friendID
+        
         if friend.image == nil {
             if friend.imageUrl == "No Profile Image" {
                 cell?.profileImage.image = UIImage(named: "defaultProfPic")
             } else {
-                fetchImageWithUrlString(urlString: friend.imageUrl) { (image) in
+                fetchImageWithUrlString(urlString: friend.imageUrl) { (profileImage) in
                     DispatchQueue.main.async {
-                        cell?.profileImage.image = image
-                        FriendController.shared.friends[indexPath.row].image = image
+                        cell?.profileImage.image = profileImage
+                        FriendController.shared.friends[indexPath.row].image = profileImage
                     }
                 }
             }
-        } else {
-            cell?.profileImage.image = friend.image
         }
         
-//        let friendRealName = friendName[indexPath.row]
-//        let FriendLocation = friendLocation[indexPath.row]
-//        let images = friendImage[indexPath.row]
-        
-//        cell?.profileImage.image = images
-//        cell?.friendNameLabel.text = friendRealName
-//        cell?.friendLocationLabel.text = FriendLocation
         
         
         return cell ?? UITableViewCell()
     }
+    
+    
+    @IBAction func signUpTapped(_ sender: Any) {
+        
+        NotificationCenter.default.post(name: .signUpTapped, object: nil)
+        
+    }
+    
     
 }

@@ -20,7 +20,6 @@ extension UIColor {
         return UIColor(red: 1.0, green: 129.0 / 255.0, blue: 13.0 / 255.0, alpha: 1.0)
     }
     
-    
         // MARK: - ✅ PRIMARY COLOR ✅
     
     @nonobjc class var orange: UIColor {
@@ -55,19 +54,21 @@ extension UIColor {
         return UIColor(white: 1.0, alpha: 1.0)
     }
     
-    @nonobjc class var brownGrey: UIColor {
-        return UIColor(white: 155.0 / 255.0, alpha: 1.0)
-    }
-    
     @nonobjc class var dirtBrown: UIColor {
         return UIColor(red: 127.0 / 255.0, green: 84.0 / 255.0, blue: 45.0 / 255.0, alpha: 1.0)
     }
     
+    @nonobjc class var cocoa30: UIColor {
+        return UIColor(red: 118.0 / 255.0, green: 80.0 / 255.0, blue: 67.0 / 255.0, alpha: 0.3)
+    }
+    
+    @nonobjc class var brownGrey: UIColor {
+        return UIColor(white: 155.0 / 255.0, alpha: 1.0)
+    }
+    
 }
 
-
-
-    // MARK: - Typeface
+    // MARK: - TypeFace
 
 extension UIFont {
     
@@ -79,12 +80,12 @@ extension UIFont {
         return UIFont(name: "Helvetica-Light", size: 30.0)!
     }
     
-    class var copyBody: UIFont {
-        return UIFont(name: "Helvetica-Light", size: 16.0)!
-    }
-    
     class var friendDrawerName: UIFont {
         return UIFont(name: "Helvetica", size: 16.0)!
+    }
+    
+    class var copyBody: UIFont {
+        return UIFont(name: "Helvetica-Light", size: 16.0)!
     }
     
     class var friendDrawerLocation: UIFont {

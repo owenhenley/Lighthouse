@@ -8,16 +8,18 @@
 
 import UIKit
 
-//1) Define all of the qualificcations to be the TrayTabVC's Delegate (Boss)
+//1) Define all of the qualifications to be the TrayTabVC's Delegate (Boss)
 protocol TrayTabVCDelegate: class {
-    func changeTrayHeight(isTrayActive: Bool)
+    func changeTrayHeight()
 }
 
 class TrayTabVC: UIViewController {
     
-    // MARK: - Variables
+        // MARK: - Outlets
     
-    var trayIsActive = false
+    @IBOutlet weak var trayTabImage: UIImageView!
+    
+    // MARK: - Properties
     
     //2) The child class defining a place in its heart where it recognizes it needs a boss
     weak var delegate: TrayTabVCDelegate?
@@ -25,11 +27,24 @@ class TrayTabVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(onSwipe(panGesture:)))
+        trayTabImage.addGestureRecognizer(panGesture)
+        
     }
     
+   
     
-    @IBAction func trayOpenTapped(_ sender: Any) {
-        delegate?.changeTrayHeight(isTrayActive: trayIsActive)
-        trayIsActive = !trayIsActive
+}
+
+
+
+
+extension TrayTabVC: UIGestureRecognizerDelegate {
+  
+    @objc func onSwipe(panGesture: UIPanGestureRecognizer) {
+        if panGesture.state == .began {
+            delegate?.changeTrayHeight()
+            NotificationCenter.default.post(name: .trayLifted, object: nil)
+        }
     }
 }

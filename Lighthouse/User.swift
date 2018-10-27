@@ -11,14 +11,21 @@ import UIKit
 class User {
     
     let userID          : String
-    var fullName        : String?
+    var firstName       : String?
+    var lastName        : String?
+    var fullName        : String{
+        set{}
+        get{
+        let firstName = self.firstName ?? ""
+        let lastName = self.lastName ?? ""
+        return firstName + " " + lastName
+        }
+    }
     var email           : String?
     let friends         : [User] = []
     var profileImageURL : String?
     var profileImage    : UIImage?
     var currentLocation : Event?
-    var firstName       : String?
-    var lastName        : String?
     var favLocation1    : String?
     var favLocation2    : String?
     var favLocation3    : String?
@@ -27,9 +34,9 @@ class User {
     var isActive        : Bool = true
 //    var groups          : [User] = []
 
-    init(userID: String, username: String, email: String) {
+    init(userID: String, name: String, email: String) {
         self.userID   = userID
-//        self.username = username
+        self.fullName = name
         self.email    = email
         
     }

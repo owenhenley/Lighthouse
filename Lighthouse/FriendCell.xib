@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="8jh-B6-yWs">
-                        <rect key="frame" x="11" y="10" width="238" height="50"/>
+                        <rect key="frame" x="11" y="20" width="110" height="50"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OaH-vr-zBV">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -34,16 +34,16 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="fBl-Im-9fl">
-                                <rect key="frame" x="68" y="0.0" width="170" height="50"/>
+                                <rect key="frame" x="68" y="0.0" width="42" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Or-au-Zms">
-                                        <rect key="frame" x="0.0" y="0.0" width="170" height="25"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="42" height="25"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r4B-gp-XfN">
-                                        <rect key="frame" x="0.0" y="25" width="170" height="25"/>
+                                        <rect key="frame" x="0.0" y="25" width="42" height="25"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="0.41953593490000002" green="0.41176351900000002" blue="0.4117648304" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
@@ -52,29 +52,23 @@
                             </stackView>
                         </subviews>
                     </stackView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bpq-ck-es6">
-                        <rect key="frame" x="259" y="20" width="100" height="30"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mapfriendsiconActive" translatesAutoresizingMaskIntoConstraints="NO" id="k0b-b8-awh">
+                        <rect key="frame" x="334" y="32.5" width="25" height="25"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="100" id="1cm-Ot-BsY"/>
+                            <constraint firstAttribute="width" secondItem="k0b-b8-awh" secondAttribute="height" multiplier="1:1" id="CNR-Tc-a6d"/>
+                            <constraint firstAttribute="width" constant="25" id="ftL-BR-OnP"/>
                         </constraints>
-                        <state key="normal" title="Button"/>
-                        <connections>
-                            <action selector="buttonTapped:" destination="y5P-Ad-cdJ" eventType="touchUpInside" id="KMF-MV-YJs"/>
-                        </connections>
-                    </button>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="8jh-B6-yWs" firstAttribute="leading" secondItem="zlV-7d-gQx" secondAttribute="leading" constant="11" id="5Rx-iq-ZXt"/>
-                    <constraint firstItem="bpq-ck-es6" firstAttribute="trailing" secondItem="zlV-7d-gQx" secondAttribute="trailingMargin" id="OKf-KL-f5v"/>
-                    <constraint firstAttribute="bottom" secondItem="8jh-B6-yWs" secondAttribute="bottom" constant="10" id="PKG-uy-sNe"/>
+                    <constraint firstItem="k0b-b8-awh" firstAttribute="trailing" secondItem="zlV-7d-gQx" secondAttribute="trailingMargin" id="DUx-xP-uIQ"/>
                     <constraint firstItem="8jh-B6-yWs" firstAttribute="centerY" secondItem="zlV-7d-gQx" secondAttribute="centerY" id="R1W-1Y-I92"/>
-                    <constraint firstItem="bpq-ck-es6" firstAttribute="leading" secondItem="8jh-B6-yWs" secondAttribute="trailing" constant="10" id="Rzo-Wx-KoH"/>
-                    <constraint firstItem="8jh-B6-yWs" firstAttribute="top" secondItem="zlV-7d-gQx" secondAttribute="top" constant="10" id="i4V-64-uAv"/>
-                    <constraint firstItem="bpq-ck-es6" firstAttribute="centerY" secondItem="zlV-7d-gQx" secondAttribute="centerY" id="t92-Yd-auk"/>
+                    <constraint firstItem="k0b-b8-awh" firstAttribute="centerY" secondItem="zlV-7d-gQx" secondAttribute="centerY" id="yMC-bL-76f"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="buttonOutlet" destination="bpq-ck-es6" id="1Oj-bX-sNZ"/>
+                <outlet property="activeIcon" destination="k0b-b8-awh" id="fly-lU-r2w"/>
                 <outlet property="imageOutlet" destination="OaH-vr-zBV" id="4BC-yb-R1R"/>
                 <outlet property="subTitleOutlet" destination="r4B-gp-XfN" id="e8x-46-92z"/>
                 <outlet property="titleOutlet" destination="8Or-au-Zms" id="zlH-u6-OL1"/>
@@ -82,4 +76,7 @@
             <point key="canvasLocation" x="138.40000000000001" y="168.21589205397302"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="mapfriendsiconActive" width="24" height="24"/>
+    </resources>
 </document>

@@ -8,9 +8,11 @@
 
 import UIKit
 import Firebase
+import CoreLocation
 
 
 class UserController {
+    
     
     private init() {}
     
@@ -19,6 +21,11 @@ class UserController {
     var user : User?
     var uid  : String?
     let db = FIRESTORE
+    var myPin : Event?{
+        didSet{
+            NotificationCenter.default.post(name: .myPinFetched, object: nil, userInfo: [myPin?.friendID : myPin!])
+        }
+    }
     
     func logInUser(email: String, password: String, completion: @escaping (_ success: Bool) -> ()){
         
@@ -33,29 +40,42 @@ class UserController {
                         completion(true)
                     }
                 })
+                EventController.shared.fetchActivePins()
             }
         }
     }
     
-    func createUser(username: String, email: String, password: String, completion: @escaping (_ success: Bool) ->Void){
+    func createUser(name: String, email: String, password: String, completion: @escaping (_ success: Bool) ->Void){
         AUTH.createUser(withEmail: email, password: password) { (result, error) in
             if let error = error {
                 print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
                 completion(false)
                 return
             }
+            var name = name
+            func removeSpace(){
+                if name.last == " " {
+                    name.removeLast()
+                    removeSpace()
+                }
+            }
+            
+            removeSpace()
+            
+            let splitName = name.components(separatedBy: " ")
+            
+            
+            let firstName = splitName.dropLast().joined(separator: " ")
+            let lastName = splitName.last
             
             if let result = result {
                 
                 FIRESTORE.collection(USER).document(result.user.uid).setData([
                     USER_ID           : result.user.uid,
-                    USERNAME          : username,
+                    NAME              : name,
                     EMAIL             : email,
-                    FIRST_NAME        : "",
-                    LAST_NAME         : "",
-                    FAV_LOCATION1     : "",
-                    FAV_LOCATION2     : "",
-                    FAV_LOCATION3     : "",
+                    FIRST_NAME        : firstName,
+                    LAST_NAME         : lastName ?? "",
                     PROFILE_IMAGE_URL : "No Profile Image",
                     
                     //PAST_LOCATIONS
@@ -67,7 +87,9 @@ class UserController {
                         return
                     } else {
                         completion(true)
-                        let user = User(userID: result.user.uid, username: username, email: email)
+                        let user = User(userID: result.user.uid, name: name, email: email)
+                        user.firstName = firstName
+                        user.lastName = lastName
                         self.user = user
                     }
                 }
@@ -153,6 +175,8 @@ class UserController {
     
     
     
+    
+    
     func fetchUser(completion: @escaping (_ success: Bool)->Void){
         self.uid = AUTH.currentUser?.uid
         guard let uid = uid else {return}
@@ -163,21 +187,15 @@ class UserController {
                 return
             }
             guard let data = snapshot?.data() else {completion(false); return}
-            if let username              = data[USERNAME] as? String,
+            if let name                  = data[NAME] as? String,
                let email                 = data[EMAIL] as? String,
                let profileImageURLString = data[PROFILE_IMAGE_URL] as? String,
                let userID                = data[USER_ID] as? String,
                let firstname             = data[FIRST_NAME] as? String,
-               let lastname              = data[LAST_NAME] as? String,
-               let favLocation1          = data[FAV_LOCATION1] as? String,
-               let favLocation2          = data[FAV_LOCATION2] as? String,
-               let favLocation3          = data[FAV_LOCATION3] as? String {
-               let user                  = User(userID : userID, username : username, email : email)
+               let lastname              = data[LAST_NAME] as? String {
+               let user                 = User(userID : userID, name : name, email : email)
                user.firstName            = firstname
                user.lastName             = lastname
-               user.favLocation1         = favLocation1
-               user.favLocation2         = favLocation2
-               user.favLocation3         = favLocation3
                user.profileImageURL      = profileImageURLString
                 
                 if let profileImageURL = URL(string: profileImageURLString) {
@@ -200,6 +218,35 @@ class UserController {
         }
     }
     
+    func fetchMyPin() {
+        guard let uid = UID else {return}
+        FIRESTORE.collection(USER).document(uid).collection(EVENT).document(uid).getDocument { (document, error) in
+            guard let document          = document,
+                    let name            = document[NAME] as? String,
+                    let profileImageURL = document[PROFILE_IMAGE_URL] as? String,
+                    let title           = document[EVENT] as? String,
+                    let vibe            = document[EVENT_VIBE] as? String,
+                    let geoPoint        = document[GEO_POINT] as? GeoPoint
+                    else { return }
+                
+                let location   = CLLocationCoordinate2D(latitude: geoPoint.latitude, longitude: geoPoint.longitude)
+                
+                let event = Event(friendID: uid, name: name, profileImage: nil, profileImageUrl: profileImageURL, title: title, coordinates: location, streetAddress: "", invited: [:], vibe: vibe, eventTitle: title)
+                FIRESTORE.collection(USER).document(uid).collection(EVENT).document(uid).collection(INVITES).addSnapshotListener({ (snapshot, error) in
+                    guard let documents = snapshot?.documents else {return}
+                    let friendIDS: [String] = documents.compactMap{$0[FRIEND_ID]} as! [String]
+                    
+                    for friendID in friendIDS {
+                        FriendController.shared.fetchFriend(friendID: friendID, completion: { (friend) in
+                            event.invited.updateValue(friend, forKey: friendID)
+                        })
+                        
+                    }
+                    self.myPin = event
+                })
+            }
+    }
+    
     
     
     func togglePrivacy(userID: String, isActive: Bool){
@@ -216,13 +263,26 @@ class UserController {
         }
     }
     
-    func deleteUser(){
+    func deleteUser(completion: @escaping (_ success: Bool)->Void){
         guard let uid = uid else {return}
-        db.collection(USER).document(uid).delete { (error) in
-            if let error = error {
-                print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
+        Auth.auth().currentUser?.delete(completion: { (error) in
+            self.db.collection(USER).document(uid).delete { (error) in
+                if let error = error {
+                    print ("💩💩 error in file \(#file), function \(#function), \(error),\(error.localizedDescription)💩💩")
+                    completion(false)
+                } else {
+                    
+                    completion(true)
+                }
+
             }
-        }
+            let friendIDs = FriendController.shared.friends.compactMap{$0.friendID}
+            for friendID  in friendIDs {
+                self.db.collection(USER).document(friendID).collection(FRIENDLIST).document(uid).delete()
+            }
+            UserController.shared.user = nil
+            FriendController.shared.friends = []
+        })
     }
     
     

@@ -9,43 +9,43 @@
 import UIKit
 import CoreLocation
 import MapKit
-
+import SVProgressHUD
 
 class OnboardingVC: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var mainView: UIView!
+    @IBOutlet weak var locationAccessButton: UIButton!
+    @IBOutlet weak var letsDoThisButton: UIButton!
     
     
-        // MARK: - Variables
+    // MARK: - Properties
     
     let locationManager = CLLocationManager()
+    var locationRequested = true
+
     
-        // MARK: - Lifecycle
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setUpLocationManager()
         blurBackground()
-     
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        super .viewDidAppear(true)
+        super.viewDidAppear(true)
+        SVProgressHUD.dismiss()
+    }
+    
+    
+    @IBAction func requestLocation(_ sender: Any) {
         requestLocationAuth()
-    }
-    
-    
-    @IBAction func allowLocationTapped(_ sender: Any) {
-    }
-    
-    
-    @IBAction func showMeAroundTapped(_ sender: Any) {
+        locationRequested = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
+            self.locationAccessButton.isHidden = true
+            self.letsDoThisButton.isHidden = false
+        }
     }
     
     
@@ -55,10 +55,11 @@ class OnboardingVC: UIViewController {
     func requestLocationAuth() {
         checkLocationAuth { (success) in
             if success {
-            self.locationManager.requestWhenInUseAuthorization()
+                self.locationManager.requestWhenInUseAuthorization()
             }
         }
     }
+    
     
     // Check to see what the users locations state is
     func checkLocationAuth(completion: @escaping (Bool) -> Void) {
@@ -81,13 +82,13 @@ class OnboardingVC: UIViewController {
             // Do it again untill you hit whet you need to
             checkLocationAuth { (success) in
                 if success {
-                    print("Got their loction! oi oiii")
+                    print("Got their location")
                 }
             }
         }
     }
     
-        // MARK: - Visual Effects
+    // MARK: - Visual Effects
     
     func blurBackground() {
         let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
@@ -102,6 +103,5 @@ extension OnboardingVC: CLLocationManagerDelegate {
     // set up CoreLocation Delegates
     func setUpLocationManager() {
         locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
     }
 }
