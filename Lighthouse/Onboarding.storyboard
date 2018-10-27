@@ -373,11 +373,20 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oO0-1f-6Uj">
-                                        <rect key="frame" x="275" y="140" width="50" height="30"/>
+                                        <rect key="frame" x="245" y="140" width="80" height="30"/>
+                                        <color key="backgroundColor" red="0.90980392160000001" green="0.45882352939999999" blue="0.047058823530000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="50" id="KcR-yB-lGN"/>
+                                            <constraint firstAttribute="width" constant="80" id="KcR-yB-lGN">
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="6"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </constraint>
                                         </constraints>
-                                        <state key="normal" title="Next"/>
+                                        <state key="normal" title="Next">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="nextTapped:" destination="Lqa-6V-VBw" eventType="touchUpInside" id="Akf-zg-gra"/>
                                             <segue destination="1ef-g2-ao3" kind="show" id="XY5-BU-MB2"/>
