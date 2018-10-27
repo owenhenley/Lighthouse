@@ -69,7 +69,7 @@ class SignUpVC: CustomTextFieldVC {
     
     @IBAction func privacyPolicyTapped(_ sender: UIButton) {
         
-        guard let privacyURL = URL(string: "https://www.apple.com") else { return }
+        guard let privacyURL = URL(string: "https://github.com/owenhenley/Lighthouse/blob/develop/Privacy%20Policy.md") else { return }
         
         UIApplication.shared.open(privacyURL) { (_) in
         }
@@ -77,9 +77,9 @@ class SignUpVC: CustomTextFieldVC {
     
     
     @IBAction func tAndCsTapped(_ sender: UIButton) {
-        guard let privacyURL = URL(string: "https://www.apple.com") else { return }
+        guard let termsURL = URL(string: "https://github.com/owenhenley/Lighthouse/blob/develop/Terms%20&%20Conditions%20Lighthouse.md") else { return }
         
-        UIApplication.shared.open(privacyURL) { (_) in
+        UIApplication.shared.open(termsURL) { (_) in
         }
     }
     

@@ -13,7 +13,6 @@
 		3E0AC5AE2171533600002FD3 /* Megrim.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3E0AC5AD2171533500002FD3 /* Megrim.ttf */; };
 		3E24CC59216FBF2F00BE957F /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E24CC58216FBF2F00BE957F /* Onboarding.storyboard */; };
 		3E24CC5D216FFF4100BE957F /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E24CC5C216FFF4100BE957F /* OnboardingVC.swift */; };
-		3E28E866216BE6FB00E21331 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E28E865216BE6FB00E21331 /* MapKit.framework */; };
 		3E28E868216BF24400E21331 /* LoadingScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E28E867216BF24400E21331 /* LoadingScreenVC.swift */; };
 		3E28E86A216BF27000E21331 /* MapViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E28E869216BF27000E21331 /* MapViewVC.swift */; };
 		3E28E86C216BF29B00E21331 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E28E86B216BF29B00E21331 /* UserController.swift */; };
@@ -30,6 +29,8 @@
 		3E32AEF5216D502600C889DF /* DroppedPinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E32AEF4216D502600C889DF /* DroppedPinVC.swift */; };
 		3E32AEF7216D524C00C889DF /* FriendsListTrayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E32AEF6216D524C00C889DF /* FriendsListTrayCell.swift */; };
 		3E3694A4217C193F0070D2EB /* PinDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3694A3217C193F0070D2EB /* PinDetailsVC.swift */; };
+		3E3B220B21836F37000EF24D /* PinConfirmationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3B220A21836F37000EF24D /* PinConfirmationVC.swift */; };
+		3E3B220D2183829F000EF24D /* CustomExitSegueWithCompletion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3B220C2183829F000EF24D /* CustomExitSegueWithCompletion.swift */; };
 		3E5526842175727E00035D2D /* StyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5526832175727E00035D2D /* StyleGuide.swift */; };
 		3E5A1DD12170F63700170A9B /* TOSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5A1DD02170F63700170A9B /* TOSVC.swift */; };
 		3E5A1DD32170F65400170A9B /* PPVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5A1DD22170F65400170A9B /* PPVC.swift */; };
@@ -106,7 +107,6 @@
 		3E0AC5AD2171533500002FD3 /* Megrim.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Megrim.ttf; sourceTree = "<group>"; };
 		3E24CC58216FBF2F00BE957F /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		3E24CC5C216FFF4100BE957F /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
-		3E28E865216BE6FB00E21331 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3E28E867216BF24400E21331 /* LoadingScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreenVC.swift; sourceTree = "<group>"; };
 		3E28E869216BF27000E21331 /* MapViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewVC.swift; sourceTree = "<group>"; };
 		3E28E86B216BF29B00E21331 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
@@ -123,6 +123,8 @@
 		3E32AEF4216D502600C889DF /* DroppedPinVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroppedPinVC.swift; sourceTree = "<group>"; };
 		3E32AEF6216D524C00C889DF /* FriendsListTrayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListTrayCell.swift; sourceTree = "<group>"; };
 		3E3694A3217C193F0070D2EB /* PinDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinDetailsVC.swift; sourceTree = "<group>"; };
+		3E3B220A21836F37000EF24D /* PinConfirmationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinConfirmationVC.swift; sourceTree = "<group>"; };
+		3E3B220C2183829F000EF24D /* CustomExitSegueWithCompletion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomExitSegueWithCompletion.swift; sourceTree = "<group>"; };
 		3E5526832175727E00035D2D /* StyleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleGuide.swift; sourceTree = "<group>"; };
 		3E5A1DD02170F63700170A9B /* TOSVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOSVC.swift; sourceTree = "<group>"; };
 		3E5A1DD22170F65400170A9B /* PPVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PPVC.swift; sourceTree = "<group>"; };
@@ -200,7 +202,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E28E866216BE6FB00E21331 /* MapKit.framework in Frameworks */,
 				AF1A98AB8F326C9B496E245A /* Pods_Lighthouse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -418,6 +419,7 @@
 		3EA9915F216BDFF60001F09D /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				3E3B220C2183829F000EF24D /* CustomExitSegueWithCompletion.swift */,
 				3E8BF7822177ABB800DB0014 /* DroppablePin.swift */,
 				7EF9A478216C0D480064DC47 /* Constants.swift */,
 				7E565A9F2178FB9B006C1271 /* NotificationName.swift */,
@@ -442,6 +444,7 @@
 		3EA99165216BE03A0001F09D /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				3E3B220A21836F37000EF24D /* PinConfirmationVC.swift */,
 				7E2128D42174E6DF000100DF /* FriendCell.swift */,
 				3E32AEF6216D524C00C889DF /* FriendsListTrayCell.swift */,
 				3EEA6EE0217EB433009DD278 /* PendingInviteCell.swift */,
@@ -452,7 +455,6 @@
 		3EA99167216BE0E10001F09D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3E28E865216BE6FB00E21331 /* MapKit.framework */,
 				27D9275730042F1BCE1ABBCD /* Pods_Lighthouse.framework */,
 			);
 			name = Frameworks;
@@ -569,13 +571,13 @@
 						CreatedOnToolsVersion = 10.0;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.InAppPurchase = {
 								enabled = 0;
 							};
 							com.apple.Maps.iOS = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.Push = {
 								enabled = 1;
@@ -744,6 +746,7 @@
 				3E32AEF3216D501000C889DF /* FriendsTrayListVC.swift in Sources */,
 				3EA6BD9D217F43EA006C8FF0 /* CustomUIView.swift in Sources */,
 				3E5A1DD32170F65400170A9B /* PPVC.swift in Sources */,
+				3E3B220D2183829F000EF24D /* CustomExitSegueWithCompletion.swift in Sources */,
 				3E5A1DDF2170F75A00170A9B /* DeleteAccountVC.swift in Sources */,
 				3EA99162216BE0200001F09D /* DateFormatter.swift in Sources */,
 				3E24CC5D216FFF4100BE957F /* OnboardingVC.swift in Sources */,
@@ -788,6 +791,7 @@
 				7E8EC5BA2171A86200B0275A /* XXFriendsTVC.swift in Sources */,
 				3EF0A83A217A7D3100C6541D /* SelectFriendCell.swift in Sources */,
 				3E32AEF7216D524C00C889DF /* FriendsListTrayCell.swift in Sources */,
+				3E3B220B21836F37000EF24D /* PinConfirmationVC.swift in Sources */,
 				7E1A40942182448700959A0C /* EditPinVC.swift in Sources */,
 				3E5A1DD72170F6C300170A9B /* AccountSettingsVC.swift in Sources */,
 				7E38CF35216FA450009D44DF /* Animations.swift in Sources */,

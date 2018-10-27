@@ -173,6 +173,7 @@
                         <segue destination="UbY-96-Yqr" kind="presentation" identifier="toPinDetails" modalPresentationStyle="overCurrentContext" id="gLL-WZ-gsG"/>
                         <segue destination="qpk-hm-WVi" kind="presentation" identifier="toEditPin" modalPresentationStyle="overCurrentContext" id="RzX-EL-55E"/>
                         <segue destination="2Am-nQ-tSa" kind="presentation" identifier="toSignUpVC" modalPresentationStyle="overCurrentContext" id="ahE-kz-4UO"/>
+                        <segue destination="7SZ-9n-scM" kind="presentation" identifier="pinConfirmation" modalPresentationStyle="overCurrentContext" id="QEa-rL-Ut5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fqI-Ac-3Lb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -465,6 +466,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tyS-hS-2he" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1754" y="134"/>
+        </scene>
+        <!--CustomConfirmationPopup-->
+        <scene sceneID="umE-qY-Cuv">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CustomConfirmationPopup" id="7SZ-9n-scM" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tep-1p-Zbl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1646" y="-275"/>
         </scene>
         <!--PinDetailsPopUp-->
         <scene sceneID="SMN-hn-5Z2">
