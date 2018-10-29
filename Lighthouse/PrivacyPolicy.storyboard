@@ -19,15 +19,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Privacy Policy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cG-8q-tDs">
-                                <rect key="frame" x="134.5" y="74" width="106" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="94" y="36" width="187" height="34.5"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="30"/>
+                                <color key="textColor" red="0.42352941179999998" green="0.41176470590000003" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ozn-g9-SRj">
-                                <rect key="frame" x="16" y="129" width="343" height="522"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tvK-nF-F3c">
+                                <rect key="frame" x="12" y="35" width="37" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="JeD-f1-EAD"/>
+                                    <constraint firstAttribute="width" constant="37" id="T0t-Dx-Xgm"/>
+                                </constraints>
+                                <state key="normal" image="backarrowDark"/>
+                                <connections>
+                                    <segue destination="MiB-TJ-TJD" kind="unwind" unwindAction="returnToUserProfile:" id="yES-hX-5kP"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="Ozn-g9-SRj">
+                                <rect key="frame" x="16" y="82" width="343" height="564.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <mutableString key="text">Your privacy is very important to us. Please read below to see how Lighthouse handles information in connection with Lighthouse’s websites and the related mobile applications and services (collectively, the “Services”). 
+                                <string key="text">Your privacy is very important to us. Please read below to see how Lighthouse handles information in connection with Lighthouse’s websites and the related mobile applications and services (collectively, the “Services”). 
 
 Before we get to the details, here are a few of our fundamental privacy principles:
 
@@ -132,31 +143,21 @@ Information about you that is no longer necessary and relevant to provide our Se
 Privacy Policy Information
 
 Lighthouse reserves the right to modify this Privacy Policy at any time. Please review it occasionally. If Lighthouse makes changes to this Privacy Policy, the updated Privacy Policy will be posted on the Services in a timely manner and, if we make material changes, we will provide a prominent notice. If you object to any of the changes to this Privacy Policy, you should stop using the Services and delete your account.
-</mutableString>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+</string>
+                                <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tvK-nF-F3c">
-                                <rect key="frame" x="16" y="32" width="25" height="25"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="JeD-f1-EAD"/>
-                                    <constraint firstAttribute="width" constant="25" id="T0t-Dx-Xgm"/>
-                                </constraints>
-                                <state key="normal" image="backchevronDark"/>
-                                <connections>
-                                    <segue destination="MiB-TJ-TJD" kind="unwind" unwindAction="returnToUserProfile:" id="yES-hX-5kP"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="8cG-8q-tDs" firstAttribute="top" secondItem="m8Q-FU-ngN" secondAttribute="top" constant="54" id="8nb-G6-E1U"/>
+                            <constraint firstItem="8cG-8q-tDs" firstAttribute="top" secondItem="da6-m3-CBk" secondAttribute="top" constant="36" id="0LX-mz-MP2"/>
                             <constraint firstItem="8cG-8q-tDs" firstAttribute="centerX" secondItem="da6-m3-CBk" secondAttribute="centerX" id="CVG-Rd-qWK"/>
                             <constraint firstItem="m8Q-FU-ngN" firstAttribute="trailing" secondItem="Ozn-g9-SRj" secondAttribute="trailing" constant="16" id="Ko8-MH-RXG"/>
-                            <constraint firstItem="m8Q-FU-ngN" firstAttribute="bottom" secondItem="Ozn-g9-SRj" secondAttribute="bottom" constant="16" id="MhL-LF-Gtg"/>
-                            <constraint firstItem="Ozn-g9-SRj" firstAttribute="top" secondItem="8cG-8q-tDs" secondAttribute="bottom" constant="34" id="UIx-rT-gKD"/>
-                            <constraint firstItem="tvK-nF-F3c" firstAttribute="top" secondItem="da6-m3-CBk" secondAttribute="top" constant="32" id="vZ6-8z-pzo"/>
-                            <constraint firstItem="tvK-nF-F3c" firstAttribute="leading" secondItem="da6-m3-CBk" secondAttribute="leading" constant="16" id="xqF-d3-SN9"/>
+                            <constraint firstItem="m8Q-FU-ngN" firstAttribute="bottom" secondItem="Ozn-g9-SRj" secondAttribute="bottom" constant="20.5" id="MhL-LF-Gtg"/>
+                            <constraint firstItem="Ozn-g9-SRj" firstAttribute="top" secondItem="8cG-8q-tDs" secondAttribute="bottom" constant="11.5" id="UIx-rT-gKD"/>
+                            <constraint firstItem="tvK-nF-F3c" firstAttribute="top" secondItem="da6-m3-CBk" secondAttribute="top" constant="35" id="vZ6-8z-pzo"/>
+                            <constraint firstItem="tvK-nF-F3c" firstAttribute="leading" secondItem="da6-m3-CBk" secondAttribute="leading" constant="12" id="xqF-d3-SN9"/>
                             <constraint firstItem="Ozn-g9-SRj" firstAttribute="leading" secondItem="m8Q-FU-ngN" secondAttribute="leading" constant="16" id="y0D-Lc-iSw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="m8Q-FU-ngN"/>
@@ -169,6 +170,6 @@ Lighthouse reserves the right to modify this Privacy Policy at any time. Please 
         </scene>
     </scenes>
     <resources>
-        <image name="backchevronDark" width="56" height="56"/>
+        <image name="backarrowDark" width="56" height="56"/>
     </resources>
 </document>

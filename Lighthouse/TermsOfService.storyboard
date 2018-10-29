@@ -18,16 +18,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="T&amp;C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gu5-e5-eOj">
-                                <rect key="frame" x="170.5" y="71" width="34" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms &amp; Conditions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gu5-e5-eOj">
+                                <rect key="frame" x="57" y="36" width="261" height="34.5"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="30"/>
+                                <color key="textColor" red="0.42352941179999998" green="0.41176470590000003" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ay9-ZZ-zGY">
-                                <rect key="frame" x="16" y="122" width="343" height="529"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="Ay9-ZZ-zGY">
+                                <rect key="frame" x="16" y="86.5" width="343" height="564.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <mutableString key="text">Terms and Conditions of Lighthouse
+                                <string key="text">Terms and Conditions of Lighthouse
 
 The following terms and conditions (collectively, these "Terms and Conditions") apply to your use of Lighthouse, including any content, functionality and services offered on or via Lighthouse.
 
@@ -91,17 +91,18 @@ Governing Law
 
 These Terms and Conditions and any dispute or claim arising out of, or related to them, shall be governed by and construed in accordance with the internal laws of the United States of America without giving effect to any choice or conflict of law provision or rule.
 
-Any legal suit, action or proceeding arising out of, or related to, these Terms of Service or the app shall be instituted exclusively in the federal courts of the United States of America.</mutableString>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+Any legal suit, action or proceeding arising out of, or related to, these Terms of Service or the app shall be instituted exclusively in the federal courts of the United States of America.</string>
+                                <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MUz-V2-mXq">
-                                <rect key="frame" x="16" y="32" width="25" height="25"/>
+                                <rect key="frame" x="12" y="35" width="40" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="Fku-eQ-kkt"/>
-                                    <constraint firstAttribute="width" constant="25" id="YAY-kU-buR"/>
+                                    <constraint firstAttribute="height" constant="40" id="Fku-eQ-kkt"/>
+                                    <constraint firstAttribute="width" constant="40" id="YAY-kU-buR"/>
                                 </constraints>
-                                <state key="normal" image="backchevronDark"/>
+                                <state key="normal" image="backarrowDark"/>
                                 <connections>
                                     <segue destination="sdV-DI-umf" kind="unwind" unwindAction="returnToUserProfile:" id="xMm-EH-SV0"/>
                                 </connections>
@@ -109,14 +110,14 @@ Any legal suit, action or proceeding arising out of, or related to, these Terms 
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Ay9-ZZ-zGY" firstAttribute="top" secondItem="Gu5-e5-eOj" secondAttribute="bottom" constant="30" id="0Ha-YM-6QN"/>
-                            <constraint firstItem="Gu5-e5-eOj" firstAttribute="top" secondItem="cQL-SM-vNk" secondAttribute="top" constant="51" id="KkI-9g-87Q"/>
+                            <constraint firstItem="Ay9-ZZ-zGY" firstAttribute="top" secondItem="Gu5-e5-eOj" secondAttribute="bottom" constant="16" id="0Ha-YM-6QN"/>
                             <constraint firstItem="cQL-SM-vNk" firstAttribute="trailing" secondItem="Ay9-ZZ-zGY" secondAttribute="trailing" constant="16" id="PC1-6S-pjz"/>
                             <constraint firstItem="Gu5-e5-eOj" firstAttribute="centerX" secondItem="14E-U0-KaF" secondAttribute="centerX" id="RoU-Hw-d37"/>
-                            <constraint firstItem="MUz-V2-mXq" firstAttribute="top" secondItem="14E-U0-KaF" secondAttribute="top" constant="32" id="ZH9-5P-U9m"/>
+                            <constraint firstItem="MUz-V2-mXq" firstAttribute="top" secondItem="14E-U0-KaF" secondAttribute="top" constant="35" id="ZH9-5P-U9m"/>
                             <constraint firstItem="Ay9-ZZ-zGY" firstAttribute="leading" secondItem="cQL-SM-vNk" secondAttribute="leading" constant="16" id="cl7-SD-edY"/>
                             <constraint firstItem="cQL-SM-vNk" firstAttribute="bottom" secondItem="Ay9-ZZ-zGY" secondAttribute="bottom" constant="16" id="fdc-Xu-7qf"/>
-                            <constraint firstItem="MUz-V2-mXq" firstAttribute="leading" secondItem="14E-U0-KaF" secondAttribute="leading" constant="16" id="ol9-TW-2DY"/>
+                            <constraint firstItem="MUz-V2-mXq" firstAttribute="leading" secondItem="14E-U0-KaF" secondAttribute="leading" constant="12" id="ol9-TW-2DY"/>
+                            <constraint firstItem="Gu5-e5-eOj" firstAttribute="top" secondItem="14E-U0-KaF" secondAttribute="top" constant="36" id="otS-gB-JEQ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cQL-SM-vNk"/>
                     </view>
@@ -128,6 +129,6 @@ Any legal suit, action or proceeding arising out of, or related to, these Terms 
         </scene>
     </scenes>
     <resources>
-        <image name="backchevronDark" width="56" height="56"/>
+        <image name="backarrowDark" width="56" height="56"/>
     </resources>
 </document>
