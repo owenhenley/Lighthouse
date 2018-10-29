@@ -186,11 +186,8 @@
                                     <segue destination="Wmr-03-zzd" kind="unwind" unwindAction="returnToUserProfile:" id="AX0-pW-zLl"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Account Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yqs-2m-5wN">
-                                <rect key="frame" x="73" y="36" width="229" height="34.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="34.5" id="epH-0N-HEi"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yqs-2m-5wN">
+                                <rect key="frame" x="73.5" y="36" width="228.5" height="34.5"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="30"/>
                                 <color key="textColor" red="0.42352941176470588" green="0.41176470588235292" blue="0.41176470588235292" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -200,6 +197,7 @@
                         <constraints>
                             <constraint firstItem="wHH-J6-Emd" firstAttribute="top" secondItem="6rG-GE-IfP" secondAttribute="top" constant="32" id="1P8-L7-bbR"/>
                             <constraint firstItem="v1e-Ol-Hgh" firstAttribute="leading" secondItem="FLz-vx-ljz" secondAttribute="leading" constant="22" id="BsB-Lf-Pig"/>
+                            <constraint firstItem="Yqs-2m-5wN" firstAttribute="centerX" secondItem="6rG-GE-IfP" secondAttribute="centerX" id="Qf8-YK-QJU"/>
                             <constraint firstItem="usO-dx-J3i" firstAttribute="centerX" secondItem="6rG-GE-IfP" secondAttribute="centerX" id="hPP-Hj-XmQ"/>
                             <constraint firstItem="v1e-Ol-Hgh" firstAttribute="top" secondItem="Yqs-2m-5wN" secondAttribute="bottom" constant="20" id="iHL-H7-c0W"/>
                             <constraint firstItem="FLz-vx-ljz" firstAttribute="bottom" secondItem="usO-dx-J3i" secondAttribute="bottom" constant="70" id="jrO-O3-KoH"/>
