@@ -133,10 +133,10 @@
                                         <rect key="frame" x="107" y="0.0" width="224" height="50"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="w0W-JX-La4">
-                                                <rect key="frame" x="0.0" y="0.0" width="196.5" height="16"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="189" height="16"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I am over the age of 14 and aggree" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZLV-oE-1cb">
-                                                        <rect key="frame" x="0.0" y="1" width="196.5" height="14.5"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I am over the age of 14 and agree" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZLV-oE-1cb">
+                                                        <rect key="frame" x="0.0" y="1" width="189" height="14.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -199,14 +199,14 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8p-sP-uBl">
-                                <rect key="frame" x="22" y="480.5" width="331" height="50"/>
-                                <color key="backgroundColor" red="0.0" green="0.4793452024" blue="0.99908632040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="87.5" y="480.5" width="200" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="fu1-SE-alY"/>
+                                    <constraint firstAttribute="width" constant="200" id="Gcu-H2-MGY"/>
+                                    <constraint firstAttribute="height" constant="40" id="fu1-SE-alY"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                <state key="normal" title="Create Profile">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
+                                <state key="normal" title="Create Profile" backgroundImage="buttonoutlinedDisabled">
+                                    <color key="titleColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -218,17 +218,17 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="FjR-YA-Rs7">
-                                <rect key="frame" x="91.5" y="534.5" width="192" height="14"/>
+                                <rect key="frame" x="79" y="528.5" width="217.5" height="14"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qzb-af-ubK">
-                                        <rect key="frame" x="0.0" y="0.0" width="145" height="14"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <nil key="textColor"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="165.5" height="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.42352941179999998" green="0.41176470590000003" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a62-sM-Jqx">
-                                        <rect key="frame" x="153" y="0.0" width="39" height="14"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <rect key="frame" x="173.5" y="0.0" width="44" height="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <state key="normal" title="Sign In">
                                             <color key="titleColor" red="0.90980392160000001" green="0.45882352939999999" blue="0.047058823530000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -243,10 +243,10 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7SU-rh-qz9">
-                                <rect key="frame" x="20" y="40" width="25" height="25"/>
+                                <rect key="frame" x="20" y="40" width="40" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="25" id="8FQ-Oy-yO5"/>
-                                    <constraint firstAttribute="height" constant="25" id="xuF-Oc-pP6"/>
+                                    <constraint firstAttribute="width" constant="40" id="8FQ-Oy-yO5"/>
+                                    <constraint firstAttribute="height" constant="40" id="xuF-Oc-pP6"/>
                                 </constraints>
                                 <state key="normal" image="backarrowDark"/>
                                 <connections>
@@ -258,7 +258,6 @@
                         <constraints>
                             <constraint firstItem="FjR-YA-Rs7" firstAttribute="centerX" secondItem="YCk-W1-VBQ" secondAttribute="centerX" id="0im-mE-hxq"/>
                             <constraint firstItem="7SU-rh-qz9" firstAttribute="leading" secondItem="L5V-Up-arc" secondAttribute="leading" constant="20" id="CEK-gm-92R"/>
-                            <constraint firstItem="v8p-sP-uBl" firstAttribute="leading" secondItem="L5V-Up-arc" secondAttribute="leading" constant="22" id="K1o-fO-iUp"/>
                             <constraint firstAttribute="trailing" secondItem="GhV-tX-70f" secondAttribute="trailing" constant="-322" id="M1O-y9-uc7"/>
                             <constraint firstItem="L5V-Up-arc" firstAttribute="trailing" secondItem="dOv-3c-Vk3" secondAttribute="trailing" constant="22" id="T1J-iZ-e7J"/>
                             <constraint firstItem="dOv-3c-Vk3" firstAttribute="leading" secondItem="L5V-Up-arc" secondAttribute="leading" constant="22" id="UXs-Ll-FZd"/>
@@ -269,9 +268,9 @@
                             <constraint firstItem="GhV-tX-70f" firstAttribute="top" secondItem="YCk-W1-VBQ" secondAttribute="top" id="dJu-L9-RDn"/>
                             <constraint firstItem="L5V-Up-arc" firstAttribute="trailing" secondItem="meY-O5-bxv" secondAttribute="trailing" constant="22" id="ebi-p0-EP6"/>
                             <constraint firstItem="GhV-tX-70f" firstAttribute="leading" secondItem="YCk-W1-VBQ" secondAttribute="leading" id="lPz-De-IAq"/>
-                            <constraint firstItem="FjR-YA-Rs7" firstAttribute="top" secondItem="v8p-sP-uBl" secondAttribute="bottom" constant="4" id="nD0-NR-ZJv"/>
-                            <constraint firstItem="L5V-Up-arc" firstAttribute="trailing" secondItem="v8p-sP-uBl" secondAttribute="trailing" constant="22" id="nvN-de-lgt"/>
+                            <constraint firstItem="FjR-YA-Rs7" firstAttribute="top" secondItem="v8p-sP-uBl" secondAttribute="bottom" constant="8" id="nD0-NR-ZJv"/>
                             <constraint firstItem="dOv-3c-Vk3" firstAttribute="centerY" secondItem="YCk-W1-VBQ" secondAttribute="centerY" constant="-50" id="tmy-R8-EvK"/>
+                            <constraint firstItem="v8p-sP-uBl" firstAttribute="centerX" secondItem="YCk-W1-VBQ" secondAttribute="centerX" id="wfM-fC-8qB"/>
                             <constraint firstItem="meY-O5-bxv" firstAttribute="top" secondItem="dOv-3c-Vk3" secondAttribute="bottom" constant="24" id="zNi-pZ-ZWY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="L5V-Up-arc"/>
@@ -299,5 +298,6 @@
     </scenes>
     <resources>
         <image name="backarrowDark" width="56" height="56"/>
+        <image name="buttonoutlinedDisabled" width="96" height="40"/>
     </resources>
 </document>
