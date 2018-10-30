@@ -24,7 +24,7 @@
                                     <segue destination="5ZE-cE-rYM" kind="unwind" unwindAction="unwindToMapViewSegue:" id="5Au-0X-rpx"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jDR-Tt-2zr">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jDR-Tt-2zr" customClass="CustomPopover" customModule="Lighthouse" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="78" width="375" height="180"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="XsV-A9-PgO">

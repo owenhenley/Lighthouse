@@ -14,14 +14,12 @@ import SVProgressHUD
 
 class MapViewVC: CustomSearchFieldVC {
     
-
     // MARK: - Properties
     
     var locationManager = CLLocationManager()
     var searchIsActive = false
     var longPressActive = true
     var userMapCentered = false
-    
     var trayActive = false
     var handle : AuthStateDidChangeListenerHandle?
     var friendID : String?
@@ -29,9 +27,10 @@ class MapViewVC: CustomSearchFieldVC {
     let nonAuthUserLocationRadius : Double = 25000
     let authedUserLocationRadius : Double = 400
     var placedAnnotations: Set<String> = []
-
+    
     // MARK: - Outlets
     
+    @IBOutlet weak var arrow                : UIImageView!
     @IBOutlet weak var mainMapView          : MKMapView!
     @IBOutlet weak var searchBar            : UISearchBar!
     @IBOutlet weak var fillerView           : UIView!

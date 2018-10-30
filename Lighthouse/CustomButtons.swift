@@ -8,15 +8,6 @@
 
 import UIKit
 
-extension UIButton {
-    
-    func orangeButton() {
-    }
-
-    func presentation() {
-        
-    }
-}
 
 @IBDesignable
 class BorderTextField: UITextField {
@@ -27,7 +18,7 @@ class BorderTextField: UITextField {
         }
     }
     
-    @IBInspectable var borderWidth: CGFloat = 0 {
+    @IBInspectable var borderWidth: CGFloat = 0.0 {
         didSet {
             layer.borderWidth = borderWidth
         }

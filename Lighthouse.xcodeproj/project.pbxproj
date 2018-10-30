@@ -53,6 +53,8 @@
 		3E8BF77F2177A18900DB0014 /* NewPinPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8BF77E2177A18900DB0014 /* NewPinPopUpVC.swift */; };
 		3E8BF7812177A20B00DB0014 /* DroppedPinPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8BF7802177A20B00DB0014 /* DroppedPinPopUpVC.swift */; };
 		3E8BF7832177ABB800DB0014 /* DroppablePin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8BF7822177ABB800DB0014 /* DroppablePin.swift */; };
+		3EA5CB162188655F006AB0A6 /* UIButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA5CB152188655F006AB0A6 /* UIButtonExtensions.swift */; };
+		3EA5CB1821887115006AB0A6 /* ActivityMonitorSVHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA5CB1721887115006AB0A6 /* ActivityMonitorSVHUD.swift */; };
 		3EA6BD9B217F42FC006C8FF0 /* CustomButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA6BD9A217F42FC006C8FF0 /* CustomButtons.swift */; };
 		3EA6BD9D217F43EA006C8FF0 /* CustomUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA6BD9C217F43EA006C8FF0 /* CustomUIView.swift */; };
 		3EA6BD9F217F85B6006C8FF0 /* GetAppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA6BD9E217F85B6006C8FF0 /* GetAppVersion.swift */; };
@@ -147,6 +149,8 @@
 		3E8BF77E2177A18900DB0014 /* NewPinPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPinPopUpVC.swift; sourceTree = "<group>"; };
 		3E8BF7802177A20B00DB0014 /* DroppedPinPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroppedPinPopUpVC.swift; sourceTree = "<group>"; };
 		3E8BF7822177ABB800DB0014 /* DroppablePin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DroppablePin.swift; sourceTree = "<group>"; };
+		3EA5CB152188655F006AB0A6 /* UIButtonExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtensions.swift; sourceTree = "<group>"; };
+		3EA5CB1721887115006AB0A6 /* ActivityMonitorSVHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityMonitorSVHUD.swift; sourceTree = "<group>"; };
 		3EA6BD9A217F42FC006C8FF0 /* CustomButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtons.swift; sourceTree = "<group>"; };
 		3EA6BD9C217F43EA006C8FF0 /* CustomUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIView.swift; sourceTree = "<group>"; };
 		3EA6BD9E217F85B6006C8FF0 /* GetAppVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAppVersion.swift; sourceTree = "<group>"; };
@@ -412,6 +416,8 @@
 				7E38CF34216FA450009D44DF /* Animations.swift */,
 				3EA6BD9A217F42FC006C8FF0 /* CustomButtons.swift */,
 				3EA6BD9C217F43EA006C8FF0 /* CustomUIView.swift */,
+				3EA5CB152188655F006AB0A6 /* UIButtonExtensions.swift */,
+				3EA5CB1721887115006AB0A6 /* ActivityMonitorSVHUD.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -784,7 +790,9 @@
 				3E32AEEA216D4F2D00C889DF /* TabBarControllerVC.swift in Sources */,
 				3EA99153216BDF1B0001F09D /* User.swift in Sources */,
 				3E3694A4217C193F0070D2EB /* PinDetailsVC.swift in Sources */,
+				3EA5CB162188655F006AB0A6 /* UIButtonExtensions.swift in Sources */,
 				3E32AEEE216D4F7300C889DF /* SignUpVC.swift in Sources */,
+				3EA5CB1821887115006AB0A6 /* ActivityMonitorSVHUD.swift in Sources */,
 				3EEA6EE1217EB433009DD278 /* PendingInviteCell.swift in Sources */,
 				7EEF84A9216E6DAF00558093 /* UserProfileVC.swift in Sources */,
 				7E8EC5B82171A84F00B0275A /* XXGroupTVC.swift in Sources */,
