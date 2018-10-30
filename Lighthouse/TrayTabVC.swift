@@ -18,6 +18,7 @@ class TrayTabVC: UIViewController {
         // MARK: - Outlets
     
     @IBOutlet weak var trayTabImage: UIImageView!
+
     
     // MARK: - Properties
     
@@ -27,6 +28,11 @@ class TrayTabVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        trayTabImage.layer.shadowColor = UIColor.darkGray.cgColor
+        trayTabImage.layer.shadowOpacity = 0.5
+        trayTabImage.layer.shadowRadius = 6
+        
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(onSwipe(panGesture:)))
         trayTabImage.addGestureRecognizer(panGesture)
         
