@@ -8,14 +8,6 @@ A location tracking app to share your current location with a friends list withi
 
 <br>
 
-#### Proposed Tech Stack:
-
-- Firebase
-- MapKit
-- CoreLocation
-- RESTful API (FourSquare)
-- Continuous Integration
-
 <br><br>
 
 <p align="center"><img height="350" src="https://user-images.githubusercontent.com/28428200/47690474-c6753880-dbb3-11e8-9519-d04dc220f52c.jpg"/>
