@@ -8,9 +8,25 @@
 
 import UIKit
 
-extension UIView {
+@IBDesignable class CustomPopover: UIView {
     
-    func dropShadow() {
+    
+    override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        customisePopover()
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        customisePopover()
+    }
+    
+    
+    func customisePopover(){
+        layer.cornerRadius = 5
+        layer.shadowColor = UIColor.darkGray.cgColor
+        layer.shadowOpacity = 0.2
+        layer.shadowRadius = 3
     }
 }
 

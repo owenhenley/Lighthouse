@@ -30,8 +30,8 @@ class TrayTabVC: UIViewController {
         super.viewDidLoad()
         
         trayTabImage.layer.shadowColor = UIColor.darkGray.cgColor
-        trayTabImage.layer.shadowOpacity = 0.5
-        trayTabImage.layer.shadowRadius = 6
+        trayTabImage.layer.shadowOpacity = 0.2
+        trayTabImage.layer.shadowRadius = 3
         
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(onSwipe(panGesture:)))
         trayTabImage.addGestureRecognizer(panGesture)

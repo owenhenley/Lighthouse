@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0pN-TM-t2n">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="643"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aDV-Sy-LyY">
                                         <rect key="frame" x="53.5" y="502" width="268" height="130"/>
@@ -63,7 +63,7 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.20221532534246575" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="aDV-Sy-LyY" secondAttribute="bottom" constant="11" id="IRk-eZ-Ysu"/>
+                                    <constraint firstAttribute="bottom" secondItem="aDV-Sy-LyY" secondAttribute="bottom" constant="35" id="IRk-eZ-Ysu"/>
                                     <constraint firstItem="aDV-Sy-LyY" firstAttribute="centerX" secondItem="0pN-TM-t2n" secondAttribute="centerX" id="klv-fS-UbS"/>
                                 </constraints>
                             </view>
@@ -141,7 +141,7 @@
                             <constraint firstItem="BZU-mu-CsJ" firstAttribute="leading" secondItem="LRg-IA-lru" secondAttribute="leading" id="8P1-wT-AwI"/>
                             <constraint firstItem="XId-hC-rD0" firstAttribute="top" secondItem="LRg-IA-lru" secondAttribute="top" constant="35" id="BqR-93-j7f"/>
                             <constraint firstAttribute="bottom" secondItem="1e0-ld-Izd" secondAttribute="bottom" id="C6o-zR-Vq5"/>
-                            <constraint firstItem="BZU-mu-CsJ" firstAttribute="top" secondItem="0pN-TM-t2n" secondAttribute="bottom" id="EpV-8T-otO"/>
+                            <constraint firstItem="BZU-mu-CsJ" firstAttribute="top" secondItem="0pN-TM-t2n" secondAttribute="bottom" constant="-24" id="EpV-8T-otO"/>
                             <constraint firstItem="0pN-TM-t2n" firstAttribute="leading" secondItem="J9c-gc-Dyh" secondAttribute="leading" id="H2b-Ha-cbd"/>
                             <constraint firstItem="1e0-ld-Izd" firstAttribute="leading" secondItem="LRg-IA-lru" secondAttribute="leading" id="JJH-93-hLT"/>
                             <constraint firstItem="0pN-TM-t2n" firstAttribute="top" secondItem="LRg-IA-lru" secondAttribute="top" id="Otc-Xq-wKK"/>
@@ -159,6 +159,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="mapDisabled" selectedImage="mapEnabled" id="IvT-Xn-h3V"/>
                     <connections>
+                        <outlet property="arrow" destination="1Mo-0Y-jJa" id="enK-ow-pYr"/>
                         <outlet property="coachmark" destination="0pN-TM-t2n" id="uNV-Fk-4cM"/>
                         <outlet property="dropPinButton" destination="KP1-qD-tHA" id="k70-gy-uby"/>
                         <outlet property="fillerView" destination="TXo-Nz-TUn" id="5hL-xY-c05"/>
