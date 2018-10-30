@@ -17,20 +17,18 @@ A location tracking app to share your current location using FourSquares API wit
 - Continuous Integration
 
 <br><br>
-## Wireframes
-<br><br>
 
-<p align="center"><img height="350" src="https://user-images.githubusercontent.com/28428200/46898120-58efab00-ce44-11e8-8fde-bdbc2d33f7d4.png"/>
+<p align="center"><img height="350" src="https://user-images.githubusercontent.com/28428200/47690474-c6753880-dbb3-11e8-9519-d04dc220f52c.jpg"/>
 
-<img height="350" src="https://user-images.githubusercontent.com/28428200/47058763-ae4cf480-d183-11e8-8b13-668fba15f12b.png"/>
+<img height="350" src="https://user-images.githubusercontent.com/28428200/47690476-ca08bf80-dbb3-11e8-891d-00e367ab5757.jpg"/>
 
-<img height="350" src="https://user-images.githubusercontent.com/28428200/47058758-a3925f80-d183-11e8-8dc5-fb151269eda1.png"/>
+<img height="350" src="https://user-images.githubusercontent.com/28428200/47690481-cc6b1980-dbb3-11e8-8952-86a4a035f240.jpg"/>
 
 <br>
 
-<img height="350" src="https://user-images.githubusercontent.com/28428200/47058739-937a8000-d183-11e8-8d98-ab46b42a9334.png"/>
+<img height="350" src="https://user-images.githubusercontent.com/28428200/47690485-cecd7380-dbb3-11e8-9afb-b27f7ce78ea8.jpg"/>
 
-<img height="350" src="https://user-images.githubusercontent.com/28428200/47058748-9bd2bb00-d183-11e8-9d96-a10aa4fedd28.png"/>
+<img height="350" src="https://user-images.githubusercontent.com/28428200/47690486-d1c86400-dbb3-11e8-9214-59cf7bcd8aca.jpg"/>
 </p>
 
 <br><br>
@@ -38,13 +36,14 @@ A location tracking app to share your current location using FourSquares API wit
 
 <p align="left"><img width="140" src="https://forthebadge.com/images/badges/built-with-love.svg"/></p>
 
-###### Designed By:
+###### Designers:
 
 - Sara Hathaway
-- Chris Hogen
 - Naomi Hochberg
+- Chris Hogen
 
-###### Developed By:
+
+###### Developers:
 
 - Owen Henley
 - Levi Linchenko
