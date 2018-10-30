@@ -4,7 +4,7 @@
 <img width="200" src="https://forthebadge.com/images/badges/makes-people-smile.svg"/></p>
 <br>
 
-A location tracking app to share your current location using FourSquares API with a friends list within the social network of the app. Has the option to ping friends in your list to see if they want to join you.
+A location tracking app to share your current location with a friends list within the social network of the app. Has the option to ping friends in your list to see if they want to join you.
 
 <br>
 
