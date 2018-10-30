@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="v1e-Ol-Hgh">
-                                <rect key="frame" x="22" y="90.5" width="331" height="99"/>
+                                <rect key="frame" x="22" y="100.5" width="331" height="99"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rs4-Ov-bRk">
                                         <rect key="frame" x="0.0" y="0.0" width="331" height="25"/>
@@ -199,7 +199,7 @@
                             <constraint firstItem="v1e-Ol-Hgh" firstAttribute="leading" secondItem="FLz-vx-ljz" secondAttribute="leading" constant="22" id="BsB-Lf-Pig"/>
                             <constraint firstItem="Yqs-2m-5wN" firstAttribute="centerX" secondItem="6rG-GE-IfP" secondAttribute="centerX" id="Qf8-YK-QJU"/>
                             <constraint firstItem="usO-dx-J3i" firstAttribute="centerX" secondItem="6rG-GE-IfP" secondAttribute="centerX" id="hPP-Hj-XmQ"/>
-                            <constraint firstItem="v1e-Ol-Hgh" firstAttribute="top" secondItem="Yqs-2m-5wN" secondAttribute="bottom" constant="20" id="iHL-H7-c0W"/>
+                            <constraint firstItem="v1e-Ol-Hgh" firstAttribute="top" secondItem="Yqs-2m-5wN" secondAttribute="bottom" constant="30" id="iHL-H7-c0W"/>
                             <constraint firstItem="FLz-vx-ljz" firstAttribute="bottom" secondItem="usO-dx-J3i" secondAttribute="bottom" constant="70" id="jrO-O3-KoH"/>
                             <constraint firstItem="wHH-J6-Emd" firstAttribute="leading" secondItem="6rG-GE-IfP" secondAttribute="leading" constant="16" id="ppB-PU-ph2"/>
                             <constraint firstItem="Yqs-2m-5wN" firstAttribute="top" secondItem="6rG-GE-IfP" secondAttribute="top" constant="36" id="ve2-hQ-s3C"/>
