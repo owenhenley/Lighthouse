@@ -26,7 +26,7 @@
                                 <rect key="frame" x="0.0" y="154" width="375" height="274"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vET-X9-46P">
-                                        <rect key="frame" x="17" y="24" width="313" height="55"/>
+                                        <rect key="frame" x="17" y="24" width="313" height="54"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name Your Pin" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Adk-gG-aY9">
                                                 <rect key="frame" x="0.0" y="0.0" width="110.5" height="20"/>
@@ -44,10 +44,10 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RgB-8n-QP4">
-                                                <rect key="frame" x="0.0" y="53" width="313" height="2"/>
-                                                <color key="backgroundColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                <rect key="frame" x="0.0" y="53" width="313" height="1"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="2" id="Zr0-sr-9mu"/>
+                                                    <constraint firstAttribute="height" constant="1" id="Zr0-sr-9mu"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -110,7 +110,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="AWV-Im-Abj">
-                                        <rect key="frame" x="16" y="99" width="67" height="73.5"/>
+                                        <rect key="frame" x="16" y="98" width="67" height="73.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Vibe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kp1-n0-bSA">
                                                 <rect key="frame" x="0.0" y="0.0" width="67" height="16.5"/>
@@ -128,7 +128,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jNS-ce-DSc">
-                                        <rect key="frame" x="269" y="99" width="76" height="84.5"/>
+                                        <rect key="frame" x="269" y="98" width="76" height="84.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shared With" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8kJ-Yk-T2z">
                                                 <rect key="frame" x="0.0" y="0.0" width="76" height="16.5"/>
@@ -164,7 +164,7 @@
                                                         </userDefinedRuntimeAttributes>
                                                     </imageView>
                                                     <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDisabled" translatesAutoresizingMaskIntoConstraints="NO" id="Mmo-oI-66F">
-                                                        <rect key="frame" x="-269" y="0.0" width="58" height="58"/>
+                                                        <rect key="frame" x="-298" y="0.0" width="58" height="58"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="58" id="F2x-Pb-Grr"/>
                                                             <constraint firstAttribute="width" secondItem="Mmo-oI-66F" secondAttribute="height" id="gNp-8K-enH"/>
@@ -191,9 +191,9 @@
                                         </subviews>
                                     </stackView>
                                     <view hidden="YES" alpha="0.34999999999999998" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="col-ep-RIn">
-                                        <rect key="frame" x="287" y="125.5" width="58" height="58"/>
+                                        <rect key="frame" x="287" y="124.5" width="58" height="58"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bX5-Up-ZIA">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="+5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bX5-Up-ZIA">
                                                 <rect key="frame" x="18.5" y="19" width="21" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.91400855780000001" green="0.66300225260000001" blue="0.266536206" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -224,7 +224,6 @@
                                     <constraint firstAttribute="height" constant="274" id="dqH-lN-u6b"/>
                                     <constraint firstAttribute="trailing" secondItem="jNS-ce-DSc" secondAttribute="trailing" constant="30" id="fNx-G5-gvp"/>
                                     <constraint firstItem="col-ep-RIn" firstAttribute="height" secondItem="Mmo-oI-66F" secondAttribute="height" id="gIr-H6-b8k"/>
-                                    <constraint firstItem="col-ep-RIn" firstAttribute="width" secondItem="Mmo-oI-66F" secondAttribute="width" id="kUh-c5-C1W"/>
                                     <constraint firstItem="AWV-Im-Abj" firstAttribute="top" secondItem="vET-X9-46P" secondAttribute="bottom" constant="20" id="qGn-pG-TgL"/>
                                     <constraint firstItem="jNS-ce-DSc" firstAttribute="top" secondItem="vET-X9-46P" secondAttribute="bottom" constant="20" id="quo-0H-puf"/>
                                     <constraint firstItem="col-ep-RIn" firstAttribute="centerX" secondItem="Mmo-oI-66F" secondAttribute="centerX" id="rO6-8O-reS"/>
