@@ -22,15 +22,15 @@
                                 <rect key="frame" x="0.0" y="0.0" width="1027" height="1764"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M4N-bu-9LN">
-                                <rect key="frame" x="22" y="497" width="331" height="50"/>
-                                <color key="backgroundColor" red="0.0" green="0.4793452024" blue="0.99908632040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M4N-bu-9LN">
+                                <rect key="frame" x="87.5" y="497" width="200" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="2MF-CI-K4Z"/>
+                                    <constraint firstAttribute="width" constant="200" id="TjT-8z-nfV"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                <state key="normal" title="Sign In">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
+                                <state key="normal" title="Sign In" backgroundImage="buttonoutlinedDisabled">
+                                    <color key="titleColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -42,11 +42,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tdG-rU-TJY">
-                                <rect key="frame" x="252" y="404.5" width="101" height="14"/>
+                                <rect key="frame" x="205" y="404.5" width="148" height="14"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="14" id="0mI-YN-Yi2"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="Forgot your password?">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -120,10 +120,10 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fbh-Je-2EQ">
-                                <rect key="frame" x="16" y="40" width="25" height="25"/>
+                                <rect key="frame" x="16" y="40" width="40" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="Sv0-IB-mx8"/>
-                                    <constraint firstAttribute="width" constant="25" id="h4V-5E-r3r"/>
+                                    <constraint firstAttribute="height" constant="40" id="Sv0-IB-mx8"/>
+                                    <constraint firstAttribute="width" constant="40" id="h4V-5E-r3r"/>
                                 </constraints>
                                 <state key="normal" image="backarrowDark"/>
                                 <connections>
@@ -135,14 +135,13 @@
                         <constraints>
                             <constraint firstItem="Fbh-Je-2EQ" firstAttribute="top" secondItem="5jl-Ue-lxb" secondAttribute="top" constant="40" id="2aE-0j-WMW"/>
                             <constraint firstItem="tdG-rU-TJY" firstAttribute="top" secondItem="fbO-Kb-dTx" secondAttribute="bottom" constant="5" id="AoN-1B-RRF"/>
-                            <constraint firstItem="M4N-bu-9LN" firstAttribute="leading" secondItem="g6a-Ow-bBB" secondAttribute="leading" constant="22" id="Dy2-jv-bPE"/>
                             <constraint firstItem="g6a-Ow-bBB" firstAttribute="trailing" secondItem="fbO-Kb-dTx" secondAttribute="trailing" constant="20" id="I9Y-sg-Xmh"/>
                             <constraint firstItem="fbO-Kb-dTx" firstAttribute="centerY" secondItem="5jl-Ue-lxb" secondAttribute="centerY" id="QpA-Ul-5NN"/>
                             <constraint firstItem="g6a-Ow-bBB" firstAttribute="bottom" secondItem="M4N-bu-9LN" secondAttribute="bottom" constant="120" id="Rzs-FO-87u"/>
-                            <constraint firstItem="g6a-Ow-bBB" firstAttribute="trailing" secondItem="M4N-bu-9LN" secondAttribute="trailing" constant="22" id="YAM-HT-hru"/>
                             <constraint firstAttribute="bottom" secondItem="Q8q-yc-7P9" secondAttribute="bottom" constant="-1097" id="Z5n-vF-Htj"/>
                             <constraint firstItem="Q8q-yc-7P9" firstAttribute="leading" secondItem="g6a-Ow-bBB" secondAttribute="leading" id="fZP-xK-1hZ"/>
                             <constraint firstItem="g6a-Ow-bBB" firstAttribute="trailing" secondItem="tdG-rU-TJY" secondAttribute="trailing" constant="22" id="g46-IT-l3U"/>
+                            <constraint firstItem="M4N-bu-9LN" firstAttribute="centerX" secondItem="5jl-Ue-lxb" secondAttribute="centerX" id="get-uH-InV"/>
                             <constraint firstItem="fbO-Kb-dTx" firstAttribute="leading" secondItem="g6a-Ow-bBB" secondAttribute="leading" constant="20" id="lKe-iu-Jrs"/>
                             <constraint firstAttribute="trailing" secondItem="Q8q-yc-7P9" secondAttribute="trailing" constant="-652" id="tIb-bU-yaS"/>
                             <constraint firstItem="Q8q-yc-7P9" firstAttribute="top" secondItem="5jl-Ue-lxb" secondAttribute="top" id="xj6-nr-vYT"/>
@@ -173,5 +172,6 @@
     </scenes>
     <resources>
         <image name="backarrowDark" width="56" height="56"/>
+        <image name="buttonoutlinedDisabled" width="96" height="40"/>
     </resources>
 </document>

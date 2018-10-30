@@ -28,7 +28,7 @@
                                 <rect key="frame" x="0.0" y="78" width="375" height="180"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="XsV-A9-PgO">
-                                        <rect key="frame" x="16" y="16" width="215" height="54.5"/>
+                                        <rect key="frame" x="16" y="16" width="207.5" height="54.5"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0jn-dV-dfM">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -43,23 +43,23 @@
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="opk-IU-P7d">
-                                                <rect key="frame" x="66" y="0.0" width="149" height="54.5"/>
+                                                <rect key="frame" x="66" y="0.0" width="141.5" height="54.5"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cardi B has shared:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E3X-sS-w1u">
-                                                        <rect key="frame" x="0.0" y="0.0" width="149" height="20.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Cardi B has shared:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E3X-sS-w1u">
+                                                        <rect key="frame" x="0.0" y="0.0" width="141.5" height="18.5"/>
+                                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
+                                                        <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brian's House Party" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S15-xE-m4b">
-                                                        <rect key="frame" x="0.0" y="23.5" width="119" height="16"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                        <nil key="textColor"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Brian's House Party" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S15-xE-m4b">
+                                                        <rect key="frame" x="0.0" y="21.5" width="123.5" height="16.5"/>
+                                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                                                        <color key="textColor" red="0.42352941179999998" green="0.41176470590000003" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1234 187th Street" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ktm-dD-urb">
-                                                        <rect key="frame" x="0.0" y="42.5" width="86.5" height="12"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="1234 187th Street" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ktm-dD-urb">
+                                                        <rect key="frame" x="0.0" y="41" width="95.5" height="13.5"/>
+                                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -71,7 +71,7 @@
                                         <rect key="frame" x="313" y="52" width="44" height="12"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.90980392160000001" green="0.45882352939999999" blue="0.047058823530000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="aom-jg-KEx">
@@ -92,9 +92,13 @@
                                             </imageView>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdj-Pj-fmr">
-                                        <rect key="frame" x="329" y="8" width="30" height="30"/>
-                                        <state key="normal" title="X"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdj-Pj-fmr">
+                                        <rect key="frame" x="335" y="8" width="24" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="36C-ky-urk"/>
+                                            <constraint firstAttribute="width" constant="24" id="Bhq-Bu-VRt"/>
+                                        </constraints>
+                                        <state key="normal" image="closeDark"/>
                                         <connections>
                                             <action selector="exitTapped:" destination="5ZE-cE-rYM" eventType="touchUpInside" id="UHL-bu-YMX"/>
                                             <action selector="exitTapped:" destination="n0C-Fg-IIq" eventType="touchUpInside" id="mxh-14-YRr"/>
@@ -150,18 +154,29 @@
                                             <constraint firstAttribute="width" constant="180" id="5WE-ig-LLA"/>
                                         </constraints>
                                     </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4s1-Mg-aZS">
+                                        <rect key="frame" x="8" y="85.5" width="359" height="1"/>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="Jem-87-uZC"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="s3M-fT-Frn" secondAttribute="bottom" constant="16" id="1vh-4C-N3h"/>
+                                    <constraint firstItem="4s1-Mg-aZS" firstAttribute="top" secondItem="XsV-A9-PgO" secondAttribute="bottom" constant="15" id="Agx-Pg-REE"/>
                                     <constraint firstAttribute="height" constant="180" id="DmY-mc-yFA"/>
                                     <constraint firstAttribute="bottom" secondItem="aom-jg-KEx" secondAttribute="bottom" constant="16" id="Kyb-dM-Ffy"/>
                                     <constraint firstItem="aom-jg-KEx" firstAttribute="leading" secondItem="jDR-Tt-2zr" secondAttribute="leading" constant="16" id="av2-Pt-a04"/>
                                     <constraint firstItem="XsV-A9-PgO" firstAttribute="leading" secondItem="jDR-Tt-2zr" secondAttribute="leading" constant="16" id="bbs-PQ-xuY"/>
                                     <constraint firstItem="zdj-Pj-fmr" firstAttribute="top" secondItem="jDR-Tt-2zr" secondAttribute="top" constant="8" id="dBF-Aw-Wwu"/>
                                     <constraint firstAttribute="trailing" secondItem="zdj-Pj-fmr" secondAttribute="trailing" constant="16" id="fKO-yB-bSa"/>
+                                    <constraint firstItem="s3M-fT-Frn" firstAttribute="top" secondItem="4s1-Mg-aZS" secondAttribute="bottom" constant="7" id="j29-P5-f5H"/>
                                     <constraint firstAttribute="trailing" secondItem="s3M-fT-Frn" secondAttribute="trailing" constant="16" id="k4z-AW-YaD"/>
                                     <constraint firstItem="XsV-A9-PgO" firstAttribute="top" secondItem="jDR-Tt-2zr" secondAttribute="top" constant="16" id="pR1-Uj-WRp"/>
+                                    <constraint firstItem="4s1-Mg-aZS" firstAttribute="trailing" secondItem="jDR-Tt-2zr" secondAttribute="trailingMargin" id="yDC-rY-apT"/>
+                                    <constraint firstItem="4s1-Mg-aZS" firstAttribute="leading" secondItem="jDR-Tt-2zr" secondAttribute="leadingMargin" id="zIS-Wf-Zi5"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -198,7 +213,10 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NEu-1B-1Jf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="5ZE-cE-rYM" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="164" y="-97"/>
+            <point key="canvasLocation" x="164" y="-97.601199400299862"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="closeDark" width="56" height="56"/>
+    </resources>
 </document>
