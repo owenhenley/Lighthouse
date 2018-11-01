@@ -43,8 +43,8 @@ class AddFriendsVC: CustomSearchFieldVC {
     
     @IBAction func inviteFriendsTapped(_ sender: UIButton) {
         
-        let message = "Hey! I just got this app ‘Lighthouse’ - it makes it super easy to find and meet up with your friends. Check it out -"
-        let appStoreLink = "(AppStore link coming soon.)"
+        let message = "Hey! I just got this app ‘Lighthouse’ - it makes it super easy to find and meet up with your friends. Check it out"
+        let appStoreLink = "https://itunes.apple.com/us/app/lighthouse-find-the-party/id1439032786?mt=8"
         
         let messageToShare = [message, appStoreLink]
         let shareAlert = UIActivityViewController(activityItems: messageToShare, applicationActivities: nil)
