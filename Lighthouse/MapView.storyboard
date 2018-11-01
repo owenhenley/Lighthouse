@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KIQ-uS-6Qq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KIQ-uS-6Qq">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -27,7 +27,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aDV-Sy-LyY">
                                         <rect key="frame" x="53.5" y="502" width="268" height="130"/>
                                         <subviews>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe to get started" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vhS-ng-BBT">
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe up to get started" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vhS-ng-BBT">
                                                 <rect key="frame" x="26" y="20" width="216" height="56"/>
                                                 <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -43,10 +43,11 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowCurlWhite" translatesAutoresizingMaskIntoConstraints="NO" id="1Mo-0Y-jJa">
-                                                <rect key="frame" x="142" y="76" width="94" height="56"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coachmarkArrow" translatesAutoresizingMaskIntoConstraints="NO" id="1Mo-0Y-jJa">
+                                                <rect key="frame" x="176" y="56" width="58" height="96"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="94" id="OJn-h8-wa0"/>
+                                                    <constraint firstAttribute="width" constant="58" id="OJn-h8-wa0"/>
+                                                    <constraint firstAttribute="height" constant="96" id="oy8-Uw-aW5"/>
                                                 </constraints>
                                             </imageView>
                                         </subviews>
@@ -54,10 +55,10 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="130" id="1oN-Ss-0kw"/>
                                             <constraint firstItem="vhS-ng-BBT" firstAttribute="top" secondItem="aDV-Sy-LyY" secondAttribute="top" constant="20" id="70I-rf-VlR"/>
-                                            <constraint firstItem="1Mo-0Y-jJa" firstAttribute="top" secondItem="vhS-ng-BBT" secondAttribute="bottom" id="BTT-M4-q3Q"/>
+                                            <constraint firstItem="1Mo-0Y-jJa" firstAttribute="top" secondItem="vhS-ng-BBT" secondAttribute="bottom" constant="-20" id="BTT-M4-q3Q"/>
                                             <constraint firstItem="vhS-ng-BBT" firstAttribute="centerX" secondItem="aDV-Sy-LyY" secondAttribute="centerX" id="Iog-DH-uhz"/>
                                             <constraint firstAttribute="width" constant="268" id="oWi-nY-Cmo"/>
-                                            <constraint firstAttribute="trailing" secondItem="1Mo-0Y-jJa" secondAttribute="trailing" constant="32" id="wpK-6a-lr5"/>
+                                            <constraint firstAttribute="trailing" secondItem="1Mo-0Y-jJa" secondAttribute="trailing" constant="34" id="wpK-6a-lr5"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -485,7 +486,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrowCurlWhite" width="56" height="56"/>
+        <image name="coachmarkArrow" width="104" height="104"/>
         <image name="dropPin" width="184" height="64"/>
         <image name="gpsActive" width="32" height="32"/>
         <image name="logoGrey144px" width="144" height="144"/>
