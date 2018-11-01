@@ -39,7 +39,6 @@ class OnboardingPVC: UIPageViewController, UIPageViewControllerDelegate, UIPageV
         if let firstViewController = onboardingViewControllers.first {
             setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
         }
-
     }
     
     

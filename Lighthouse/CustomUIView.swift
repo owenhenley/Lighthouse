@@ -23,7 +23,7 @@ import UIKit
     
     
     func customisePopover(){
-        layer.cornerRadius = 5
+        layer.cornerRadius = 8
         layer.shadowColor = UIColor.darkGray.cgColor
         layer.shadowOpacity = 0.2
         layer.shadowRadius = 3
